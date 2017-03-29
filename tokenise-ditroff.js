@@ -47,14 +47,12 @@ const charmap = [/*════════════════════�
 const SOL =  0; // Start of line
 const CO0 = -2; // Comment: Begin/Switch
 const CO1 =  1; // Comment: Continue
-const CC0 =  2; // <TEMP>
 
 const STT = [/*══╶CHARACTER╌CLASSES╴═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║ STATES      ║    ___  HSP  VSP  SYM  HSH  HYP  DOT  DIG  ABC  _C_  _D_  _H_  _N_  _V_  _c_  _d_  _f_  _h_  _m_  _n_  _p_  _s_  _t_  _u_  _v_  _w_  _x_ ║
 ╠═════════════╬══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
-║         SOL ║*/[ SOL, SOL, SOL, SOL, CO0, SOL, SOL, SOL, SOL, CC0, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___ ],/*
-║ Comment CO0 ║*/[ CO1, CO1, SOL, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1 ],/*
-║         CO1 ║*/[ CO1, CO1, SOL, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1 ],/*
+║         SOL ║*/[ SOL, SOL, SOL, SOL, CO0, SOL, SOL, SOL, SOL, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___ ],/*
+║ Comment CO1 ║*/[ CO1, CO1, SOL, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1 ],/*
 ╚═════════════╩════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════*/];
 
 

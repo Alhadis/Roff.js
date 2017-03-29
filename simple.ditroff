@@ -1,7 +1,21 @@
 x T ps
-nah khunt
-t2024214
-# COMMENT THO
-sdgsdg
-# AFFFFFFFFF
-ss
+x res 72000 1 1
+x init
+# End of prologue
+p1
+x font 5 TR
+f5
+s10000
+V12000
+H72000
+md
+DFd
+tHello,
+wh2500
+tw
+H106340
+torld
+n12000 0
+x trailer
+V792000
+x stop
