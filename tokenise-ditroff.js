@@ -5,29 +5,30 @@ const ___ = 0;  // Ignored
 const HSP = 1;  // Horizontal whitespace
 const VSP = 2;  // Vertical whitespace
 const SYM = 3;  // ASCII symbols/punctuation
-const HSH = 4;  // #
-const HYP = 5;  // -
-const DOT = 6;  // .
-const DIG = 7;  // ASCII digits
-const ABC = 8;  // ASCII letters
-const _C_ = 9;  // C [xx…]<ws>
-const _D_ = 10; // D [x]… (Draw)
-const _H_ = 11; // H [n]
-const _N_ = 12;
-const _V_ = 13;
-const _c_ = 14;
-const _d_ = 15;
-const _f_ = 16;
-const _h_ = 17;
-const _m_ = 18;
-const _n_ = 19;
-const _p_ = 20;
-const _s_ = 21;
-const _t_ = 22;
-const _u_ = 23;
-const _v_ = 24;
-const _w_ = 25;
-const _x_ = 26;
+const UND = 4;  // _
+const HSH = 5;  // #
+const HYP = 6;  // -
+const DOT = 7;  // .
+const DIG = 8;  // ASCII digits
+const ABC = 9;  // ASCII letters
+const _C_ = 10; // C [xx…]<ws>
+const _D_ = 11; // D [x]… (Draw)
+const _H_ = 12; // H [n]
+const _N_ = 13;
+const _V_ = 14;
+const _c_ = 15;
+const _d_ = 16;
+const _f_ = 17;
+const _h_ = 18;
+const _m_ = 19;
+const _n_ = 20;
+const _p_ = 21;
+const _s_ = 22;
+const _t_ = 23;
+const _u_ = 24;
+const _v_ = 25;
+const _w_ = 26;
+const _x_ = 27;
 
 // Character class table
 const charmap = [/*══════════════════════════════════════════════════════════════════════╗
@@ -37,10 +38,10 @@ const charmap = [/*════════════════════�
 ── ╠╪═══════════════════════════════════════════════════════════════════════════════════╪╣ ──
 20 ║*/ HSP, SYM, SYM, HSH, SYM, SYM, SYM, SYM, SYM, SYM, SYM, SYM, SYM, HYP, DOT, SYM, /*║ 2F
 30 ║*/ DIG, DIG, DIG, DIG, DIG, DIG, DIG, DIG, DIG, DIG, SYM, SYM, SYM, SYM, SYM, SYM, /*║ 3F
-40 ║*/ SYM, ABC, ABC, _C_, ABC, ABC, ABC, ABC, ABC, ABC, ABC, ABC, ABC, ABC, ABC, ABC, /*║ 4F
-50 ║*/ ABC, ABC, ABC, ABC, ABC, ABC, ABC, ABC, ABC, ABC, ABC, SYM, SYM, SYM, SYM, SYM, /*║ 5F
-60 ║*/ SYM, ABC, ABC, ABC, ABC, ABC, ABC, ABC, ABC, ABC, ABC, ABC, ABC, ABC, ABC, ABC, /*╜ 6F
-70 ╙*/ ABC, ABC, ABC, ABC, ABC, ABC, ABC, ABC, ABC, ABC, ABC, SYM, SYM, SYM, SYM, ___];  0x7F
+40 ║*/ SYM, ABC, ABC, _C_, _D_, ABC, ABC, ABC, _H_, ABC, ABC, ABC, ABC, ABC, _N_, ABC, /*║ 4F
+50 ║*/ ABC, ABC, ABC, ABC, ABC, ABC, _V_, ABC, ABC, ABC, ABC, SYM, SYM, SYM, SYM, UND, /*║ 5F
+60 ║*/ SYM, ABC, ABC, _c_, _d_, ABC, _f_, ABC, _h_, ABC, ABC, ABC, ABC, _m_, _n_, ABC, /*╜ 6F
+70 ╙*/ _p_, ABC, ABC, _s_, _t_, _u_, _v_, _w_, _x_, ABC, ABC, SYM, SYM, SYM, SYM, ___];  0x7F
 
 
 // States
@@ -48,12 +49,12 @@ const SOL =  0; // Start of line
 const CO0 = -2; // Comment: Begin/Switch
 const CO1 =  1; // Comment: Continue
 
-const STT = [/*══╶CHARACTER╌CLASSES╴═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
-║ STATES      ║    ___  HSP  VSP  SYM  HSH  HYP  DOT  DIG  ABC  _C_  _D_  _H_  _N_  _V_  _c_  _d_  _f_  _h_  _m_  _n_  _p_  _s_  _t_  _u_  _v_  _w_  _x_ ║
-╠═════════════╬══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
-║         SOL ║*/[ SOL, SOL, SOL, SOL, CO0, SOL, SOL, SOL, SOL, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___ ],/*
-║ Comment CO1 ║*/[ CO1, CO1, SOL, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1 ],/*
-╚═════════════╩════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════*/];
+const STT = [/*══╶CHARACTER╌CLASSES╴══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ STATES      ║    ___  HSP  VSP  SYM  UND  HSH  HYP  DOT  DIG  ABC  _C_  _D_  _H_  _N_  _V_  _c_  _d_  _f_  _h_  _m_  _n_  _p_  _s_  _t_  _u_  _v_  _w_  _x_ ║
+╠═════════════╬═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║         SOL ║*/[ SOL, SOL, SOL, SOL, SOL, CO0, SOL, SOL, SOL, SOL, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___ ],/*
+║ Comment CO1 ║*/[ CO1, CO1, SOL, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1 ],/*
+╚═════════════╩═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════*/];
 
 
 module.exports = {
