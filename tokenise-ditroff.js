@@ -44,22 +44,33 @@ const charmap = [/*════════════════════�
 70 ╙*/ _p_, ABC, ABC, _s_, _t_, _u_, _v_, _w_, _x_, ABC, ABC, SYM, SYM, SYM, SYM, ___];  0x7F
 
 
+// Actions
+const ERR = -1; // Throw error
+const CO0 = -2; // Switch: Comment
+const XX0 = -3; // Switch: X (Device control)
+const PP0 = -4; // Switch: `p` command
+
 // States
-const SOL =  0; // Start of line
-const CO0 = -2; // Comment: Begin/Switch
-const CO1 =  1; // Comment: Continue
+const SOL = 0; // Start of line
+const CO1 = 1; // Comment
+const XX1 = 2; // X/Device control
+const PP1 = 3; // p[n] # Set page to [n]
 
 const STT = [/*══╶CHARACTER╌CLASSES╴══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║ STATES      ║    ___  HSP  VSP  SYM  UND  HSH  HYP  DOT  DIG  ABC  _C_  _D_  _H_  _N_  _V_  _c_  _d_  _f_  _h_  _m_  _n_  _p_  _s_  _t_  _u_  _v_  _w_  _x_ ║
 ╠═════════════╬═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
-║         SOL ║*/[ SOL, SOL, SOL, SOL, SOL, CO0, SOL, SOL, SOL, SOL, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___ ],/*
+║         SOL ║*/[ SOL, SOL, SOL, SOL, SOL, CO0, SOL, SOL, SOL, SOL, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, PP0, ___, ___, ___, ___, ___, XX0 ],/*
 ║ Comment CO1 ║*/[ CO1, CO1, SOL, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1 ],/*
+║         XX1 ║*/[ XX1, XX1, SOL, XX1, XX1, CO0, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1 ],/*
+║         PP1 ║*/[ PP1, PP1, SOL, SOL, SOL, SOL, SOL, SOL, PP1, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___ ],/*
+║             ║*/[ ],/*
+║             ║*/[ ],/*
 ╚═════════════╩═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════*/];
 
 
 module.exports = {
 	tokenise(input){
-		const tokens = [[]];
+		const tokens = [];
 		const {length} = input;
 		let state = SOL;
 		for(let i = 0; i < length; ++i){
@@ -70,53 +81,31 @@ module.exports = {
 			const nextState = STT[state][cc];
 			if(nextState < 0){
 				state = ~nextState;
-				tokens.unshift([]);
-			}
-			else if(nextState === 0 && state){
-				state = 0;
-				tokens.unshift([]);
+				tokens.unshift([nextState]);
 			}
 			else{
 				state = nextState;
-				tokens[0].push(char);
+				if(0 !== state)
+					tokens[0].push(char);
 			}
 		}
-		tokens.reverse();
+		return tokens.reverse();
+	},
+	
+	list(tokens){
+		const RESET = "\x1B[0m";
+		const GREEN = "\x1B[38;5;2m";
+		const RED   = "\x1B[38;5;1m";
+		const BLUE  = "\x1B[38;5;27m";
 		console.log(tokens);
-		return tokens;
-	}
+		for(let [name, ...data] of tokens){
+			name = {
+				[CO0]: RESET + GREEN + "#",
+				[XX0]: RESET + RED   + "x",
+				[PP0]: RESET + BLUE  + "Begin page:",
+			}[name];
+			const line = `${name} ${data.join("").trim()}`;
+			process.stdout.write(line + RESET + "\n");
+		}
+	},
 };
-
-
-function ccToString(cc, char){
-	const name = {
-		[___]: "Ignored",
-		[HSP]: "Horizontal whitespace",
-		[VSP]: "Vertical whitespace",
-		[SYM]: "Symbol",
-		[HSH]: "Hash",
-		[HYP]: "Hyphen",
-		[DOT]: "Dot",
-		[DIG]: "ASCII Digit",
-		[ABC]: "ASCII Letter",
-		[_C_]: "Character C",
-		[_D_]: "Character D",
-		[_H_]: "Character H",
-		[_N_]: "Character N",
-		[_V_]: "Character V",
-		[_c_]: "Character c",
-		[_d_]: "Character d",
-		[_f_]: "Character f",
-		[_h_]: "Character h",
-		[_m_]: "Character m",
-		[_n_]: "Character n",
-		[_p_]: "Character p",
-		[_s_]: "Character s",
-		[_t_]: "Character t",
-		[_u_]: "Character u",
-		[_v_]: "Character v",
-		[_w_]: "Character w",
-		[_x_]: "Character x",
-	}[cc];
-	console.log(`${char}\t${cc}\t${name}`);
-}

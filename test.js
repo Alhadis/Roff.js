@@ -4,5 +4,5 @@
 const fs = require("fs");
 const input = fs.readFileSync("simple.ditroff").toString();
 
-const {tokenise} = require("./tokenise-ditroff.js");
-tokenise(input);
+const {tokenise, list} = require("./tokenise-ditroff.js");
+list(tokenise(input));
