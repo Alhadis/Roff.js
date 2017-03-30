@@ -1,0 +1,28 @@
+x T ps
+x res 720 1 1
+x init
+V0
+p1
+x font 1 R
+x font 2 I
+x font 3 B
+x font 4 BI
+x font 5 CW
+x font 6 H
+x font 7 HB
+x font 8 HX
+x font 9 S1
+x font 10 S
+s10
+f1
+H0
+s10
+f1
+V0
+H720
+V120
+ch
+50e44l28l28o50,w58w72o50r33l28dn120 290
+x trailer
+V7920
+x stop

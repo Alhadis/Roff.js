@@ -4,14 +4,17 @@ x init
 # End of prologue
 p1
 x font 5 TR
-f5
+f 50f20
 s10000
 V12000
 H72000
 md
 DFd
+N 192
+v -20
 C u2026 cH
 tello,
+N -192
 wh2500
 tw
 H106340
