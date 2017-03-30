@@ -1,4 +1,4 @@
-x T ps
+x T post
 x res 72000 1 1
 x init
 # End of prologue
@@ -18,7 +18,7 @@ N -192
 wh2500
 tw
 H106340
-torld
+u110orld
 n12000 0
 x trailer
 V792000

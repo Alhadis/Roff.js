@@ -65,6 +65,8 @@ const Nn0 = -19; // n
 const WW0 = -22; // w
 const DD0 = -23; // D Drawing command
 const MM0 = -24; // Colour scheme
+const TT0 = -41; // t
+const UU0 = -45; // u
 
 // States
 const SOL = 0;  // Start of line
@@ -107,13 +109,21 @@ const mr0 = 36; // mr[rgb] # r: RGB
 const mr1 = 37; //   [r  ] #   - Arg 1: Red
 const mr2 = 38; //   [ g ] #   - Arg 2: Green
 const mr3 = 39; //   [  b] #   - Arg 3: Blue
+const TT1 = 40; // t[x][n] # Print text [x] [n?]
+const TT2 = 41; //  [x]    #   - Arg 1: [x]
+const TT3 = 42; //         #   - [x]<- … ->[n] ?
+const TT4 = 43; //     [n] #   - Arg 2: [n]
+const UU1 = 44; // u[n][x] # Tracking-enabled version of `t`
+const UU2 = 45; //  [n]    #   - Arg 1: [n]
+const UU3 = 46; //         #   - [n]<- … ->[x]
+const UU4 = 47; //     [x] #   - Arg 2: [x]
 
 
 
 const STT = [/*══╶CHARACTER╌CLASSES╴═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║ STATES      ║    ___  HSP  VSP  SYM  UND  HSH  HYP  DOT  DIG  ABC  _C_  _D_  _H_  _N_  _V_  _c_  _d_  _f_  _g_  _h_  _k_  _m_  _n_  _p_  _r_  _s_  _t_  _u_  _v_  _w_  _x_ ║
 ╠═════════════╬══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
-║ Start   ___ ║*/[ ___, ___, ___, ___, ___, CO0, ___, ___, JP0, ___, CC0, DD0, HH0, NN0, VV0, Cc0, ___, FF0, ___, Hh0, ___, MM0, Nn0, PP0, ___, SS0, ___, ___, Vv0, WW0, XX0 ],/*
+║ Start   ___ ║*/[ ___, ___, ___, ___, ___, CO0, ___, ___, JP0, ___, CC0, DD0, HH0, NN0, VV0, Cc0, ___, FF0, ___, Hh0, ___, MM0, Nn0, PP0, ___, SS0, TT0, UU0, Vv0, WW0, XX0 ],/*
 ║ Comment CO1 ║*/[ CO1, CO1, ___, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1, CO1 ],/*
 ║ Command XX1 ║*/[ XX1, XX1, ___, XX1, XX1, CO0, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1, XX1 ],/*
 ║         PP1 ║*/[ PP1, PP1, ___, ___, ___, CO0, ___, ___, PP1, ___, CC0, DD0, HH0, NN0, VV0, Cc0, ___, FF0, ___, Hh0, ___, ___, Nn0, PP0, ___, SS0, ___, ___, Vv0, WW0, XX0 ],/*
@@ -153,10 +163,18 @@ const STT = [/*══╶CHARACTER╌CLASSES╴═══════════�
 ║         mr1 ║*/[ mr1, mr2, ___, ___, ___, CO0, ___, ___, mr1, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___ ],/*
 ║         mr2 ║*/[ mr2, mr3, ___, ___, ___, CO0, ___, ___, mr2, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___ ],/*
 ║         mr3 ║*/[ mr3, ___, ___, ___, ___, CO0, ___, ___, mr3, ___, CC0, DD0, HH0, NN0, VV0, Cc0, ___, FF0, ___, Hh0, ___, MM0, Nn0, PP0, ___, SS0, ___, ___, Vv0, WW0, XX0 ],/*
+║         TT1 ║*/[ TT1, TT1, ___, ___, ___, TT2, ___, ___, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2 ],/*
+║         TT2 ║*/[ TT2, TT3, ___, ___, ___, TT2, ___, ___, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2, TT2 ],/*
+║         TT3 ║*/[ TT3, TT3, ___, ___, ___, CO0, TT4, ___, TT4, ___, CC0, DD0, HH0, NN0, VV0, Cc0, ___, FF0, ___, Hh0, ___, MM0, Nn0, PP0, ___, SS0, TT0, ___, Vv0, WW0, XX0 ],/*
+║         TT4 ║*/[ TT4, ___, ___, ___, ___, CO0, TT4, ___, TT4, ___, CC0, DD0, HH0, NN0, VV0, Cc0, ___, FF0, ___, Hh0, ___, MM0, Nn0, PP0, ___, SS0, TT0, ___, Vv0, WW0, XX0 ],/*
+║         UU1 ║*/[ UU1, UU1, ___, ___, ___, CO0, UU2, ___, UU2, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___ ],/*
+║         UU2 ║*/[ UU2, UU3, ___, ___, ___, ___, UU4, UU4, UU2, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4 ],/*
+║         UU3 ║*/[ UU3, UU3, ___, ___, ___, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4 ],/*
+║         UU4 ║*/[ UU4, ___, ___, ___, ___, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4, UU4 ],/*
 ║             ║*/[ ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___ ],/*
-║             ║*/[ ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___, ___ ],/*
+╠═════════════╬══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ STATES      ║    ___  HSP  VSP  SYM  UND  HSH  HYP  DOT  DIG  ABC  _C_  _D_  _H_  _N_  _V_  _c_  _d_  _f_  _g_  _h_  _k_  _m_  _n_  _p_  _r_  _s_  _t_  _u_  _v_  _w_  _x_ ║
 ╚═════════════╩════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════*/];
-
 
 module.exports = {
 	tokenise(input){
@@ -197,6 +215,9 @@ module.exports = {
 				process.stdout.write(`Jump right ${distance} and print ${letter}\n`);
 				continue;
 			}
+			data = data.join("").trim();
+			if(TT0 === name)
+				data = data.replace(/\s+(\d+)$/, GREEN + " $1" + RESET);
 			name = {
 				[CO0]: RESET + GREEN + "#",
 				[XX0]: RESET + RED   + "x",
@@ -213,9 +234,11 @@ module.exports = {
 				[Nn0]: RESET + "EOL:",
 				[WW0]: RESET + "<< Paddable word-space >>",
 				[DD0]: RESET + "Drawing command:",
-				[MM0]: RESET + "Foreground colour scheme:"
+				[MM0]: RESET + "Foreground colour scheme:",
+				[TT0]: RESET + "Print text:",
+				[UU0]: RESET + "Print with tracking:",
 			}[name];
-			const line = `${name} ${data.join("").trim()}`;
+			const line = `${name} ${data}`;
 			process.stdout.write(line + RESET + "\n");
 		}
 	},
