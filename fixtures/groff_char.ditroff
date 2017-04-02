@@ -11,13 +11,13 @@ H0
 md
 DFd
 tGROFF_CHAR(7)
-h1704
+h504
 tMiscellaneous
 wh24
 tInformation
 wh24
 tManual
-h1704
+h504
 tGROFF_CHAR(7)
 n40 0
 V200
@@ -62,7 +62,7 @@ f1
 V360
 H168
 tThis
-wh24
+wh48
 tmanual
 wh24
 tpage
@@ -92,7 +92,9 @@ wh24
 tmapping,
 wh24
 tlatin1.
-wh48
+n40 0
+V400
+H168
 tThe
 wh24
 tglyphs
@@ -120,14 +122,14 @@ wh24
 twas
 wh24
 tchosen
-wh24
+wh48
 t(with
-wh24
-toption
 n40 0
-f3
-V400
+V440
 H168
+toption
+wf3
+h24
 N45
 h24
 tT
@@ -163,7 +165,9 @@ wh24
 tthe
 wh24
 tdevice
-wh24
+n40 0
+V480
+H168
 tthat
 wh24
 tis
@@ -203,14 +207,18 @@ tthe
 wh24
 tdevice
 wh24
-tcurrently
+tcur
+Chy
+h24
+n40 0
+V520
+H168
+trently
 wh24
 tused
 wh24
 tis
-n40 0
-V440
-H168
+wh24
 Coq
 h24
 tutf8
@@ -218,14 +226,14 @@ Ccq
 h24
 t.
 n40 0
-V520
+V600
 H168
 tIn
 wh48
 tthe
-wh48
+wh24
 tactual
-wh48
+wh24
 tversion,
 wf3
 h24
@@ -253,7 +261,13 @@ tand
 wh24
 tnamed
 wh24
-tentities
+tenti
+Chy
+h24
+n40 0
+V640
+H168
+tties
 wh24
 tfor
 wh24
@@ -276,25 +290,25 @@ wh24
 tin
 wh24
 tthe
-wh24
+wh48
 trange
-wh24
+wh48
 t0
-wh24
+wh48
 tto
-wh24
+wh48
 t127
-wh24
-t(decimal)
 n40 0
-V560
+V680
 H168
+t(decimal)
+wh48
 trepresent
-wh24
+wh48
 tthe
-wh24
+wh48
 tusual
-wh24
+wh48
 t7
 N45
 h24
@@ -317,7 +331,9 @@ wh24
 t255
 wh24
 tare
-wh24
+n40 0
+V720
+H168
 tinterpreted
 wh24
 tas
@@ -352,29 +368,25 @@ wh24
 tcode
 wh24
 tset
-wh24
-tby
-wh24
-tdefault.
 wh48
+tby
+wh48
+tdefault.
+n40 0
+V760
+H168
 tThis
-wh24
+wh48
 tmapping
-wh24
+wh48
 tis
 wh24
-tcon
-Chy
-h24
-n40 0
-V600
-H168
-ttained
-wh48
+tcontained
+wh24
 tin
-wh48
+wh24
 tthe
-wh48
+wh24
 tfile
 wh24
 tlatin1.tmac
@@ -394,7 +406,9 @@ wh24
 ta
 wh24
 tdifferent
-wh24
+n40 0
+V800
+H168
 tinput
 wh24
 tencoding.
@@ -416,30 +430,30 @@ wh24
 tare
 wh24
 treserved
-wh24
+wh48
 tby
 wf3
-h24
+h48
 tgroff
 f1
 t,
-wh24
+wh48
 teither
-wh24
+wh48
 tfor
-wh24
+n40 0
+V840
+H168
 tinternal
-wh24
+wh48
 tuse
-wh24
+wh48
 tor
-wh24
+wh48
 tfor
 wh24
 tspecial
-n40 0
-V640
-H168
+wh24
 tinput
 wh24
 tpurposes.
@@ -461,7 +475,9 @@ tcp1047
 wf1
 h24
 tis
-wh24
+n40 0
+V880
+H168
 tsupported
 wh24
 t(which
@@ -483,13 +499,15 @@ wh24
 tinput
 wh24
 tencoding
-wh24
+wh48
 tfile
-wh24
+wh48
 tis
-wh24
+wh48
 tcalled
-wh24
+n40 0
+V920
+H168
 tcp1047.tmac).
 wh48
 tAgain,
@@ -497,14 +515,8 @@ wh24
 tsome
 wh24
 tinput
-wh48
-tchar
-Chy
-h24
-n40 0
-V680
-H168
-tacters
+wh24
+tcharacters
 wh24
 tare
 wh24
@@ -520,7 +532,7 @@ tspecial
 wh24
 tpurposes.
 n40 0
-V760
+V1000
 H168
 tAll
 wh48
@@ -529,9 +541,9 @@ wh48
 tsystems
 wh48
 tprovide
-wh24
+wh48
 tthe
-wh24
+wh48
 tconcept
 wh24
 tof
@@ -549,7 +561,9 @@ wh24
 tsystems,
 wh24
 tonly
-wh24
+n40 0
+V1040
+H168
 tnames
 wh24
 tof
@@ -569,28 +583,24 @@ wh24
 talso
 wh24
 tprovides
-wh24
-tsupport
-wh24
-tfor
-wh24
-tlonger
-wh24
-tnames.
 wh48
+tsupport
+wh48
+tfor
+wh48
+tlonger
+wh48
+tnames.
+wh72
 tIt
-wh24
+wh48
 tis
-wh24
-tstrongly
-wh24
-tsug
-Chy
-h24
 n40 0
-V800
+V1080
 H168
-tgested
+tstrongly
+wh48
+tsuggested
 wh24
 tthat
 wh24
@@ -613,7 +623,9 @@ wh24
 trepresentations
 wh24
 toutside
-wh24
+n40 0
+V1120
+H168
 tof
 wh24
 tthe
@@ -629,7 +641,7 @@ tASCII
 wh24
 trange.
 n40 0
-V880
+V1200
 H168
 tSome
 wh24
@@ -654,17 +666,19 @@ wh24
 tlength
 h24
 t1)
-wh24
+wh48
 talso
-wh24
+wh48
 tproduce
-wh24
+wh48
 tsingle
-wh24
+n40 0
+V1240
+H168
 tglyphs;
-wh24
+wh48
 tthese
-wh24
+wh48
 texist
 wh24
 tfor
@@ -685,12 +699,16 @@ tof
 wh24
 tsyntactical
 wh24
-tcharacters.
-wh72
-tThey
+tcharac
+Chy
+h24
 n40 0
-V920
+V1280
 H168
+tters.
+wh48
+tThey
+wh24
 tinclude
 wh24
 Coq
@@ -750,7 +768,7 @@ tgroff
 f1
 t(7).
 n40 0
-V1000
+V1360
 H168
 tIn
 wh24
@@ -783,7 +801,9 @@ wh24
 tpositively
 wh24
 twith
-wh24
+n40 0
+V1400
+H168
 tthe
 wh24
 Coq
@@ -795,23 +815,23 @@ Ccq
 wh48
 tconditional.
 n40 0
-V1080
+V1480
 H0
 x X devtag:.NH 1
 f3
-V1080
+V1480
 H0
 tREFERENCE
 wh24
 x X devtag:.eo.h
-V1080
+V1480
 H240
 n40 0
 f1
-V1120
+V1520
 H168
 tIn
-wh24
+wh48
 tthis
 wh24
 tsection,
@@ -842,7 +862,13 @@ tof
 wh24
 tthe
 wh24
-tcolumns
+tcol
+Chy
+h24
+n40 0
+V1560
+H168
+tumns
 wh24
 tis
 wh24
@@ -850,16 +876,16 @@ tas
 wh24
 tfollows.
 n40 0
-V1200
+V1640
 H168
 x X devtag:.col 1
 f2
-V1200
+V1640
 H168
 tOutput
 n40 0
 f1
-V1200
+V1640
 H336
 tshows
 wh24
@@ -890,9 +916,11 @@ wh24
 thave
 wh24
 tquite
-wh24
+wh48
 ta
-wh24
+n40 0
+V1680
+H336
 tdifferent
 wh24
 tshape
@@ -915,25 +943,25 @@ tsame
 wh24
 tglyph.
 n40 0
-V1280
+V1760
 H168
 x X devtag:.col 1
 f2
-V1280
+V1760
 H168
 tInput
 n40 0
 f1
-V1280
+V1760
 H336
 tspecifies
-wh24
+wh48
 thow
-wh24
+wh48
 tthe
-wh24
+wh48
 tglyph
-wh24
+wh48
 tis
 wh24
 tinput
@@ -959,26 +987,28 @@ wh24
 tby
 wh24
 ta
-wh24
+n40 0
+V1800
+H336
 tgroff
 wh24
 tescape
 wh24
 tsequence.
 n40 0
-V1360
+V1880
 H168
 x X devtag:.col 1
 f2
-V1360
+V1880
 H168
 tCode
 n40 0
 f1
-V1360
+V1880
 H336
 tapplies
-wh48
+wh24
 tto
 wh24
 tglyphs
@@ -1008,7 +1038,9 @@ wh24
 tISO
 wh24
 tlatin1
-wh24
+n40 0
+V1920
+H336
 tdecimal
 wh24
 tcode
@@ -1038,13 +1070,13 @@ wh24
 tthe
 wh24
 tlowest
-wh24
+n40 0
+V1960
+H336
 t256
 wh24
 tUnicode
-n40 0
-V1400
-H336
+wh24
 tcharacters,
 wh24
 tincluding
@@ -1069,12 +1101,12 @@ h24
 t127.
 n40 0
 f2
-V1480
+V2040
 H168
 tPostScript
 n40 0
 f1
-V1520
+V2080
 H336
 tgives
 wh24
@@ -1093,12 +1125,12 @@ wh24
 tglyph.
 n40 0
 f2
-V1600
+V2160
 H168
 tUnicode
 n40 0
 f1
-V1640
+V2200
 H336
 tis
 wh24
@@ -1131,10 +1163,12 @@ wh24
 tcolumn
 wh24
 tlook
-wh24
+n40 0
+V2240
+H336
 tlike
 wf3
-h24
+h48
 tu0021
 wf1
 h24
@@ -1156,17 +1190,21 @@ wh24
 tUnicode
 wh24
 tcharacters
-wh48
+wh24
 tcan
-wh48
+wh24
 tbe
-wh48
-tconstructed
-wh48
-tby
+wh24
+tcon
+Chy
+h24
 n40 0
-V1680
+V2280
 H336
+tstructed
+wh24
+tby
+wh24
 tadding
 wh24
 ta
@@ -1192,16 +1230,18 @@ wf3
 h24
 t\[u0021]
 wf1
-h24
+h48
 tor
-wf3
-h24
+n40 0
+f3
+V2320
+H336
 t\[u0041_0300]
 f1
 t.
 n40 0
 f3
-V1760
+V2400
 H72
 t7
 N45
@@ -1218,7 +1258,7 @@ h24
 t126
 n40 0
 f1
-V1800
+V2440
 H168
 tThese
 wh48
@@ -1227,11 +1267,11 @@ wh48
 tthe
 wh48
 tbasic
-wh48
+wh24
 tglyphs
-wh48
+wh24
 thaving
-wh48
+wh24
 t7
 N45
 h24
@@ -1252,7 +1292,9 @@ wh24
 tidentical
 wh24
 tto
-wh24
+n40 0
+V2480
+H168
 tthe
 wh24
 tprintable
@@ -1276,18 +1318,18 @@ h24
 t1
 wh24
 t(latin1)
-wh24
+wh48
 tand
-wh24
+wh48
 tUnicode
-wh24
+wh48
 t(range
-wf2
-h24
-tBasic
 n40 0
-V1840
+f2
+V2520
 H168
+tBasic
+wh24
 tLatin
 f1
 t).
@@ -1326,10 +1368,10 @@ Ccq
 h24
 t.
 n40 0
-V1920
+V2600
 H168
 tNote
-wh24
+wh48
 tthat
 wh24
 tinput
@@ -1362,7 +1404,9 @@ h24
 tprintable
 wh24
 tcharacters.
-wh48
+n40 0
+V2640
+H168
 tMost
 wh24
 tof
@@ -1392,18 +1436,19 @@ wh24
 tvalid
 wh24
 tones
-wh24
+wh48
 thave
 wh48
 tspecial
-wh48
-tmean
-Chy
-h24
 n40 0
-V1960
+V2640
+p2
+x font 1 R
+f1
+s10
+V40
 H168
-ting.
+tmeaning.
 wh48
 tFor
 wh24
@@ -1428,17 +1473,17 @@ N45
 h24
 t255.
 n40 0
-V2040
+V120
 H168
 x X devtag:.col 1
-V2040
+V120
 H168
 t48
 N45
 h24
 t57
 n40 0
-V2040
+V120
 H336
 tDecimal
 wh24
@@ -1456,17 +1501,17 @@ tas
 wh24
 tthemselves).
 n40 0
-V2120
+V200
 H168
 x X devtag:.col 1
-V2120
+V200
 H168
 t65
 N45
 h24
 t90
 n40 0
-V2120
+V200
 H336
 tUpper
 wh24
@@ -1485,17 +1530,17 @@ tas
 wh24
 tthemselves).
 n40 0
-V2200
+V280
 H168
 x X devtag:.col 1
-V2200
+V280
 H168
 t97
 N45
 h24
 t122
 n40 0
-V2200
+V280
 H336
 tLower
 wh24
@@ -1514,14 +1559,14 @@ tas
 wh24
 tthemselves).
 n40 0
-V2280
+V360
 H168
 tMost
-wh24
+wh48
 tof
-wh24
+wh48
 tthe
-wh24
+wh48
 tremaining
 wh24
 tcharacters
@@ -1545,7 +1590,9 @@ wh24
 tthemselves;
 wh24
 tthe
-wh24
+n40 0
+V400
+H168
 tonly
 wh24
 texceptions
@@ -1558,17 +1605,18 @@ tfollowing
 wh24
 tcharacters:
 n40 0
-V2360
+V480
 H168
 x X devtag:.col 1
+x font 3 B
 f3
-V2360
+V480
 H168
 Cga
 h24
 n40 0
 f1
-V2360
+V480
 H336
 tthe
 wh24
@@ -1606,7 +1654,9 @@ wh24
 tmark;
 wh24
 tthe
-wh24
+n40 0
+V520
+H336
 toriginal
 wh24
 tcharacter
@@ -1628,20 +1678,20 @@ Ccq
 h24
 t.
 n40 0
-V2440
+V600
 H168
 x X devtag:.col 1
 f3
-V2440
+V600
 H168
 Caq
 h24
 n40 0
 f1
-V2440
+V600
 H336
 tthe
-wh24
+wh48
 tISO
 wh24
 tlatin1
@@ -1674,7 +1724,9 @@ wh24
 tmark;
 wh24
 tthe
-wh24
+n40 0
+V640
+H336
 toriginal
 wh24
 tcharacter
@@ -1694,17 +1746,17 @@ Ccq
 h24
 t.
 n40 0
-V2520
+V720
 H168
 x X devtag:.col 1
 f3
-V2520
+V720
 H168
 N45
 h24
 n40 0
 f1
-V2520
+V720
 H336
 tthe
 wh24
@@ -1740,9 +1792,11 @@ wh24
 tsign
 wh24
 tcan
-wh24
+wh48
 tbe
-wh24
+n40 0
+V760
+H336
 tobtained
 wh24
 twith
@@ -1756,23 +1810,23 @@ Ccq
 h24
 t.
 n40 0
-V2600
+V840
 H168
 x X devtag:.col 1
 f3
-V2600
+V840
 H168
 t~
 n40 0
 f1
-V2600
+V840
 H336
 tthe
-wh24
+wh48
 tISO
-wh24
+wh48
 tlatin1
-wh24
+wh48
 Coq
 h24
 tTilde
@@ -1803,7 +1857,9 @@ wh24
 tdiacritic;
 wh24
 ta
-wh24
+n40 0
+V880
+H336
 tlarger
 wh24
 tglyph
@@ -1823,21 +1879,16 @@ Ccq
 h24
 t.
 n40 0
-V2640
-p2
-V40
+V960
 H168
 x X devtag:.col 1
-x font 3 B
 f3
-s10
-V40
+V960
 H168
 t^
 n40 0
-x font 1 R
 f1
-V40
+V960
 H336
 tthe
 wh24
@@ -1874,7 +1925,13 @@ tas
 wh24
 ta
 wh24
-tdiacritic;
+tdia
+Chy
+h24
+n40 0
+V1000
+H336
+tcritic;
 wh24
 ta
 wh24
@@ -1898,7 +1955,7 @@ h24
 t.
 n40 0
 x F -
-V120
+V1080
 H168
 tOutput
 h72
@@ -1912,11 +1969,11 @@ tUnicode
 h72
 tNotes
 n40 0
-V160
+V1120
 H168
-Dl 4632 0
+Dl 2232 0
 n40 0
-V200
+V1160
 H168
 t!
 h192
@@ -1934,7 +1991,7 @@ tmark
 wh24
 t(bang)
 n40 0
-V240
+V1200
 H168
 t"
 h192
@@ -1950,7 +2007,7 @@ tdouble
 wh24
 tquote
 n40 0
-V280
+V1240
 H168
 t#
 h192
@@ -1966,7 +2023,7 @@ tnumber
 wh24
 tsign
 n40 0
-V320
+V1280
 H168
 t$
 h192
@@ -1984,7 +2041,7 @@ tdollar
 wh24
 tsign
 n40 0
-V360
+V1320
 H168
 t%
 h192
@@ -1998,7 +2055,7 @@ tu0025
 h120
 tpercent
 n40 0
-V400
+V1360
 H168
 t&
 h192
@@ -2012,7 +2069,7 @@ tu0026
 h120
 tampersand
 n40 0
-V440
+V1400
 H168
 N39
 h216
@@ -2028,7 +2085,7 @@ tright
 wh24
 tquote
 n40 0
-V480
+V1440
 H168
 t(
 h192
@@ -2044,7 +2101,7 @@ tparentheses
 wh24
 tleft
 n40 0
-V520
+V1480
 H168
 t)
 h192
@@ -2060,7 +2117,7 @@ tparentheses
 wh24
 tright
 n40 0
-V560
+V1520
 H168
 t*
 h192
@@ -2074,7 +2131,7 @@ tu002A
 h120
 tasterisk
 n40 0
-V600
+V1560
 H168
 t+
 h192
@@ -2088,7 +2145,7 @@ tu002B
 h120
 tplus
 n40 0
-V640
+V1600
 H168
 t,
 h192
@@ -2102,7 +2159,7 @@ tu002C
 h120
 tcomma
 n40 0
-V680
+V1640
 H168
 N45
 h216
@@ -2116,7 +2173,7 @@ tu2010
 h120
 thyphen
 n40 0
-V720
+V1680
 H168
 t.
 h192
@@ -2132,7 +2189,7 @@ tperiod,
 wh24
 tdot
 n40 0
-V760
+V1720
 H168
 t/
 h192
@@ -2146,7 +2203,7 @@ tu002F
 h120
 tslash
 n40 0
-V800
+V1760
 H168
 t:
 h192
@@ -2160,7 +2217,7 @@ tu003A
 h120
 tcolon
 n40 0
-V840
+V1800
 H168
 t;
 h192
@@ -2174,7 +2231,7 @@ tu003B
 h120
 tsemicolon
 n40 0
-V880
+V1840
 H168
 t<
 h192
@@ -2190,7 +2247,7 @@ tless
 wh24
 tthan
 n40 0
-V920
+V1880
 H168
 t=
 h192
@@ -2204,7 +2261,7 @@ tu003D
 h120
 tequal
 n40 0
-V960
+V1920
 H168
 t>
 h192
@@ -2220,7 +2277,7 @@ tgreater
 wh24
 tthan
 n40 0
-V1000
+V1960
 H168
 t?
 h192
@@ -2236,7 +2293,7 @@ tquestion
 wh24
 tmark
 n40 0
-V1040
+V2000
 H168
 t@
 h192
@@ -2250,7 +2307,7 @@ tu0040
 h120
 tat
 n40 0
-V1080
+V2040
 H168
 t[
 h192
@@ -2268,7 +2325,7 @@ tbracket
 wh24
 tleft
 n40 0
-V1120
+V2080
 H168
 t\
 h192
@@ -2282,7 +2339,7 @@ tu005C
 h120
 tbackslash
 n40 0
-V1160
+V2120
 H168
 t]
 h192
@@ -2300,7 +2357,7 @@ tbracket
 wh24
 tright
 n40 0
-V1200
+V2160
 H168
 t^
 h192
@@ -2316,7 +2373,7 @@ tcircumflex
 wh24
 taccent
 n40 0
-V1240
+V2200
 H168
 t_
 h192
@@ -2330,7 +2387,7 @@ tu005F
 h120
 tunderscore
 n40 0
-V1280
+V2240
 H168
 N96
 h216
@@ -2346,7 +2403,7 @@ tquote
 wh24
 tleft
 n40 0
-V1320
+V2280
 H168
 t{
 h192
@@ -2364,7 +2421,7 @@ tbrace
 wh24
 tleft
 n40 0
-V1360
+V2320
 H168
 t|
 h192
@@ -2378,7 +2435,7 @@ tu007C
 h120
 tbar
 n40 0
-V1400
+V2360
 H168
 t}
 h192
@@ -2396,7 +2453,7 @@ tbrace
 wh24
 tright
 n40 0
-V1440
+V2400
 H168
 t~
 h192
@@ -2413,7 +2470,7 @@ wh24
 taccent
 n40 0
 f3
-V1520
+V2480
 H72
 t8
 N45
@@ -2431,12 +2488,12 @@ wh24
 t255
 n40 0
 f1
-V1560
+V2520
 H168
 tThey
-wh24
+wh48
 tare
-wh24
+wh48
 tinterpreted
 wh24
 tas
@@ -2471,7 +2528,9 @@ wh24
 tcode
 wh24
 tset,
-wh24
+n40 0
+V2560
+H168
 tbeing
 wh24
 tidentical
@@ -2494,7 +2553,7 @@ tSupplement
 f1
 t.
 n40 0
-V1640
+V2640
 H168
 tInput
 wh24
@@ -2526,21 +2585,27 @@ tprintable
 wh24
 tcharacters.
 n40 0
-V1720
+V2640
+p3
+V80
 H168
 x X devtag:.col 1
-V1720
+x font 1 R
+f1
+s10
+V80
 H168
 t160
 n40 0
-V1720
+V80
 H336
 tthe
 wh24
 tISO
 wh24
 tlatin1
-wf2
+wx font 2 I
+f2
 h24
 tno
 N45
@@ -2573,14 +2638,14 @@ tspace
 wh24
 tcharacter.
 n40 0
-V1800
+V160
 H168
 x X devtag:.col 1
-V1800
+V160
 H168
 t173
 n40 0
-V1800
+V160
 H336
 tthe
 wh24
@@ -2591,7 +2656,8 @@ wh24
 tcontrol
 wh24
 tcharacter.
-wf3
+wx font 3 B
+f3
 h48
 tgroff
 wf1
@@ -2605,11 +2671,13 @@ wh24
 tcharacter
 wh24
 tfor
-wh24
+wh48
 toutput
-wh24
+wh48
 t(thus
-wh24
+n40 0
+V200
+H336
 tit
 wh24
 tis
@@ -2645,14 +2713,14 @@ Ccq
 h24
 t.
 n40 0
-V1880
+V280
 H168
 tThe
 wh48
 tremaining
 wh48
 tranges
-wh24
+wh48
 t(161
 N45
 h24
@@ -2676,7 +2744,9 @@ wh24
 tas
 wh24
 tthemselves.
-wh48
+n40 0
+V320
+H168
 tAlthough
 wh24
 tthey
@@ -2708,13 +2778,13 @@ wh24
 tcode
 wh24
 tpage,
-wh24
+n40 0
+V360
+H168
 tit
 wh24
 tis
-n40 0
-V1920
-H168
+wh24
 tbetter
 wh24
 tto
@@ -2734,7 +2804,7 @@ wh24
 tsection.
 n40 0
 x F -
-V2000
+V440
 H168
 tOutput
 h72
@@ -2748,11 +2818,11 @@ tUnicode
 h144
 tNotes
 n40 0
-V2040
+V480
 H168
-Dl 4632 0
+Dl 2232 0
 n40 0
-V2080
+V520
 H168
 Cr!
 h216
@@ -2770,7 +2840,7 @@ texclamation
 wh24
 tmark
 n40 0
-V2120
+V560
 H168
 Cct
 h216
@@ -2786,7 +2856,7 @@ tcurrency
 wh24
 tunit
 n40 0
-V2160
+V600
 H168
 CPo
 h216
@@ -2802,7 +2872,7 @@ tpound
 wh24
 tsterling
 n40 0
-V2200
+V640
 H168
 CCs
 h216
@@ -2820,7 +2890,7 @@ tcurrency
 wh24
 tsymbol
 n40 0
-V2240
+V680
 H168
 CYe
 h216
@@ -2838,7 +2908,7 @@ tcurrency
 wh24
 tsymbol
 n40 0
-V2280
+V720
 H168
 Cbb
 h216
@@ -2854,7 +2924,7 @@ tbroken
 wh24
 tbar
 n40 0
-V2320
+V760
 H168
 Csc
 h216
@@ -2870,7 +2940,7 @@ tsection
 wh24
 tsign
 n40 0
-V2360
+V800
 H168
 Cad
 h216
@@ -2886,7 +2956,7 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V2400
+V840
 H168
 Cco
 h216
@@ -2902,7 +2972,7 @@ tcopyright
 wh24
 tsymbol
 n40 0
-V2440
+V880
 H168
 COf
 h216
@@ -2920,7 +2990,7 @@ tordinal
 wh24
 t(Spanish)
 n40 0
-V2480
+V920
 H168
 CFo
 h216
@@ -2938,7 +3008,7 @@ tguillemet
 wh24
 t[sic]
 n40 0
-V2520
+V960
 H168
 Ctno
 h216
@@ -2954,7 +3024,7 @@ tlogical
 wh24
 tnot
 n40 0
-V2560
+V1000
 H168
 Crg
 h216
@@ -2972,7 +3042,7 @@ tmark
 wh24
 tsymbol
 n40 0
-V2600
+V1040
 H168
 Ca-
 h216
@@ -2988,12 +3058,7 @@ toverbar
 wh24
 taccent
 n40 0
-V2640
-p3
-x font 1 R
-f1
-s10
-V40
+V1080
 H168
 Cde
 h216
@@ -3009,7 +3074,7 @@ tdegree
 wh24
 tsign
 n40 0
-V80
+V1120
 H168
 Ct+-
 h216
@@ -3028,7 +3093,7 @@ tminus
 wh24
 tsign
 n40 0
-V120
+V1160
 H168
 CS2
 h216
@@ -3044,7 +3109,7 @@ tsuperscript
 wh24
 t2
 n40 0
-V160
+V1200
 H168
 CS3
 h216
@@ -3060,7 +3125,7 @@ tsuperscript
 wh24
 t3
 n40 0
-V200
+V1240
 H168
 Caa
 h216
@@ -3076,7 +3141,7 @@ tacute
 wh24
 taccent
 n40 0
-V240
+V1280
 H168
 Cmc
 h216
@@ -3092,7 +3157,7 @@ tmicro
 wh24
 tsign
 n40 0
-V280
+V1320
 H168
 Cps
 h216
@@ -3112,7 +3177,7 @@ tparagraphs
 wh24
 tmarker
 n40 0
-V320
+V1360
 H168
 Cpc
 h216
@@ -3128,7 +3193,7 @@ tcentered
 wh24
 tperiod
 n40 0
-V360
+V1400
 H168
 Cac
 h216
@@ -3144,7 +3209,7 @@ tcedilla
 wh24
 taccent
 n40 0
-V400
+V1440
 H168
 CS1
 h216
@@ -3160,7 +3225,7 @@ tsuperscript
 wh24
 t1
 n40 0
-V440
+V1480
 H168
 COm
 h216
@@ -3178,7 +3243,7 @@ tordinal
 wh24
 t(Spanish)
 n40 0
-V480
+V1520
 H168
 CFc
 h216
@@ -3196,7 +3261,7 @@ tguillemet
 wh24
 t[sic]
 n40 0
-V520
+V1560
 H168
 C14
 h216
@@ -3212,7 +3277,7 @@ t1/4
 wh24
 tsymbol
 n40 0
-V560
+V1600
 H168
 C12
 h216
@@ -3228,7 +3293,7 @@ t1/2
 wh24
 tsymbol
 n40 0
-V600
+V1640
 H168
 C34
 h216
@@ -3244,7 +3309,7 @@ t3/4
 wh24
 tsymbol
 n40 0
-V640
+V1680
 H168
 Cr?
 h216
@@ -3262,7 +3327,7 @@ tquestion
 wh24
 tmark
 n40 0
-V680
+V1720
 H168
 C`A
 h216
@@ -3278,7 +3343,7 @@ tA
 wh24
 tgrave
 n40 0
-V720
+V1760
 H168
 C'A
 h216
@@ -3294,7 +3359,7 @@ tA
 wh24
 tacute
 n40 0
-V760
+V1800
 H168
 C^A
 h216
@@ -3310,7 +3375,7 @@ tA
 wh24
 tcircumflex
 n40 0
-V800
+V1840
 H168
 C~A
 h216
@@ -3326,7 +3391,7 @@ tA
 wh24
 ttilde
 n40 0
-V840
+V1880
 H168
 C:A
 h216
@@ -3344,7 +3409,7 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V880
+V1920
 H168
 CoA
 h216
@@ -3360,7 +3425,7 @@ tA
 wh24
 tring
 n40 0
-V920
+V1960
 H168
 CAE
 h216
@@ -3376,7 +3441,7 @@ tA+E
 wh24
 tcombined
 n40 0
-V960
+V2000
 H168
 C,C
 h216
@@ -3392,7 +3457,7 @@ tC
 wh24
 tcedilla
 n40 0
-V1000
+V2040
 H168
 C`E
 h216
@@ -3408,7 +3473,7 @@ tE
 wh24
 tgrave
 n40 0
-V1040
+V2080
 H168
 C'E
 h216
@@ -3424,7 +3489,7 @@ tE
 wh24
 tacute
 n40 0
-V1080
+V2120
 H168
 C^E
 h216
@@ -3440,7 +3505,7 @@ tE
 wh24
 tcircumflex
 n40 0
-V1120
+V2160
 H168
 C:E
 h216
@@ -3458,7 +3523,7 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V1160
+V2200
 H168
 C`I
 h216
@@ -3474,7 +3539,7 @@ tI
 wh24
 tgrave
 n40 0
-V1200
+V2240
 H168
 C'I
 h216
@@ -3490,7 +3555,7 @@ tI
 wh24
 tacute
 n40 0
-V1240
+V2280
 H168
 C^I
 h216
@@ -3506,7 +3571,7 @@ tI
 wh24
 tcircumflex
 n40 0
-V1280
+V2320
 H168
 C:I
 h216
@@ -3522,7 +3587,7 @@ tI
 wh24
 tdieresis
 n40 0
-V1320
+V2360
 H168
 C-D
 h216
@@ -3538,7 +3603,7 @@ tE
 wh24
 tth
 n40 0
-V1360
+V2400
 H168
 C~N
 h216
@@ -3554,7 +3619,7 @@ tN
 wh24
 ttilde
 n40 0
-V1400
+V2440
 H168
 C`O
 h216
@@ -3570,7 +3635,7 @@ tO
 wh24
 tgrave
 n40 0
-V1440
+V2480
 H168
 C'O
 h216
@@ -3586,7 +3651,7 @@ tO
 wh24
 tacute
 n40 0
-V1480
+V2520
 H168
 C^O
 h216
@@ -3602,7 +3667,7 @@ tO
 wh24
 tcircumflex
 n40 0
-V1520
+V2560
 H168
 C~O
 h216
@@ -3618,7 +3683,7 @@ tO
 wh24
 ttilde
 n40 0
-V1560
+V2600
 H168
 C:O
 h216
@@ -3636,7 +3701,12 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V1600
+V2640
+p4
+x font 1 R
+f1
+s10
+V40
 H168
 Ctmu
 h216
@@ -3650,7 +3720,7 @@ tu00D7
 h192
 tmultiply
 n40 0
-V1640
+V80
 H168
 C/O
 h216
@@ -3666,7 +3736,7 @@ tO
 wh24
 tslash
 n40 0
-V1680
+V120
 H168
 C`U
 h216
@@ -3682,7 +3752,7 @@ tU
 wh24
 tgrave
 n40 0
-V1720
+V160
 H168
 C'U
 h216
@@ -3698,7 +3768,7 @@ tU
 wh24
 tacute
 n40 0
-V1760
+V200
 H168
 C^U
 h216
@@ -3714,7 +3784,7 @@ tU
 wh24
 tcircumflex
 n40 0
-V1800
+V240
 H168
 C:U
 h216
@@ -3732,7 +3802,7 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V1840
+V280
 H168
 C'Y
 h216
@@ -3748,7 +3818,7 @@ tY
 wh24
 tacute
 n40 0
-V1880
+V320
 H168
 CTP
 h216
@@ -3762,7 +3832,7 @@ tu00DE
 h192
 tThorn
 n40 0
-V1920
+V360
 H168
 Css
 h216
@@ -3784,7 +3854,7 @@ t(sharp
 wh24
 ts)
 n40 0
-V1960
+V400
 H168
 C`a
 h216
@@ -3800,7 +3870,7 @@ ta
 wh24
 tgrave
 n40 0
-V2000
+V440
 H168
 C'a
 h216
@@ -3816,7 +3886,7 @@ ta
 wh24
 tacute
 n40 0
-V2040
+V480
 H168
 C^a
 h216
@@ -3832,7 +3902,7 @@ ta
 wh24
 tcircumflex
 n40 0
-V2080
+V520
 H168
 C~a
 h216
@@ -3848,7 +3918,7 @@ ta
 wh24
 ttilde
 n40 0
-V2120
+V560
 H168
 C:a
 h216
@@ -3866,7 +3936,7 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V2160
+V600
 H168
 Coa
 h216
@@ -3882,7 +3952,7 @@ ta
 wh24
 tring
 n40 0
-V2200
+V640
 H168
 Cae
 h216
@@ -3898,7 +3968,7 @@ ta+e
 wh24
 tcombined
 n40 0
-V2240
+V680
 H168
 C,c
 h216
@@ -3914,7 +3984,7 @@ tc
 wh24
 tcedilla
 n40 0
-V2280
+V720
 H168
 C`e
 h216
@@ -3930,7 +4000,7 @@ te
 wh24
 tgrave
 n40 0
-V2320
+V760
 H168
 C'e
 h216
@@ -3946,7 +4016,7 @@ te
 wh24
 tacute
 n40 0
-V2360
+V800
 H168
 C^e
 h216
@@ -3962,7 +4032,7 @@ te
 wh24
 tcircumflex
 n40 0
-V2400
+V840
 H168
 C:e
 h216
@@ -3980,7 +4050,7 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V2440
+V880
 H168
 C`i
 h216
@@ -3996,7 +4066,7 @@ ti
 wh24
 tgrave
 n40 0
-V2480
+V920
 H168
 C'i
 h216
@@ -4012,7 +4082,7 @@ ti
 wh24
 tacute
 n40 0
-V2520
+V960
 H168
 C^i
 h216
@@ -4028,7 +4098,7 @@ ti
 wh24
 tcircumflex
 n40 0
-V2560
+V1000
 H168
 C:i
 h216
@@ -4046,7 +4116,7 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V2600
+V1040
 H168
 CSd
 h216
@@ -4062,12 +4132,7 @@ te
 wh24
 tth
 n40 0
-V2640
-p4
-x font 1 R
-f1
-s10
-V40
+V1080
 H168
 C~n
 h216
@@ -4083,7 +4148,7 @@ tn
 wh24
 ttilde
 n40 0
-V80
+V1120
 H168
 C`o
 h216
@@ -4099,7 +4164,7 @@ to
 wh24
 tgrave
 n40 0
-V120
+V1160
 H168
 C'o
 h216
@@ -4115,7 +4180,7 @@ to
 wh24
 tacute
 n40 0
-V160
+V1200
 H168
 C^o
 h216
@@ -4131,7 +4196,7 @@ to
 wh24
 tcircumflex
 n40 0
-V200
+V1240
 H168
 C~o
 h216
@@ -4147,7 +4212,7 @@ to
 wh24
 ttilde
 n40 0
-V240
+V1280
 H168
 C:o
 h216
@@ -4165,7 +4230,7 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V280
+V1320
 H168
 Ctdi
 h216
@@ -4179,7 +4244,7 @@ tu00F7
 h192
 tdivide
 n40 0
-V320
+V1360
 H168
 C/o
 h216
@@ -4195,7 +4260,7 @@ to
 wh24
 tslash
 n40 0
-V360
+V1400
 H168
 C`u
 h216
@@ -4211,7 +4276,7 @@ tu
 wh24
 tgrave
 n40 0
-V400
+V1440
 H168
 C'u
 h216
@@ -4227,7 +4292,7 @@ tu
 wh24
 tacute
 n40 0
-V440
+V1480
 H168
 C^u
 h216
@@ -4243,7 +4308,7 @@ tu
 wh24
 tcircumflex
 n40 0
-V480
+V1520
 H168
 C:u
 h216
@@ -4261,7 +4326,7 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V520
+V1560
 H168
 C'y
 h216
@@ -4277,7 +4342,7 @@ ty
 wh24
 tacute
 n40 0
-V560
+V1600
 H168
 CTp
 h216
@@ -4291,7 +4356,7 @@ tu00FE
 h192
 tthorn
 n40 0
-V600
+V1640
 H168
 C:y
 h216
@@ -4311,27 +4376,27 @@ t(umlaut)
 n40 0
 x font 3 B
 f3
-V680
+V1720
 H72
 tNamed
 wh24
 tGlyphs
 n40 0
 f1
-V720
+V1760
 H168
 tGlyph
-wh24
+wh48
 tnames
-wh24
+wh48
 tcan
-wh24
+wh48
 tbe
-wh24
+wh48
 tembedded
-wh24
+wh48
 tinto
-wh24
+wh48
 tthe
 wh24
 tdocument
@@ -4350,7 +4415,9 @@ h48
 tgroff
 f1
 t(7)
-wh24
+n40 0
+V1800
+H168
 tdescribes
 wh24
 thow
@@ -4374,15 +4441,19 @@ wh24
 tof
 wh24
 tquite
-wh48
+wh24
 tarbitrary
 wh48
-tcharacters
+tchar
+Chy
+h24
+n40 0
+V1840
+H168
+tacters
 wh48
 tfrom
-n40 0
-V760
-H168
+wh24
 tthe
 wh24
 tASCII
@@ -4407,12 +4478,18 @@ tHere
 wh24
 tsome
 wh24
-texamples:
+texam
+Chy
+h24
 n40 0
-V840
+V1880
+H168
+tples:
+n40 0
+V1960
 H168
 x X devtag:.col 1
-V840
+V1960
 H168
 t\(
 x font 2 I
@@ -4420,7 +4497,7 @@ f2
 tch
 n40 0
 f1
-V840
+V1960
 H336
 tA
 wh24
@@ -4442,7 +4519,7 @@ tch
 f1
 t.
 n40 0
-V920
+V2040
 H168
 t\[
 f2
@@ -4450,12 +4527,12 @@ tchar_name
 f1
 t]
 n40 0
-V960
+V2080
 H336
 tA
-wh48
+wh24
 tglyph
-wh48
+wh24
 thaving
 wh24
 tthe
@@ -4490,15 +4567,17 @@ f1
 Ccq
 wh48
 tis
-wh24
+wh48
 tnot
-wh24
+n40 0
+V2120
+H336
 tthe
-wh24
+wh48
 tsame
-wh24
+wh48
 tas
-wh24
+wh48
 Coq
 h24
 t\[
@@ -4532,7 +4611,9 @@ wh24
 tto
 wh24
 tglyph
-wh24
+n40 0
+V2160
+H336
 tname
 wh24
 Coq
@@ -4546,9 +4627,7 @@ h24
 t.
 wh48
 tBy
-n40 0
-V1000
-H336
+wh24
 tdefault,
 wh24
 tgroff
@@ -4566,11 +4645,13 @@ wh24
 tstarting
 wh24
 twith
-wh24
+wh48
 ta
-wh24
+wh48
 tbackslash,
-wh24
+n40 0
+V2200
+H336
 tnamely
 wh24
 Coq
@@ -4613,7 +4694,7 @@ Ccq
 h24
 t.
 n40 0
-V1080
+V2280
 H168
 t\[
 f2
@@ -4627,7 +4708,7 @@ t...
 f1
 t]
 n40 0
-V1120
+V2320
 H336
 tA
 wh24
@@ -4649,7 +4730,7 @@ tdetailed
 wh24
 tdescription.
 n40 0
-V1200
+V2400
 H168
 tIn
 wh24
@@ -4693,8 +4774,10 @@ twhere
 wf2
 h24
 tn
-wf1
-h24
+n40 0
+f1
+V2440
+H168
 tis
 wh24
 tthe
@@ -4728,14 +4811,10 @@ wh24
 tzeros
 wh24
 t(those
-wh24
-tenti
-Chy
-h24
 n40 0
-V1240
+V2480
 H168
-tties
+tentities
 wh24
 tare
 wf2
@@ -4767,10 +4846,10 @@ t.trin
 wh24
 trequest.
 n40 0
-V1320
+V2560
 H168
 tAnother
-wh24
+wh48
 tspecial
 wh24
 tconvention
@@ -4797,7 +4876,13 @@ tfrom
 wh24
 ta
 wh24
-tUnicode
+tUni
+Chy
+h24
+n40 0
+V2600
+H168
+tcode
 wh24
 tcode
 wh24
@@ -4829,19 +4914,19 @@ wh24
 tbelow.
 wh48
 tIn
-wh24
+wh48
 tgeneral,
-wh24
+wh48
 tall
-wh24
-tglyphs
-wh24
-tnot
 n40 0
-V1360
+V2640
 H168
+tglyphs
+wh48
+tnot
+wh48
 thaving
-wh24
+wh48
 ta
 wh24
 tname
@@ -4876,7 +4961,15 @@ tXXXX
 f1
 t]
 Ccq
-wh48
+h24
+n40 0
+V2640
+p5
+x font 1 R
+f1
+s10
+V40
+H168
 tconstruct;
 wh24
 tplease
@@ -4910,7 +5003,7 @@ tmore
 wh24
 tdetails.
 n40 0
-V1440
+V120
 H168
 tMoreover,
 wh24
@@ -4935,13 +5028,14 @@ wh24
 trequest;
 wh24
 tsee
-wf3
+wx font 3 B
+f3
 h24
 tgroff
 f1
 t(7).
 n40 0
-V1520
+V200
 H168
 tIn
 wh24
@@ -4977,7 +5071,9 @@ wh24
 tglyph
 wh24
 tname
-wh24
+n40 0
+V240
+H168
 tappears
 wh24
 tin
@@ -5002,12 +5098,12 @@ tCSTR
 h24
 t54.
 n40 0
-V1600
+V320
 H168
 tEntries
-wh24
+wh48
 tmarked
-wh24
+wh48
 twith
 wh24
 Coq
@@ -5033,7 +5129,13 @@ tfor
 wh24
 tDVI
 wh24
-toutput).
+tout
+Chy
+h24
+n40 0
+V360
+H168
+tput).
 wh48
 tNormally,
 wh24
@@ -5060,7 +5162,7 @@ wh24
 ttext.
 n40 0
 x F -
-V1680
+V440
 H168
 tOutput
 h72
@@ -5072,11 +5174,11 @@ tUnicode
 h72
 tNotes
 n40 0
-V1720
+V480
 H168
-Dl 4632 0
+Dl 2232 0
 n40 0
-V1760
+V520
 H168
 C-D
 h216
@@ -5093,7 +5195,7 @@ tuppercase
 wh24
 teth
 n40 0
-V1800
+V560
 H168
 CSd
 h216
@@ -5107,7 +5209,7 @@ tlowercase
 wh24
 teth
 n40 0
-V1840
+V600
 H168
 CTP
 h216
@@ -5121,7 +5223,7 @@ tuppercase
 wh24
 tthorn
 n40 0
-V1880
+V640
 H168
 CTp
 h216
@@ -5135,7 +5237,7 @@ tlowercase
 wh24
 tthorn
 n40 0
-V1920
+V680
 H168
 Css
 h216
@@ -5155,8 +5257,9 @@ t(sharp
 wh24
 ts)
 n40 0
+x font 2 I
 f2
-V2000
+V760
 H168
 tLigatures
 wh24
@@ -5170,7 +5273,7 @@ tGlyphs
 n40 0
 x F -
 f1
-V2080
+V840
 H168
 tOutput
 h72
@@ -5182,11 +5285,11 @@ tUnicode
 h264
 tNotes
 n40 0
-V2120
+V880
 H168
-Dl 4632 0
+Dl 2232 0
 n40 0
-V2160
+V920
 H168
 tff
 h168
@@ -5202,7 +5305,7 @@ tligature
 wh24
 t+
 n40 0
-V2200
+V960
 H168
 tfi
 h168
@@ -5218,7 +5321,7 @@ tligature
 wh24
 t+
 n40 0
-V2240
+V1000
 H168
 tfl
 h168
@@ -5234,7 +5337,7 @@ tligature
 wh24
 t+
 n40 0
-V2280
+V1040
 H168
 tffi
 h144
@@ -5250,7 +5353,7 @@ tligature
 wh24
 t+
 n40 0
-V2320
+V1080
 H168
 tffl
 h144
@@ -5266,7 +5369,7 @@ tligature
 wh24
 t+
 n40 0
-V2360
+V1120
 H168
 C/L
 h216
@@ -5282,7 +5385,7 @@ tslash
 wh24
 t(Polish)
 n40 0
-V2400
+V1160
 H168
 C/l
 h216
@@ -5298,7 +5401,7 @@ tslash
 wh24
 t(Polish)
 n40 0
-V2440
+V1200
 H168
 C/O
 h216
@@ -5314,7 +5417,7 @@ tslash
 wh24
 t(Scandinavian)
 n40 0
-V2480
+V1240
 H168
 C/o
 h216
@@ -5330,7 +5433,7 @@ tslash
 wh24
 t(Scandinavian)
 n40 0
-V2520
+V1280
 H168
 CAE
 h216
@@ -5344,7 +5447,7 @@ tA+E
 wh24
 tcombined
 n40 0
-V2560
+V1320
 H168
 Cae
 h216
@@ -5358,7 +5461,7 @@ ta+e
 wh24
 tcombined
 n40 0
-V2600
+V1360
 H168
 COE
 h216
@@ -5372,12 +5475,7 @@ tO+E
 wh24
 tcombined
 n40 0
-V2640
-p5
-x font 1 R
-f1
-s10
-V40
+V1400
 H168
 Coe
 h216
@@ -5391,7 +5489,7 @@ to+e
 wh24
 tcombined
 n40 0
-V80
+V1440
 H168
 CIJ
 h216
@@ -5407,7 +5505,7 @@ tcombined
 wh24
 t(Dutch)
 n40 0
-V120
+V1480
 H168
 Cij
 h216
@@ -5421,7 +5519,7 @@ ti+j
 wh24
 tcombined(Dutch)
 n40 0
-V160
+V1520
 H168
 C.i
 h216
@@ -5441,7 +5539,7 @@ tdot
 wh24
 t(Turkish)
 n40 0
-V200
+V1560
 H168
 C.j
 h216
@@ -5459,9 +5557,8 @@ ta
 wh24
 tdot
 n40 0
-x font 2 I
 f2
-V280
+V1640
 H168
 tAccented
 wh24
@@ -5469,7 +5566,7 @@ tCharacters
 n40 0
 x F -
 f1
-V360
+V1720
 H168
 tOutput
 h72
@@ -5481,11 +5578,11 @@ tUnicode
 h144
 tNotes
 n40 0
-V400
+V1760
 H168
-Dl 4632 0
+Dl 2232 0
 n40 0
-V440
+V1800
 H168
 C'A
 h216
@@ -5502,7 +5599,7 @@ tA
 wh24
 tacute
 n40 0
-V480
+V1840
 H168
 C'C
 h216
@@ -5519,7 +5616,7 @@ tC
 wh24
 tacute
 n40 0
-V520
+V1880
 H168
 C'E
 h216
@@ -5536,7 +5633,7 @@ tE
 wh24
 tacute
 n40 0
-V560
+V1920
 H168
 C'I
 h216
@@ -5553,7 +5650,7 @@ tI
 wh24
 tacute
 n40 0
-V600
+V1960
 H168
 C'O
 h216
@@ -5570,7 +5667,7 @@ tO
 wh24
 tacute
 n40 0
-V640
+V2000
 H168
 C'U
 h216
@@ -5587,7 +5684,7 @@ tU
 wh24
 tacute
 n40 0
-V680
+V2040
 H168
 C'Y
 h216
@@ -5604,7 +5701,7 @@ tY
 wh24
 tacute
 n40 0
-V720
+V2080
 H168
 C'a
 h216
@@ -5621,7 +5718,7 @@ ta
 wh24
 tacute
 n40 0
-V760
+V2120
 H168
 C'c
 h216
@@ -5638,7 +5735,7 @@ tc
 wh24
 tacute
 n40 0
-V800
+V2160
 H168
 C'e
 h216
@@ -5655,7 +5752,7 @@ te
 wh24
 tacute
 n40 0
-V840
+V2200
 H168
 C'i
 h216
@@ -5672,7 +5769,7 @@ ti
 wh24
 tacute
 n40 0
-V880
+V2240
 H168
 C'o
 h216
@@ -5689,7 +5786,7 @@ to
 wh24
 tacute
 n40 0
-V920
+V2280
 H168
 C'u
 h216
@@ -5706,7 +5803,7 @@ tu
 wh24
 tacute
 n40 0
-V960
+V2320
 H168
 C'y
 h216
@@ -5723,7 +5820,7 @@ ty
 wh24
 tacute
 n40 0
-V1000
+V2360
 H168
 C:A
 h216
@@ -5739,7 +5836,7 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V1040
+V2400
 H168
 C:E
 h216
@@ -5755,7 +5852,7 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V1080
+V2440
 H168
 C:I
 h216
@@ -5771,7 +5868,7 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V1120
+V2480
 H168
 C:O
 h216
@@ -5787,7 +5884,7 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V1160
+V2520
 H168
 C:U
 h216
@@ -5803,7 +5900,7 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V1200
+V2560
 H168
 C:Y
 h216
@@ -5819,7 +5916,7 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V1240
+V2600
 H168
 C:a
 h216
@@ -5835,7 +5932,12 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V1280
+V2640
+p6
+x font 1 R
+f1
+s10
+V40
 H168
 C:e
 h216
@@ -5851,7 +5953,7 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V1320
+V80
 H168
 C:i
 h216
@@ -5867,7 +5969,7 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V1360
+V120
 H168
 C:o
 h216
@@ -5883,7 +5985,7 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V1400
+V160
 H168
 C:u
 h216
@@ -5899,7 +6001,7 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V1440
+V200
 H168
 C:y
 h216
@@ -5915,7 +6017,7 @@ tdieresis
 wh24
 t(umlaut)
 n40 0
-V1480
+V240
 H168
 C^A
 h216
@@ -5929,7 +6031,7 @@ tA
 wh24
 tcircumflex
 n40 0
-V1520
+V280
 H168
 C^E
 h216
@@ -5943,7 +6045,7 @@ tE
 wh24
 tcircumflex
 n40 0
-V1560
+V320
 H168
 C^I
 h216
@@ -5957,7 +6059,7 @@ tI
 wh24
 tcircumflex
 n40 0
-V1600
+V360
 H168
 C^O
 h216
@@ -5971,7 +6073,7 @@ tO
 wh24
 tcircumflex
 n40 0
-V1640
+V400
 H168
 C^U
 h216
@@ -5985,7 +6087,7 @@ tU
 wh24
 tcircumflex
 n40 0
-V1680
+V440
 H168
 C^a
 h216
@@ -5999,7 +6101,7 @@ ta
 wh24
 tcircumflex
 n40 0
-V1720
+V480
 H168
 C^e
 h216
@@ -6013,7 +6115,7 @@ te
 wh24
 tcircumflex
 n40 0
-V1760
+V520
 H168
 C^i
 h216
@@ -6027,7 +6129,7 @@ ti
 wh24
 tcircumflex
 n40 0
-V1800
+V560
 H168
 C^o
 h216
@@ -6041,7 +6143,7 @@ to
 wh24
 tcircumflex
 n40 0
-V1840
+V600
 H168
 C^u
 h216
@@ -6055,7 +6157,7 @@ tu
 wh24
 tcircumflex
 n40 0
-V1880
+V640
 H168
 C`A
 h216
@@ -6072,7 +6174,7 @@ tA
 wh24
 tgrave
 n40 0
-V1920
+V680
 H168
 C`E
 h216
@@ -6089,7 +6191,7 @@ tE
 wh24
 tgrave
 n40 0
-V1960
+V720
 H168
 C`I
 h216
@@ -6106,7 +6208,7 @@ tI
 wh24
 tgrave
 n40 0
-V2000
+V760
 H168
 C`O
 h216
@@ -6123,7 +6225,7 @@ tO
 wh24
 tgrave
 n40 0
-V2040
+V800
 H168
 C`U
 h216
@@ -6140,7 +6242,7 @@ tU
 wh24
 tgrave
 n40 0
-V2080
+V840
 H168
 C`a
 h216
@@ -6157,7 +6259,7 @@ ta
 wh24
 tgrave
 n40 0
-V2120
+V880
 H168
 C`e
 h216
@@ -6174,7 +6276,7 @@ te
 wh24
 tgrave
 n40 0
-V2160
+V920
 H168
 C`i
 h216
@@ -6191,7 +6293,7 @@ ti
 wh24
 tgrave
 n40 0
-V2200
+V960
 H168
 C`o
 h216
@@ -6208,7 +6310,7 @@ to
 wh24
 tgrave
 n40 0
-V2240
+V1000
 H168
 C`u
 h216
@@ -6225,7 +6327,7 @@ tu
 wh24
 tgrave
 n40 0
-V2280
+V1040
 H168
 C~A
 h216
@@ -6239,7 +6341,7 @@ tA
 wh24
 ttilde
 n40 0
-V2320
+V1080
 H168
 C~N
 h216
@@ -6253,7 +6355,7 @@ tN
 wh24
 ttilde
 n40 0
-V2360
+V1120
 H168
 C~O
 h216
@@ -6267,7 +6369,7 @@ tO
 wh24
 ttilde
 n40 0
-V2400
+V1160
 H168
 C~a
 h216
@@ -6281,7 +6383,7 @@ ta
 wh24
 ttilde
 n40 0
-V2440
+V1200
 H168
 C~n
 h216
@@ -6295,7 +6397,7 @@ tn
 wh24
 ttilde
 n40 0
-V2480
+V1240
 H168
 C~o
 h216
@@ -6309,7 +6411,7 @@ to
 wh24
 ttilde
 n40 0
-V2520
+V1280
 H168
 CvS
 h216
@@ -6323,7 +6425,7 @@ tS
 wh24
 tcaron
 n40 0
-V2560
+V1320
 H168
 Cvs
 h216
@@ -6337,7 +6439,7 @@ ts
 wh24
 tcaron
 n40 0
-V2600
+V1360
 H168
 CvZ
 h216
@@ -6351,12 +6453,7 @@ tZ
 wh24
 tcaron
 n40 0
-V2640
-p6
-x font 1 R
-f1
-s10
-V40
+V1400
 H168
 Cvz
 h216
@@ -6370,7 +6467,7 @@ tz
 wh24
 tcaron
 n40 0
-V80
+V1440
 H168
 C,C
 h216
@@ -6384,7 +6481,7 @@ tC
 wh24
 tcedilla
 n40 0
-V120
+V1480
 H168
 C,c
 h216
@@ -6398,7 +6495,7 @@ tc
 wh24
 tcedilla
 n40 0
-V160
+V1520
 H168
 CoA
 h216
@@ -6412,7 +6509,7 @@ tA
 wh24
 tring
 n40 0
-V200
+V1560
 H168
 Coa
 h216
@@ -6428,12 +6525,12 @@ tring
 n40 0
 x font 2 I
 f2
-V280
+V1640
 H168
 tAccents
 n40 0
 f1
-V360
+V1720
 H168
 tThe
 wx font 3 B
@@ -6473,7 +6570,13 @@ tnames;
 wh24
 tthe
 wh24
-tvalues
+tval
+Chy
+h24
+n40 0
+V1760
+H168
+tues
 wh24
 tgiven
 wh24
@@ -6494,7 +6597,7 @@ n40 0
 x F -
 x F -
 x F -
-V440
+V1840
 H168
 tOutput
 h72
@@ -6506,11 +6609,11 @@ tUnicode
 h216
 tNotes
 n40 0
-V480
+V1880
 H168
-Dl 4632 0
+Dl 2232 0
 n40 0
-V520
+V1920
 H168
 Ca"
 h216
@@ -6526,7 +6629,7 @@ tHungarian
 wh24
 tumlaut
 n40 0
-V560
+V1960
 H168
 Ca-
 h216
@@ -6545,7 +6648,7 @@ toverbar
 wh24
 taccent
 n40 0
-V600
+V2000
 H168
 Ca.
 h216
@@ -6561,7 +6664,7 @@ tdot
 wh24
 taccent
 n40 0
-V640
+V2040
 H168
 Ca^
 h216
@@ -6577,7 +6680,7 @@ tcircumflex
 wh24
 taccent
 n40 0
-V680
+V2080
 H168
 Caa
 h216
@@ -6593,7 +6696,7 @@ tacute
 wh24
 taccent
 n40 0
-V720
+V2120
 H168
 Cga
 h216
@@ -6609,7 +6712,7 @@ tgrave
 wh24
 taccent
 n40 0
-V760
+V2160
 H168
 Cab
 h216
@@ -6625,7 +6728,7 @@ tbreve
 wh24
 taccent
 n40 0
-V800
+V2200
 H168
 Cac
 h216
@@ -6641,7 +6744,7 @@ tcedilla
 wh24
 taccent
 n40 0
-V840
+V2240
 H168
 Cad
 h216
@@ -6657,7 +6760,7 @@ tumlaut
 wh24
 taccent
 n40 0
-V880
+V2280
 H168
 Cah
 h216
@@ -6673,7 +6776,7 @@ tcaron
 wh24
 taccent
 n40 0
-V920
+V2320
 H168
 Cao
 h216
@@ -6693,7 +6796,7 @@ tring
 wh24
 taccent
 n40 0
-V960
+V2360
 H168
 Ca~
 h216
@@ -6709,7 +6812,7 @@ ttilde
 wh24
 taccent
 n40 0
-V1000
+V2400
 H168
 Cho
 h216
@@ -6725,7 +6828,7 @@ thook
 wh24
 taccent
 n40 0
-V1040
+V2440
 H168
 Cha
 h216
@@ -6735,7 +6838,7 @@ tasciicircum
 h96
 tu005E
 n40 0
-V1040
+V2440
 H1320
 thigh
 wh24
@@ -6747,7 +6850,13 @@ tcharacter,
 wh24
 tin
 wh24
-tmathematics
+tmathe
+Chy
+h24
+n40 0
+V2480
+H1320
+tmatics
 wh24
 tthe
 wh24
@@ -6755,7 +6864,7 @@ tpower
 wh24
 tsign
 n40 0
-V1080
+V2520
 H168
 Cti
 h216
@@ -6765,7 +6874,7 @@ tasciitilde
 h120
 tu007E
 n40 0
-V1080
+V2520
 H1320
 ttilde
 wh24
@@ -6783,7 +6892,9 @@ tUnix
 N45
 h24
 tlike
-wh24
+n40 0
+V2560
+H1320
 tthe
 wh24
 thome
@@ -6791,15 +6902,19 @@ wh24
 tdirectory
 n40 0
 f2
-V1160
+V2640
 H168
 tQuotes
 n40 0
+V2640
+p7
 x F -
 x F -
 x F -
+x font 1 R
 f1
-V1240
+s10
+V80
 H168
 tOutput
 h72
@@ -6811,11 +6926,11 @@ tUnicode
 h72
 tNotes
 n40 0
-V1280
+V120
 H168
-Dl 4632 0
+Dl 2232 0
 n40 0
-V1320
+V160
 H168
 CBq
 h216
@@ -6833,7 +6948,7 @@ tcomma
 wh24
 tquote
 n40 0
-V1360
+V200
 H168
 Cbq
 h216
@@ -6851,7 +6966,7 @@ tcomma
 wh24
 tquote
 n40 0
-V1400
+V240
 H168
 Clq
 h216
@@ -6867,7 +6982,7 @@ tdouble
 wh24
 tquote
 n40 0
-V1440
+V280
 H168
 Crq
 h216
@@ -6883,7 +6998,7 @@ tdouble
 wh24
 tquote
 n40 0
-V1480
+V320
 H168
 Coq
 h216
@@ -6901,7 +7016,7 @@ t(left)
 wh24
 tquote
 n40 0
-V1520
+V360
 H168
 Ccq
 h216
@@ -6919,7 +7034,7 @@ t(right)
 wh24
 tquote
 n40 0
-V1560
+V400
 H168
 Caq
 h216
@@ -6937,7 +7052,7 @@ t(ASCII
 wh24
 t39)
 n40 0
-V1600
+V440
 H168
 Cdq
 h216
@@ -6955,7 +7070,7 @@ t(ASCII
 wh24
 t34)
 n40 0
-V1640
+V480
 H168
 CFo
 h216
@@ -6971,7 +7086,7 @@ tguillemet
 wh24
 t[sic]
 n40 0
-V1680
+V520
 H168
 CFc
 h216
@@ -6987,7 +7102,7 @@ tguillemet
 wh24
 t[sic]
 n40 0
-V1720
+V560
 H168
 Cfo
 h216
@@ -6997,7 +7112,7 @@ tguilsinglleft
 h96
 tu2039
 n40 0
-V1720
+V560
 H1224
 tsingle
 wh24
@@ -7012,7 +7127,7 @@ tquotation
 wh24
 tmark
 n40 0
-V1760
+V600
 H168
 Cfc
 h216
@@ -7022,7 +7137,7 @@ tguilsinglright
 h72
 tu203A
 n40 0
-V1760
+V600
 H1224
 tsingle
 wh24
@@ -7037,14 +7152,15 @@ tquotation
 wh24
 tmark
 n40 0
+x font 2 I
 f2
-V1840
+V680
 H168
 tPunctuation
 n40 0
 x F -
 f1
-V1920
+V760
 H168
 tOutput
 h72
@@ -7056,11 +7172,11 @@ tUnicode
 h72
 tNotes
 n40 0
-V1960
+V800
 H168
-Dl 4632 0
+Dl 2232 0
 n40 0
-V2000
+V840
 H168
 Cr!
 h216
@@ -7076,7 +7192,7 @@ texclamation
 wh24
 tmark
 n40 0
-V2040
+V880
 H168
 Cr?
 h216
@@ -7092,7 +7208,7 @@ tquestion
 wh24
 tmark
 n40 0
-V2080
+V920
 H168
 Cem
 h216
@@ -7109,7 +7225,7 @@ tdash
 wh24
 tsymbol
 n40 0
-V2120
+V960
 H168
 Cen
 h216
@@ -7126,7 +7242,7 @@ tdash
 wh24
 tsymbol
 n40 0
-V2160
+V1000
 H168
 Chy
 h216
@@ -7141,17 +7257,17 @@ wh24
 tsymbol
 n40 0
 f2
-V2240
+V1080
 H168
 tBrackets
 n40 0
 f1
-V2320
+V1160
 H168
 tThe
-wh24
+wh48
 textensible
-wh24
+wh48
 tbracket
 wh24
 tpieces
@@ -7176,7 +7292,9 @@ wh24
 tone
 wh24
 tglyph
-wh24
+n40 0
+V1200
+H168
 twas
 wh24
 tavailable
@@ -7207,22 +7325,18 @@ wh24
 tmap
 wh24
 tit
-wh48
+wh24
 trather
-wh48
-tarbi
-Chy
-h24
 n40 0
-V2360
+V1240
 H168
-ttrarily
+tarbitrarily
 wh24
 tto
 wh24
 tu23AA.
 n40 0
-V2440
+V1320
 H168
 tNote
 wh48
@@ -7258,7 +7372,10 @@ Coq
 h24
 t\b
 Ccq
-wh48
+h24
+n40 0
+V1360
+H168
 tdue
 wh24
 tto
@@ -7290,12 +7407,16 @@ tto
 wh24
 tbuild
 wh24
-tbrackets
+tbrack
+Chy
+h24
+n40 0
+V1400
+H168
+tets
 wh24
 tout
-n40 0
-V2480
-H168
+wh24
 tof
 wh24
 tpieces
@@ -7308,7 +7429,7 @@ tfollowing
 wh24
 tmacro:
 n40 0
-V2560
+V1480
 H336
 t.\"
 wh24
@@ -7324,7 +7445,7 @@ tvertically
 wh24
 t0.5em
 n40 0
-V2600
+V1520
 H336
 t.\"
 wh24
@@ -7334,7 +7455,7 @@ tthe
 wh24
 tbaseline.
 n40 0
-V2640
+V1560
 H336
 t.\"
 wh24
@@ -7354,12 +7475,7 @@ tthe
 wh24
 ttop.
 n40 0
-V2640
-p7
-x font 1 R
-f1
-s10
-V40
+V1600
 H336
 t.\"
 wh24
@@ -7381,11 +7497,11 @@ tpile
 N39
 h24
 n40 0
-V80
+V1640
 H336
 t.eo
 n40 0
-V120
+V1680
 H336
 t.de
 wh24
@@ -7394,7 +7510,7 @@ N45
 h24
 tmake
 n40 0
-V160
+V1720
 H336
 t.
 wh48
@@ -7407,7 +7523,7 @@ twd
 wh24
 t0
 n40 0
-V200
+V1760
 H336
 t.
 wh48
@@ -7420,7 +7536,7 @@ tht
 wh24
 t0
 n40 0
-V240
+V1800
 H336
 t.
 wh48
@@ -7431,11 +7547,11 @@ N45
 h24
 targs
 n40 0
-V280
+V1840
 H336
 t.
 n40 0
-V320
+V1880
 H336
 t.
 wh48
@@ -7448,7 +7564,7 @@ t#
 wh24
 t\n[.$]
 n40 0
-V360
+V1920
 H336
 t.
 wh48
@@ -7461,7 +7577,7 @@ t#]
 wh24
 t\{\
 n40 0
-V400
+V1960
 H336
 t.
 wh96
@@ -7490,7 +7606,7 @@ N39
 h24
 t)
 n40 0
-V440
+V2000
 H336
 t.
 wh96
@@ -7507,7 +7623,7 @@ N45
 wh48
 t\n[rsb])
 n40 0
-V480
+V2040
 H336
 t.
 wh96
@@ -7526,7 +7642,7 @@ N39
 h24
 t\"
 n40 0
-V520
+V2080
 H336
 t.
 wh96
@@ -7548,7 +7664,7 @@ N39
 h24
 t\"
 n40 0
-V560
+V2120
 H336
 t.
 wh96
@@ -7569,7 +7685,7 @@ N39
 h24
 t\"
 n40 0
-V600
+V2160
 H336
 t.
 wh96
@@ -7584,17 +7700,17 @@ N45
 h24
 t1
 n40 0
-V640
+V2200
 H336
 t.
 wh48
 t\}
 n40 0
-V680
+V2240
 H336
 t.
 n40 0
-V720
+V2280
 H336
 t.
 wh48
@@ -7624,7 +7740,7 @@ N39
 h24
 t\"
 n40 0
-V760
+V2320
 H336
 t.
 wh48
@@ -7637,7 +7753,7 @@ N45
 h24
 targs]\"
 n40 0
-V800
+V2360
 H336
 t.
 wh48
@@ -7664,7 +7780,7 @@ N39
 h24
 t\"
 n40 0
-V840
+V2400
 H336
 t.
 wh48
@@ -7683,18 +7799,18 @@ N39
 h24
 t\"
 n40 0
-V880
+V2440
 H336
 t..
 n40 0
-V920
+V2480
 H336
 t.ec
 n40 0
-V1000
+V2560
 H168
 tAnother
-wh24
+wh48
 tcomplication
 wh24
 tis
@@ -7720,7 +7836,9 @@ wh24
 tin
 wh24
 toriginal
-wh24
+n40 0
+V2600
+H168
 ttroff
 wh24
 tcan
@@ -7754,15 +7872,19 @@ Coq
 h24
 trf
 Ccq
-wh48
+wh72
 twhich
 wh48
-tprovide
+tpro
+Chy
+h24
+n40 0
+V2640
+H168
+tvide
 wh48
 tthe
-n40 0
-V1040
-H168
+wh48
 Coq
 h24
 tfloor
@@ -7773,13 +7895,13 @@ wh72
 tOther
 wh48
 tdevices
-wh48
+wh24
 t(most
-wh48
+wh24
 tnotably
-wh48
+wh24
 tfor
-wh48
+wh24
 tDVI
 wh24
 toutput)
@@ -7792,7 +7914,14 @@ wh24
 tunify
 wh24
 tsuch
-wh24
+n40 0
+V2640
+p8
+x font 1 R
+f1
+s10
+V40
+H168
 tglyphs.
 wh48
 tFor
@@ -7841,12 +7970,16 @@ tunified
 wh24
 twith
 wh24
-tsimilarly
-wh24
-tlooking
+tsim
+Chy
+h24
 n40 0
-V1080
+V80
 H168
+tilarly
+wh48
+tlooking
+wh24
 tbracket
 wh24
 tpieces.
@@ -7876,7 +8009,9 @@ wh24
 tto
 wh24
 tpile
-wh24
+n40 0
+V120
+H168
 tup
 wh24
 tcorrectly
@@ -7930,7 +8065,7 @@ x F -
 x F -
 x F -
 x F -
-V1160
+V200
 H168
 tOutput
 h72
@@ -7942,11 +8077,11 @@ tUnicode
 h72
 tNotes
 n40 0
-V1200
+V240
 H168
-Dl 4632 0
+Dl 2232 0
 n40 0
-V1240
+V280
 H168
 ClB
 h216
@@ -7956,7 +8091,7 @@ tbracketleft
 h144
 tu005B
 n40 0
-V1240
+V280
 H1512
 tleft
 wh24
@@ -7964,7 +8099,7 @@ tsquare
 wh24
 tbracket
 n40 0
-V1280
+V320
 H168
 CrB
 h216
@@ -7974,7 +8109,7 @@ tbracketright
 h120
 tu005D
 n40 0
-V1280
+V320
 H1512
 tright
 wh24
@@ -7982,7 +8117,7 @@ tsquare
 wh24
 tbracket
 n40 0
-V1320
+V360
 H168
 ClC
 h216
@@ -7992,7 +8127,7 @@ tbraceleft
 h192
 tu007B
 n40 0
-V1320
+V360
 H1512
 tleft
 wh24
@@ -8000,7 +8135,7 @@ tcurly
 wh24
 tbrace
 n40 0
-V1360
+V400
 H168
 CrC
 h216
@@ -8010,7 +8145,7 @@ tbraceright
 h168
 tu007D
 n40 0
-V1360
+V400
 H1512
 tright
 wh24
@@ -8018,7 +8153,7 @@ tcurly
 wh24
 tbrace
 n40 0
-V1400
+V440
 H168
 Cla
 h216
@@ -8028,7 +8163,7 @@ tangleleft
 h192
 tu27E8
 n40 0
-V1400
+V440
 H1512
 tleft
 wh24
@@ -8036,7 +8171,7 @@ tangle
 wh24
 tbracket
 n40 0
-V1440
+V480
 H168
 Cra
 h216
@@ -8046,7 +8181,7 @@ tangleright
 h168
 tu27E9
 n40 0
-V1440
+V480
 H1512
 tright
 wh24
@@ -8054,10 +8189,10 @@ tangle
 wh24
 tbracket
 n40 0
-V1480
+V520
 H168
 n40 0
-V1520
+V560
 H168
 Cbv
 h216
@@ -8067,7 +8202,7 @@ tbraceex
 h240
 tu23AA
 n40 0
-V1520
+V560
 H1512
 tcurly
 wh24
@@ -8077,7 +8212,7 @@ tvertical
 wh24
 textension
 n40 0
-V1560
+V600
 H168
 Cbraceex
 h216
@@ -8087,7 +8222,7 @@ tbraceex
 h240
 tu23AA
 n40 0
-V1560
+V600
 H1512
 tcurly
 wh24
@@ -8097,10 +8232,10 @@ tvertical
 wh24
 textension
 n40 0
-V1600
+V640
 H168
 n40 0
-V1640
+V680
 H168
 Cbracketlefttp
 h216
@@ -8110,7 +8245,7 @@ tbracketlefttp
 h96
 tu23A1
 n40 0
-V1640
+V680
 H1512
 tleft
 wh24
@@ -8120,7 +8255,7 @@ tbracket
 wh24
 ttop
 n40 0
-V1680
+V720
 H168
 Cbracketleftbt
 h216
@@ -8130,7 +8265,7 @@ tbracketleftbt
 h96
 tu23A3
 n40 0
-V1680
+V720
 H1512
 tleft
 wh24
@@ -8140,7 +8275,7 @@ tbracket
 wh24
 tbottom
 n40 0
-V1720
+V760
 H168
 Cbracketleftex
 h216
@@ -8150,7 +8285,7 @@ tbracketleftex
 h96
 tu23A2
 n40 0
-V1720
+V760
 H1512
 tleft
 wh24
@@ -8160,7 +8295,7 @@ tbracket
 wh24
 textension
 n40 0
-V1760
+V800
 H168
 Cbracketrighttp
 h216
@@ -8170,7 +8305,7 @@ tbracketrighttp
 h72
 tu23A4
 n40 0
-V1760
+V800
 H1512
 tright
 wh24
@@ -8180,7 +8315,7 @@ tbracket
 wh24
 ttop
 n40 0
-V1800
+V840
 H168
 Cbracketrightbt
 h216
@@ -8190,7 +8325,7 @@ tbracketrightbt
 h72
 tu23A6
 n40 0
-V1800
+V840
 H1512
 tright
 wh24
@@ -8200,7 +8335,7 @@ tbracket
 wh24
 tbottom
 n40 0
-V1840
+V880
 H168
 Cbracketrightex
 h216
@@ -8210,7 +8345,7 @@ tbracketrightex
 h72
 tu23A5
 n40 0
-V1840
+V880
 H1512
 tright
 wh24
@@ -8220,10 +8355,10 @@ tbracket
 wh24
 textension
 n40 0
-V1880
+V920
 H168
 n40 0
-V1920
+V960
 H168
 Clt
 h216
@@ -8233,7 +8368,7 @@ tbracelefttp
 h144
 tu23A7
 n40 0
-V1920
+V960
 H1512
 tleft
 wh24
@@ -8243,7 +8378,7 @@ tbrace
 wh24
 ttop
 n40 0
-V1960
+V1000
 H168
 Cbracelefttp
 h216
@@ -8253,7 +8388,7 @@ tbracelefttp
 h144
 tu23A7
 n40 0
-V1960
+V1000
 H1512
 tleft
 wh24
@@ -8263,7 +8398,7 @@ tbrace
 wh24
 ttop
 n40 0
-V2000
+V1040
 H168
 Clk
 h216
@@ -8273,7 +8408,7 @@ tbraceleftmid
 h120
 tu23A8
 n40 0
-V2000
+V1040
 H1512
 tleft
 wh24
@@ -8283,7 +8418,7 @@ tbrace
 wh24
 tmiddle
 n40 0
-V2040
+V1080
 H168
 Cbraceleftmid
 h216
@@ -8293,7 +8428,7 @@ tbraceleftmid
 h120
 tu23A8
 n40 0
-V2040
+V1080
 H1512
 tleft
 wh24
@@ -8303,7 +8438,7 @@ tbrace
 wh24
 tmiddle
 n40 0
-V2080
+V1120
 H168
 Clb
 h216
@@ -8313,7 +8448,7 @@ tbraceleftbt
 h144
 tu23A9
 n40 0
-V2080
+V1120
 H1512
 tleft
 wh24
@@ -8323,7 +8458,7 @@ tbrace
 wh24
 tbottom
 n40 0
-V2120
+V1160
 H168
 Cbraceleftbt
 h216
@@ -8333,7 +8468,7 @@ tbraceleftbt
 h144
 tu23A9
 n40 0
-V2120
+V1160
 H1512
 tleft
 wh24
@@ -8343,7 +8478,7 @@ tbrace
 wh24
 tbottom
 n40 0
-V2160
+V1200
 H168
 Cbraceleftex
 h216
@@ -8353,7 +8488,7 @@ tbraceleftex
 h144
 tu23AA
 n40 0
-V2160
+V1200
 H1512
 tleft
 wh24
@@ -8363,7 +8498,7 @@ tbrace
 wh24
 textension
 n40 0
-V2200
+V1240
 H168
 Crt
 h216
@@ -8373,7 +8508,7 @@ tbracerighttp
 h120
 tu23AB
 n40 0
-V2200
+V1240
 H1512
 tright
 wh24
@@ -8383,7 +8518,7 @@ tbrace
 wh24
 ttop
 n40 0
-V2240
+V1280
 H168
 Cbracerighttp
 h216
@@ -8393,7 +8528,7 @@ tbracerighttp
 h120
 tu23AB
 n40 0
-V2240
+V1280
 H1512
 tright
 wh24
@@ -8403,7 +8538,7 @@ tbrace
 wh24
 ttop
 n40 0
-V2280
+V1320
 H168
 Crk
 h216
@@ -8413,7 +8548,7 @@ tbracerightmid
 h96
 tu23AC
 n40 0
-V2280
+V1320
 H1512
 tright
 wh24
@@ -8423,7 +8558,7 @@ tbrace
 wh24
 tmiddle
 n40 0
-V2320
+V1360
 H168
 Cbracerightmid
 h216
@@ -8433,7 +8568,7 @@ tbracerightmid
 h96
 tu23AC
 n40 0
-V2320
+V1360
 H1512
 tright
 wh24
@@ -8443,7 +8578,7 @@ tbrace
 wh24
 tmiddle
 n40 0
-V2360
+V1400
 H168
 Crb
 h216
@@ -8453,7 +8588,7 @@ tbracerightbt
 h120
 tu23AD
 n40 0
-V2360
+V1400
 H1512
 tright
 wh24
@@ -8463,7 +8598,7 @@ tbrace
 wh24
 tbottom
 n40 0
-V2400
+V1440
 H168
 Cbracerightbt
 h216
@@ -8473,7 +8608,7 @@ tbracerightbt
 h120
 tu23AD
 n40 0
-V2400
+V1440
 H1512
 tright
 wh24
@@ -8483,7 +8618,7 @@ tbrace
 wh24
 tbottom
 n40 0
-V2440
+V1480
 H168
 Cbracerightex
 h216
@@ -8493,7 +8628,7 @@ tbracerightex
 h120
 tu23AA
 n40 0
-V2440
+V1480
 H1512
 tright
 wh24
@@ -8503,7 +8638,7 @@ tbrace
 wh24
 textension
 n40 0
-V2480
+V1520
 H168
 Cparenlefttp
 h216
@@ -8513,7 +8648,7 @@ tparenlefttp
 h144
 tu239B
 n40 0
-V2480
+V1520
 H1512
 tleft
 wh24
@@ -8521,7 +8656,7 @@ tparenthesis
 wh24
 ttop
 n40 0
-V2520
+V1560
 H168
 Cparenleftbt
 h216
@@ -8531,7 +8666,7 @@ tparenleftbt
 h144
 tu239D
 n40 0
-V2520
+V1560
 H1512
 tleft
 wh24
@@ -8539,7 +8674,7 @@ tparenthesis
 wh24
 tbottom
 n40 0
-V2560
+V1600
 H168
 Cparenleftex
 h216
@@ -8549,7 +8684,7 @@ tparenleftex
 h144
 tu239C
 n40 0
-V2560
+V1600
 H1512
 tleft
 wh24
@@ -8557,7 +8692,7 @@ tparenthesis
 wh24
 textension
 n40 0
-V2600
+V1640
 H168
 Cparenrighttp
 h216
@@ -8567,7 +8702,7 @@ tparenrighttp
 h120
 tu239E
 n40 0
-V2600
+V1640
 H1512
 tright
 wh24
@@ -8575,12 +8710,7 @@ tparenthesis
 wh24
 ttop
 n40 0
-V2640
-p8
-x font 1 R
-f1
-s10
-V40
+V1680
 H168
 Cparenrightbt
 h216
@@ -8590,7 +8720,7 @@ tparenrightbt
 h120
 tu23A0
 n40 0
-V40
+V1680
 H1512
 tright
 wh24
@@ -8598,7 +8728,7 @@ tparenthesis
 wh24
 tbottoom
 n40 0
-V80
+V1720
 H168
 Cparenrightex
 h216
@@ -8608,7 +8738,7 @@ tparenrightex
 h120
 tu239F
 n40 0
-V80
+V1720
 H1512
 tright
 wh24
@@ -8618,7 +8748,7 @@ textension
 n40 0
 x font 2 I
 f2
-V160
+V1800
 H168
 tArrows
 n40 0
@@ -8628,7 +8758,7 @@ x F -
 x F -
 x F -
 f1
-V240
+V1880
 H168
 tOutput
 h72
@@ -8640,11 +8770,11 @@ tUnicode
 h72
 tNotes
 n40 0
-V280
+V1920
 H168
-Dl 4632 0
+Dl 2232 0
 n40 0
-V320
+V1960
 H168
 C<-
 h216
@@ -8663,7 +8793,7 @@ tarrow
 wh24
 tleft
 n40 0
-V360
+V2000
 H168
 C->
 h216
@@ -8682,7 +8812,7 @@ tarrow
 wh24
 tright
 n40 0
-V400
+V2040
 H168
 C<>
 h216
@@ -8692,7 +8822,7 @@ tarrowboth
 h168
 tu2194
 n40 0
-V400
+V2040
 H1200
 thorizontal
 wh24
@@ -8704,7 +8834,7 @@ tboth
 wh24
 tdirections
 n40 0
-V440
+V2080
 H168
 Cda
 h216
@@ -8720,7 +8850,7 @@ tarrow
 wh24
 tdown
 n40 0
-V480
+V2120
 H168
 Cua
 h216
@@ -8736,7 +8866,7 @@ tarrow
 wh24
 tup
 n40 0
-V520
+V2160
 H168
 Cva
 h216
@@ -8746,7 +8876,7 @@ tarrowupdn
 h168
 tu2195
 n40 0
-V520
+V2160
 H1200
 tvertical
 wh24
@@ -8758,7 +8888,7 @@ tboth
 wh24
 tdirections
 n40 0
-V560
+V2200
 H168
 ClA
 h216
@@ -8776,7 +8906,7 @@ tarrow
 wh24
 tleft
 n40 0
-V600
+V2240
 H168
 CrA
 h216
@@ -8794,7 +8924,7 @@ tarrow
 wh24
 tright
 n40 0
-V640
+V2280
 H168
 ChA
 h216
@@ -8804,7 +8934,7 @@ tarrowdblboth
 h96
 tu21D4
 n40 0
-V640
+V2280
 H1200
 thorizontal
 wh24
@@ -8818,7 +8948,7 @@ tboth
 wh24
 tdirections
 n40 0
-V680
+V2320
 H168
 CdA
 h216
@@ -8836,7 +8966,7 @@ tarrow
 wh24
 tdown
 n40 0
-V720
+V2360
 H168
 CuA
 h216
@@ -8854,7 +8984,7 @@ tarrow
 wh24
 tup
 n40 0
-V760
+V2400
 H168
 CvA
 h216
@@ -8864,7 +8994,7 @@ tuni21D5
 h216
 tu21D5
 n40 0
-V760
+V2400
 H1200
 tvertical
 wh24
@@ -8878,7 +9008,7 @@ tboth
 wh24
 tdirections
 n40 0
-V800
+V2440
 H168
 Can
 h216
@@ -8895,12 +9025,12 @@ wh24
 textension
 n40 0
 f2
-V880
+V2520
 H168
 tLines
 n40 0
 f1
-V960
+V2600
 H168
 tThe
 wh24
@@ -8949,13 +9079,15 @@ wh24
 tbuild
 wh24
 tboxes.
-wh48
+n40 0
+V2640
+H168
 tNote
-wh24
+wh48
 tthat
-wh24
+wh48
 tboth
-wh24
+wh48
 tthe
 wh24
 tPostScript
@@ -8980,16 +9112,21 @@ wh24
 tglyphs
 wh24
 tare
-wh48
+wh24
 tjust
-wh48
-trough
 n40 0
-V1000
+V2640
+p9
+x font 1 R
+f1
+s10
+V40
 H168
+trough
+wh24
 tapproximations.
 n40 0
-V1080
+V120
 H168
 Coq
 h24
@@ -9024,7 +9161,7 @@ troot
 wh24
 tsign.
 n40 0
-V1160
+V200
 H168
 Coq
 h24
@@ -9055,7 +9192,7 @@ wh24
 t0.5m.
 n40 0
 x F -
-V1240
+V280
 H168
 tOutput
 h72
@@ -9067,11 +9204,11 @@ tUnicode
 h72
 tNotes
 n40 0
-V1280
+V320
 H168
-Dl 4632 0
+Dl 2232 0
 n40 0
-V1320
+V360
 H168
 Cba
 h216
@@ -9083,7 +9220,7 @@ tu007C
 h120
 tbar
 n40 0
-V1360
+V400
 H168
 Cbr
 h216
@@ -9097,7 +9234,7 @@ tbox
 wh24
 trule
 n40 0
-V1400
+V440
 H168
 Cul
 h216
@@ -9109,7 +9246,7 @@ tu005F
 h120
 tunderscore
 n40 0
-V1440
+V480
 H168
 Crn
 h216
@@ -9121,7 +9258,7 @@ tu203E
 h120
 toverline
 n40 0
-V1480
+V520
 H168
 Cru
 h216
@@ -9143,7 +9280,7 @@ tbaseline
 wh24
 trule
 n40 0
-V1520
+V560
 H168
 Cbb
 h216
@@ -9157,7 +9294,7 @@ tbroken
 wh24
 tbar
 n40 0
-V1560
+V600
 H168
 Csl
 h216
@@ -9171,7 +9308,7 @@ tslash,
 wh24
 tsolidus
 n40 0
-V1600
+V640
 H168
 Crs
 h216
@@ -9189,7 +9326,7 @@ treverse
 wh24
 tsolidus
 n40 0
-V1680
+V720
 H168
 tUse
 wh24
@@ -9219,8 +9356,9 @@ tsquare
 wh24
 troot.
 n40 0
+x font 2 I
 f2
-V1760
+V800
 H168
 tText
 wh24
@@ -9228,7 +9366,7 @@ tmarkers
 n40 0
 x F -
 f1
-V1840
+V880
 H168
 tOutput
 h72
@@ -9240,11 +9378,11 @@ tUnicode
 h72
 tNotes
 n40 0
-V1880
+V920
 H168
-Dl 4632 0
+Dl 2232 0
 n40 0
-V1920
+V960
 H168
 Cci
 h216
@@ -9256,7 +9394,7 @@ tu25CB
 h120
 tcircle
 n40 0
-V1960
+V1000
 H168
 Cpc
 h216
@@ -9268,7 +9406,7 @@ tu2022
 h120
 tbullet
 n40 0
-V2000
+V1040
 H168
 Cdd
 h216
@@ -9284,7 +9422,7 @@ tdagger
 wh24
 tsign
 n40 0
-V2040
+V1080
 H168
 Cdg
 h216
@@ -9296,7 +9434,7 @@ tu2020
 h120
 tdagger
 n40 0
-V2080
+V1120
 H168
 Clz
 h216
@@ -9314,7 +9452,7 @@ tpound
 wh24
 tkey
 n40 0
-V2120
+V1160
 H168
 Csq
 h216
@@ -9328,7 +9466,7 @@ twhite
 wh24
 tsquare
 n40 0
-V2160
+V1200
 H168
 Cps
 h216
@@ -9346,7 +9484,7 @@ tparagraphs
 wh24
 tmarker
 n40 0
-V2200
+V1240
 H168
 Csc
 h216
@@ -9360,7 +9498,7 @@ tsection
 wh24
 tsign
 n40 0
-V2240
+V1280
 H168
 Clh
 h216
@@ -9376,7 +9514,7 @@ tpointing
 wh24
 tleft
 n40 0
-V2280
+V1320
 H168
 Crh
 h216
@@ -9392,7 +9530,7 @@ tpointing
 wh24
 tright
 n40 0
-V2320
+V1360
 H168
 Cat
 h216
@@ -9404,7 +9542,7 @@ tu0040
 h120
 tat
 n40 0
-V2360
+V1400
 H168
 Csh
 h216
@@ -9418,7 +9556,7 @@ tnumber
 wh24
 tsign
 n40 0
-V2400
+V1440
 H168
 CCR
 h216
@@ -9432,7 +9570,7 @@ tcarriage
 wh24
 treturn
 n40 0
-V2440
+V1480
 H168
 COK
 h216
@@ -9449,7 +9587,7 @@ wh24
 ttick
 n40 0
 f2
-V2520
+V1560
 H168
 tLegal
 wh24
@@ -9457,7 +9595,7 @@ tSymbols
 n40 0
 x F -
 f1
-V2600
+V1640
 H168
 tOutput
 h72
@@ -9469,16 +9607,11 @@ tUnicode
 h72
 tNotes
 n40 0
-V2640
+V1680
 H168
-Dl 4632 0
+Dl 2232 0
 n40 0
-V2640
-p9
-x font 1 R
-f1
-s10
-V40
+V1720
 H168
 Cco
 h216
@@ -9492,7 +9625,7 @@ tcopyright
 wh24
 tsign
 n40 0
-V80
+V1760
 H168
 Crg
 h216
@@ -9506,7 +9639,7 @@ tregistered
 wh24
 tmark
 n40 0
-V120
+V1800
 H168
 Ctm
 h216
@@ -9520,7 +9653,7 @@ ttrademark
 wh24
 tsymbol
 n40 0
-V160
+V1840
 H384
 t\[bs]
 h72
@@ -9546,7 +9679,7 @@ tlogo
 wh24
 t+
 n40 0
-V240
+V1920
 H168
 tThe
 wh24
@@ -9566,9 +9699,8 @@ tin
 wh24
 tgroff.
 n40 0
-x font 2 I
 f2
-V320
+V2000
 H168
 tCurrency
 wh24
@@ -9576,7 +9708,7 @@ tsymbols
 n40 0
 x F -
 f1
-V400
+V2080
 H168
 tOutput
 h72
@@ -9588,11 +9720,11 @@ tUnicode
 h72
 tNotes
 n40 0
-V440
+V2120
 H168
-Dl 4632 0
+Dl 2232 0
 n40 0
-V480
+V2160
 H168
 CDo
 h216
@@ -9604,7 +9736,7 @@ tu0024
 h120
 tdollar
 n40 0
-V520
+V2200
 H168
 Cct
 h216
@@ -9616,7 +9748,7 @@ tu00A2
 h120
 tcent
 n40 0
-V560
+V2240
 H168
 Ceu
 h216
@@ -9636,7 +9768,7 @@ tEuro
 wh24
 tsymbol
 n40 0
-V600
+V2280
 H168
 CEu
 h216
@@ -9657,7 +9789,7 @@ tglyph
 wh24
 tvariant
 n40 0
-V640
+V2320
 H168
 CYe
 h216
@@ -9671,7 +9803,7 @@ tJapanese
 wh24
 tYen
 n40 0
-V680
+V2360
 H168
 CPo
 h216
@@ -9687,7 +9819,7 @@ tsterling
 wh24
 t(British)
 n40 0
-V720
+V2400
 H168
 CCs
 h216
@@ -9703,7 +9835,7 @@ tcurrency
 wh24
 tsign
 n40 0
-V760
+V2440
 H168
 CFn
 h216
@@ -9720,13 +9852,13 @@ wh24
 tsign
 n40 0
 f2
-V840
+V2520
 H168
 tUnits
 n40 0
 x F -
 f1
-V920
+V2600
 H168
 tOutput
 h72
@@ -9738,11 +9870,16 @@ tUnicode
 h72
 tNotes
 n40 0
-V960
+V2640
 H168
-Dl 4632 0
+Dl 2232 0
 n40 0
-V1000
+V2640
+p10
+x font 1 R
+f1
+s10
+V40
 H168
 Cde
 h216
@@ -9754,7 +9891,7 @@ tu00B0
 h120
 tdegree
 n40 0
-V1040
+V80
 H168
 C%0
 h216
@@ -9774,7 +9911,7 @@ tmille
 wh24
 tsign
 n40 0
-V1080
+V120
 H168
 Cfm
 h216
@@ -9790,7 +9927,7 @@ tminute
 wh24
 tsign
 n40 0
-V1120
+V160
 H168
 Csd
 h216
@@ -9806,7 +9943,7 @@ tsecond
 wh24
 tsign
 n40 0
-V1160
+V200
 H168
 Cmc
 h216
@@ -9822,7 +9959,7 @@ tmicro
 wh24
 tsign
 n40 0
-V1200
+V240
 H168
 COf
 h216
@@ -9838,7 +9975,7 @@ tordinal
 wh24
 t(Spanish)
 n40 0
-V1240
+V280
 H168
 COm
 h216
@@ -9854,8 +9991,9 @@ tordinal
 wh24
 t(Spanish)
 n40 0
+x font 2 I
 f2
-V1320
+V360
 H168
 tLogical
 wh24
@@ -9864,7 +10002,7 @@ n40 0
 x F -
 x F -
 f1
-V1400
+V440
 H168
 tOutput
 h72
@@ -9876,11 +10014,11 @@ tUnicode
 h72
 tNotes
 n40 0
-V1440
+V480
 H168
-Dl 4632 0
+Dl 2232 0
 n40 0
-V1480
+V520
 H168
 CAN
 h216
@@ -9894,7 +10032,7 @@ tlogical
 wh24
 tand
 n40 0
-V1520
+V560
 H168
 COR
 h216
@@ -9908,7 +10046,7 @@ tlogical
 wh24
 tor
 n40 0
-V1560
+V600
 H168
 Cno
 h216
@@ -9922,7 +10060,7 @@ tlogical
 wh24
 tnot
 n40 0
-V1600
+V640
 H168
 Ctno
 h216
@@ -9944,7 +10082,7 @@ tno
 Ccq
 h24
 n40 0
-V1640
+V680
 H168
 Cte
 h216
@@ -9958,7 +10096,7 @@ tthere
 wh24
 texists
 n40 0
-V1680
+V720
 H168
 Cfa
 h216
@@ -9972,7 +10110,7 @@ tfor
 wh24
 tall
 n40 0
-V1720
+V760
 H168
 Cst
 h216
@@ -9986,7 +10124,7 @@ tsucht
 wh24
 tthat
 n40 0
-V1760
+V800
 H168
 C3d
 h216
@@ -9998,7 +10136,7 @@ tu2234
 h120
 ttherefore
 n40 0
-V1800
+V840
 H168
 Ctf
 h216
@@ -10010,7 +10148,7 @@ tu2234
 h120
 ttherefore
 n40 0
-V1840
+V880
 H168
 Cor
 h216
@@ -10020,7 +10158,7 @@ tbar
 h264
 tu007C
 n40 0
-V1840
+V880
 H1176
 tbitwise
 wh24
@@ -10037,7 +10175,7 @@ h24
 tC)
 n40 0
 f2
-V1920
+V960
 H168
 tMathematical
 wh24
@@ -10051,7 +10189,7 @@ x F -
 x F -
 x F -
 f1
-V2000
+V1040
 H168
 tOutput
 h72
@@ -10063,11 +10201,11 @@ tUnicode
 h144
 tNotes
 n40 0
-V2040
+V1080
 H168
-Dl 4632 0
+Dl 2232 0
 n40 0
-V2080
+V1120
 H168
 C12
 h216
@@ -10081,7 +10219,7 @@ t1/2
 wh24
 tsymbol
 n40 0
-V2120
+V1160
 H168
 C14
 h216
@@ -10095,7 +10233,7 @@ t1/4
 wh24
 tsymbol
 n40 0
-V2160
+V1200
 H168
 C34
 h216
@@ -10109,7 +10247,7 @@ t3/4
 wh24
 tsymbol
 n40 0
-V2200
+V1240
 H168
 C18
 h216
@@ -10123,7 +10261,7 @@ t1/8
 wh24
 tsymbol
 n40 0
-V2240
+V1280
 H168
 C38
 h216
@@ -10137,7 +10275,7 @@ t3/8
 wh24
 tsymbol
 n40 0
-V2280
+V1320
 H168
 C58
 h216
@@ -10151,7 +10289,7 @@ t5/8
 wh24
 tsymbol
 n40 0
-V2320
+V1360
 H168
 C78
 h216
@@ -10165,7 +10303,7 @@ t7/8
 wh24
 tsymbol
 n40 0
-V2360
+V1400
 H168
 CS1
 h216
@@ -10179,7 +10317,7 @@ tsuperscript
 wh24
 t1
 n40 0
-V2400
+V1440
 H168
 CS2
 h216
@@ -10193,7 +10331,7 @@ tsuperscript
 wh24
 t2
 n40 0
-V2440
+V1480
 H168
 CS3
 h216
@@ -10207,10 +10345,10 @@ tsuperscript
 wh24
 t3
 n40 0
-V2480
+V1520
 H168
 n40 0
-V2520
+V1560
 H168
 Cpl
 h216
@@ -10228,7 +10366,7 @@ tspecial
 wh24
 tfont
 n40 0
-V2560
+V1600
 H168
 Cmi
 h216
@@ -10246,7 +10384,7 @@ tspecial
 wh24
 tfont
 n40 0
-V2600
+V1640
 H168
 C-+
 h216
@@ -10264,12 +10402,7 @@ N45
 h24
 tplus
 n40 0
-V2640
-p10
-x font 1 R
-f1
-s10
-V40
+V1680
 H168
 C+-
 h216
@@ -10287,7 +10420,7 @@ N45
 h24
 tminus
 n40 0
-V80
+V1720
 H168
 Ct+-
 h216
@@ -10311,7 +10444,7 @@ N45
 h24
 t]
 n40 0
-V120
+V1760
 H168
 Cpc
 h216
@@ -10325,7 +10458,7 @@ tperiod
 wh24
 tcentered
 n40 0
-V160
+V1800
 H168
 Cmd
 h216
@@ -10339,7 +10472,7 @@ tmultiplication
 wh24
 tdot
 n40 0
-V200
+V1840
 H168
 Cmu
 h216
@@ -10353,7 +10486,7 @@ tmultiply
 wh24
 tsign
 n40 0
-V240
+V1880
 H168
 Ctmu
 h216
@@ -10371,7 +10504,7 @@ tof
 wh24
 t\[mu]
 n40 0
-V280
+V1920
 H168
 Cc*
 h216
@@ -10389,7 +10522,7 @@ tin
 wh24
 tcircle
 n40 0
-V320
+V1960
 H168
 Cc+
 h216
@@ -10407,7 +10540,7 @@ tin
 wh24
 tcircle
 n40 0
-V360
+V2000
 H168
 Cdi
 h216
@@ -10421,7 +10554,7 @@ tdivision
 wh24
 tsign
 n40 0
-V400
+V2040
 H168
 Ctdi
 h216
@@ -10439,7 +10572,7 @@ tof
 wh24
 t\[di]
 n40 0
-V440
+V2080
 H168
 Cf/
 h216
@@ -10455,7 +10588,7 @@ tfor
 wh24
 tfractions
 n40 0
-V480
+V2120
 H168
 C**
 h216
@@ -10469,10 +10602,10 @@ tmathematical
 wh24
 tasterisk
 n40 0
-V520
+V2160
 H168
 n40 0
-V560
+V2200
 H168
 C<=
 h216
@@ -10488,7 +10621,7 @@ tor
 wh24
 tequal
 n40 0
-V600
+V2240
 H168
 C>=
 h216
@@ -10504,7 +10637,7 @@ tor
 wh24
 tequal
 n40 0
-V640
+V2280
 H168
 C<<
 h216
@@ -10518,7 +10651,7 @@ tmuch
 wh24
 tless
 n40 0
-V680
+V2320
 H168
 C>>
 h216
@@ -10532,7 +10665,7 @@ tmuch
 wh24
 tgreater
 n40 0
-V720
+V2360
 H168
 Ceq
 h216
@@ -10550,7 +10683,7 @@ tspecial
 wh24
 tfont
 n40 0
-V760
+V2400
 H168
 C!=
 h216
@@ -10564,7 +10697,7 @@ tnot
 wh24
 tequal
 n40 0
-V800
+V2440
 H168
 C==
 h216
@@ -10576,7 +10709,7 @@ tu2261
 h192
 tequivalent
 n40 0
-V840
+V2480
 H168
 Cne
 h216
@@ -10590,7 +10723,7 @@ tnot
 wh24
 tequivalent
 n40 0
-V880
+V2520
 H168
 C=~
 h216
@@ -10600,7 +10733,7 @@ tcongruent
 h192
 tu2245
 n40 0
-V880
+V2520
 H1464
 tcongruent,
 wh24
@@ -10608,7 +10741,7 @@ tapprox.
 wh24
 tequal
 n40 0
-V920
+V2560
 H168
 C|=
 h216
@@ -10624,7 +10757,7 @@ tequal
 wh24
 tto
 n40 0
-V960
+V2600
 H168
 Cap
 h216
@@ -10636,7 +10769,12 @@ tu223C
 h192
 tsimilar
 n40 0
-V1000
+V2640
+p11
+x font 1 R
+f1
+s10
+V40
 H168
 C~~
 h216
@@ -10652,7 +10790,7 @@ tequal
 wh24
 tto
 n40 0
-V1040
+V80
 H168
 C~=
 h216
@@ -10668,7 +10806,7 @@ tequal
 wh24
 tto
 n40 0
-V1080
+V120
 H168
 Cpt
 h216
@@ -10680,10 +10818,10 @@ tu221D
 h192
 tproportional
 n40 0
-V1120
+V160
 H168
 n40 0
-V1160
+V200
 H168
 Ces
 h216
@@ -10697,7 +10835,7 @@ tempty
 wh24
 tset
 n40 0
-V1200
+V240
 H168
 Cmo
 h216
@@ -10715,7 +10853,7 @@ ta
 wh24
 tset
 n40 0
-V1240
+V280
 H168
 Cnm
 h216
@@ -10733,7 +10871,7 @@ tof
 wh24
 tset
 n40 0
-V1280
+V320
 H168
 Csb
 h216
@@ -10747,7 +10885,7 @@ tproper
 wh24
 tsubset
 n40 0
-V1320
+V360
 H168
 Cnb
 h216
@@ -10761,7 +10899,7 @@ tnot
 wh24
 tsupset
 n40 0
-V1360
+V400
 H168
 Csp
 h216
@@ -10775,7 +10913,7 @@ tproper
 wh24
 tsuperset
 n40 0
-V1400
+V440
 H168
 Cnc
 h216
@@ -10789,7 +10927,7 @@ tnot
 wh24
 tsuperset
 n40 0
-V1440
+V480
 H168
 Cib
 h216
@@ -10805,7 +10943,7 @@ tor
 wh24
 tequal
 n40 0
-V1480
+V520
 H168
 Cip
 h216
@@ -10821,7 +10959,7 @@ tor
 wh24
 tequal
 n40 0
-V1520
+V560
 H168
 Cca
 h216
@@ -10835,7 +10973,7 @@ tintersection,
 wh24
 tcap
 n40 0
-V1560
+V600
 H168
 Ccu
 h216
@@ -10849,10 +10987,10 @@ tunion,
 wh24
 tcup
 n40 0
-V1600
+V640
 H168
 n40 0
-V1640
+V680
 H168
 C/_
 h216
@@ -10864,7 +11002,7 @@ tu2220
 h192
 tangle
 n40 0
-V1680
+V720
 H168
 Cpp
 h216
@@ -10876,7 +11014,7 @@ tu22A5
 h192
 tperpendicular
 n40 0
-V1720
+V760
 H168
 Cis
 h216
@@ -10888,7 +11026,7 @@ tu222B
 h192
 tintegral
 n40 0
-V1760
+V800
 H168
 Cintegral
 h216
@@ -10900,7 +11038,7 @@ tu222B
 h192
 tintegral
 n40 0
-V1800
+V840
 H168
 Csum
 h216
@@ -10912,7 +11050,7 @@ tu2211
 h192
 tsummation
 n40 0
-V1840
+V880
 H168
 Cproduct
 h216
@@ -10924,7 +11062,7 @@ tu220F
 h192
 tproduct
 n40 0
-V1880
+V920
 H168
 Ccoproduct
 h216
@@ -10936,7 +11074,7 @@ tu2210
 h192
 tcoproduct
 n40 0
-V1920
+V960
 H168
 Cgr
 h216
@@ -10948,7 +11086,7 @@ tu2207
 h192
 tgradient
 n40 0
-V1960
+V1000
 H168
 Csr
 h216
@@ -10962,7 +11100,7 @@ tsquare
 wh24
 troot
 n40 0
-V2000
+V1040
 H168
 Csqrt
 h216
@@ -10976,7 +11114,7 @@ tsquare
 wh24
 troot
 n40 0
-V2040
+V1080
 H384
 t\[radicalex]
 h72
@@ -10989,7 +11127,7 @@ h24
 N45
 h24
 n40 0
-V2040
+V1080
 H1464
 tsquare
 wh24
@@ -10997,7 +11135,7 @@ troot
 wh24
 tcontinuation
 n40 0
-V2080
+V1120
 H384
 t\[sqrtex]
 h144
@@ -11010,7 +11148,7 @@ h24
 N45
 h24
 n40 0
-V2080
+V1120
 H1464
 tsquare
 wh24
@@ -11018,10 +11156,10 @@ troot
 wh24
 tcontinuation
 n40 0
-V2120
+V1160
 H168
 n40 0
-V2160
+V1200
 H168
 Clc
 h216
@@ -11035,7 +11173,7 @@ tleft
 wh24
 tceiling
 n40 0
-V2200
+V1240
 H168
 Crc
 h216
@@ -11049,7 +11187,7 @@ tright
 wh24
 tceiling
 n40 0
-V2240
+V1280
 H168
 Clf
 h216
@@ -11063,7 +11201,7 @@ tleft
 wh24
 tfloor
 n40 0
-V2280
+V1320
 H168
 Crf
 h216
@@ -11077,10 +11215,10 @@ tright
 wh24
 tfloor
 n40 0
-V2320
+V1360
 H168
 n40 0
-V2360
+V1400
 H168
 Cif
 h216
@@ -11092,7 +11230,7 @@ tu221E
 h192
 tinfinity
 n40 0
-V2400
+V1440
 H168
 CAh
 h216
@@ -11104,7 +11242,7 @@ tu2135
 h192
 taleph
 n40 0
-V2440
+V1480
 H168
 CIm
 h216
@@ -11120,7 +11258,7 @@ tI,
 wh24
 timaginary
 n40 0
-V2480
+V1520
 H168
 CRe
 h216
@@ -11136,7 +11274,7 @@ tR,
 wh24
 treal
 n40 0
-V2520
+V1560
 H168
 Cwp
 h216
@@ -11150,7 +11288,7 @@ tWeierstrass
 h24
 tp
 n40 0
-V2560
+V1600
 H168
 Cpd
 h216
@@ -11160,13 +11298,13 @@ tpartialdiff
 h144
 tu2202
 n40 0
-V2560
+V1600
 H1464
 tpartial
 wh24
 tdifferentiation
 n40 0
-V2600
+V1640
 H168
 C-h
 h216
@@ -11179,7 +11317,7 @@ tuni210F
 h240
 tu210F
 n40 0
-V2600
+V1640
 H1464
 tPlanck
 h24
@@ -11194,12 +11332,7 @@ N45
 h24
 tbar)
 n40 0
-V2640
-p11
-x font 1 R
-f1
-s10
-V40
+V1680
 H168
 Chbar
 h216
@@ -11209,7 +11342,7 @@ tuni210F
 h240
 tu210F
 n40 0
-V40
+V1680
 H1464
 tPlanck
 h24
@@ -11226,17 +11359,17 @@ tbar)
 n40 0
 x font 2 I
 f2
-V120
+V1760
 H168
 tGreek
 wh24
 tglyphs
 n40 0
 f1
-V200
+V1840
 H168
 tThese
-wh48
+wh24
 tglyphs
 wh24
 tare
@@ -11263,14 +11396,20 @@ tthe
 wh24
 tuppercase
 wh24
-tletters
-wh24
+tlet
+Chy
+h24
+n40 0
+V1880
+H168
+tters
+wh48
 thave
-wh24
+wh48
 tupright
-wh24
+wh48
 tshape,
-wh24
+wh48
 tand
 wh24
 tthe
@@ -11294,13 +11433,13 @@ wh24
 twith
 wh24
 tthe
-wh24
+n40 0
+V1920
+H168
 tmapping
 wh24
 tof
-n40 0
-V240
-H168
+wh24
 tletter
 wh24
 tphi
@@ -11310,21 +11449,23 @@ wh24
 tUnicode.
 wh48
 tPrior
-wh24
+wh48
 tto
-wh24
+wh48
 tUnicode
-wh24
+wh48
 tversion
 h24
 t3.0,
-wh24
+wh48
 tthe
-wh24
+wh48
 tdifference
-wh24
+wh48
 tbetween
-wh24
+n40 0
+V1960
+H168
 tU+03C6,
 wh24
 tGREEK
@@ -11354,40 +11495,46 @@ wh24
 tdescribed;
 wh24
 tonly
-wh24
-tthe
-wh48
-tglyph
-wh48
-tshapes
-wh48
-tin
 n40 0
-V280
+V2000
 H168
 tthe
-wh48
+wh24
+tglyph
+wh24
+tshapes
+wh24
+tin
+wh24
+tthe
+wh24
 tUnicode
-wh48
+wh24
 tbook
 wh24
 tcould
 wh24
 tbe
-wh24
-tused
-wh24
-tas
-wh24
-ta
-wh24
-treference.
 wh48
+tused
+wh48
+tas
+wh48
+ta
+wh48
+treference.
+wh72
 tStarting
-wh24
+wh48
 twith
-wh24
-tUnicode
+wh48
+tUni
+Chy
+h24
+n40 0
+V2040
+H168
+tcode
 h24
 t3.0,
 wh24
@@ -11413,7 +11560,13 @@ talso:
 wh24
 tIn
 wh24
-tmathematical
+tmathemati
+Chy
+h24
+n40 0
+V2080
+H168
+tcal
 wh24
 tcontext,
 wh24
@@ -11424,9 +11577,7 @@ wh24
 tthe
 wh24
 tstroked
-n40 0
-V320
-H168
+wh24
 tvariant
 wh24
 tand
@@ -11438,11 +11589,13 @@ wh24
 tcurly
 wh24
 tglyph.
-wh48
+wh72
 tUnfortunately,
-wh24
+wh48
 tmost
-wh24
+n40 0
+V2120
+H168
 tfont
 wh24
 tvendors
@@ -11475,7 +11628,9 @@ wh24
 tthe
 wh24
 ttime
-wh24
+n40 0
+V2160
+H168
 tof
 wh24
 tthis
@@ -11489,13 +11644,11 @@ wh24
 tit
 wh24
 tis
-wh48
+wh24
 tnot
-n40 0
-V360
-H168
+wh24
 tclear
-wh48
+wh24
 tyet
 wh24
 twhether
@@ -11507,29 +11660,31 @@ wh24
 tGlyph
 wh24
 tNames
-wh24
+wh48
 Coq
 h24
 tphi
 Ccq
-wh48
+wh72
 tand
-wh24
+n40 0
+V2200
+H168
 Coq
 h24
 tphi1
 Ccq
-wh48
+wh72
 talso
-wh24
+wh48
 tchange
-wh24
+wh48
 tits
-wh24
+wh48
 tmeaning
-wh24
+wh48
 tif
-wh24
+wh48
 tused
 wh24
 tfor
@@ -11543,7 +11698,9 @@ wh24
 tproblems
 wh24
 tare
-wh24
+n40 0
+V2240
+H168
 tlikely
 wh24
 tto
@@ -11559,24 +11716,24 @@ wh24
 tgroff
 wh24
 tcurrently
-n40 0
-V400
-H168
+wh24
 tassumes
 wh24
 tthat
-wh24
+wh48
 Coq
 h24
 tphi
 Ccq
-wh48
+wh72
 tin
-wh24
+wh48
 ta
-wh24
+wh48
 tPostScript
-wh24
+n40 0
+V2280
+H168
 tsymbol
 wh24
 tfont
@@ -11589,19 +11746,19 @@ tstroked
 wh24
 tversion.
 n40 0
-V480
+V2360
 H168
 tIn
-wh24
+wh48
 tgroff,
-wh24
+wh48
 tsymbol
-wh24
+wh48
 Coq
 h24
 t\[*f]
 Ccq
-wh48
+wh72
 talways
 wh24
 tdenotes
@@ -11626,11 +11783,13 @@ wh48
 tthe
 wh24
 tcurly
-wh24
+n40 0
+V2400
+H168
 tvariant.
 n40 0
 x F -
-V560
+V2480
 H168
 tOutput
 h72
@@ -11642,11 +11801,11 @@ tUnicode
 h72
 tNotes
 n40 0
-V600
+V2520
 H168
-Dl 4632 0
+Dl 2232 0
 n40 0
-V640
+V2560
 H168
 C*A
 h216
@@ -11658,7 +11817,7 @@ tu0391
 h120
 tAlpha
 n40 0
-V680
+V2600
 H168
 C*B
 h216
@@ -11670,7 +11829,12 @@ tu0392
 h120
 tBeta
 n40 0
-V720
+V2640
+p12
+x font 1 R
+f1
+s10
+V40
 H168
 C*G
 h216
@@ -11682,7 +11846,7 @@ tu0393
 h120
 tGamma
 n40 0
-V760
+V80
 H168
 C*D
 h216
@@ -11694,7 +11858,7 @@ tu0394
 h120
 tDelta
 n40 0
-V800
+V120
 H168
 C*E
 h216
@@ -11706,7 +11870,7 @@ tu0395
 h120
 tEpsilon
 n40 0
-V840
+V160
 H168
 C*Z
 h216
@@ -11718,7 +11882,7 @@ tu0396
 h120
 tZeta
 n40 0
-V880
+V200
 H168
 C*Y
 h216
@@ -11730,7 +11894,7 @@ tu0397
 h120
 tEta
 n40 0
-V920
+V240
 H168
 C*H
 h216
@@ -11742,7 +11906,7 @@ tu0398
 h120
 tTheta
 n40 0
-V960
+V280
 H168
 C*I
 h216
@@ -11754,7 +11918,7 @@ tu0399
 h120
 tIota
 n40 0
-V1000
+V320
 H168
 C*K
 h216
@@ -11766,7 +11930,7 @@ tu039A
 h120
 tKappa
 n40 0
-V1040
+V360
 H168
 C*L
 h216
@@ -11778,7 +11942,7 @@ tu039B
 h120
 tLamda
 n40 0
-V1080
+V400
 H168
 C*M
 h216
@@ -11790,7 +11954,7 @@ tu039C
 h120
 tMu
 n40 0
-V1120
+V440
 H168
 C*N
 h216
@@ -11802,7 +11966,7 @@ tu039D
 h120
 tNu
 n40 0
-V1160
+V480
 H168
 C*C
 h216
@@ -11814,7 +11978,7 @@ tu039E
 h120
 tXi
 n40 0
-V1200
+V520
 H168
 C*O
 h216
@@ -11826,7 +11990,7 @@ tu039F
 h120
 tOmicron
 n40 0
-V1240
+V560
 H168
 C*P
 h216
@@ -11838,7 +12002,7 @@ tu03A0
 h120
 tPi
 n40 0
-V1280
+V600
 H168
 C*R
 h216
@@ -11850,7 +12014,7 @@ tu03A1
 h120
 tRho
 n40 0
-V1320
+V640
 H168
 C*S
 h216
@@ -11862,7 +12026,7 @@ tu03A3
 h120
 tSigma
 n40 0
-V1360
+V680
 H168
 C*T
 h216
@@ -11874,7 +12038,7 @@ tu03A4
 h120
 tTau
 n40 0
-V1400
+V720
 H168
 C*U
 h216
@@ -11886,7 +12050,7 @@ tu03A5
 h120
 tUpsilon
 n40 0
-V1440
+V760
 H168
 C*F
 h216
@@ -11898,7 +12062,7 @@ tu03A6
 h120
 tPhi
 n40 0
-V1480
+V800
 H168
 C*X
 h216
@@ -11910,7 +12074,7 @@ tu03A7
 h120
 tChi
 n40 0
-V1520
+V840
 H168
 C*Q
 h216
@@ -11922,7 +12086,7 @@ tu03A8
 h120
 tPsi
 n40 0
-V1560
+V880
 H168
 C*W
 h216
@@ -11934,7 +12098,7 @@ tu03A9
 h120
 tOmega
 n40 0
-V1600
+V920
 H168
 C*a
 h216
@@ -11946,7 +12110,7 @@ tu03B1
 h120
 talpha
 n40 0
-V1640
+V960
 H168
 C*b
 h216
@@ -11958,7 +12122,7 @@ tu03B2
 h120
 tbeta
 n40 0
-V1680
+V1000
 H168
 C*g
 h216
@@ -11970,7 +12134,7 @@ tu03B3
 h120
 tgamma
 n40 0
-V1720
+V1040
 H168
 C*d
 h216
@@ -11982,7 +12146,7 @@ tu03B4
 h120
 tdelta
 n40 0
-V1760
+V1080
 H168
 C*e
 h216
@@ -11994,7 +12158,7 @@ tu03B5
 h120
 tepsilon
 n40 0
-V1800
+V1120
 H168
 C*z
 h216
@@ -12006,7 +12170,7 @@ tu03B6
 h120
 tzeta
 n40 0
-V1840
+V1160
 H168
 C*y
 h216
@@ -12018,7 +12182,7 @@ tu03B7
 h120
 teta
 n40 0
-V1880
+V1200
 H168
 C*h
 h216
@@ -12030,7 +12194,7 @@ tu03B8
 h120
 ttheta
 n40 0
-V1920
+V1240
 H168
 C*i
 h216
@@ -12042,7 +12206,7 @@ tu03B9
 h120
 tiota
 n40 0
-V1960
+V1280
 H168
 C*k
 h216
@@ -12054,7 +12218,7 @@ tu03BA
 h120
 tkappa
 n40 0
-V2000
+V1320
 H168
 C*l
 h216
@@ -12066,7 +12230,7 @@ tu03BB
 h120
 tlambda
 n40 0
-V2040
+V1360
 H168
 C*m
 h216
@@ -12078,7 +12242,7 @@ tu03BC
 h120
 tmu
 n40 0
-V2080
+V1400
 H168
 C*n
 h216
@@ -12090,7 +12254,7 @@ tu03BD
 h120
 tnu
 n40 0
-V2120
+V1440
 H168
 C*c
 h216
@@ -12102,7 +12266,7 @@ tu03BE
 h120
 txi
 n40 0
-V2160
+V1480
 H168
 C*o
 h216
@@ -12114,7 +12278,7 @@ tu03BF
 h120
 tomicron
 n40 0
-V2200
+V1520
 H168
 C*p
 h216
@@ -12126,7 +12290,7 @@ tu03C0
 h120
 tpi
 n40 0
-V2240
+V1560
 H168
 C*r
 h216
@@ -12138,7 +12302,7 @@ tu03C1
 h120
 trho
 n40 0
-V2280
+V1600
 H168
 Cts
 h216
@@ -12152,7 +12316,7 @@ tterminal
 wh24
 tsigma
 n40 0
-V2320
+V1640
 H168
 C*s
 h216
@@ -12164,7 +12328,7 @@ tu03C3
 h120
 tsigma
 n40 0
-V2360
+V1680
 H168
 C*t
 h216
@@ -12176,7 +12340,7 @@ tu03C4
 h120
 ttau
 n40 0
-V2400
+V1720
 H168
 C*u
 h216
@@ -12188,7 +12352,7 @@ tu03C5
 h120
 tupsilon
 n40 0
-V2440
+V1760
 H168
 C*f
 h216
@@ -12204,7 +12368,7 @@ toked
 wh24
 tglyph)
 n40 0
-V2480
+V1800
 H168
 C*x
 h216
@@ -12216,7 +12380,7 @@ tu03C7
 h120
 tchi
 n40 0
-V2520
+V1840
 H168
 C*q
 h216
@@ -12228,7 +12392,7 @@ tu03C8
 h120
 tpsi
 n40 0
-V2560
+V1880
 H168
 C*w
 h216
@@ -12240,7 +12404,7 @@ tu03C9
 h120
 tomega
 n40 0
-V2600
+V1920
 H168
 C+h
 h216
@@ -12254,12 +12418,7 @@ tvariant
 wh24
 ttheta
 n40 0
-V2640
-p12
-x font 1 R
-f1
-s10
-V40
+V1960
 H168
 C+f
 h216
@@ -12277,7 +12436,7 @@ t(curly
 wh24
 tshape)
 n40 0
-V80
+V2000
 H168
 C+p
 h216
@@ -12297,7 +12456,7 @@ tlike
 wh24
 tomega
 n40 0
-V120
+V2040
 H168
 C+e
 h216
@@ -12313,7 +12472,7 @@ tepsilon
 n40 0
 x font 2 I
 f2
-V200
+V2120
 H168
 tCard
 wh24
@@ -12321,7 +12480,7 @@ tsymbols
 n40 0
 x F -
 f1
-V280
+V2200
 H168
 tOutput
 h72
@@ -12333,11 +12492,11 @@ tUnicode
 h72
 tNotes
 n40 0
-V320
+V2240
 H168
-Dl 4632 0
+Dl 2232 0
 n40 0
-V360
+V2280
 H168
 CCL
 h216
@@ -12353,7 +12512,7 @@ tclub
 wh24
 tsuit
 n40 0
-V400
+V2320
 H168
 CSP
 h216
@@ -12369,7 +12528,7 @@ tspade
 wh24
 tsuit
 n40 0
-V440
+V2360
 H168
 CHE
 h216
@@ -12385,7 +12544,7 @@ theart
 wh24
 tsuit
 n40 0
-V480
+V2400
 H168
 Cu2661
 h216
@@ -12401,7 +12560,7 @@ theart
 wh24
 tsuit
 n40 0
-V520
+V2440
 H168
 CDI
 h216
@@ -12417,7 +12576,7 @@ tdiamond
 wh24
 tsuit
 n40 0
-V560
+V2480
 H168
 Cu2662
 h216
@@ -12433,28 +12592,28 @@ tdiamond
 wh24
 tsuit
 n40 0
-V640
+V2560
 H0
 x X devtag:.NH 1
 x font 3 B
 f3
-V640
+V2560
 H0
 tSEE
 wh24
 tALSO
 wh24
 x X devtag:.eo.h
-V640
+V2560
 H216
 n40 0
-V680
+V2600
 H168
 tgroff
 f1
 t(1)
 n40 0
-V720
+V2640
 H336
 tthe
 wh24
@@ -12464,14 +12623,19 @@ troff
 wh24
 tformatter
 n40 0
+V2680
+p13
+x font 3 B
 f3
-V800
+s10
+V40
 H168
 tgroff
+x font 1 R
 f1
 t(7)
 n40 0
-V840
+V80
 H336
 ta
 wh24
@@ -12489,8 +12653,9 @@ tformatting
 wh24
 tlanguage
 n40 0
+x font 2 I
 f2
-V920
+V160
 H168
 tAn
 wh24
@@ -12523,7 +12688,9 @@ wh24
 tJ.
 wh24
 tAkkerhuis;
-wh24
+n40 0
+V200
+H168
 tEUUG
 wh24
 tNewsletter,
@@ -12540,7 +12707,7 @@ tSummer
 wh24
 t1989
 n40 0
-V1000
+V280
 H168
 tThe
 wh24
@@ -12554,20 +12721,20 @@ thttp://www.unicode.org
 Cra
 h24
 n40 0
-V1080
+V360
 H0
 x X devtag:.NH 1
 f3
-V1080
+V360
 H0
 tCOPYING
 wh24
 x X devtag:.eo.h
-V1080
+V360
 H192
 n40 0
 f1
-V1120
+V400
 H168
 tCopyright
 wh24
@@ -12586,7 +12753,7 @@ tFoundation,
 wh24
 tInc.
 n40 0
-V1200
+V480
 H168
 tThis
 wh24
@@ -12616,7 +12783,7 @@ tsoftware
 wh24
 tproject.
 n40 0
-V1280
+V560
 H168
 tYou
 wh24
@@ -12651,7 +12818,9 @@ wh24
 tLicense
 wh24
 tas
-wh24
+n40 0
+V600
+H168
 tpublished
 wh24
 tby
@@ -12669,37 +12838,37 @@ wh24
 tversion
 wh24
 t2
-wh24
+wh48
 tof
-wh24
+wh48
 tthe
-wh24
+wh48
 tLicense,
-wh24
+wh48
 tor
-wh24
+wh48
 t(at
-wh24
+wh48
 tyour
-wh24
+n40 0
+V640
+H168
 toption)
 wh24
 tany
-n40 0
-V1320
-H168
+wh24
 tlater
 wh24
 tversion.
 n40 0
-V1400
+V720
 H168
 tYou
-wh24
+wh48
 tshould
-wh24
+wh48
 thave
-wh24
+wh48
 treceived
 wh24
 ta
@@ -12725,7 +12894,9 @@ wh24
 tthis
 wh24
 tprogram.
-wh48
+n40 0
+V760
+H168
 tIf
 wh24
 tnot,
@@ -12744,25 +12915,25 @@ Cra
 h24
 t.
 n40 0
-V1480
+V840
 H0
 x X devtag:.NH 1
 f3
-V1480
+V840
 H0
 tAUTHORS
 wh24
 x X devtag:.eo.h
-V1480
+V840
 H192
 n40 0
 f1
-V1520
+V880
 H168
 tThis
-wh48
+wh24
 tdocument
-wh48
+wh24
 twas
 wh24
 twritten
@@ -12781,20 +12952,22 @@ wh48
 twith
 wh24
 tadditions
-wh24
+wh48
 tby
-wh24
+wh48
 tWerner
-wh24
+wh48
 tLemberg
-wh24
+n40 0
+V920
+H168
 Cla
 h24
 twl@gnu.org
 Cra
-wh48
+wh72
 tand
-wh24
+wh48
 tBernd
 wh24
 tWarken
@@ -12821,13 +12994,13 @@ wh24
 trevised
 wh24
 tto
-wh24
+n40 0
+V960
+H168
 tuse
 wh24
 treal
-n40 0
-V1560
-H168
+wh24
 ttables
 wh24
 tby
@@ -12845,18 +13018,18 @@ Cra
 h24
 t.
 n40 0
-V1720
+V1120
 H0
 t1.22.3
-h2088
+h888
 t4
 wh24
 tNovember
 wh24
 t2014
-h1896
+h696
 tGROFF_CHAR(7)
 n40 0
 x trailer
-V1720
+V1120
 x stop

@@ -1,8 +1,14 @@
 #!/usr/local/bin/node --es_staging
 "use strict";
 
+const TextGrid = require("./lib/text-grid.js");
+let t = new TextGrid();
+t.write("Lorem ipsum dolor sit amet");
+console.log(t.toString());
+process.exit(0);
+
 const fs = require("fs");
-const input = fs.readFileSync("./fixtures/man.ditroff").toString();
+const input = fs.readFileSync("./fixtures/tbl.ditroff").toString();
 
 const {tokenise, ttyToHTML} = require("./lib/tokeniser.js");
 const html = ttyToHTML(tokenise(input));
