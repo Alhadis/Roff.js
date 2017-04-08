@@ -2,8 +2,9 @@
 "use strict";
 
 const TextGrid = require("./lib/text-grid.js");
-let t = new TextGrid();
-t.write("Lorem ipsum dolor sit amet");
+let t = new TextGrid()
+	.write("Lorem ipsum ")
+	.write("dolor sit amet");
 console.log(t.toString());
 process.exit(0);
 
