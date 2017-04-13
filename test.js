@@ -9,6 +9,22 @@ const start = Date.now();
 const output = parseTTY(input);
 const end = Date.now();
 
-console.log(output);
+if(process.stdout.isTTY)
+	console.log(htmlToTTY(output));
+else
+	console.log(output);
 
-console.log(`Time: ${end - start}ms`);
+console.warn(`Time: ${end - start}ms`);
+
+function htmlToTTY(input){
+	return input
+		.replace(/^\n+/,   "")
+		.replace(/<b>/g,   "\x1B[1m")
+		.replace(/<u>/g,   "\x1B[4m")
+		.replace(/<\/b>/g, "\x1B[22m")
+		.replace(/<\/u>/g, "\x1B[24m")
+		.replace(/&lt;/g,  "<")
+		.replace(/&gt;/g,  ">")
+		.replace(/&amp;/g, "&")
+		.replace(/&#(\d+);/g, (_,c) => String.fromCharCode(c));
+}
