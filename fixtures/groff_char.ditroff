@@ -83,6 +83,7 @@ wh24
 tnames
 wh24
 tand
+md
 wh24
 tthe
 wh24
@@ -5265,10 +5266,12 @@ H168
 tLigatures
 wh24
 tand
+x u 1
 wh24
 tOther
 wh24
 tLatin
+x u 0
 wh24
 tGlyphs
 n40 0
