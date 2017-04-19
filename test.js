@@ -27,6 +27,7 @@ function htmlToTTY(input){
 		.replace(/<u data-sgr="(\d+)"[^>]+>/g,    "\x1B[4;38;5;$1m")
 		.replace(/<span data-sgr="(\d+)"[^>]+>/g, "\x1B[38;5;$1m")
 		.replace(/<\/span>/g, "\x1B[39m")
+		.replace(/<a[^>]+>|<\/a>/g, "")
 		.replace(/&lt;/g,  "<")
 		.replace(/&gt;/g,  ">")
 		.replace(/&amp;/g, "&")
