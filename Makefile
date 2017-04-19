@@ -15,7 +15,7 @@ css := '\
 	}'
 
 preview-tty.html: $(wildcard lib/*.js)
-	@rm -f $@; \
+	@\
 	printf %s '<!DOCTYPE html>' > $@; \
 	printf %s '<html lang="en"><head>'  >> $@; \
 	printf %s '<meta charset="UTF-8"/>' >> $@; \

@@ -63,7 +63,6 @@ V360
 H168
 tThis
 wh48
-mr65536 0 0
 tmanual
 wh24
 tpage
@@ -5266,12 +5265,10 @@ H168
 tLigatures
 wh24
 tand
-x u 1
 wh24
 tOther
 wh24
 tLatin
-x u 0
 wh24
 tGlyphs
 n40 0
