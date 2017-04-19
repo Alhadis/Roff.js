@@ -10,14 +10,14 @@ css := '\
 		text-decoration: none\
 	}\
 	pre{\
-		font: 10px Menloco, Monaco, Menlo, sans-serif;\
+		font: 10px Menloco, Monaco, Menlo, monospace;\
 		font-variant-ligatures: none\
 	}'
 
 preview-tty.html: $(wildcard lib/*.js)
 	@rm -f $@; \
 	printf %s '<!DOCTYPE html>' > $@; \
-	printf %s '<html><head>'   >> $@; \
+	printf %s '<html lang="en"><head>'  >> $@; \
 	printf %s '<meta charset="UTF-8"/>' >> $@; \
 	printf %s '<title>Preview</title>'  >> $@; \
 	printf %s '<style>'$(css)'</style>' >> $@; \
