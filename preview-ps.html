@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="initial-scale=1, minimum-scale=1" />
+<title>Preview</title>
+<style>
+canvas{
+	position: fixed;
+	top:  0;
+	left: 0;
+	width: 100vw;
+}
+</style>
+</head>
+
+
+<body>
+	
+	<canvas></canvas>
+	
+	<script>
+		"use strict";
+		const {devicePixelRatio} = window;
+		const [canvas] = document.getElementsByTagName("canvas");
+		canvas.width   = window.innerWidth * devicePixelRatio;
+		canvas.height  = window.innerHeight * devicePixelRatio;
+		
+		const context  = canvas.getContext("2d");
+		const fs       = require("fs");
+		const text     = fs.readFileSync("fixtures/tbl.ditroff", "utf8");
+		console.log(context);
+		require("./lib/render-ps.js")(context, text);
+	</script>
+	
+</body>
+</html>
