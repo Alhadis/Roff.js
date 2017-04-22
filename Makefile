@@ -1,4 +1,4 @@
-all: $(addprefix fixtures/perlre.,ditroff pdf ps) preview-tty.html
+all: $(addprefix fixtures/perlre.,out pdf ps) preview-tty.html
 
 css := '\
 	html{\
@@ -14,7 +14,7 @@ css := '\
 		font-variant-ligatures: none\
 	}'
 
-preview-tty.html: fixtures/groff_char.ditroff $(wildcard lib/*.js)
+preview-tty.html: fixtures/groff_char.out $(wildcard lib/*.js)
 	@\
 	printf %s '<!DOCTYPE html>' > $@; \
 	printf %s '<html lang="en"><head>'  >> $@; \
@@ -31,6 +31,6 @@ clean:
 	@rm -f $(wildcard fixtures/*.ps)
 .PHONY: clean
 
-fixtures/%.ditroff:; grog --run -Tps -Z $$(man -w $*) > $@
-fixtures/%.pdf:;     grog --run -Tpdf   $$(man -w $*) > $@
-fixtures/%.ps:;      grog --run -Tps    $$(man -w $*) > $@
+fixtures/%.out:; grog --run -Tps -Z $$(man -w $*) > $@
+fixtures/%.pdf:; grog --run -Tpdf   $$(man -w $*) > $@
+fixtures/%.ps:;  grog --run -Tps    $$(man -w $*) > $@
