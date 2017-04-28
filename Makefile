@@ -25,6 +25,10 @@ preview-tty.html: fixtures/groff_char.out $(wildcard lib/*.js)
 	./test-tty.js >> $@; \
 	echo '</pre></body></html>' >> $@;
 
+fixtures/circles-%.out: fixtures/circles-%.pic
+	@pic < $^ | groff -Z > $@; \
+	grops < $@ > fixtures/circles-$*.ps
+
 clean:
 	@rm -f preview-tty.html
 	@rm -f $(wildcard fixtures/*.pdf)

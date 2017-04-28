@@ -1,0 +1,55 @@
+x T ps
+x res 72000 1 1
+x init
+x F -
+p1
+x font 5 TR
+f5
+s10000
+V12000
+H72000
+md
+DFd
+tBe
+H82960
+tgin
+n12000 0
+V24000
+H450000
+n12000 0
+V24000
+H72000
+Dt -1000 0
+h1000
+n12000 0
+V330000
+H72000
+t1_Before
+DC 36000
+t1_After
+n12000 0
+V186000
+H216000
+t2_Before
+De 136000 26000
+t2_After
+n12000 0
+V42000
+H360000
+t3_Before
+Dc 36000
+t3_After
+n12000 0
+V60000
+H450000
+Df 100 0
+tPre-end
+DP 0 -36000 -54000 0 0 36000
+tEnd
+n12000 0
+V360000
+H72000
+n12000 0
+x trailer
+V792000
+x stop
