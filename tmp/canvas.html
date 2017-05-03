@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="initial-scale=1, minimum-scale=1" />
+<title></title>
+
+<style>
+*{
+	tab-size: 4;
+	box-sizing: border-box;
+}
+	:focus{outline: none}
+
+canvas{
+	outline: 1px solid red;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(.5);
+	
+	background: 100px 100px url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMTAwcHgiIGhlaWdodD0iMTAwcHgiIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48c3R5bGU+cGF0aHtvcGFjaXR5Oi4yNTtmaWxsOm5vbmU7c3Ryb2tlOiMwMDA7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fWxpbmV7b3BhY2l0eTouMTtmaWxsOm5vbmU7c3Ryb2tlOiMxODE4MTY7c3Ryb2tlLXdpZHRoOi41O3N0cm9rZS1taXRlcmxpbWl0OjEwO308L3N0eWxlPjxwYXRoIGlkPSJFeHRlbnRzIiBjbGFzcz0ic3QwIiBkPSJNOTkuNSwwdjk5LjVIMCIvPjxsaW5lIGlkPSJYMSIgeDE9IjEwIiB5MT0iMCIgeDI9IjEwIiB5Mj0iOTkiLz48bGluZSBpZD0iWDIiIHgxPSIyMCIgeTE9IjAiIHgyPSIyMCIgeTI9Ijk5Ii8+PGxpbmUgaWQ9IlgzIiB4MT0iMzAiIHkxPSIwIiB4Mj0iMzAiIHkyPSI5OSIvPjxsaW5lIGlkPSJYNCIgeDE9IjQwIiB5MT0iMCIgeDI9IjQwIiB5Mj0iOTkiLz48bGluZSBpZD0iWDUiIHgxPSI1MCIgeTE9IjAiIHgyPSI1MCIgeTI9Ijk5Ii8+PGxpbmUgaWQ9Ilg2IiB4MT0iNjAiIHkxPSIwIiB4Mj0iNjAiIHkyPSI5OSIvPjxsaW5lIGlkPSJYNyIgeDE9IjcwIiB5MT0iMCIgeDI9IjcwIiB5Mj0iOTkiLz48bGluZSBpZD0iWDgiIHgxPSI4MCIgeTE9IjAiIHgyPSI4MCIgeTI9Ijk5Ii8+PGxpbmUgaWQ9Ilg5IiB4MT0iOTAiIHkxPSIwIiB4Mj0iOTAiIHkyPSI5OSIvPjxsaW5lIGlkPSJZMSIgeDE9Ijk5IiB5MT0iOS41IiAgeDI9IjAiIHkyPSI5LjUiLz48bGluZSBpZD0iWTIiIHgxPSI5OSIgeTE9IjE5LjUiIHgyPSIwIiB5Mj0iMTkuNSIvPjxsaW5lIGlkPSJZMyIgeDE9Ijk5IiB5MT0iMjkuNSIgeDI9IjAiIHkyPSIyOS41Ii8+PGxpbmUgaWQ9Ilk0IiB4MT0iOTkiIHkxPSIzOS41IiB4Mj0iMCIgeTI9IjM5LjUiLz48bGluZSBpZD0iWTUiIHgxPSI5OSIgeTE9IjQ5LjUiIHgyPSIwIiB5Mj0iNDkuNSIvPjxsaW5lIGlkPSJZNiIgeDE9Ijk5IiB5MT0iNTkuNSIgeDI9IjAiIHkyPSI1OS41Ii8+PGxpbmUgaWQ9Ilk3IiB4MT0iOTkiIHkxPSI2OS41IiB4Mj0iMCIgeTI9IjY5LjUiLz48bGluZSBpZD0iWTgiIHgxPSI5OSIgeTE9Ijc5LjUiIHgyPSIwIiB5Mj0iNzkuNSIvPjxsaW5lIGlkPSJZOSIgeDE9Ijk5IiB5MT0iODkuNSIgeDI9IjAiIHkyPSI4OS41Ii8+PC9zdmc+");
+}
+</style>
+</head>
+
+
+<body>
+	
+	<canvas width="1000" height="1000"></canvas>
+	
+	<script src="/Users/johngardner/Labs/Utils/lib/math.js"></script>
+	<script>
+		"use strict";
+		function circle(X, Y){
+			c.beginPath();
+			c.moveTo(x, y);
+			c.lineTo(X, Y);
+			c.stroke();
+			
+			c.beginPath();
+			c.ellipse(X, Y, 10, 10, 0, 0, 2 * Math.PI);
+			c.stroke();
+		}
+		const canvas = document.body.firstElementChild;
+		const c = canvas.getContext("2d");
+		c.lineWidth = 1;
+		console.log(c);
+		
+		let x          = 500;
+		let y          = 500;
+		let radiusX    = 450;
+		let radiusY    = 450;
+		let rotation   = 0;
+		let startAngle = 0;
+		let endAngle   = 2 * Math.PI;
+		
+		circle(675, 85);
+		// circle(950, 500);
+		circle(875, 750);
+		
+		c.beginPath();
+		c.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle);
+		c.stroke();
+		c.closePath();
+		//==================================================================
+		c.beginPath();
+		c.lineWidth = 5;
+		
+		const start = [875, 750];
+		const end   = [675, 85];
+		startAngle  = Math.atan2(start[1] - y, start[0] - x);
+		endAngle    = Math.atan2(end[1] - y,   end[0] - x);
+		c.arc(x, y, radiusX, startAngle, endAngle);
+		c.stroke();
+	</script>
+</body>
+</html>

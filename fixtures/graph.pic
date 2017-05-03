@@ -1,0 +1,59 @@
+.PS
+define filter {box ht 0.25 rad 0.125}
+lineht = 0.25;
+Top: [
+	right;
+	box "\fBms\fR" "sources";
+	move;
+	box "\fBHTML\fR" "sources";
+	move;
+	box "\fBlinuxdoc-sgml\fP" "sources" wid 1.5;
+	move;
+	box "\fBTexinfo\fP" "sources";
+	line down from 1st box .s lineht;
+	A: line down;
+	line down from 2nd box .s; filter "\fBhtml2ms";
+	B: line down;
+	line down from 3rd box .s; filter "\fBformat\fP";
+	C: line down;
+	line down from 4th box .s; filter "\fBtexi2roff\fP";
+	D: line down;
+]
+move down 1 from last [] .s;
+Anchor: box wid 1 ht 0.75 "\fBms\fR" "intermediate" "form";
+arrow from Top.A.end to Anchor.nw;
+arrow from Top.B.end to 1/3 of the way between Anchor.nw and Anchor.ne;
+arrow from Top.C.end to 2/3 of the way between Anchor.nw and Anchor.ne;
+arrow from Top.D.end to Anchor.ne
+{
+	# PostScript column
+	move to Anchor .sw;
+	line down left then down ->;
+	filter "\fBpic\fP";
+	arrow;
+	filter "\fBeqn\fP";
+	arrow;
+	filter "\fBtbl\fP";
+	arrow;
+	filter "\fBgroff\fP";
+	arrow;
+	box "PostScript";
+	# HTML column
+	move to Anchor .se;
+	line down right then down ->;
+	A: filter dotted "\fBpic2img\fP";
+	arrow;
+	B: filter dotted "\fBeqn2html\fP";
+	arrow;
+	C: filter dotted "\fBtbl2html\fP";
+	arrow;
+	filter "\fBms2html\fP";
+	arrow;
+	box "HTML";
+	# Nonexistence caption
+	box dashed wid 1 at B + (2, 0) "These tools" "don't yet exist";
+	line chop 0 chop 0.1 dashed from last box .nw to A.e ->;
+	line chop 0 chop 0.1 dashed from last box .w  to B.e ->;
+	line chop 0 chop 0.1 dashed from last box .sw to C.e ->;
+}
+.PE

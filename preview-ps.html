@@ -28,7 +28,7 @@ canvas{
 		
 		const context  = canvas.getContext("2d");
 		const fs       = require("fs");
-		const text     = fs.readFileSync("fixtures/circles-2.out", "utf8");
+		const text     = fs.readFileSync("fixtures/arcs.out", "utf8");
 		console.log(context);
 		require("./lib/render-ps.js")(context, text);
 	</script>
