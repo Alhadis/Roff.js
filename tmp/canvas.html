@@ -33,46 +33,42 @@ canvas{
 	<script src="/Users/johngardner/Labs/Utils/lib/math.js"></script>
 	<script>
 		"use strict";
-		function circle(X, Y){
-			c.beginPath();
-			c.moveTo(x, y);
-			c.lineTo(X, Y);
-			c.stroke();
-			
-			c.beginPath();
-			c.ellipse(X, Y, 10, 10, 0, 0, 2 * Math.PI);
-			c.stroke();
-		}
 		const canvas = document.body.firstElementChild;
 		const c = canvas.getContext("2d");
-		c.lineWidth = 1;
 		console.log(c);
 		
-		let x          = 500;
-		let y          = 500;
-		let radiusX    = 450;
-		let radiusY    = 450;
-		let rotation   = 0;
-		let startAngle = 0;
-		let endAngle   = 2 * Math.PI;
+		let x = 100;
+		let y = 900;
 		
-		circle(675, 85);
-		// circle(950, 500);
-		circle(875, 750);
+		c.lineWidth = 4;
+		const p = [360, 0, 0, -360, -360, 0, 0, 352.8];
 		
 		c.beginPath();
-		c.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle);
-		c.stroke();
-		c.closePath();
-		//==================================================================
-		c.beginPath();
-		c.lineWidth = 5;
-		
-		const start = [875, 750];
-		const end   = [675, 85];
-		startAngle  = Math.atan2(start[1] - y, start[0] - x);
-		endAngle    = Math.atan2(end[1] - y,   end[0] - x);
-		c.arc(x, y, radiusX, startAngle, endAngle);
+		c.moveTo(x, y);
+		c.lineTo(
+			x += p[0] / 2,
+			y += p[1] / 2
+		);
+		const tNum = 2;
+		const tDen = 3;
+		const numPoints = p.length - 2;
+		for(let i = 0; i < numPoints; i += 2){
+			const nX = (p[i]   - p[i]   / 2) + p[i+2] / 2;
+			const nY = (p[i+1] - p[i+1] / 2) + p[i+3] / 2;
+			c.bezierCurveTo(
+				x + ((p[i]   * tNum) / (2 * tDen)),
+				y + ((p[i+1] * tNum) / (2 * tDen)),
+				x + (p[i]   / 2 + (p[i+2] * (tDen - tNum)) / (2 * tDen)),
+				y + (p[i+1] / 2 + (p[i+3] * (tDen - tNum)) / (2 * tDen)),
+				x + nX,
+				y + nY
+			);
+			x += nX;
+			y += nY;
+		}
+		x += p[numPoints]     - p[numPoints]     / 2;
+		y += p[numPoints + 1] - p[numPoints + 1] / 2;
+		c.lineTo(x, y);
 		c.stroke();
 	</script>
 </body>
