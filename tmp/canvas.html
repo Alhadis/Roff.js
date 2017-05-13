@@ -13,6 +13,13 @@
 }
 	:focus{outline: none}
 
+#a{
+	background: #000;
+	width: 100px;
+	height: 100px;
+	transform: skewX(-58deg);
+}
+
 canvas{
 	outline: 1px solid red;
 	position: fixed;
@@ -29,6 +36,7 @@ canvas{
 <body>
 	
 	<canvas width="1000" height="1000"></canvas>
+	<div id="a"></div>
 	
 	<script src="/Users/johngardner/Labs/Utils/lib/math.js"></script>
 	<script>
@@ -37,39 +45,20 @@ canvas{
 		const c = canvas.getContext("2d");
 		console.log(c);
 		
-		let x = 100;
-		let y = 900;
+		const a = document.getElementById("a");
+		console.log(window.getComputedStyle(a).transform);
 		
-		c.lineWidth = 4;
-		const p = [360, 0, 0, -360, -360, 0, 0, 352.8];
-		
-		c.beginPath();
-		c.moveTo(x, y);
-		c.lineTo(
-			x += p[0] / 2,
-			y += p[1] / 2
-		);
-		const tNum = 2;
-		const tDen = 3;
-		const numPoints = p.length - 2;
-		for(let i = 0; i < numPoints; i += 2){
-			const nX = (p[i]   - p[i]   / 2) + p[i+2] / 2;
-			const nY = (p[i+1] - p[i+1] / 2) + p[i+3] / 2;
-			c.bezierCurveTo(
-				x + ((p[i]   * tNum) / (2 * tDen)),
-				y + ((p[i+1] * tNum) / (2 * tDen)),
-				x + (p[i]   / 2 + (p[i+2] * (tDen - tNum)) / (2 * tDen)),
-				y + (p[i+1] / 2 + (p[i+3] * (tDen - tNum)) / (2 * tDen)),
-				x + nX,
-				y + nY
-			);
-			x += nX;
-			y += nY;
+		function skew(context, x, y = 0){
+			const aX = Math.tan(x * Math.PI / 180);
+			const aY = Math.tan(y * Math.PI / 180);
+			context.transform(1, aY, aX, 1, 0, 0);
 		}
-		x += p[numPoints]     - p[numPoints]     / 2;
-		y += p[numPoints + 1] - p[numPoints + 1] / 2;
-		c.lineTo(x, y);
-		c.stroke();
+		
+		c.font = "128px serif";
+		c.translate(500, 500);
+		skew(c, -45);
+		c.translate(-500, -500);
+		c.fillText("XYZ", 360, 500);
 	</script>
 </body>
 </html>
