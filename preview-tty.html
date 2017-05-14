@@ -10,10 +10,10 @@ GROFF_CHAR(7)                     Miscellaneous Information Manual              
        This  manual page lists the standard <b>groff</b> glyph names and the default input mapping, latin1.
        The glyphs in this document look different depending on which output device was chosen  (with
        option <b>-T</b> for the <a href="man://man/1"><b>man</b>(1)</a> program or the roff formatter).  Glyphs not available for the device
-       that is being used to print or view this manual page are marked with ‘(N/A)’; the device cur‐
+       that is being used to print or view this manual page are marked with ‘(N/A)’; the device cur-
        rently used is ‘utf8’.
 
-       In  the actual version, <b>groff</b> provides only 8-bit characters for direct input and named enti‐
+       In  the actual version, <b>groff</b> provides only 8-bit characters for direct input and named enti-
        ties for further glyphs.  On ASCII platforms, input character codes in the  range  0  to  127
        (decimal)  represent  the  usual  7-bit ASCII characters, while codes between 127 and 255 are
        interpreted as the corresponding characters in the <u>latin1</u> (<u>ISO-8859-1</u>) code set  by  default.
@@ -29,14 +29,14 @@ GROFF_CHAR(7)                     Miscellaneous Information Manual              
        of the printable 7-bit ASCII range.
 
        Some of the predefined groff escape sequences (with names of length 1)  also  produce  single
-       glyphs;  these  exist for historical reasons or are printable versions of syntactical charac‐
+       glyphs;  these  exist for historical reasons or are printable versions of syntactical charac-
        ters.  They include ‘\\’, ‘\´’, ‘\`’, ‘\-’, ‘\.’, and ‘\e’; see <a href="man://groff/7"><b>groff</b>(7)</a>.
 
        In groff, all of these different types of characters and glyphs can be tested positively with
        the ‘.if c’ conditional.
 
 <b>REFERENCE</b>
-       In  this section, the glyphs in groff are specified in tabular form.  The meaning of the col‐
+       In  this section, the glyphs in groff are specified in tabular form.  The meaning of the col-
        umns is as follows.
 
        <u>Output</u> shows how the glyph is printed for the current device; although this can have quite  a
@@ -54,7 +54,7 @@ GROFF_CHAR(7)                     Miscellaneous Information Manual              
 
        <u>Unicode</u>
               is the glyph name used in composite glyph names.  The names in the Unicode column look
-              like  <b>u0021</b> or <b>u0041_0300</b>.  In groff, the corresponding Unicode characters can be con‐
+              like  <b>u0021</b> or <b>u0041_0300</b>.  In groff, the corresponding Unicode characters can be con-
               structed by adding a backslash and a pair of square brackets, for example <b>\[u0021]</b>  or
               <b>\[u0041_0300]</b>.
 
@@ -88,7 +88,7 @@ GROFF_CHAR(7)                     Miscellaneous Information Manual              
        <b>~</b>      the  ISO  latin1  ‘Tilde’ (code 126) is reduced in size to be usable as a diacritic; a
               larger glyph can be obtained with ‘\(ti’.
 
-       <b>^</b>      the ISO latin1 ‘Circumflex Accent’ (code 94) is reduced in size to be usable as a dia‐
+       <b>^</b>      the ISO latin1 ‘Circumflex Accent’ (code 94) is reduced in size to be usable as a dia-
               critic; a larger glyph can be obtained with ‘\(ha’.
 
        Output   Input   Code   PostScript     Unicode   Notes
@@ -241,8 +241,8 @@ GROFF_CHAR(7)                     Miscellaneous Information Manual              
 
    <b>Named Glyphs</b>
        Glyph  names  can  be  embedded  into  the document text by using escape sequences.  <a href="man://groff/7"><b>groff</b>(7)</a>
-       describes how these escape sequences look.  Glyph names can consist of quite arbitrary  char‐
-       acters  from the ASCII or latin1 code set, not only alphanumeric characters.  Here some exam‐
+       describes how these escape sequences look.  Glyph names can consist of quite arbitrary  char-
+       acters  from the ASCII or latin1 code set, not only alphanumeric characters.  Here some exam-
        ples:
 
        \(<u>ch</u>   A glyph having the 2-character name <u>ch</u>.
@@ -260,7 +260,7 @@ GROFF_CHAR(7)                     Miscellaneous Information Manual              
        is the decimal code of the character, a number between 0 and 255 without leading zeros (those
        entities are <u>not</u> glyph names).  They are normally mapped onto glyphs using the .trin request.
 
-       Another  special convention is the handling of glyphs with names directly derived from a Uni‐
+       Another  special convention is the handling of glyphs with names directly derived from a Uni-
        code code point; this is shown in the ‘Unicode’ column of the table below.  In  general,  all
        glyphs  not  having  a name as listed in this manual page can be accessed with the ‘\[u<u>XXXX</u>]’
        construct; please go to section ‘Using Symbols’ in the groff info manual for more details.
@@ -270,7 +270,7 @@ GROFF_CHAR(7)                     Miscellaneous Information Manual              
        In the following, a plus sign in the ‘Notes’ column indicates that this particular glyph name
        appears in the PS version of the original troff documentation, CSTR 54.
 
-       Entries  marked  with ‘***’ denote glyphs for mathematical purposes (mainly used for DVI out‐
+       Entries  marked  with ‘***’ denote glyphs for mathematical purposes (mainly used for DVI out-
        put).  Normally, such glyphs have metrics which make them unusable in normal text.
 
        Output   Input   PostScript   Unicode   Notes
@@ -371,7 +371,7 @@ GROFF_CHAR(7)                     Miscellaneous Information Manual              
 
        <u>Accents</u>
 
-       The <b>composite</b> request is used to map most of the accents to non-spacing glyph names; the val‐
+       The <b>composite</b> request is used to map most of the accents to non-spacing glyph names; the val-
        ues given in parentheses are the original (spacing) ones.
 
        Output   Input   PostScript     Unicode         Notes
@@ -389,7 +389,7 @@ GROFF_CHAR(7)                     Miscellaneous Information Manual              
        ˚        \[ao]   ring           u030A (u02DA)   small circle, ring accent
        ~        \[a~]   tilde          u0303 (u007E)   tilde accent
        ˛        \[ho]   ogonek         u0328 (u02DB)   hook accent
-       ^        \[ha]   asciicircum    u005E           high circumflex, ASCII character, in mathe‐
+       ^        \[ha]   asciicircum    u005E           high circumflex, ASCII character, in mathe-
                                                        matics the power sign
        ~        \[ti]   asciitilde     u007E           tilde in vertical middle, ASCII, in Unix-like
                                                        the home directory
@@ -419,7 +419,7 @@ GROFF_CHAR(7)                     Miscellaneous Information Manual              
        ¿        \[r?]   questiondown   u00BF     inverted question mark
        —        \[em]   emdash         u2014     em-dash symbol
        –        \[en]   endash         u2013     en-dash symbol
-       ‐        \[hy]   hyphen         u2010     hyphen symbol
+       -        \[hy]   hyphen         u2010     hyphen symbol
 
        <u>Brackets</u>
 
@@ -428,7 +428,7 @@ GROFF_CHAR(7)                     Miscellaneous Information Manual              
        arbitrarily to u23AA.
 
        Note  that  not all devices contain extensible bracket pieces which can be piled up with ‘\b’
-       due to the restrictions of the escape's piling algorithm.  A general solution to build brack‐
+       due to the restrictions of the escape's piling algorithm.  A general solution to build brack-
        ets out of pieces is the following macro:
 
               .\" Make a pile centered vertically 0.5em
@@ -459,9 +459,9 @@ GROFF_CHAR(7)                     Miscellaneous Information Manual              
               .ec
 
        Another  complication is the fact that some glyphs which represent bracket pieces in original
-       troff can be used for other mathematical symbols also, for example ‘lf’ and ‘rf’  which  pro‐
+       troff can be used for other mathematical symbols also, for example ‘lf’ and ‘rf’  which  pro-
        vide  the  ‘floor’  operator.   Other  devices (most notably for DVI output) don't unify such
-       glyphs.  For this reason, the four glyphs ‘lf’, ‘rf’, lc’, and ‘rc’ are not unified with sim‐
+       glyphs.  For this reason, the four glyphs ‘lf’, ‘rf’, lc’, and ‘rc’ are not unified with sim-
        ilarly  looking bracket pieces.  In <b>groff</b>, only glyphs with long names are guaranteed to pile
        up correctly for all devices (provided those glyphs exist).
 
@@ -704,12 +704,12 @@ GROFF_CHAR(7)                     Miscellaneous Information Manual              
 
        <u>Greek</u> <u>glyphs</u>
 
-       These glyphs are intended for technical use, not for real Greek; normally, the uppercase let‐
+       These glyphs are intended for technical use, not for real Greek; normally, the uppercase let-
        ters  have  upright  shape,  and the lowercase ones are slanted.  There is a problem with the
        mapping of letter phi to Unicode.  Prior  to  Unicode  version 3.0,  the  difference  between
        U+03C6, GREEK SMALL LETTER PHI, and U+03D5, GREEK PHI SYMBOL, was not clearly described; only
-       the glyph shapes in the Unicode book could be  used  as  a  reference.   Starting  with  Uni‐
-       code 3.0, the reference glyphs have been exchanged and described verbally also: In mathemati‐
+       the glyph shapes in the Unicode book could be  used  as  a  reference.   Starting  with  Uni-
+       code 3.0, the reference glyphs have been exchanged and described verbally also: In mathemati-
        cal context, U+03D5 is the stroked variant and U+03C6 the curly glyph.   Unfortunately,  most
        font vendors didn't update their fonts to this (incompatible) change in Unicode.  At the time
        of this writing (January 2006), it is not clear yet whether the Adobe Glyph Names  ‘phi’  and
