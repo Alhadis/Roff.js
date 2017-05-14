@@ -3,7 +3,7 @@
 
 const parseTTY = require("./lib/render-tty.js");
 
-const input = require("fs").readFileSync(__dirname + "/fixtures/groff_char.out").toString();
+const input = require("fs").readFileSync(__dirname + "/fixtures/tty-box.out").toString();
 
 const start = Date.now();
 const output = parseTTY(input);

@@ -1,0 +1,65 @@
+x T utf8
+x res 240 24 40
+x init
+x F fixtures/tty-box.pic
+p1
+V40
+H0
+DFd
+H1896
+n40 0
+V40
+H0
+md
+s10
+Dt 0 0
+n40 0
+V160
+H720
+Dp 0 -120 -720 0 0 120
+n40 0
+x font 1 R
+f1
+V80
+H288
+tFirst
+n40 0
+V120
+H312
+tBox
+n40 0
+V80
+H720
+Dl 120 0
+n40 0
+V160
+H1800
+Dp 0 -120 -960 0 0 120
+n40 0
+V80
+H1248
+tSecond
+n40 0
+V120
+H1272
+tBox
+n40 0
+V80
+H1800
+Dl 0 120
+n40 0
+V320
+H1896
+Dp 0 -120 -168 0 0 120
+n40 0
+V280
+H1728
+tThird
+n40 0
+V320
+H1752
+tBox
+n40 0
+x trailer
+V2640
+x stop

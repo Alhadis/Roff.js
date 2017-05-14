@@ -46,3 +46,6 @@ preview-tty.html: fixtures/groff_char.out
 
 fixtures/groff_char.out:
 	grog --run -Tps -Z $$(man -w $*) > $@
+
+fixtures/tty-box.out: fixtures/tty-box.pic
+	@pic $^ | groff -Z -Tutf8 > $@
