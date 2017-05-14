@@ -1,9 +1,8 @@
 #!/usr/bin/env node --es_staging
 "use strict";
 
-const DeviceDriver = require("./lib/device-driver.js");
+const parseTTY = require("./lib/render-tty.js");
+const input = require("fs").readFileSync(__dirname + "/fixtures/text-2.out").toString();
 
-const PostScript = new DeviceDriver("/usr/local/share/groff/current/font/devps");
-const HTML       = new DeviceDriver("/usr/local/share/groff/current/font/devhtml");
-
-console.log(PostScript);
+const output = parseTTY(input).trim();
+console.log(output);

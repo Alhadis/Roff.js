@@ -1,0 +1,48 @@
+x T utf8
+x res 240 24 40
+x init
+p1
+x font 1 R
+f1
+s10
+V40
+H0
+m d
+DFd
+
+# Line 1
+tHello,
+wh24
+tworld.
+n40 0
+
+# Line 2
+V120
+H0
+u122Hello,
+wh24
+u48 world,
+wh36
+# H1296
+u29 world.
+n40 0
+
+# Line 3
+V200
+H0
+u24 Hello,
+wh24
+u24 world.
+n40 0
+
+# Line 4
+V280
+H0
+u48 Hello,
+wh24
+u128 world.
+n40 0
+
+x trailer
+V2640
+x stop
