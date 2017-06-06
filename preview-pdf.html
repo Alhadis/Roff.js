@@ -26,11 +26,12 @@ canvas{
 		canvas.width   = window.innerWidth * devicePixelRatio;
 		canvas.height  = window.innerHeight * devicePixelRatio;
 		
+		const source   = "x.out";
 		const context  = canvas.getContext("2d");
 		const fs       = require("fs");
-		const text     = fs.readFileSync("fixtures/text-1.out", "utf8");
-		console.log(context);
-		require("./lib/render-ps.js")(context, text);
+		const text     = fs.readFileSync(`fixtures/${source}`, "utf8");
+		document.title = `${source} (Preview)`;
+		require("./lib/render-pdf.js")(context, text);
 	</script>
 	
 </body>

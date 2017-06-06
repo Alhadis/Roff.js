@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="initial-scale=1, minimum-scale=1" />
+<title>Matrix Manipulation</title>
+
+<style>
+div{
+	font-size: 100px;
+	width:  1em;
+	height: 1em;
+	position: fixed;
+	top: calc(50% - 50px);
+}
+
+#a{
+	left: .5em;
+	background: #f00;
+	transform: rotate(90deg) rotate(45deg) skewX(58deg);
+}
+
+#b{
+	left: 2.5em;
+	background: #00f;
+	transform: scaleY(3);
+}
+</style>
+</head>
+
+
+<body>
+	
+	<div id="a"></div>
+	<div id="b"></div>
+	
+	<script>
+		"use strict";
+		
+		Object.defineProperty(HTMLElement.prototype, "transform", {
+			get(){
+				const style = window.getComputedStyle(this);
+				const xform = style.transform;
+				return xform.replace(/^matrix\(|,|\)$/g, "").split(/\s+/).map(Number);
+			},
+			set(tm){
+				this.style.transform = "matrix(" + tm.join(", ") + ")";
+			}
+		});
+		
+		function PtoR(θ, r){
+			return [r * Math.cos(θ), r * Math.sin(θ)];
+		}
+		
+		function RtoP(x, y){
+			return [Math.atan2(y, x), Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))];
+		}
+		
+		function resetAndRotate(matrix, θ){
+			let [a, b, c, d, e, f] = matrix;
+			θ = -(θ * Math.PI / 180);
+			
+			let curangle = θ + Math.atan2(f, e);
+			let r = Math.sqrt(Math.pow(e, 2) + Math.pow(f, 2));
+			e = r * Math.cos(curangle);
+			f = r * Math.sin(curangle);
+			
+			a =  Math.cos(θ);
+			b =  Math.sin(θ);
+			c = -Math.sin(θ);
+			d =  Math.cos(θ);
+			
+			return [a, b, c, d, e, f];
+		}
+		
+		function rotate(m, θ){
+			θ = -(θ * Math.PI / 180);
+			const a =  Math.cos(θ);
+			const b =  Math.sin(θ);
+			const c = -Math.sin(θ);
+			const d =  Math.cos(θ);
+			const A = (a * m[0]) + (b * m[2]);
+			const B = (a * m[1]) + (b * m[3]);
+			const C = (c * m[0]) + (d * m[2]);
+			const D = (c * m[1]) + (d * m[3]);
+			return [A, B, C, D, m[4], m[5]];
+		}
+		
+		const [a, b] = document.getElementsByTagName("div");
+		console.log(`A: ${a.transform.join(", ")}`);
+		console.log(`B: ${b.transform.join(", ")}`);
+		b.transform = rotate(b.transform, 45);
+		console.log(`B: ${b.transform.join(", ")}`);
+	</script>
+</body>
+</html>
