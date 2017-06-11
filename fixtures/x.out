@@ -104,7 +104,7 @@ mr 22937 0 39321
 x X pdf: markstart
 + 6830 -4170 2000
 + /Subtype /Link /Action << /Subtype /URI /URI (http://partners.adobe.com/public/developer/en/acrobat/sdk/pdf/pdf_creation_apis_and_specs/pdfmarkReference.pdf) >>
-+ /Border [0 0 10 [40 10]]
++ /Border [0 0 1 [20 10]]
 + /Color  [0.35 0.00 0.60]
 tpdfmark
 h2500
