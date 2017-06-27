@@ -1,10 +1,10 @@
 #!/usr/bin/env node --es_staging
 "use strict";
 
-const TTYCanvas = require("./lib/tty-canvas.js");
+const TextGrid = require("./lib/text-grid.js");
 let t;
 
-t = new TTYCanvas()
+t = new TextGrid()
 	.drawLine(20, 0)
 	.drawLine(20, 20)
 	.up()
@@ -23,7 +23,7 @@ t = new TTYCanvas()
 	.drawLine(-25, -25)
 console.log(t.toString());
 
-t = new TTYCanvas()
+t = new TextGrid()
 	.draw([
 		[20,  0],
 		[20,  20],

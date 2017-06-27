@@ -1,12 +1,11 @@
 #!/usr/local/bin/node --es_staging
 "use strict";
 
-const parseTTY = require("./lib/render-tty.js");
-
+const {tty} = require("./lib/index.js").devices;
 const input = require("fs").readFileSync(__dirname + "/fixtures/tty-box.out").toString();
 
 const start = Date.now();
-const output = parseTTY(input);
+const output = tty.parse(input);
 const end = Date.now();
 
 if(process.stdout.isTTY)

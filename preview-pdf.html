@@ -32,7 +32,7 @@ canvas{
 		const fs       = require("fs");
 		const text     = fs.readFileSync(`fixtures/${source}`, "utf8");
 		document.title = `${source} (Preview)`;
-		require("./lib/render-pdf.js")(context, text);
+		require("./lib/devices/canvas.js").parse(text, context);
 	</script>
 	
 </body>
