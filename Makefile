@@ -41,7 +41,7 @@ preview-tty.html: fixtures/groff_char.out
 	printf %s '<title>Preview</title>'  >> $@; \
 	printf %s '<style>'$(css)'</style>' >> $@; \
 	echo '</head><body><pre>'           >> $@; \
-	./lib/devices/tty/test-output.js $< >> $@; \
+	./bin/test-tty.js                $< >> $@; \
 	echo '</pre></body></html>'         >> $@;
 
 fixtures/groff_char.out:
