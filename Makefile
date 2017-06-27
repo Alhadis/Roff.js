@@ -40,9 +40,9 @@ preview-tty.html: fixtures/groff_char.out
 	printf %s '<meta charset="UTF-8"/>' >> $@; \
 	printf %s '<title>Preview</title>'  >> $@; \
 	printf %s '<style>'$(css)'</style>' >> $@; \
-	echo '</head><body><pre>' >> $@; \
-	./test-tty.js >> $@; \
-	echo '</pre></body></html>' >> $@;
+	echo '</head><body><pre>'           >> $@; \
+	./lib/devices/tty/test-output.js $< >> $@; \
+	echo '</pre></body></html>'         >> $@;
 
 fixtures/groff_char.out:
 	grog --run -Tps -Z $$(man -w $*) > $@

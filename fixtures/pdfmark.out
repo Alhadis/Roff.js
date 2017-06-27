@@ -7521,6 +7521,7 @@ H552755
 n12000 0
 V792000
 p6
+x X papersize=7c,5i
 x font 5 TR
 f5
 s10000
@@ -13237,6 +13238,7 @@ H552755
 n12000 0
 V792000
 p9
+x X papersize=7i,2i
 x font 5 TR
 f5
 s10000
@@ -15316,6 +15318,7 @@ H552755
 n12000 0
 V792000
 p10
+x X papersize=5i
 x font 5 TR
 f5
 s10000

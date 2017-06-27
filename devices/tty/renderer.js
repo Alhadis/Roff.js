@@ -1,20 +1,12 @@
 "use strict";
 
-const charnames = require("../charnames.js");
-const TextGrid  = require("../text-grid.js");
-const {tokenise, tokenTypes} = require("../tokeniser.js");
+const charnames = require("../../lib/charnames.js");
+const TextGrid  = require("../../lib/text-grid.js");
+const {tokenise, tokenTypes} = require("../../lib/tokeniser.js");
 const {toString} = String.prototype;
 
-module.exports = {
-	parse(text){
-		const tokens = tokenise(text);
-		return render(tokens);
-	},
-	render
-};
-
-
-function render(tokens){
+module.exports = function(tokens){
+	tokens         = tokenise(tokens);
 	const fonts    = ["", "", "", ""];
 	const res      = [240, 24, 40];
 	let output     = "";

@@ -6,33 +6,34 @@
 <title>Preview</title>
 <link rel="stylesheet" type="text/css" href="node_modules/urw-core35-fonts/index.css" />
 <style>
-canvas{
-	position: fixed;
-	top:  0;
-	left: 0;
-	width: 100vw;
+html{
+	background: #ccc;
 }
+.troff-canvas{
+	position: relative;
+	background: #fff;
+	box-shadow: 0 0 .25em #000;
+	margin: auto;
+}
+	.troff-canvas > canvas{
+		display: block;
+		width: 100%;
+	}
 </style>
 </head>
 
 
 <body>
 	
-	<canvas></canvas>
-	
 	<script>
 		"use strict";
-		const {devicePixelRatio} = window;
-		const [canvas] = document.getElementsByTagName("canvas");
-		canvas.width   = window.innerWidth * devicePixelRatio;
-		canvas.height  = window.innerHeight * devicePixelRatio;
-		
 		const source   = "x-link.out";
-		const context  = canvas.getContext("2d");
-		const fs       = require("fs");
-		const text     = fs.readFileSync(`fixtures/${source}`, "utf8");
+		const text     = require("fs").readFileSync(`fixtures/${source}`, "utf8");
 		document.title = `${source} (Preview)`;
-		require("./lib/devices/canvas.js").parse(text, context);
+		
+		const TroffViewer = require("./devices/canvas/viewer-element.js");
+		const viewer = new TroffViewer(document.body);
+		viewer.load(text);
 	</script>
 	
 </body>

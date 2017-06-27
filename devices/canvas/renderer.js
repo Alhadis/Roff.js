@@ -1,32 +1,10 @@
 "use strict";
 
-const charnames = require("../charnames.js");
-const deviceInfo = require("../device-info.js");
-const {tokenise, tokenTypes} = require("../tokeniser.js");
+const deviceInfo   = require("./device-info.js");
+const charnames    = require("../../lib/charnames.js");
+const {tokenTypes} = require("../../lib/tokeniser.js");
 
-module.exports = {
-	parse(text, canvasContext){
-		const pages = preprocess(text);
-		const result = render(canvasContext, pages[0]);
-	},
-	preprocess,
-	render
-};
-
-
-
-function preprocess(data){
-	const prologue = [];
-	return data.replace(/^(?:[^\n]*\n)+?(?=\s*p\s*\d)/, match => {
-		prologue.push(...tokenise(match));
-		return "";
-	})
-	.split(/\n\s*(?=p\s*\d)/)
-	.map(page => prologue.concat(tokenise(page)));
-}
-
-
-function render(context, tokens, opts = {}){
+module.exports = function(context, tokens, opts = {}){
 	const {zoom = 1, device = deviceInfo} = opts;
 	
 	const marks    = [];

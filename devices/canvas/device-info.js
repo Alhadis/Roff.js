@@ -5,6 +5,7 @@ module.exports = {
 	hor: 1,
 	vert: 1,
 	sizeScale: 1000,
+	paperSize: [216, 279],
 	mountedFonts: [0, 0, 0, 0, 0, 0, "S", "ZD"],
 	fonts: {
 		AB:       ["ITC Avant Garde Gothic, URW Gothic L, URW Gothic, Gothic L, sans-serif", "600"],
