@@ -16,7 +16,7 @@ new Promise(resolve => {
 		})
 	}
 }).then(data => {
-	let output = htmlTTY.parse(data).replace(/\s+$/, "");
+	let output = htmlTTY.parse(data);
 	if(process.stdout.isTTY)
 		output = output
 		.replace(/^\n+/,   "")
