@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="initial-scale=1, minimum-scale=1" />
+<title>Canvas Preview</title>
+
+<style>
+*{
+	tab-size: 4;
+	box-sizing: border-box;
+}
+canvas{
+	position: fixed;
+	top:    0;
+	left:   0;
+}
+</style>
+</head>
+
+
+<body>
+	
+	<canvas></canvas>
+
+	<script>
+		"use strict";
+		
+		const source  = require("fs").readFileSync("./tmp/perlre.out", "utf8");
+		
+		const CanvasRenderer = require("./lib/postproc/canvas.js");
+		const renderer = new CanvasRenderer();
+		renderer.process(source);
+		
+		const canvas  = document.querySelector("canvas");
+		canvas.width  = window.innerWidth  * window.devicePixelRatio;
+		canvas.height = window.innerHeight * window.devicePixelRatio;
+		const context = canvas.getContext("2d");
+		renderer.renderPage(1, context);
+	</script>
+</body>
+</html>
