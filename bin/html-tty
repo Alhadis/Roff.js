@@ -1,8 +1,8 @@
 #!/usr/bin/env node --es_staging
 "use strict";
 
-const htmlTTY = require("../lib/postproc/html-tty.js");
-const fs = require("fs");
+const htmlTTY = new (require("../lib/postproc/html-tty.js"));
+const fs      = require("fs");
 
 new Promise(resolve => {
 	if(process.argv[2])
@@ -16,7 +16,7 @@ new Promise(resolve => {
 		})
 	}
 }).then(data => {
-	let output = htmlTTY.parse(data);
+	let output = htmlTTY.process(data);
 	if(process.stdout.isTTY)
 		output = output
 		.replace(/^\n+/,   "")
