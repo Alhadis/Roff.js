@@ -1,8 +1,8 @@
 "use strict";
 
 module.exports = {
-	renderCanvas: require("./devices/canvas/renderer.js"),
-	renderTTY:    require("./devices/tty/renderer.js"),
-	TextGrid:     require("./lib/text-grid.js"),
-	tokeniser:    require("./lib/tokeniser.js"),
+	Postprocessor: require("./lib/tokeniser.js"),
+	TextGrid:      require("./lib/text-grid.js"),
+	HTMLTTY:       require("./lib/postproc/html-tty.js"),
+	TroffCanvas:   require("./lib/postproc/canvas.js"),
 };
