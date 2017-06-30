@@ -1,0 +1,40 @@
+#!/usr/bin/env node --es_staging
+"use strict";
+
+const htmlTTY = require("../lib/postproc/html-tty.js");
+const fs = require("fs");
+
+new Promise(resolve => {
+	if(process.argv[2])
+		resolve(fs.readFileSync(process.argv[2], "utf8"));
+	else{
+		let input = "";
+		process.stdin.setEncoding("UTF8");
+		process.stdin.on("readable", () => {
+			const chunk = process.stdin.read();
+			null !== chunk ? input += chunk : resolve(input);
+		})
+	}
+}).then(data => {
+	let output = htmlTTY.parse(data).replace(/\s+$/, "");
+	if(process.stdout.isTTY)
+		output = output
+		.replace(/^\n+/,   "")
+		.replace(/<b>/g,   "\x1B[1m")
+		.replace(/<u>/g,   "\x1B[4m")
+		.replace(/<\/b>/g, "\x1B[22m")
+		.replace(/<\/u>/g, "\x1B[24m")
+		.replace(/<b data-sgr="(\d+)"[^>]+>/g,    "\x1B[1;38;5;$1m")
+		.replace(/<u data-sgr="(\d+)"[^>]+>/g,    "\x1B[4;38;5;$1m")
+		.replace(/<span data-sgr="(\d+)"[^>]+>/g, "\x1B[38;5;$1m")
+		.replace(/<\/span>/g, "\x1B[39m")
+		.replace(/<a[^>]+>|<\/a>/g, "")
+		.replace(/&lt;/g,  "<")
+		.replace(/&gt;/g,  ">")
+		.replace(/&amp;/g, "&")
+		.replace(/&#(\d+);/g, (_,c) => String.fromCharCode(c));
+	process.stdout.write(output + "\n");
+}).catch(error => {
+	console.error(error);
+	process.exit(1);
+});
