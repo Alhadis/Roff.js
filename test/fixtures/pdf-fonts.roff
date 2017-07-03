@@ -1,0 +1,85 @@
+'\" ==========================================
+'\" Print a small sample of each core PDF font
+'\" ------------------------------------------
+.ds LQ `
+.ds RQ '
+.ds QQ ABC \\*(LQ123\\*(RQ XYZ
+.
+.ad r
+.ta (2.5i)
+.ps 32p
+.vs 2m
+.
+.de test
+.	ft \\$1
+.	if '\\nV'1' .tm Setting Font: \\$1
+\\$1\t\\*(QQ
+.	br
+..
+.
+.test AB
+.test ABI
+.test AI
+.test AR
+.test BMB
+.test BMBI
+.test BMI
+.test BMR
+.test CB
+.test CBI
+.test CI
+.test CR
+.test HB
+.test HBI
+.test HI
+.test HNB
+.test HNBI
+.test HNI
+.test HNR
+.test HR
+.test NB
+.test NBI
+.test NI
+.test NR
+.test PB
+.test PBI
+.test PI
+.test PR
+.test TB
+.test TBI
+.test TI
+.test TR
+.test U-AB
+.test U-ABI
+.test U-AI
+.test U-AR
+.test U-BMB
+.test U-BMBI
+.test U-BMI
+.test U-BMR
+.test U-CB
+.test U-CBI
+.test U-CI
+.test U-CR
+.test U-HB
+.test U-HBI
+.test U-HI
+.test U-HNB
+.test U-HNBI
+.test U-HNI
+.test U-HNR
+.test U-HR
+.test U-NB
+.test U-NBI
+.test U-NI
+.test U-NR
+.test U-PB
+.test U-PBI
+.test U-PI
+.test U-PR
+.test U-TB
+.test U-TBI
+.test U-TI
+.test U-TR
+.test U-ZCMI
+.test ZCMI

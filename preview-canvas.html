@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="initial-scale=1, minimum-scale=1" />
+<link rel="stylesheet" type="text/css" href="node_modules/urw-core35-fonts/index.css" />
 <title>Canvas Preview</title>
 
 <style>
@@ -15,6 +16,7 @@ canvas{
 	position: fixed;
 	top:    0;
 	left:   0;
+	width:	100vw;
 }
 </style>
 </head>
@@ -27,7 +29,7 @@ canvas{
 	<script>
 		"use strict";
 		
-		const source  = require("fs").readFileSync("./tmp/perlre.out", "utf8");
+		const source  = require("fs").readFileSync("./test/fixtures/pdf-fonts.out", "utf8");
 		
 		const CanvasRenderer = require("./lib/postproc/canvas.js");
 		const renderer = new CanvasRenderer();
