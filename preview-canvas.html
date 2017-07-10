@@ -12,11 +12,18 @@
 	tab-size: 4;
 	box-sizing: border-box;
 }
+body{
+	background: #ccc;
+	margin: 0;
+}
 canvas{
-	position: fixed;
-	top:    0;
-	left:   0;
-	width:	100vw;
+	background: #fff;
+	box-shadow: 0 0 .35em -0.05em rgba(0,0,0,.5);
+	max-width:  calc(100vw - 1em);
+	max-height: calc(100vh - 1em);
+	display: block;
+	position: relative;
+	margin: .5em auto;
 }
 </style>
 </head>
@@ -29,17 +36,16 @@ canvas{
 	<script>
 		"use strict";
 		
-		const source  = require("fs").readFileSync("./tmp/x-link.out", "utf8");
+		const source  = require("fs").readFileSync("./tmp/metrics-2.out", "utf8");
 		
 		const CanvasRenderer = require("./lib/postproc/canvas.js");
 		const renderer = new CanvasRenderer();
 		renderer.process(source);
 		
 		const canvas  = document.querySelector("canvas");
-		canvas.width  = window.innerWidth  * window.devicePixelRatio;
-		canvas.height = window.innerHeight * window.devicePixelRatio;
 		const context = canvas.getContext("2d");
 		renderer.renderPage(1, context);
+		console.log(renderer);
 	</script>
 </body>
 </html>
