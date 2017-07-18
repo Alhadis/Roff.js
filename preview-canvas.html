@@ -36,7 +36,7 @@ canvas{
 	<script>
 		"use strict";
 		
-		const source  = require("fs").readFileSync("./tmp/metrics-2.out", "utf8");
+		const source  = require("fs").readFileSync("./tmp/pdfmark.out", "utf8");
 		
 		const CanvasRenderer = require("./lib/postproc/canvas.js");
 		const renderer = new CanvasRenderer();
@@ -44,7 +44,7 @@ canvas{
 		
 		const canvas  = document.querySelector("canvas");
 		const context = canvas.getContext("2d");
-		renderer.renderPage(1, context);
+		renderer.renderPage(4, context);
 		console.log(renderer);
 	</script>
 </body>
