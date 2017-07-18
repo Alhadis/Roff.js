@@ -5,6 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="initial-scale=1, minimum-scale=1" />
 <link rel="stylesheet" type="text/css" href="node_modules/urw-core35-fonts/index.css" />
+<link rel="stylesheet" type="text/css" href="styles/troff-view.css" />
 <title>Canvas Preview</title>
 
 <style>
@@ -16,36 +17,21 @@ body{
 	background: #ccc;
 	margin: 0;
 }
-canvas{
-	background: #fff;
-	box-shadow: 0 0 .35em -0.05em rgba(0,0,0,.5);
-	max-width:  calc(100vw - 1em);
-	max-height: calc(100vh - 1em);
-	display: block;
-	position: relative;
-	margin: .5em auto;
-}
 </style>
 </head>
 
 
 <body>
 	
-	<canvas></canvas>
-
 	<script>
 		"use strict";
 		
 		const source  = require("fs").readFileSync("./tmp/pdfmark.out", "utf8");
 		
-		const CanvasRenderer = require("./lib/postproc/canvas.js");
-		const renderer = new CanvasRenderer();
-		renderer.process(source);
-		
-		const canvas  = document.querySelector("canvas");
-		const context = canvas.getContext("2d");
-		renderer.renderPage(4, context);
-		console.log(renderer);
+		const TroffView = require("./lib/troff-view.js");
+		const view = new TroffView();
+		document.body.appendChild(view.el);
+		view.load(source);
 	</script>
 </body>
 </html>

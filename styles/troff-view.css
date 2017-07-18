@@ -1,0 +1,28 @@
+.troff-view{
+	text-align: center;
+}
+	.troff-view > div{
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		margin: .5em;
+	}
+		.troff-view canvas{
+			background: #fff;
+			box-shadow: 0 0 .35em -0.05em rgba(0,0,0,.5);
+			max-width:  calc(100vw - 1em);
+			max-height: calc(100vh - 1em);
+			display: block;
+		}
+		
+		.troff-view .hotspot-list{
+			position: absolute;
+			top:    0;
+			left:   0;
+			right:  0;
+			bottom: 0;
+		}
+			.troff-view .hotspot-list > a{
+				position: absolute;
+				cursor: pointer;
+			}
