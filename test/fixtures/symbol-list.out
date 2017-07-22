@@ -1,0 +1,694 @@
+x T pdf
+x res 72000 1 1
+x init
+x F /usr/local/Cellar/groff/1.22.3/share/groff/1.22.3/tmac/eqnrc
+x F test/fixtures/symbol-list.roff
+p1
+V48000
+H0
+DFd
+x font 31 NR
+f31
+s32000
+H183600
+md
+tSYMBOL
+wh8896
+tFONT
+n48000 0
+x font 11 S
+f11
+V96000
+H16000
+t_
+h20000
+C->
+h36000
+t,
+h28000
+t;
+h27104
+t:
+h27104
+t!
+h25344
+C!=
+h36000
+t?
+h21792
+t.
+h28000
+t(
+h25344
+t)
+h25344
+t[
+h25344
+t]
+h25344
+t{
+h20640
+t}
+h20640
+C**
+h16000
+n48000 0
+x Slant 16
+V144000
+H16000
+C*a
+x Slant 0
+h36000
+C*A
+x Slant 16
+h36000
+C*b
+x Slant 0
+h36000
+C*B
+x Slant 16
+h36000
+C*c
+x Slant 0
+h36000
+C*C
+x Slant 16
+h36000
+C*d
+x Slant 0
+h36000
+C*D
+x Slant 16
+h36000
+C*e
+x Slant 0
+h36000
+C*E
+x Slant 16
+h36000
+C*f
+x Slant 0
+h36000
+C*F
+x Slant 16
+h36000
+C*g
+x Slant 0
+h36000
+C*G
+x Slant 16
+h36000
+C*h
+x Slant 0
+h36000
+C*H
+h23712
+n48000 0
+x Slant 16
+V192000
+H16000
+C*i
+x Slant 0
+h36000
+C*I
+x Slant 16
+h36000
+C*k
+x Slant 0
+h36000
+C*K
+x Slant 16
+h36000
+C*l
+x Slant 0
+h36000
+C*L
+x Slant 16
+h36000
+C*m
+x Slant 0
+h36000
+C*M
+x Slant 16
+h36000
+C*n
+x Slant 0
+h36000
+C*N
+x Slant 16
+h36000
+C*o
+x Slant 0
+h36000
+C*O
+x Slant 16
+h36000
+C*p
+x Slant 0
+h36000
+C*P
+x Slant 16
+h36000
+C*q
+x Slant 0
+h36000
+C*Q
+h25440
+n48000 0
+x Slant 16
+V240000
+H16000
+C*r
+x Slant 0
+h36000
+C*R
+x Slant 16
+h36000
+C*s
+x Slant 0
+h36000
+C*S
+x Slant 16
+h36000
+C*t
+x Slant 0
+h36000
+C*T
+x Slant 16
+h36000
+C*u
+x Slant 0
+h36000
+C*U
+x Slant 16
+h36000
+C*w
+x Slant 0
+h36000
+C*W
+x Slant 16
+h36000
+C*x
+x Slant 0
+h36000
+C*X
+x Slant 16
+h36000
+C*y
+x Slant 0
+h36000
+C*Y
+x Slant 16
+h36000
+C*z
+x Slant 0
+h36000
+C*Z
+h19552
+n48000 0
+V288000
+H16000
+t/
+h27104
+C/_
+h36000
+t]
+h25344
+t&
+h11104
+t#
+h20000
+t%
+h9344
+t+
+h18432
+C+-
+x Slant 16
+h36000
+C+f
+h36000
+C+h
+h36000
+C+p
+x Slant 0
+h36000
+t<
+h18432
+C<-
+h36000
+C<=
+h36000
+C<>
+h36000
+t=
+n48000 0
+V336000
+H16000
+C==
+h36000
+C=~
+h36000
+t>
+h18432
+C>=
+h36000
+t|
+h29600
+C~=
+h36000
+C~~
+h36000
+t0
+h20000
+t1
+h20000
+t2
+h20000
+t3
+h20000
+C3d
+h36000
+t4
+h20000
+t5
+h20000
+t6
+h20000
+t7
+n48000 0
+V384000
+H16000
+t8
+h20000
+t9
+h20000
+CAh
+h36000
+Can
+h36000
+CAN
+h36000
+Cap
+h36000
+Carrowvertbt
+h36000
+Carrowvertex
+h36000
+Carrowverttp
+h36000
+Cba
+h36000
+Cbarex
+h36000
+Cbraceex
+wh23808
+Cbraceleftbt
+h48192
+Cbraceleftex
+h36000
+Cbraceleftmid
+h36000
+Cbracelefttp
+h15808
+n48000 0
+V432000
+H16000
+Cbracerightbt
+h36000
+Cbracerightex
+h36000
+Cbracerightmid
+h36000
+Cbracerighttp
+h36000
+Cbracketleftbt
+h36000
+Cbracketleftex
+h36000
+Cbracketlefttp
+h36000
+Cbracketrightbt
+h36000
+Cbracketrightex
+h36000
+Cbracketrighttp
+h36000
+Cbu
+h36000
+Cbv
+h36000
+Cc*
+h36000
+Cc+
+h36000
+Cca
+h36000
+CCL
+h24096
+n48000 0
+V480000
+H16000
+CCR
+h36000
+Ccu
+h36000
+Cda
+h36000
+CdA
+h36000
+Cde
+h36000
+Cdi
+h36000
+CDI
+h36000
+Ceq
+h36000
+Ces
+h36000
+CEu
+h36000
+Cf/
+h36000
+Cfa
+h36000
+Cfm
+h36000
+CFn
+h36000
+Cgr
+h36000
+ChA
+h33344
+n48000 0
+V528000
+H16000
+CHE
+h36000
+Cib
+h36000
+Cif
+h36000
+CIm
+h36000
+Cintegral
+h36000
+Cip
+h36000
+Cis
+h36000
+Cla
+h36000
+ClA
+h36000
+Clb
+h36000
+ClB
+h36000
+Clc
+h36000
+ClC
+h36000
+Clf
+h36000
+Clk
+h36000
+Clt
+h15808
+n48000 0
+V576000
+H16000
+Clz
+h36000
+Cmc
+h36000
+Cmd
+h36000
+Cmi
+h38560
+Cmo
+h33440
+Cmu
+h36000
+Cnb
+h38560
+Cnm
+h33440
+Cno
+h36000
+COR
+h36000
+Cparenleftbt
+h36000
+Cparenleftex
+h36000
+Cparenlefttp
+h36000
+Cparenrightbt
+h36000
+Cparenrightex
+h36000
+Cparenrighttp
+h12800
+n48000 0
+V624000
+H16000
+Cpd
+h36000
+Cpl
+h36000
+Cpp
+h36000
+Cproduct
+h36000
+Cpt
+h36000
+Cra
+h36000
+CrA
+h18432
+Cradicalex
+h53568
+Crb
+h36000
+CrB
+h36000
+Crc
+h36000
+CrC
+h36000
+CRe
+h36000
+Crf
+h36000
+Crk
+h36000
+Crt
+h15808
+n48000 0
+V672000
+H16000
+Csb
+h36000
+Csd
+h36000
+Csh
+h36000
+Csl
+h36000
+Csp
+h36000
+CSP
+h36000
+Csqrt
+h36000
+Csr
+h36000
+Cst
+h36000
+Csum
+h36000
+Ct+-
+h36000
+Ctdi
+h36000
+Cte
+h36000
+Ctf
+h36000
+Ctmu
+h36000
+Ctno
+h22816
+n48000 0
+x Slant 16
+V720000
+H16000
+Cts
+x Slant 0
+h36000
+Cu2026
+h36000
+Cu2320
+h36000
+Cu2321
+h36000
+Cu23AE
+h36000
+Cua
+h36000
+CuA
+h36000
+Cwp
+h31584
+n48000 0
+x font 29 NBI
+f29
+V768000
+H192880
+tDONE,
+x font 30 NI
+f30
+h8896
+tBR
+H361488
+tUH.
+n48000 0
+V792000
+p2
+x font 31 NR
+f31
+s32000
+V48000
+H209408
+tGREEK
+wh8896
+tSHIT
+n48000 0
+x font 11 S
+f11
+V112000
+H55216
+C*A
+wh31104
+C*B
+wh29344
+C*G
+wh27296
+C*D
+wh27584
+C*E
+wh27552
+C*Z
+wh27552
+C*Y
+wh31104
+C*H
+wh31712
+C*I
+wh18656
+C*K
+wh31104
+C*L
+wh29952
+C*M
+wh36448
+C*N
+wh31104
+C*C
+wh28640
+C*O
+wh31104
+C*P
+wh32576
+C*R
+wh25792
+C*S
+h18944
+n64000 0
+V176000
+H79216
+C*T
+wh27552
+C*U
+wh27840
+C*F
+wh32416
+C*X
+wh31104
+C*Q
+wh33440
+C*W
+wx Slant 16
+h32576
+C*a
+wh28192
+C*b
+wh25568
+C*g
+wh21152
+C*d
+wh23808
+C*e
+wh22048
+C*z
+wh23808
+C*y
+wh27296
+C*h
+wh24672
+C*i
+wh18528
+C*k
+wh25568
+C*l
+wh25568
+C*m
+h18432
+n64000 0
+V240000
+H108288
+C*n
+wh24672
+C*c
+wh23776
+C*o
+wh25568
+C*p
+wh25568
+C*r
+wh25568
+Cts
+wh22048
+C*s
+wh27296
+C*t
+wh22048
+C*u
+wh26432
+C*f
+wh24672
+C*x
+wh25568
+C*q
+wh29952
+C*w
+wh29952
+C+h
+wh28192
+C+f
+wh27296
+C+p
+h22816
+n64000 0
+f31
+x Slant 0
+V304000
+H219984
+tDAFUXA
+H360464
+tT?
+n64000 0
+x trailer
+V792000
+x stop

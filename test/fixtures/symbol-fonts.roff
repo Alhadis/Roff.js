@@ -1,0 +1,295 @@
+'\" e
+.ps 32p
+.vs 2m
+.EQ
+F ( X ) ~=~ left {
+matrix{
+    lcol{ {4 X} above
+          { 1 } above
+          {4 ( 1 - X )}
+    }
+    lcol{
+        { roman{"if "}
+          0 <= X <= 1 smallover 4
+        } above
+        { roman{"if "}
+          1 smallover 4 <= X <=
+          3 smallover 4
+        } above
+        { roman{"if "}
+          3 smallover 4 <= X <= 1
+        }
+    }
+  }
+.EN
+
+\[sqrt]\[radicalex]\[radicalex]\[radicalex]\[radicalex]\[radicalex]\[sqrtex]}
+
+\[ru] ok?
+
+.ig EOF
+.if !'\*(.T'ps' .if !'\*(.T'html' .tm warning: eqn should have been given a `-T\*(.T' option
+.if '\*(.T'html' .if !'ps'ps' .tm warning: eqn should have been given a `-Tps' option
+.if '\*(.T'html' .if !'ps'ps' .tm warning: (it is advisable to invoke groff via: groff -Thtml -e)
+.lf 1 /usr/local/Cellar/groff/1.22.3/share/groff/1.22.3/tmac/eqnrc
+.\"
+.\" Startup file for eqn.
+.if !d EQ .ds EQ
+.if !d EN .ds EN
+.EQ
+.nr 0C \n(.C
+.cp 0
+.ds 10
+.cp \n(0C
+.lf 67
+.EN
+.lf 1 -
+'\" e
+.ps 32p
+.vs 2m
+.EQ
+.nr 0C \n(.C
+.cp 0
+.ds 10
+.nr 0sfont \n[.f]
+.ft
+.nr 0spfont \n[.f]
+.ft I
+.nr 0ssize \n[.ps]
+.nr 0w10 0M
+.nr 0h10 0
+.nr 0d10 0
+.nr 0w10 +\w\(EQ\f[R]\,4\&\fP\,X\/\(EQ
+.nr 0h10 \n[rst]>?\n[0h10]
+.nr 0d10 0-\n[rsb]>?\n[0d10]
+.nr 0w11 0\w\(EQ\f[R]\,1\/\fP\(EQ
+.nr 0h11 0>?\n[rst]
+.nr 0d11 0-\n[rsb]>?0
+.nr 0k11 0-\n[ssc]>?0
+.nr 0s11 0\n[skw]
+.nr 0w14 44M
+.nr 0h14 0
+.nr 0d14 0
+.nr 0w14 +\w\(EQ\f[R]\,4\/\fP\f[R]\,(\/\fP\f[R]\,1\/\fP\f[R]\,\[mi]\/\fP\,X\/\f[R])\/\fP\(EQ
+.nr 0h14 \n[rst]>?\n[0h14]
+.nr 0d14 0-\n[rsb]>?\n[0d14]
+.nr 0f21 \n[.f]
+.ft R
+.nr 0w20 0\w\(EQif \(EQ
+.nr 0h20 0>?\n[rst]
+.nr 0d20 0-\n[rsb]>?0
+.nr 0k20 0-\n[ssc]>?0
+.nr 0s20 0\n[skw]
+.ft \n[0f21]
+.nr 0w21 0\n[0w20]
+.nr 0h21 \n[0h20]
+.nr 0d21 \n[0d20]
+.nr 0z29 \n[.ps]
+.ps (u;\n[.ps]*7+5/10>?5z)
+.nr 0Z29 \n[.ps]
+.nr 0w27 0\w\(EQ\f[R]\,1\/\fP\(EQ
+.nr 0h27 0>?\n[rst]
+.nr 0d27 0-\n[rsb]>?0
+.nr 0k27 0-\n[ssc]>?0
+.nr 0s27 0\n[skw]
+.nr 0w28 0\w\(EQ\f[R]\,4\/\fP\(EQ
+.nr 0h28 0>?\n[rst]
+.nr 0d28 0-\n[rsb]>?0
+.nr 0k28 0-\n[ssc]>?0
+.nr 0s28 0\n[skw]
+.ps \n[0z29]u
+.nr 0w29 (\n[0w27]>?\n[0w28])+24M
+.nr 0p29 40M
+.nr 0b29 36M
+.nr 0p29 +(\n[0d27]-\n[0p29]+26M+(4M/2)+4M)>?0
+.nr 0b29 +(\n[0h28]-\n[0b29]-26M+(4M/2)+4M)>?0
+.nr 0h29 \n[0p29]+\n[0h27]
+.nr 0d29 \n[0b29]+\n[0d28]
+.nr 0w23 112M+\n[0w21]+\n[0w29]
+.nr 0h23 0>?\n[0h21]>?\n[0h29]
+.nr 0d23 0>?\n[0d21]>?\n[0d29]
+.nr 0w23 +\w\(EQ\f[R]\,0\/\fP\f[R]\,\[<=]\/\fP\,X\/\f[R]\,\[<=]\/\fP\(EQ
+.nr 0h23 \n[rst]>?\n[0h23]
+.nr 0d23 0-\n[rsb]>?\n[0d23]
+.nr 0f31 \n[.f]
+.ft R
+.nr 0w30 0\w\(EQif \(EQ
+.nr 0h30 0>?\n[rst]
+.nr 0d30 0-\n[rsb]>?0
+.nr 0k30 0-\n[ssc]>?0
+.nr 0s30 0\n[skw]
+.ft \n[0f31]
+.nr 0w31 0\n[0w30]
+.nr 0h31 \n[0h30]
+.nr 0d31 \n[0d30]
+.nr 0z34 \n[.ps]
+.ps (u;\n[.ps]*7+5/10>?5z)
+.nr 0Z34 \n[.ps]
+.nr 0w32 0\w\(EQ\f[R]\,1\/\fP\(EQ
+.nr 0h32 0>?\n[rst]
+.nr 0d32 0-\n[rsb]>?0
+.nr 0k32 0-\n[ssc]>?0
+.nr 0s32 0\n[skw]
+.nr 0w33 0\w\(EQ\f[R]\,4\/\fP\(EQ
+.nr 0h33 0>?\n[rst]
+.nr 0d33 0-\n[rsb]>?0
+.nr 0k33 0-\n[ssc]>?0
+.nr 0s33 0\n[skw]
+.ps \n[0z34]u
+.nr 0w34 (\n[0w32]>?\n[0w33])+24M
+.nr 0p34 40M
+.nr 0b34 36M
+.nr 0p34 +(\n[0d32]-\n[0p34]+26M+(4M/2)+4M)>?0
+.nr 0b34 +(\n[0h33]-\n[0b34]-26M+(4M/2)+4M)>?0
+.nr 0h34 \n[0p34]+\n[0h32]
+.nr 0d34 \n[0b34]+\n[0d33]
+.nr 0z41 \n[.ps]
+.ps (u;\n[.ps]*7+5/10>?5z)
+.nr 0Z41 \n[.ps]
+.nr 0w39 0\w\(EQ\f[R]\,3\/\fP\(EQ
+.nr 0h39 0>?\n[rst]
+.nr 0d39 0-\n[rsb]>?0
+.nr 0k39 0-\n[ssc]>?0
+.nr 0s39 0\n[skw]
+.nr 0w40 0\w\(EQ\f[R]\,4\/\fP\(EQ
+.nr 0h40 0>?\n[rst]
+.nr 0d40 0-\n[rsb]>?0
+.nr 0k40 0-\n[ssc]>?0
+.nr 0s40 0\n[skw]
+.ps \n[0z41]u
+.nr 0w41 (\n[0w39]>?\n[0w40])+24M
+.nr 0p41 40M
+.nr 0b41 36M
+.nr 0p41 +(\n[0d39]-\n[0p41]+26M+(4M/2)+4M)>?0
+.nr 0b41 +(\n[0h40]-\n[0b41]-26M+(4M/2)+4M)>?0
+.nr 0h41 \n[0p41]+\n[0h39]
+.nr 0d41 \n[0b41]+\n[0d40]
+.nr 0w35 129M+\n[0w31]+\n[0w34]+\n[0w41]
+.nr 0h35 0>?\n[0h31]>?\n[0h34]>?\n[0h41]
+.nr 0d35 0>?\n[0d31]>?\n[0d34]>?\n[0d41]
+.nr 0w35 +\w\(EQ\f[R]\,\[<=]\/\fP\,X\/\f[R]\,\[<=]\/\fP\(EQ
+.nr 0h35 \n[rst]>?\n[0h35]
+.nr 0d35 0-\n[rsb]>?\n[0d35]
+.nr 0f43 \n[.f]
+.ft R
+.nr 0w42 0\w\(EQif \(EQ
+.nr 0h42 0>?\n[rst]
+.nr 0d42 0-\n[rsb]>?0
+.nr 0k42 0-\n[ssc]>?0
+.nr 0s42 0\n[skw]
+.ft \n[0f43]
+.nr 0w43 0\n[0w42]
+.nr 0h43 \n[0h42]
+.nr 0d43 \n[0d42]
+.nr 0z46 \n[.ps]
+.ps (u;\n[.ps]*7+5/10>?5z)
+.nr 0Z46 \n[.ps]
+.nr 0w44 0\w\(EQ\f[R]\,3\/\fP\(EQ
+.nr 0h44 0>?\n[rst]
+.nr 0d44 0-\n[rsb]>?0
+.nr 0k44 0-\n[ssc]>?0
+.nr 0s44 0\n[skw]
+.nr 0w45 0\w\(EQ\f[R]\,4\/\fP\(EQ
+.nr 0h45 0>?\n[rst]
+.nr 0d45 0-\n[rsb]>?0
+.nr 0k45 0-\n[ssc]>?0
+.nr 0s45 0\n[skw]
+.ps \n[0z46]u
+.nr 0w46 (\n[0w44]>?\n[0w45])+24M
+.nr 0p46 40M
+.nr 0b46 36M
+.nr 0p46 +(\n[0d44]-\n[0p46]+26M+(4M/2)+4M)>?0
+.nr 0b46 +(\n[0h45]-\n[0b46]-26M+(4M/2)+4M)>?0
+.nr 0h46 \n[0p46]+\n[0h44]
+.nr 0d46 \n[0b46]+\n[0d45]
+.nr 0w47 129M+\n[0w43]+\n[0w46]
+.nr 0h47 0>?\n[0h43]>?\n[0h46]
+.nr 0d47 0>?\n[0d43]>?\n[0d46]
+.nr 0w47 +\w\(EQ\f[R]\,\[<=]\/\fP\,X\/\f[R]\,\[<=]\/\fP\f[R]\,1\/\fP\(EQ
+.nr 0h47 \n[rst]>?\n[0h47]
+.nr 0d47 0-\n[rsb]>?\n[0d47]
+.nr 0cw19,0 0>?\n[0w10]>?\n[0w11]>?\n[0w14]
+.nr 0cw19,1 0>?\n[0w23]>?\n[0w35]>?\n[0w47]
+.nr 0w19 134M+\n[0cw19,0]+\n[0cw19,1]
+.nr 0bs19 140M>?(\n[0d10]+\n[0h11]+20M)>?(\n[0d11]+\n[0h14]+20M)>?(\n[0d23]+\n[0h35]+20M)>?(\n[0d35]+\n[0h47]+20M)+(\n(.V/2)/\n(.V*\n(.V
+.nr 0p19 \n[0bs19]*2/2+0M
+.nr 0h19 0\n[0p19]+(0>?\n[0h10]>?\n[0h23])>?0
+.nr 0d19 \n[0bs19]*2-\n[0p19]+(0>?\n[0d14]>?\n[0d47])>?0
+.nr 0w52 0\n[0w19]
+.nr 0h52 \n[0h19]
+.nr 0d52 \n[0d19]
+.nr 0delta \n[0h19]-26M>?(\n[0d19]+26M)
+.nr 0delta 0\n[0delta]*900/500>?(\n[0delta]*2-50M)
+.ds 0delim
+.nr 0dwidth 0\w\(EQ\f[R]{\fP\(EQ
+.ds 0delim \Z\(EQ\v'\n[rsb]u+\n[rst]u/2u-26M'\f[R]{\fP\(EQ
+.nr 0tot \n[rst]-\n[rsb]
+.if \n[0tot]<\n[0delta] \{.nr 0i 0
+.de 0tempmac
+.ie c\[braceleft\\n[0i]] \{\
+.nr 0dwidth 0\w\(EQ\[braceleft\\n[0i]]\(EQ
+.ds 0delim \Z\(EQ\v'\\n[rsb]u+\\n[rst]u/2u-26M'\[braceleft\\n[0i]]\(EQ
+.nr 0tot \\n[rst]-\\n[rsb]
+.if \\n[0tot]<\n[0delta] \{.nr 0i +1
+.0tempmac
+.\}\}
+.el .nr 0i 0-1
+..
+.0tempmac
+.if \n[0i]<0 \{.if c\[braceleftex] \{\
+.nr 0dwidth 0\w\(EQ\[braceleftex]\(EQ
+.nr 0eh 0\n[rst]
+.nr 0ed 0-\n[rsb]
+.nr 0dwidth 0\n[0dwidth]>?\w\(EQ\[bracelefttp]\(EQ
+.nr 0th 0\n[rst]
+.nr 0td 0-\n[rsb]
+.nr 0dwidth 0\n[0dwidth]>?\w\(EQ\[braceleftmid]\(EQ
+.nr 0mh 0\n[rst]
+.nr 0md 0-\n[rsb]
+.nr 0dwidth 0\n[0dwidth]>?\w\(EQ\[braceleftbt]\(EQ
+.nr 0bh 0\n[rst]
+.nr 0bd 0-\n[rsb]
+.nr 0tot 0+\n[0th]+\n[0td]+\n[0bh]+\n[0bd]+\n[0mh]+\n[0md]
+.nr 0temp \n[0delta]-\n[0tot]/2>?0+\n[0eh]+\n[0ed]-1/(\n[0eh]+\n[0ed])
+.nr 0tot +(\n[0eh]+\n[0ed]*\n[0temp]*2)
+.ds 0delim \Z\(EQ\v'-26M-(\n[0tot]u/2u)'
+.as 0delim \v'\n[0th]u'\Z\(EQ\[bracelefttp]\(EQ\v'\n[0td]u'
+.de 0ras
+.if \\$2 \{.as \\$1 "\\$3
+.0ras \\$1 \\$2-1 "\\$3"
+.\}
+..
+.0ras 0delim \n[0temp] \v'\n[0eh]u'\Z\(EQ\[braceleftex]\(EQ\v'\n[0ed]u'
+.as 0delim \v'\n[0mh]u'\Z\(EQ\[braceleftmid]\(EQ\v'\n[0md]u'
+.0ras 0delim \n[0temp] \v'\n[0eh]u'\Z\(EQ\[braceleftex]\(EQ\v'\n[0ed]u'
+.as 0delim \v'\n[0bh]u'\Z\(EQ\[braceleftbt]\(EQ\v'\n[0bd]u'
+.as 0delim \(EQ
+.\}\}
+.\}
+.as 0delim \h'\n[0dwidth]u'
+.nr 0w52 +\n[0dwidth]
+.nr 0h52 \n[0h52]>?(\n[0tot]/2+26M)
+.nr 0d52 \n[0d52]>?(\n[0tot]/2-26M)
+.rn 0delim 0l52
+.nr 0w2 0M+\n[0w52]
+.nr 0h2 0>?\n[0h52]
+.nr 0d2 0>?\n[0d52]
+.nr 0w2 +\w\(EQ\,F\/\f[R](\&\fP\,X\/\f[R])\/\fP\h'28M'\f[R]\,\[eq]\/\fP\h'28M'\(EQ
+.nr 0h2 \n[rst]>?\n[0h2]
+.nr 0d2 0-\n[rsb]>?\n[0d2]
+.ft \n[0spfont]
+.ft \n[0sfont]
+.nr MK 0
+.ds 0sfont \R'0sifont \En[.f]'\fP\R'0sipfont \En[.f]'\R'0sisize \En[.ps]'\s0\R'0sipsize \En[.ps]'
+.ds 0rfont \f[\En[0sipfont]]\f[\En[0sifont]]\s'\En[0sipsize]u'\s'\En[0sisize]u'
+.as1 10 \&\E*[0sfont]\f[I]\s'\En[0ssize]u'\,F\/\f[R](\&\fP\,X\/\f[R])\/\fP\h'28M'\f[R]\,\[eq]\/\fP\h'28M'\*[0l52]\h'17M'\v'-\n[0p19]u'\f[R]\,4\&\fP\,X\/\h'-\n[0w10]u'\v'\n[0bs19]u'\f[R]\,1\/\fP\h'-\n[0w11]u'\v'\n[0bs19]u'\f[R]\,4\/\fP\f[R]\,(\/\fP\f[R]\,1\/\fP\h'22M'\f[R]\,\[mi]\/\fP\h'22M'\,X\/\f[R])\/\fP\h'-\n[0w14]u'\v'\n[0p19]u'\v'-(2u*\n[0bs19]u)'\h'\n[0cw19,0]u'\h'100M'\v'-\n[0p19]u'\f[R]if \f[\n[0f21]]\f[R]\,0\/\fP\h'28M'\f[R]\,\[<=]\/\fP\h'28M'\,X\/\h'28M'\f[R]\,\[<=]\/\fP\h'28M'\s[\n[0Z29]u]\Z\(EQ\v'-\n[0p29]u'\h'\n[0w29]u-\n[0w27]u/2u'\f[R]\,1\/\fP\(EQ\Z\(EQ\v'\n[0b29]u'\h'\n[0w29]u-\n[0w28]u/2u'\f[R]\,4\/\fP\(EQ\s[\n[0z29]u]\h'12M'\v'-26M'\D'l\n[0w29]u-24M 0'\v'26M'\h'12M'\h'-\n[0w23]u'\v'\n[0bs19]u'\f[R]if \f[\n[0f31]]\h'17M'\s[\n[0Z34]u]\Z\(EQ\v'-\n[0p34]u'\h'\n[0w34]u-\n[0w32]u/2u'\f[R]\,1\/\fP\(EQ\Z\(EQ\v'\n[0b34]u'\h'\n[0w34]u-\n[0w33]u/2u'\f[R]\,4\/\fP\(EQ\s[\n[0z34]u]\h'12M'\v'-26M'\D'l\n[0w34]u-24M 0'\v'26M'\h'12M'\h'28M'\f[R]\,\[<=]\/\fP\h'28M'\,X\/\h'28M'\f[R]\,\[<=]\/\fP\h'28M'\s[\n[0Z41]u]\Z\(EQ\v'-\n[0p41]u'\h'\n[0w41]u-\n[0w39]u/2u'\f[R]\,3\/\fP\(EQ\Z\(EQ\v'\n[0b41]u'\h'\n[0w41]u-\n[0w40]u/2u'\f[R]\,4\/\fP\(EQ\s[\n[0z41]u]\h'12M'\v'-26M'\D'l\n[0w41]u-24M 0'\v'26M'\h'12M'\h'-\n[0w35]u'\v'\n[0bs19]u'\f[R]if \f[\n[0f43]]\h'17M'\s[\n[0Z46]u]\Z\(EQ\v'-\n[0p46]u'\h'\n[0w46]u-\n[0w44]u/2u'\f[R]\,3\/\fP\(EQ\Z\(EQ\v'\n[0b46]u'\h'\n[0w46]u-\n[0w45]u/2u'\f[R]\,4\/\fP\(EQ\s[\n[0z46]u]\h'12M'\v'-26M'\D'l\n[0w46]u-24M 0'\v'26M'\h'12M'\h'28M'\f[R]\,\[<=]\/\fP\h'28M'\,X\/\h'28M'\f[R]\,\[<=]\/\fP\h'28M'\f[R]\,1\/\fP\h'-\n[0w47]u'\v'\n[0p19]u'\v'-(2u*\n[0bs19]u)'\h'\n[0cw19,1]u'\h'17M'\E*[0rfont]
+.if !r0x .nr 0x 0
+.if !\n[0x] .if \n[0h2]>85M .as1 10 \x'-(\n[0h2]u-85M)'
+.if !\n[0x] .if \n[0d2]>35M .as1 10 \x'\n[0d2]u-35M'
+.ne \n[0h2]u-85M>?0+(\n[0d2]u-35M>?0)
+.cp \n(0C
+.lf 23
+\*(10
+.lf 24
+.EN
+.EOF

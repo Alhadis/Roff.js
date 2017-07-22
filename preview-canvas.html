@@ -26,7 +26,8 @@ body{
 	<script>
 		"use strict";
 		
-		const source  = require("fs").readFileSync("./tmp/pdfmark.out", "utf8");
+		let inputPath = "./test/fixtures/symbol-fonts.out";
+		const source  = require("fs").readFileSync(inputPath, "utf8");
 		
 		const TroffView = require("./lib/troff-view.js");
 		const view = new TroffView();

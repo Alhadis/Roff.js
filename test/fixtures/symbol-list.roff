@@ -1,0 +1,60 @@
+.\" vim: ts=8 ft=nroff
+.\"=============================================================================
+'\" .HEAD [page-title]
+'\"  Start a new page in the outprint
+.de HEAD
+.	po 0
+.	ft NR
+.	ps 32p
+.	vs 1.5m
+.	ll 612p
+.	ce
+\\$1
+.	in 0.5m
+.	nf
+.	ft S
+.
+..
+.\" .FOOT [text]
+'\"  Print enlarged footer text
+.de FOOT
+.	ft NR
+.	fi
+.	ad c
+.	ll 600p
+\\$1
+..
+.
+.\"=============================================================================
+.
+.HEAD "SYMBOL FONT"
+_	\[->]	,	;	:	!	\[!=]	?	\.	(	)	[	]	{	}	\[**]
+\[*a]	\[*A]	\[*b]	\[*B]	\[*c]	\[*C]	\[*d]	\[*D]	\[*e]	\[*E]	\[*f]	\[*F]	\[*g]	\[*G]	\[*h]	\[*H]
+\[*i]	\[*I]	\[*k]	\[*K]	\[*l]	\[*L]	\[*m]	\[*M]	\[*n]	\[*N]	\[*o]	\[*O]	\[*p]	\[*P]	\[*q]	\[*Q]
+\[*r]	\[*R]	\[*s]	\[*S]	\[*t]	\[*T]	\[*u]	\[*U]	\[*w]	\[*W]	\[*x]	\[*X]	\[*y]	\[*Y]	\[*z]	\[*Z]
+/	\[/_]	\[\-]	&	#	%	+	\[+-]	\[+f]	\[+h]	\[+p]	<	\[<-]	\[<=]	\[<>]	=
+\[==]	\[=~]	>	\[>=]	|	\[~=]	\[~~]	0	1	2	3	\[3d]	4	5	6	7
+8	9	\[Ah]	\[an]	\[AN]	\[ap]	\[arrowvertbt]	\[arrowvertex]	\[arrowverttp]	\[ba]	\[barex]	\[braceex] \[braceleftbt]	\[braceleftex]	\[braceleftmid]	\[bracelefttp]
+\[bracerightbt]	\[bracerightex]	\[bracerightmid]	\[bracerighttp]	\[bracketleftbt]	\[bracketleftex]	\[bracketlefttp]	\[bracketrightbt]	\[bracketrightex]	\[bracketrighttp]	\[bu]	\[bv]	\[c*]	\[c+]	\[ca]	\[CL]
+\[CR]	\[cu]	\[da]	\[dA]	\[de]	\[di]	\[DI]	\[eq]	\[es]	\[Eu]	\[f/]	\[fa]	\[fm]	\[Fn]	\[gr]	\[hA]
+\[HE]	\[ib]	\[if]	\[Im]	\[integral]	\[ip]	\[is]	\[la]	\[lA]	\[lb]	\[lB]	\[lc]	\[lC]	\[lf]	\[lk]	\[lt]
+\[lz]	\[mc]	\[md]	\[mi]	\[mo]	\[mu]	\[nb]	\[nm]	\[no]	\[OR]	\[parenleftbt]	\[parenleftex]	\[parenlefttp]	\[parenrightbt]	\[parenrightex]	\[parenrighttp]
+\[pd]	\[pl]	\[pp]	\[product]	\[pt]	\[ra]	\[rA]	\[radicalex]	\[rb]	\[rB]	\[rc]	\[rC]	\[Re]	\[rf]	\[rk]	\[rt]
+\[sb]	\[sd]	\[sh]	\[sl]	\[sp]	\[SP]	\[sqrt]	\[sr]	\[st]	\[sum]	\[t+-]	\[tdi]	\[te]	\[tf]	\[tmu]	\[tno]
+\[ts]	\[u2026]	\[u2320]	\[u2321]	\[u23AE]	\[ua]	\[uA]	\[wp]
+.FOOT \f[NBI]DONE,\f[NI]\ BRUH.
+.
+.\"=======================================================================================================
+.bp 2
+.ce
+.HEAD "GREEK SHIT"
+.vs 2m
+.fi
+.ce
+\[*A] \[*B] \[*G] \[*D] \[*E] \[*Z] \[*Y] \[*H] \[*I] \[*K] \[*L] \[*M] \[*N] \[*C] \[*O] \[*P] \[*R] \[*S]
+\[*T] \[*U] \[*F] \[*X] \[*Q] \[*W] \[*a] \[*b] \[*g] \[*d] \[*e] \[*z] \[*y] \[*h] \[*i] \[*k] \[*l] \[*m]
+.br
+\[*n] \[*c] \[*o] \[*p] \[*r] \[ts] \[*s] \[*t] \[*u] \[*f] \[*x] \[*q] \[*w] \[+h] \[+f] \[+p] \[+e]
+.pp
+.
+.FOOT DAFUXAT?

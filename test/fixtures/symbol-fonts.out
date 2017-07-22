@@ -1,0 +1,183 @@
+x T pdf
+x res 72000 1 1
+x init
+x F /usr/local/Cellar/groff/1.22.3/share/groff/1.22.3/tmac/eqnrc
+x F test/fixtures/symbol-fonts.roff
+p1
+x font 38 TI
+f38
+s32000
+V125120
+H73344
+md
+DFd
+tF
+x font 5 TR
+f5
+h2688
+t(
+f38
+h2528
+tX
+f5
+h3008
+t)
+x font 11 S
+f11
+h8960
+Ceq
+h26528
+V66400
+Cbracelefttp
+v32000
+Cbraceleftex
+v32000
+Cbraceleftmid
+v32000
+Cbraceleftex
+v32000
+Cbraceleftbt
+f5
+h21248
+V79258
+t4
+f38
+h2528
+tX
+f5
+H198720
+v45862
+t1
+H198720
+v45862
+t4(1
+f11
+h7040
+Cmi
+f38
+h27136
+tX
+f5
+h3008
+t)
+h32000
+V79258
+tif
+wh8000
+t0
+f11
+h8960
+C<=
+f38
+h29056
+tX
+f11
+h11968
+C<=
+f5
+s22400
+h32768
+V66458
+t1
+H486624
+v24320
+t4
+H484224
+V70938
+s32000
+# Last command for this line:
+Dl 16000 0
+H340768
+v54182
+tif
+ws22400
+h19680
+V112320
+t1
+H380000
+v24320
+t4
+H377600
+V116800
+s32000
+Dl 16000 0
+f11
+h12800
+v8320
+C<=
+f38
+h29056
+tX
+f11
+h11968
+C<=
+f5
+s22400
+h32768
+V112320
+t3
+H499744
+v24320
+t4
+H497344
+V116800
+s32000
+Dl 16000 0
+H340768
+v54182
+tif
+ws22400
+h19680
+V158182
+t3
+H380000
+v24320
+t4
+H377600
+V162662
+s32000
+Dl 16000 0
+f11
+h12800
+v8320
+C<=
+f38
+h29056
+tX
+f11
+h11968
+C<=
+f5
+h26528
+t1
+h13120
+V125120
+n125120 60480
+f11
+V313600
+H72000
+Csqrt
+Cradicalex
+h16000
+Cradicalex
+h16000
+Cradicalex
+h16000
+Cradicalex
+h16000
+Cradicalex
+h16000
+Cradicalex
+f5
+h33568
+t}
+n64000 0
+V441600
+H72000
+Dl 16000 0
+wh8000
+tok?
+n64000 0
+x trailer
+V792000
+x stop
