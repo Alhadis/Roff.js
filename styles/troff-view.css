@@ -1,27 +1,56 @@
 .troff-view{
 	text-align: center;
+	overflow: auto;
 }
-	.troff-view > div{
-		position: relative;
-		display: inline-block;
-		vertical-align: middle;
-		margin: .5em;
+	.troff-view,
+	.troff-view-offset,
+	.troff-view-zoom,
+	.troff-view-pages{
+		position: absolute;
+		display: block;
+		top:    0;
+		left:   0;
+		width:  100%;
+		height: 100%;
 	}
-		.troff-view canvas{
-			background: #fff;
-			box-shadow: 0 0 .35em -0.05em rgba(0,0,0,.5);
-			max-width:  calc(100vw - 1em);
-			display: block;
+	.troff-view-pages{
+		text-align: center;
+	}
+		.troff-view-page{
+			position: relative;
+			display: inline-block;
+			vertical-align: middle;
+			width: 100%;
 		}
-		
-		.troff-view .hotspot-list{
-			position: absolute;
-			top:    0;
-			left:   0;
-			right:  0;
-			bottom: 0;
-		}
-			.troff-view .hotspot-list > a{
+			.troff-view-page[hidden]{
+				display: none !important;
+			}
+			
+			.troff-view-page canvas{
+				background: #fff;
+				box-shadow: 0 0 .35em -0.05em rgba(0,0,0,.5);
+				max-width: 100%;
+				display: block;
+			}
+			
+			.troff-view-hotspots{
 				position: absolute;
-				cursor: pointer;
+				top:    0;
+				left:   0;
+				right:  0;
+				bottom: 0;
+			}
+				.troff-view-hotspot{
+					position: absolute;
+					cursor: pointer;
+					display: block;
+				}
+		
+		/* Multi-page display */
+		.troff-view-pages[data-spread-size]{
+			padding-left:  .5em;
+			padding-right: .5em;
+		}
+			.troff-view-pages[data-spread-size] > .troff-view-page{
+				padding: 0 .5em;
 			}

@@ -1,6 +1,6 @@
 all: pdfs
 
-pdf-fixtures := pdf-fonts.pdf symbol-fonts.pdf symbol-list.pdf
+pdf-fixtures := pdf-fonts.pdf pdf-large.pdf symbol-fonts.pdf symbol-list.pdf
 
 pdfs: \
 	$(wildcard tmp/*.pdf) \
@@ -14,10 +14,12 @@ test/fixtures/%.pdf: test/fixtures/%.roff
 	| tee $(basename $@).out \
 	| gropdf -d > $@
 
+test/fixtures/pdf-large.pdf: test/fixtures/pdf-large.out
+	@ gropdf -d < $^ > $@
 
 watch = watchman -- trigger . $(1) $(2) -- make $(1)
 
-watch:;   @$(call watch,pdfs,'tmp/*.out' 'test/fixtures/*.roff')
+watch:;   $(call watch,pdfs,'tmp/*.out' $(patsubst %,'test/fixtures/*.%',roff out))
 unwatch:; @watchman -- watch-del .
 
 .PHONY: watch unwatch
