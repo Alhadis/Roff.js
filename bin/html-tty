@@ -1,4 +1,4 @@
-#!/usr/bin/env node --es_staging
+#!/usr/bin/env node
 "use strict";
 
 const htmlTTY = new (require("../lib/postproc/html-tty.js"));
