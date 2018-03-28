@@ -3,7 +3,6 @@
 	overflow: auto;
 }
 	.troff-view,
-	.troff-view-offset,
 	.troff-view-zoom,
 	.troff-view-pages{
 		position: absolute;
