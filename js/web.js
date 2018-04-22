@@ -1,3 +1,4 @@
+(function(){
 "use strict";
 const $ = s => document.querySelector(s);
 
@@ -79,9 +80,11 @@ view.spreadSize = +spreadSize.value;
 view.panAndZoom = new PanAndZoom({
 	update: () => view.zoomLayer.style.transform = view.panAndZoom,
 });
-window.view = view;
 
 function redraw(){
 	view.load(editorInput.value);
 	updateBookmarks();
 }
+
+window.view = view;
+}());
