@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="initial-scale=1, minimum-scale=1" />
+<title>HTMLTTY Preview</title>
+<style>
+*{
+	tab-size: 4;
+	box-sizing: border-box;
+}
+
+html{
+	background: #000;
+	color: #fff;
+}
+
+#frame{
+	outline: 1px solid red;
+}
+</style>
+</head>
+
+
+<body>
+	
+	<div id="frame"></div>
+	
+	<script>
+		"use strict";
+		
+		const ManPager = require("./lib/manpager.js");
+		const view = new ManPager({
+			parentElement: document.getElementById("frame"),
+		});
+		
+		// Load ditroff source from file, then render it
+		view.formatPage("./test/fixtures/groff_char.7.out");
+	</script>
+</body>
+</html>
