@@ -6,9 +6,9 @@
 	"description": "Troff integration with web technologies. Tools and postprocessors to generate web-based formats in Roff.",
 	"keywords": ["troff", "groff", "nroff", "roff", "manpages", "ditroff", "postprocessing", "typesetting", "Electron", "Electroff"],
 	"author": "John Gardner <gardnerjohng@gmail.com>",
-	"atomTestRunner": "atom-mocha",
 	"devDependencies": {
-		"atom-mocha": "*"
+		"mocha": "*",
+		"chai":  "*"
 	},
 	"optionalDependencies": {
 		"urw-core35-fonts": "^1.1.0"
