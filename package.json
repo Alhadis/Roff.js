@@ -10,6 +10,9 @@
 	"devDependencies": {
 		"atom-mocha": "*"
 	},
+	"optionalDependencies": {
+		"urw-core35-fonts": "^1.1.0"
+	},
 	"engines": {
 		"atom":     ">=1.19.0",
 		"node":     ">=7.6.0",
