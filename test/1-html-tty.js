@@ -80,6 +80,10 @@ describe("HTMLTTY", () => {
 			it("moves multiple columns right", () =>
 				expect(htmlTTY.process("ABC\b\b\b  23", true)).to.eql("AB23\n")));
 
+		when("encountering a horizontal tab", () =>
+			it("advances to the next tabstop", () =>
+				expect(htmlTTY.process("\tABC\tXYZ", true)).to.eql("        ABC     XYZ\n")));
+
 		when("encountering a vertical tab", () =>
 			it("treats it like a reverse line feed", () =>
 				expect(htmlTTY.process("ABC\n\vXYZ", true)).to.eql("XYZ\n")));
