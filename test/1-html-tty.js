@@ -7,8 +7,6 @@ const htmlTTY   = new (require("../lib/postproc/html-tty.js"));
 
 const read = (fixtureFile) =>
 	fs.readFileSync(join(__dirname, "fixtures", "text", fixtureFile), "utf8");
-const when = (event, fn) =>
-	describe(`when ${event}`, fn);
 
 
 describe("HTMLTTY", () => {
@@ -63,58 +61,45 @@ describe("HTMLTTY", () => {
 	});
 	
 	describe("Raw nroff(1) output", () => {
-		when("encountering a backspace", () =>
-			it("moves one column left", () =>
-				expect(htmlTTY.process("ABC\bZ", true)).to.eql("ABZ\n")));
-
-		when("encountering multiple backspaces", () =>
-			it("moves several columns left", () =>
-				expect(htmlTTY.process("ABC\b\b23", true)).to.eql("A23\n")));
-
-		when("encountering a space", () =>
-			it("moves one column right", () =>
-				expect(htmlTTY.process("ABC\b\b 23", true)).to.eql("AB23\n")));
-
-		when("encountering multiple spaces", () =>
-			// it.says("Use a tab, you pussy");
-			it("moves multiple columns right", () =>
-				expect(htmlTTY.process("ABC\b\b\b  23", true)).to.eql("AB23\n")));
-
-		when("encountering a horizontal tab", () =>
-			it("advances to the next tabstop", () =>
-				expect(htmlTTY.process("\tABC\tXYZ", true)).to.eql("        ABC     XYZ\n")));
-
-		when("encountering a vertical tab", () =>
-			it("treats it like a reverse line feed", () =>
-				expect(htmlTTY.process("ABC\n\vXYZ", true)).to.eql("XYZ\n")));
-
-		when("encountering a form-feed", () =>
-			it("treats it like a line terminator", () => {
-				const source   = "Hello,\fworld.\nGoodbye,\f\fworld.\n";
-				const expected = "Hello,\n      world.\nGoodbye,\n\n        world.\n";
-				expect(htmlTTY.process(source, true)).to.eql(expected);
-			}));
-		
-		when("overstriking a character", () => {
-			it("embolds it if the characters match", () =>
-				expect(htmlTTY.process("AB\bBC", true)).to.eql("A<b>B</b>C\n"));
-			it("underlines it if one character is an underscore", () => {
-				expect(htmlTTY.process("AB\b_C", true)).to.eql("A<u>B</u>C\n");
-				expect(htmlTTY.process("A_\bBC", true)).to.eql("A<u>B</u>C\n");
-			});
+		it("moves left when encountering backspaces", () => {
+			expect(htmlTTY.process("ABC\bZ", true)).to.eql("ABZ\n");
+			expect(htmlTTY.process("ABC\b\b23", true)).to.eql("A23\n");
 		});
 		
-		when("processing tbl(1) markup", () => {
-			it("formats it correctly", () => {
-				const source   = read("teletype.txt");
-				const expected = read("teletype.html");
-				const result   = [
-					tmplHeader,
-					htmlTTY.process(source, true),
-					tmplFooter, ""
-				].join("\n");
-				expect(result).to.eql(expected);
-			});
+		it("moves right when encountering spaces", () => {
+			expect(htmlTTY.process("ABC\b\b 23", true)).to.eql("AB23\n");
+			expect(htmlTTY.process("ABC\b\b\b  23", true)).to.eql("AB23\n");
+		});
+
+		it("advances to the next tabstop when parsing a tab", () =>
+			expect(htmlTTY.process("\tABC\tXYZ", true)).to.eql("        ABC     XYZ\n"));
+
+		it("interprets vertical tabs as reverse line feeds", () =>
+			expect(htmlTTY.process("ABC\n\vXYZ", true)).to.eql("XYZ\n"));
+
+		it("interprets form-feeds as line terminators", () => {
+			const source   = "Hello,\fworld.\nGoodbye,\f\fworld.\n";
+			const expected = "Hello,\n      world.\nGoodbye,\n\n        world.\n";
+			expect(htmlTTY.process(source, true)).to.eql(expected);
+		});
+		
+		it("embolds matching overstrike characters", () =>
+			expect(htmlTTY.process("AB\bBC", true)).to.eql("A<b>B</b>C\n"));
+		
+		it("underlines characters when overstriking an underscore", () => {
+			expect(htmlTTY.process("AB\b_C", true)).to.eql("A<u>B</u>C\n");
+			expect(htmlTTY.process("A_\bBC", true)).to.eql("A<u>B</u>C\n");
+		});
+
+		it("formats tbl(1) markup correctly", () => {
+			const source   = read("teletype.txt");
+			const expected = read("teletype.html");
+			const result   = [
+				tmplHeader,
+				htmlTTY.process(source, true),
+				tmplFooter, ""
+			].join("\n");
+			expect(result).to.eql(expected);
 		});
 	});
 });
