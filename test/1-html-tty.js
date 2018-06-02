@@ -36,6 +36,13 @@ describe("HTMLTTY", () => {
 			});
 		}
 		
+		it("formats raw nroff(1) output correctly", () => {
+			const source   = read("teletype.txt");
+			const expected = read("teletype.html");
+			const result   = [tmplHeader, htmlTTY.process(source, true), tmplFooter, ""].join("\n");
+			expect(result).to.eql(expected);
+		});
+		
 		it("can be used as a command-line postprocessor", () => {
 			return new Promise((resolve, reject) => {
 				const {exec} = require("child_process");

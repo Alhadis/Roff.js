@@ -13,10 +13,11 @@ new Promise(resolve => {
 		process.stdin.on("readable", () => {
 			const chunk = process.stdin.read();
 			null !== chunk ? input += chunk : resolve(input);
-		})
+		});
 	}
 }).then(data => {
-	let output = htmlTTY.process(data);
+	const isRaw = /\x08/.test(data);
+	let output = htmlTTY.process(data, isRaw);
 	if(process.stdout.isTTY)
 		output = output
 		.replace(/^\n+/,   "")
