@@ -6,7 +6,7 @@ const {expect}  = require("chai");
 const htmlTTY   = new (require("../lib/postproc/html-tty.js"));
 
 const read = (fixtureFile) =>
-	fs.readFileSync(join(__dirname, "fixtures", fixtureFile), "utf8");
+	fs.readFileSync(join(__dirname, "fixtures", "text", fixtureFile), "utf8");
 const when = (event, fn) =>
 	describe(`when ${event}`, fn);
 
@@ -41,7 +41,7 @@ describe("HTMLTTY", () => {
 		it("can be used as a command-line postprocessor", () => {
 			return new Promise((resolve, reject) => {
 				const {exec} = require("child_process");
-				const cmd    = "groff -Tutf8 -Z -man test/fixtures/groff.1 | bin/html-tty";
+				const cmd    = "groff -Tutf8 -Z -man test/fixtures/text/groff.1 | bin/html-tty";
 				const cwd    = require("path").resolve(join(__dirname, ".."));
 				exec(cmd, {cwd}, (error, stdout, stderr) => {
 					if(error){

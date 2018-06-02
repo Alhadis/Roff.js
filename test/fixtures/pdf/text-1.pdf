@@ -1,0 +1,194 @@
+%PDF-1.4
+%‚„œ”
+3 0 obj << /Contents [4 0 R  ]
+/Group << /CS /DeviceRGB
+/S /Transparency
+>>
+/Parent 2 0 R
+/Type /Page
+>>
+endobj
+4 0 obj << /Length 1279
+>>
+stream
+q 1 0 0 1 0 0 cm
+1 J
+1 j
+% V12000
+%% H72000
+% DFd
+0 g
+% h216000
+% n12000 0
+q BT
+1 0 0 1 288 780 Tm
+
+0 Tc
+% V12000
+%% H72000
+% md
+1 0 0 1 72 780 Tm
+0 Tc
+0 g
+% s10000
+% Dt -1000 0
+ET Q
+0 G
+0.4 w
+% h1000
+% n12000 0
+q BT
+1 0 0 1 73.4 780 Tm
+0 Tc
+% V48000
+%% H288000
+% Dp 0 -36000 -216000 0 0 36000
+1 0 0 1 288 744 Tm
+0 Tc
+ET Q
+288 744 m
+288 780 l
+72 780 l
+72 744 l
+s
+% n12000 0
+q BT
+1 0 0 1 72 744 Tm
+0 Tc
+% x font 5 TR
+% x Height 5000
+% f5
+% V26200
+1 0 0 0.500 72 744 Tm
+0 Tc
+/F5 10 Tf
+%% H170830
+% u10000 First
+1 0 0 0.500 170.83 765.8 Tm
+0 Tc
+10 Tc
+% == 'First'=68.34 'xpos=239.17
+% --- wht=2500, pend=0, nomv=0
+% n12000 0
+0 Tw (First) Tj
+% V38200
+%% H165280
+% u7000 Second
+1 0 0 0.500 165.28 753.8 Tm
+10 Tc
+7 Tc
+% == 'Second'=71.44 'xpos=236.72
+% --- wht=2500, pend=0, nomv=0
+% n12000 0
+0 Tw (Second) Tj
+% V26200
+%% H100830
+% u5000 FOOO
+1 0 0 0.500 100.83 765.8 Tm
+7 Tc
+5 Tc
+% == 'FOOO'=47.22 'xpos=148.05
+% --- wht=2500, pend=0, nomv=0
+% n12000 0
+0 Tw (FOOO) Tj
+% x Height 50000
+% x Slant 50
+% v50000
+1 0 2.747 5.000 148.05 765.8 Tm
+5 Tc
+% H100830
+1 0 2.747 5.000 148.05 715.8 Tm
+5 Tc
+-47.220 0 Td
+% u5000 BAAAAAR
+% == 'BAAAAAR'=84.44 'xpos=185.27
+% --- wht=2500, pend=0, nomv=0
+% x trailer
+% V792000
+0 Tw (BAAAAAR) Tj
+%% x stop
+% x stop
+1 0 2.747 5.000 185.27 0 Tm
+5 Tc
+ET Q
+Q
+endstream
+endobj
+1 0 obj << /Pages 2 0 R 
+/Type /Catalog
+>>
+endobj
+8 0 obj << /CreationDate (D:20170704173052+10'00')
+/Creator (groff version 1.22.3)
+/ModDate (D:20170704173052+10'00')
+/Producer (gropdf version 1.22.3)
+>>
+endobj
+5 0 obj << /BaseFont /Times-Roman
+/Encoding 6 0 R 
+/Subtype /Type1
+/ToUnicode 7 0 R 
+/Type /Font
+>>
+endobj
+6 0 obj << /Differences [0 /asciicircum /asciitilde /Scaron /Zcaron /scaron /zcaron /Ydieresis /trademark /quotesingle /Euro /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright /parenleft /parenright /asterisk /plus /comma /hyphen /period /slash /zero /one /two /three /four /five /six /seven /eight /nine /colon /semicolon /less /equal /greater /question /at /A /B /C /D /E /F /G /H /I /J /K /L /M /N /O /P /Q /R /S /T /U /V /W /X /Y /Z /bracketleft /backslash /bracketright /circumflex /underscore /quoteleft /a /b /c /d /e /f /g /h /i /j /k /l /m /n /o /p /q /r /s /t /u /v /w /x /y /z /braceleft /bar /braceright /tilde /.notdef /quotesinglbase /guillemotleft /guillemotright /bullet /florin /fraction /perthousand /dagger /daggerdbl /endash /emdash /.notdef /fi /fl /.notdef /.notdef /dotlessi /.notdef /grave /hungarumlaut /dotaccent /breve /caron /ring /ogonek /quotedblleft /quotedblright /oe /lslash /quotedblbase /OE /Lslash /.notdef /exclamdown /cent /sterling /currency /yen /brokenbar /section /dieresis /copyright /ordfeminine /guilsinglleft /logicalnot /minus /registered /macron /degree /plusminus /twosuperior /threesuperior /acute /mu /paragraph /periodcentered /cedilla /onesuperior /ordmasculine /guilsinglright /onequarter /onehalf /threequarters /questiondown /Agrave /Aacute /Acircumflex /Atilde /Adieresis /Aring /AE /Ccedilla /Egrave /Eacute /Ecircumflex /Edieresis /Igrave /Iacute /Icircumflex /Idieresis /Eth /Ntilde /Ograve /Oacute /Ocircumflex /Otilde /Odieresis /multiply /Oslash /Ugrave /Uacute /Ucircumflex /Udieresis /Yacute /Thorn /germandbls /agrave /aacute /acircumflex /atilde /adieresis /aring /ae /ccedilla /egrave /eacute /ecircumflex /edieresis /igrave /iacute /icircumflex /idieresis /eth /ntilde /ograve /oacute /ocircumflex /otilde /odieresis /divide /oslash /ugrave /uacute /ucircumflex /udieresis /yacute /thorn /ydieresis /ellipsis ]
+/Type /Encoding
+>>
+endobj
+7 0 obj << /Length 426
+>>
+stream
+/CIDInit /ProcSet findresource begin
+12 dict begin
+begincmap
+/CIDSystemInfo
+<< /Registry (Adobe)
+/Ordering (UCS)
+/Supplement 0
+>> def
+/CMapName /Adobe-Identity-UCS def
+/CMapType 2 def
+1 begincodespacerange
+<0000> <FFFF>
+endcodespacerange
+2 beginbfrange
+<008b> <008f> [<00660066> <00660069> <0066006c> <006600660069> <00660066006C>]
+<00ad> <00ad> <002d>
+endbfrange
+endcmap
+CMapName currentdict /CMap defineresource pop
+end
+end
+endstream
+endobj
+2 0 obj << /Count 1
+/Kids [3 0 R  ]
+/MediaBox [0 0 612 792 ]
+/Resources << /Font << /F5 5 0 R 
+>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Rotate 0
+/Type /Pages
+>>
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000001457 00000 n 
+0000004382 00000 n 
+0000000015 00000 n 
+0000000127 00000 n 
+0000001669 00000 n 
+0000001776 00000 n 
+0000003906 00000 n 
+0000001507 00000 n 
+trailer
+<<
+/Info 8 0 R 
+/Root 1 0 R
+/Size 9
+>>
+startxref
+4563
+%%EOF

@@ -1,0 +1,214 @@
+x T pdf
+x res 72000 1 1
+x init
+x F fixtures/x-link.pic
+p1
+x font 36 TB
+f36
+s12000
+V18000
+H72000
+md
+DFd
+tLine
+C\-
+h6840
+tbr
+H113964
+teak
+wh3000
+ttest
+n18000 0
+x font 5 TR
+f5
+V54000
+H72000
+tMethion
+H112488
+tylthreon
+H152304
+tylthreon
+H192120
+tylglutamin
+H243948
+tylar
+H262392
+tgin
+H277548
+tyltyrosylgluta
+wh14520
+V54000
+H358740
+mr 22937 0 39321
+x X pdf: markstart
++ 8196 -2616 2000
++ /Subtype /Link /Action << /Subtype /URI /URI (http://go.to/) >>
++ /Border [0 0 4 [40 10]]
++ /Color  [0.35 0.00 0.60]
+tmylserylleuc
+H420552
+tylphen
+H453036
+tylalan
+H482184
+tylalan
+H511332
+tylglu
+Chy
+h3996
+n18000 0
+V72000
+H72000
+ttamin
+H99156
+tylleuc
+H128304
+tyllysylglutamylar
+H212760
+tgin
+H227916
+tyllysylglutamylglyc
+H323748
+x X pdf: marksuspend
+tylalpooan
+H370896
+tylphen
+H403380
+tylalan
+H432528
+tylv
+H447564
+talylprolylphen
+H517380
+ty
+Chy
+h3996
+n18000 0
+x X pdf: markrestart
+V90000
+H72000
+tlalan
+H95148
+tylv
+H110184
+talylthreon
+H158664
+tylleuc
+H187812
+tylgl
+V90000
+H206484
+x X pdf: markend
+wh13092
+md
+tyc
+H230724
+tylaspartylprolylglyc
+H327204
+tylisoleuc
+H370356
+tylglutamylglutamin
+H464856
+tylserylleuc
+H517332
+tylly
+Chy
+h3996
+n18000 0
+V108000
+H72000
+tsylisoleuc
+H119820
+tylaspartylthreon
+H197628
+tylleuc
+H226776
+tylisoleu
+wh14328
+tc
+H284256
+tylglutamylalan
+H356076
+tylglyc
+H385896
+tylalan
+H415044
+tylaspartylalan
+H482184
+tylleuc
+H511332
+tylglu
+Chy
+h3996
+n18000 0
+V126000
+H72000
+ttamylleuc
+H119148
+tylglyc
+H148968
+ty
+wh11888
+V126000
+H166856
+mr 22937 0 39321
+x X pdf: markstart
++ 8196 -2616 2000
++ /Subtype /Link /Action << /Subtype /URI /URI (http://go.to/) >>
++ /Border [0 0 1]
++ /Color  [0.35 0.00 0.60]
+tlisoleuc
+H204008
+tylprolylphen
+H265160
+tylalan
+H294308
+tylseryla
+V126000
+H332300
+x X pdf: markend
+wh11888
+md
+tc
+H349336
+tylglutamylalan
+H421156
+tylglyc
+H450976
+tylalan
+H480124
+tylas
+wh11888
+V126000
+H511344
+mr 22937 0 39321
+x X pdf: markstart
++ 8196 -2616 2000
++ /Subtype /Link /Action << /Subtype /URI /URI (http://go.to/) >>
++ /Border [0 0 1]
++ /Color  [0.35 0.00 0.60]
+tparty
+Chy
+h3996
+n18000 0
+V144000
+H72000
+tlalan
+H95148
+tylleuc
+H124296
+tyl
+V144000
+H133632
+x X pdf: markend
+wh3000
+md
+tglutamylleuc
+H199116
+tylglyc
+H228936
+ty
+n18000 0
+x trailer
+V792000
+x stop

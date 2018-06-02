@@ -1,0 +1,268 @@
+%PDF-1.4
+%‚„œ”
+3 0 obj << /Contents [4 0 R  ]
+/Group << /CS /DeviceRGB
+/S /Transparency
+>>
+/Parent 2 0 R
+/Type /Page
+>>
+endobj
+4 0 obj << /Length 2823
+>>
+stream
+q 1 0 0 1 0 0 cm
+1 J
+1 j
+% x font 5 TR
+% f5
+% s10000
+% V12000
+%% H72000
+% md
+0 G
+% DFd
+0 g
+% tBe
+q BT
+1 0 0 1 72 780 Tm
+/F5 10 Tf
+0 Tc
+% == 'Be'=11.11 'xpos=83.11
+% --- wht=2500, pend=0, nomv=0
+% H82960
+0 Tw (Be) Tj
+10.960 0 Td
+% tgin
+% == 'gin'=12.78 'xpos=95.74
+% --- wht=2500, pend=0, nomv=0
+% n12000 0
+0 Tw (gin) Tj
+% V24000
+%% H450000
+% n12000 0
+1 0 0 1 450 768 Tm
+0 Tc
+% V24000
+%% H72000
+% Dt -1000 0
+1 0 0 1 72 768 Tm
+0 Tc
+ET Q
+0.4 w
+% h1000
+% n12000 0
+q BT
+1 0 0 1 73.4 768 Tm
+/F5 10 Tf
+0 Tc
+% V330000
+%% H72000
+% t1_Before
+1 0 0 1 72 462 Tm
+0 Tc
+% == '1_Before'=37.21 'xpos=109.21
+% --- wht=2500, pend=0, nomv=0
+% DC 36000
+0 Tw (1_Before) Tj
+ET Q
+145.21 462 m
+145.21 452.0588745036 137.1511254964 444 127.21 444 c
+117.2688745036 444 109.21 452.0588745036 109.21 462 c
+109.21 471.9411254964 117.2688745036 480 127.21 480 c
+137.1511254964 480 145.21 471.9411254964 145.21 462 c
+f
+% t1_After
+q BT
+1 0 0 1 145.21 462 Tm
+/F5 10 Tf
+0 Tc
+% == '1_After'=31.1 'xpos=176.31
+% --- wht=2500, pend=0, nomv=0
+% n12000 0
+0 Tw (1_After) Tj
+% V186000
+%% H216000
+% t2_Before
+1 0 0 1 216 606 Tm
+0 Tc
+% == '2_Before'=37.21 'xpos=253.21
+% --- wht=2500, pend=0, nomv=0
+% De 136000 26000
+0 Tw (2_Before) Tj
+ET Q
+389.21 606 m
+389.21 598.8202982526 358.7653629864 593 321.21 593 c
+283.6546370136 593 253.21 598.8202982526 253.21 606 c
+253.21 613.1797017474 283.6546370136 619 321.21 619 c
+358.7653629864 619 389.21 613.1797017474 389.21 606 c
+s
+% t2_After
+q BT
+1 0 0 1 389.21 606 Tm
+/F5 10 Tf
+0 Tc
+% == '2_After'=31.1 'xpos=420.31
+% --- wht=2500, pend=0, nomv=0
+% n12000 0
+0 Tw (2_After) Tj
+% V42000
+%% H360000
+% 
+% t3_Before
+1 0 0 1 360 750 Tm
+0 Tc
+% == '3_Before'=37.21 'xpos=397.21
+% --- wht=2500, pend=0, nomv=0
+% Dc 36000
+0 Tw (3_Before) Tj
+ET Q
+433.21 750 m
+433.21 740.0588745036 425.1511254964 732 415.21 732 c
+405.2688745036 732 397.21 740.0588745036 397.21 750 c
+397.21 759.9411254964 405.2688745036 768 415.21 768 c
+425.1511254964 768 433.21 759.9411254964 433.21 750 c
+s
+% t3_After
+q BT
+1 0 0 1 433.21 750 Tm
+/F5 10 Tf
+0 Tc
+% == '3_After'=31.1 'xpos=464.31
+% --- wht=2500, pend=0, nomv=0
+% 
+% 
+% mr 0 65536 0
+0 Tw (3_After) Tj
+0 1.0000152590219 0 rg
+% Df -1
+ET Q
+0 1.0000152590219 0 RG
+0 1.0000152590219 0 rg
+% mr 65536 0 0
+1.0000152590219 0 0 RG
+% n12000 0
+q BT
+1 0 0 1 464.31 750 Tm
+1.0000152590219 0 0 rg
+/F5 10 Tf
+0 Tc
+% V60000
+%% H450000
+% tPre-end
+1 0 0 1 450 732 Tm
+0 Tc
+% == 'Pre-end'=31.1 'xpos=481.1
+% --- wht=2500, pend=0, nomv=0
+% 
+% DP 0 -36000 -54000 0 0 36000
+0 Tw (Pre-end) Tj
+ET Q
+481.1 732 m
+481.1 768 l
+427.1 768 l
+427.1 732 l
+f
+% tEnd
+q BT
+1 0 0 1 427.1 732 Tm
+1.0000152590219 0 0 rg
+/F5 10 Tf
+0 Tc
+% == 'End'=16.11 'xpos=443.21
+% --- wht=2500, pend=0, nomv=0
+% n12000 0
+0 Tw (End) Tj
+% V360000
+%% H72000
+% n12000 0
+1 0 0 1 72 432 Tm
+0 Tc
+% x trailer
+% V792000
+%% x stop
+% x stop
+1 0 0 1 72 0 Tm
+0 Tc
+ET Q
+Q
+endstream
+endobj
+1 0 obj << /Pages 2 0 R 
+/Type /Catalog
+>>
+endobj
+8 0 obj << /CreationDate (D:20170704152808+10'00')
+/Creator (groff version 1.22.3)
+/ModDate (D:20170704152808+10'00')
+/Producer (gropdf version 1.22.3)
+>>
+endobj
+5 0 obj << /BaseFont /Times-Roman
+/Encoding 6 0 R 
+/Subtype /Type1
+/ToUnicode 7 0 R 
+/Type /Font
+>>
+endobj
+6 0 obj << /Differences [0 /asciicircum /asciitilde /Scaron /Zcaron /scaron /zcaron /Ydieresis /trademark /quotesingle /Euro /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright /parenleft /parenright /asterisk /plus /comma /hyphen /period /slash /zero /one /two /three /four /five /six /seven /eight /nine /colon /semicolon /less /equal /greater /question /at /A /B /C /D /E /F /G /H /I /J /K /L /M /N /O /P /Q /R /S /T /U /V /W /X /Y /Z /bracketleft /backslash /bracketright /circumflex /underscore /quoteleft /a /b /c /d /e /f /g /h /i /j /k /l /m /n /o /p /q /r /s /t /u /v /w /x /y /z /braceleft /bar /braceright /tilde /.notdef /quotesinglbase /guillemotleft /guillemotright /bullet /florin /fraction /perthousand /dagger /daggerdbl /endash /emdash /.notdef /fi /fl /.notdef /.notdef /dotlessi /.notdef /grave /hungarumlaut /dotaccent /breve /caron /ring /ogonek /quotedblleft /quotedblright /oe /lslash /quotedblbase /OE /Lslash /.notdef /exclamdown /cent /sterling /currency /yen /brokenbar /section /dieresis /copyright /ordfeminine /guilsinglleft /logicalnot /minus /registered /macron /degree /plusminus /twosuperior /threesuperior /acute /mu /paragraph /periodcentered /cedilla /onesuperior /ordmasculine /guilsinglright /onequarter /onehalf /threequarters /questiondown /Agrave /Aacute /Acircumflex /Atilde /Adieresis /Aring /AE /Ccedilla /Egrave /Eacute /Ecircumflex /Edieresis /Igrave /Iacute /Icircumflex /Idieresis /Eth /Ntilde /Ograve /Oacute /Ocircumflex /Otilde /Odieresis /multiply /Oslash /Ugrave /Uacute /Ucircumflex /Udieresis /Yacute /Thorn /germandbls /agrave /aacute /acircumflex /atilde /adieresis /aring /ae /ccedilla /egrave /eacute /ecircumflex /edieresis /igrave /iacute /icircumflex /idieresis /eth /ntilde /ograve /oacute /ocircumflex /otilde /odieresis /divide /oslash /ugrave /uacute /ucircumflex /udieresis /yacute /thorn /ydieresis /ellipsis ]
+/Type /Encoding
+>>
+endobj
+7 0 obj << /Length 426
+>>
+stream
+/CIDInit /ProcSet findresource begin
+12 dict begin
+begincmap
+/CIDSystemInfo
+<< /Registry (Adobe)
+/Ordering (UCS)
+/Supplement 0
+>> def
+/CMapName /Adobe-Identity-UCS def
+/CMapType 2 def
+1 begincodespacerange
+<0000> <FFFF>
+endcodespacerange
+2 beginbfrange
+<008b> <008f> [<00660066> <00660069> <0066006c> <006600660069> <00660066006C>]
+<00ad> <00ad> <002d>
+endbfrange
+endcmap
+CMapName currentdict /CMap defineresource pop
+end
+end
+endstream
+endobj
+2 0 obj << /Count 1
+/Kids [3 0 R  ]
+/MediaBox [0 0 612 792 ]
+/Resources << /Font << /F5 5 0 R 
+>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Rotate 0
+/Type /Pages
+>>
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000003001 00000 n 
+0000005926 00000 n 
+0000000015 00000 n 
+0000000127 00000 n 
+0000003213 00000 n 
+0000003320 00000 n 
+0000005450 00000 n 
+0000003051 00000 n 
+trailer
+<<
+/Info 8 0 R 
+/Root 1 0 R
+/Size 9
+>>
+startxref
+6107
+%%EOF
