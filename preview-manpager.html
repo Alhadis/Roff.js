@@ -36,13 +36,13 @@ a:visited{
 	<script>
 		"use strict";
 		
-		const ManPager = require("./lib/manpager.js");
-		const view = new ManPager({
+		const ManPager = require("./lib/html-tty/manpager.js");
+		const pager = new ManPager({
 			parentElement: document.getElementById("frame"),
 		});
 		
 		// Load ditroff source from file, then render it
-		view.formatPage("groff_char");
+		pager.formatPage("groff_char");
 	</script>
 </body>
 </html>

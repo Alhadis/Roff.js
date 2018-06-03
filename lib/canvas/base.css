@@ -27,7 +27,7 @@
 			
 			.troff-view-page canvas{
 				background: #fff;
-				box-shadow: 0 0 .35em -0.05em rgba(0,0,0,.5);
+				box-shadow: 0 0 .35em -.05em rgba(0,0,0,.5);
 				max-width: 100%;
 				display: block;
 			}

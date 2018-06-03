@@ -3,7 +3,7 @@
 const fs        = require("fs");
 const {join}    = require("path");
 const {expect}  = require("chai");
-const htmlTTY   = new (require("../lib/postproc/html-tty.js"));
+const htmlTTY   = new (require("../lib/html-tty/html-tty.js"));
 
 const read = (fixtureFile) =>
 	fs.readFileSync(join(__dirname, "fixtures", "text", fixtureFile), "utf8");

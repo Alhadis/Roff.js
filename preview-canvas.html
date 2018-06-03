@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="initial-scale=1, minimum-scale=1" />
 <link rel="stylesheet" type="text/css" href="node_modules/urw-core35-fonts/index.css" />
-<link rel="stylesheet" type="text/css" href="styles/troff-view.css" />
+<link rel="stylesheet" type="text/css" href="lib/canvas/base.css" />
 <title>Canvas Preview</title>
 
 <style>
@@ -63,7 +63,7 @@ body{
 	<script>
 		"use strict";
 		
-		const TroffView = require("./lib/troff-view.js");
+		const TroffView = require("./lib/canvas/troff-view.js");
 		const view = new TroffView({
 			parentElement: document.getElementById("chalkboard"),
 		});
