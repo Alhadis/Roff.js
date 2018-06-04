@@ -22,9 +22,43 @@ a:visited{
 	text-decoration: none;
 }
 
-#frame{
-	outline: 1px solid red;
+#notice{
+	background: rgba(0, 0, 0, .75);
+	font: 1rem sans-serif;
+	color: #fff;
+	
+	position: fixed;
+	overflow: hidden;
+	top:     0;
+	left:    0;
+	right:   0;
+	bottom:  0;
+	z-index: 9;
+	transition: 0s step-end z-index, .3s ease-in opacity;
 }
+	#notice[hidden]{
+		display: block !important;
+		pointer-events: none;
+		opacity: 0;
+		z-index: -1;
+		transition-delay: .3s, 0s;
+	}
+	
+	#notice > strong{
+		cursor: pointer;
+		position: fixed;
+		display: block;
+		top:  50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+		text-shadow: 1px 1px 0 #000;
+	}
+		#notice > strong::after{
+			content: "(Click to dismiss this message)";
+			display: block;
+			margin-top: 1em;
+		}
 </style>
 </head>
 
@@ -32,17 +66,23 @@ a:visited{
 <body>
 	
 	<div id="frame"></div>
+	<div id="notice" hidden><strong></strong></div>
 	
 	<script>
 		"use strict";
-		
+		notice.addEventListener("click", () => notice.hidden = true);
 		const ManPager = require("./lib/html-tty/manpager.js");
 		const pager = new ManPager({
 			parentElement: document.getElementById("frame"),
+			errorHandler: (error) => {
+				notice.hidden = false;
+				notice.firstChild.textContent = error;
+			},
 		});
 		
 		// Load ditroff source from file, then render it
 		pager.formatPage("groff_char");
+		console.log(pager);
 	</script>
 </body>
 </html>
