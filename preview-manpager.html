@@ -71,18 +71,26 @@ a:visited{
 	<script>
 		"use strict";
 		notice.addEventListener("click", () => notice.hidden = true);
-		const ManPager = require("./lib/html-tty/manpager.js");
-		const pager = new ManPager({
+		
+		const {TTYView, pages} = require(".");
+		
+		const view = new TTYView({
 			parentElement: document.getElementById("frame"),
-			errorHandler: (error) => {
+			onChange: () => {
+				
+			},
+			onError: (error) => {
+				console.error(error);
 				notice.hidden = false;
 				notice.firstChild.textContent = error;
 			},
 		});
 		
 		// Load ditroff source from file, then render it
-		pager.formatPage("groff_char");
-		console.log(pager);
+		pages.load("groff_char").then(data => {
+			view.render(data);
+		});
+		console.dir(view);
 	</script>
 </body>
 </html>
