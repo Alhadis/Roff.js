@@ -6,6 +6,8 @@ let shell = null;
 module.exports = {
 	
 	// Core components
+	get PageLoader()     {return require("./lib/page-loader.js")},
+	get PageReference()  {return require("./lib/page-reference.js")},
 	get Postprocessor()  {return require("./lib/postprocessor.js")},
 	get ShellCache()     {return require("./lib/shell-cache.js")},
 	get TroffType()      {return require("./lib/troff-type.js")},
@@ -18,10 +20,6 @@ module.exports = {
 	get HTMLTTY()        {return require("./lib/html-tty/html-tty.js")},
 	get TextGrid()       {return require("./lib/html-tty/text-grid.js")},
 	get TTYView()        {return require("./lib/html-tty/tty-view.js")},
-	
-	// Utility interfaces for loading and formatting manpages
-	get PageLoader()     {return require("./lib/man/page-loader.js")},
-	get PageReference()  {return require("./lib/man/page-reference.js")},
 	
 	
 	// Shared PageLoader instance for pooling loaded manual-pages
