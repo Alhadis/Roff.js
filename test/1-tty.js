@@ -3,13 +3,13 @@
 const fs        = require("fs");
 const {join}    = require("path");
 const {expect}  = require("chai");
-const htmlTTY   = new (require("../lib/html-tty/html-tty.js"));
+const htmlTTY   = new (require("../lib/postproc/tty/renderer.js"));
 
 const read = (fixtureFile) =>
 	fs.readFileSync(join(__dirname, "fixtures", "text", fixtureFile), "utf8");
 
 
-describe("HTMLTTY", () => {
+describe("TTYRenderer", () => {
 	const [tmplHeader, tmplFooter] = read("template.html").trim().split(/\n+/);
 
 	describe("Basic procedures", () => {

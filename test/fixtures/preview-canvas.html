@@ -6,7 +6,7 @@
 <meta name="viewport" content="initial-scale=1, minimum-scale=1" />
 <link rel="stylesheet" type="text/css" href="node_modules/urw-core35-fonts/index.css" />
 <link rel="stylesheet" type="text/css" href="lib/canvas/base.css" />
-<title>Canvas Preview</title>
+<title>TroffCanvasViewer demo</title>
 
 <style>
 *{
@@ -63,8 +63,8 @@ body{
 	<script>
 		"use strict";
 		
-		const TroffView = require("./lib/canvas/troff-view.js");
-		const view = new TroffView({
+		const {TroffCanvasViewer} = require(".");
+		const view = new TroffCanvasViewer({
 			parentElement: document.getElementById("chalkboard"),
 		});
 		
