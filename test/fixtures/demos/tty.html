@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="initial-scale=1, minimum-scale=1" />
+<link rel="stylesheet" type="text/css" href="./tty.css" />
+<title>TTYViewer demo</title>
+</head>
+
+
+<body>
+	
+	<div id="frame"></div>
+	<div id="notice" hidden><strong></strong></div>
+	
+	<script>
+		"use strict";
+
+		// Unrelated garnish
+		notice.addEventListener("click", () => {
+			notice.hidden = true;
+		});
+
+
+		// Demo-related
+		const {
+			ManPageLoader,
+			TTYViewer,
+		} = require("../../../lib/index.js");
+		
+		const loader = new ManPageLoader();
+		const viewer = new TTYViewer({
+			parentElement: document.getElementById("frame"),
+			onError: (error) => {
+				console.error(error);
+				notice.hidden = false;
+				notice.firstChild.textContent = error;
+			},
+		});
+		
+		console.dir({loader, viewer});
+		loader.load("groff_char")
+			.then(data => viewer.render(data))
+			.catch(err => console.error(err));
+	</script>
+</body>
+</html>

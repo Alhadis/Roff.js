@@ -1,0 +1,43 @@
+*{
+	tab-size: 4;
+	box-sizing: border-box;
+}
+
+/* Demo styling */
+body{
+	white-space: nowrap;
+	text-align: center;
+	background: #ccc;
+	font-size: 0;
+	margin: 0;
+}
+	body::before{
+		content: "";
+		height: 100vh;
+		width: 0;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	
+	#chalkboard{
+		font-size: 1rem;
+		background: #333;
+		border: 5px double #000;
+		border-color: #aaa #ccc #fff #666;
+		box-shadow: 0 0 1.5em -.25em rgba(0,0,0,1);
+		
+		display: inline-block;
+		vertical-align: middle;
+		white-space: normal;
+		position:  relative;
+		margin:    1em;
+		width:     calc(100% - 2em);
+		max-width: 640px;
+		height:    500px;
+	}
+		.troff-view-pages{
+			padding: 1em;
+		}
+		.troff-view-page{
+			margin-bottom: 1em;
+		}
