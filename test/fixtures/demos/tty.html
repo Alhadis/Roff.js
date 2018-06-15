@@ -30,14 +30,8 @@
 		} = require("../../../lib/index.js");
 		
 		const loader = new ManPageLoader();
-		const viewer = new TTYViewer({
-			parentElement: document.getElementById("frame"),
-			onError: (error) => {
-				console.error(error);
-				notice.hidden = false;
-				notice.firstChild.textContent = error;
-			},
-		});
+		const viewer = new TTYViewer();
+		document.getElementById("frame").appendChild(viewer.element);
 		
 		console.dir({loader, viewer});
 		loader.load("groff_char")
