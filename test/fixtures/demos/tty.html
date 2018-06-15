@@ -41,7 +41,10 @@
 		
 		console.dir({loader, viewer});
 		loader.load("groff_char")
-			.then(data => viewer.render(loader.format(data)))
+			.then(async data => {
+				data = await loader.format(data, "tty");
+				viewer.render(data);
+			})
 			.catch(err => console.error(err));
 	</script>
 </body>
