@@ -41,7 +41,7 @@
 		
 		console.dir({loader, viewer});
 		loader.load("groff_char")
-			.then(data => viewer.render(data))
+			.then(data => viewer.render(loader.format(data)))
 			.catch(err => console.error(err));
 	</script>
 </body>
