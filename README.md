@@ -7,6 +7,8 @@ Stick to a standard Troff implementation like
 [Groff](https://www.gnu.org/software/groff/) or
 [Heirloom Doctools](http://n-t-roff.github.io/heirloom/doctools.html).
 
+This version is an early pre-release, still in alpha and prone to many changes.
+
 
 Postprocessors included
 -----------------------
@@ -17,6 +19,10 @@ Postprocessors included
 *	### `html-tty`
 	Generate an HTML-based rendition of monospaced terminal output,
 	replicating the look of a document formatted with `nroff`.
+
+
+Both of these will eventually see use in an (unfinished) [extension](https://github.com/Alhadis/language-roff/issues)
+for the [Atom editor](http://atom.io/).
 
 
 Postprocessors planned
