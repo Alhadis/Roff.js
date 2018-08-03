@@ -11,10 +11,22 @@
 		"sourceType": "module"
 	},
 	"rules": {
+		"eqeqeq": [
+			"error",
+			"smart"
+		],
+		"eol-last": [
+			"error",
+			"always"
+		],
 		"indent": [
 			"error",
 			"tab",
-			{"ignoreComments": true, "SwitchCase": 1}
+			{
+				"ignoreComments": true,
+				"VariableDeclarator": 0,
+				"SwitchCase": 1
+			}
 		],
 		"linebreak-style": [
 			"error",
@@ -24,6 +36,7 @@
 			"error",
 			{"commentPattern": "[Ff]alls?[-\\s]?through"}
 		],
+		"no-return-await": "error",
 		"no-case-declarations": 0,
 		"no-cond-assign": 0,
 		"no-console": 0,
@@ -53,15 +66,6 @@
 			"no-unused-vars": ["error", {"varsIgnorePattern": "WW1"}],
 			"spaced-comment": 0,
 			"semi": 0
-		}
-	},{
-		"files": ["lib/system/shell-cache.js"],
-		"rules": {
-			"quotes": [
-				"error",
-				"double",
-				{"avoidEscape": true, "allowTemplateLiterals": true}
-			]
 		}
 	},{
 		"files": ["lib/**/*.js"],
