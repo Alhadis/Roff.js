@@ -1,6 +1,6 @@
 {
 	"name": "roff",
-	"version": "v0.0.0",
+	"version": "v0.1.0",
 	"license": "ISC",
 	"main": "./lib/index",
 	"repository": "https://github.com/Alhadis/Roff.js",
