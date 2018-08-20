@@ -3,6 +3,7 @@
 	"version": "v0.1.0",
 	"license": "ISC",
 	"main": "./lib/index",
+	"files": ["bin", "lib"],
 	"repository": "https://github.com/Alhadis/Roff.js",
 	"description": "Troff integration with web technologies. Tools and postprocessors to generate web-based formats in Roff.",
 	"keywords": ["troff", "groff", "nroff", "roff", "manpages", "ditroff", "postprocessing", "typesetting", "Electron", "Electroff"],
