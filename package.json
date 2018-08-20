@@ -8,8 +8,8 @@
 	"keywords": ["troff", "groff", "nroff", "roff", "manpages", "ditroff", "postprocessing", "typesetting", "Electron", "Electroff"],
 	"author": "John Gardner <gardnerjohng@gmail.com>",
 	"devDependencies": {
-		"mocha": "*",
-		"chai":  "*"
+		"mocha": "^5.2.0",
+		"chai":  "^4.1.2"
 	},
 	"engines": {
 		"atom":     ">=1.19.0",
