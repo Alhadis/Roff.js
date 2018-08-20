@@ -1,6 +1,25 @@
-node_modules
 .DS_Store
+Thumbs.db
+Desktop.ini
+node_modules
+package-lock.json
+._*
+.\#*
+\#*\#
+*~
+*.log
+*.lock
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
+/test.mjs
 /test.js
+*.tar
+*.tar.gz
+*.tgz
+
+# Project-specific
 /tmp
 *.log
 *.pdf
