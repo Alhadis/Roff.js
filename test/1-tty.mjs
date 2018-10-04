@@ -1,12 +1,13 @@
-"use strict";
+import fs        from "fs";
+import path      from "path";
+import {exec}    from "child_process";
+import Renderer  from "../lib/postproc/tty/renderer.mjs";
 
-const fs        = require("fs");
-const {join}    = require("path");
-const {expect}  = require("chai");
-const htmlTTY   = new (require("../lib/postproc/tty/renderer.js"));
+const htmlTTY   = new Renderer();
+const __dirname = import.meta.url.replace(/^file:\/\/|[/\\][^/\\]+$/gi, "");
 
 const read = (fixtureFile) =>
-	fs.readFileSync(join(__dirname, "fixtures", "text", fixtureFile), "utf8");
+	fs.readFileSync(path.join(__dirname, "fixtures", "text", fixtureFile), "utf8");
 
 
 describe("TTYRenderer", () => {
@@ -38,9 +39,8 @@ describe("TTYRenderer", () => {
 		
 		it("can be used as a command-line postprocessor", () => {
 			return new Promise((resolve, reject) => {
-				const {exec} = require("child_process");
 				const cmd    = "groff -Tutf8 -Z -man test/fixtures/text/groff.1 | bin/html-tty";
-				const cwd    = require("path").resolve(join(__dirname, ".."));
+				const cwd    = path.resolve(path.join(__dirname, ".."));
 				exec(cmd, {cwd}, (error, stdout, stderr) => {
 					if(error){
 						stderr && console.error(stderr);

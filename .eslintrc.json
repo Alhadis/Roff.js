@@ -7,7 +7,7 @@
 		"node": true
 	},
 	"parserOptions": {
-		"ecmaVersion": 2017,
+		"ecmaVersion": 2018,
 		"sourceType": "module"
 	},
 	"rules": {
@@ -61,14 +61,14 @@
 		]
 	},
 	"overrides": [{
-		"files": ["lib/postproc/postprocessor.js"],
+		"files": ["lib/postproc/postprocessor.mjs"],
 		"rules": {
 			"no-unused-vars": ["error", {"varsIgnorePattern": "WW1"}],
 			"spaced-comment": 0,
 			"semi": 0
 		}
 	},{
-		"files": ["lib/**/*.js"],
+		"files": ["lib/**/*.mjs"],
 		"rules": {"indent": 0}
 	}]
 }

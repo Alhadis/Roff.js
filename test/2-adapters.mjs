@@ -1,12 +1,8 @@
-"use strict";
-
-const {expect} = require("chai");
-
+import * as utils from "../lib/adapters/utils.mjs";
 
 describe("Adapters", () => {
 	
 	describe("Utility functions", () => {
-		const utils = require("../lib/adapters/utils.js");
 
 		describe("parseManURL", () => {
 			

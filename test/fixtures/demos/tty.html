@@ -14,8 +14,7 @@
 	<div id="frame"></div>
 	<div id="notice" hidden><strong></strong></div>
 	
-	<script>
-		"use strict";
+	<script type="module">
 
 		// Unrelated garnish
 		notice.addEventListener("click", () => {
@@ -24,10 +23,10 @@
 
 
 		// Demo-related
-		const {
+		import {
 			ManPageLoader,
 			TTYViewer,
-		} = require("../../../lib/index.js");
+		} from "../../../lib/index.mjs";
 		
 		const loader = new ManPageLoader();
 		const viewer = new TTYViewer();

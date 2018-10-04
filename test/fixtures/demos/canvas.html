@@ -14,16 +14,16 @@
 	
 	<div id="chalkboard"></div>
 	
-	<script>
-		"use strict";
+	<script type="module">
+		import {TroffCanvasViewer} from "../../../lib/index.mjs";
 		
-		const {TroffCanvasViewer} = require("../../..");
 		const view = new TroffCanvasViewer({
 			parentElement: document.getElementById("chalkboard"),
 		});
 		
 		// Load ditroff source from file, then render it
-		view.loadFile(__dirname + "/../text/pdf-large.out");
+		const dirname = import.meta.url.replace(/^file:\/\/|[/\\][^/\\]+$/gi, "");
+		view.loadFile(dirname + "/../text/pdf-large.out");
 	</script>
 </body>
 </html>
