@@ -11,7 +11,7 @@
 	"scripts": {
 		"build": "rollup --name roff --format umd lib/index.mjs | terser --mangle --compress > lib/index.js",
 		"lint": "eslint --ext mjs,js .",
-		"test": "NODE_OPTIONS='--experimental-modules' mocha --es-staging --delay test/mocha.js"
+		"test": "mocha test"
 	},
 	"devDependencies": {
 		"mocha": "^5.2.0",

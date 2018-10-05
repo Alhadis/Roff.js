@@ -1,10 +1,11 @@
-import fs        from "fs";
-import path      from "path";
-import {exec}    from "child_process";
-import Renderer  from "../lib/postproc/tty/renderer.mjs";
+"use strict";
 
-const htmlTTY   = new Renderer();
-const __dirname = import.meta.url.replace(/^file:\/\/|[/\\][^/\\]+$/gi, "");
+const fs            = require("fs");
+const path          = require("path");
+const {exec}        = require("child_process");
+const {expect}      = require("chai");
+const {TTYRenderer} = require("../");
+const htmlTTY       = new TTYRenderer();
 
 const read = (fixtureFile) =>
 	fs.readFileSync(path.join(__dirname, "fixtures", "text", fixtureFile), "utf8");

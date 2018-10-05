@@ -1,4 +1,4 @@
-import * as utils from "../lib/adapters/utils.mjs";
+"use strict";
 
 describe("Adapters", () => {
 	
