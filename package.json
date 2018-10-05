@@ -9,13 +9,17 @@
 	"keywords": ["troff", "groff", "nroff", "roff", "manpages", "ditroff", "postprocessing", "typesetting", "Electron", "Electroff"],
 	"author": "John Gardner <gardnerjohng@gmail.com>",
 	"scripts": {
-		"build": "rollup --name roff --format umd lib/index.mjs | terser --mangle --compress > lib/index.js",
-		"lint": "eslint --ext mjs,js .",
-		"test": "mocha test"
+		"all":   "npm run --silent lint && npm run --silent build && npm run --silent test",
+		"build": "npx rollup --name roff --format umd lib/index.mjs | npx terser --mangle --compress > lib/index.js",
+		"lint":  "npx eslint --ext mjs,js .",
+		"test":  "npx mocha test"
 	},
 	"devDependencies": {
-		"mocha": "^5.2.0",
-		"chai":  "^4.1.2"
+		"eslint": "^5.6.1",
+		"rollup": "^0.66.4",
+		"terser": "^3.9.3",
+		"mocha":  "^5.2.0",
+		"chai":   "^4.2.0"
 	},
 	"engines": {
 		"atom":     ">=1.19.0",
