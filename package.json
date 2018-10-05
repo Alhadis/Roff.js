@@ -9,6 +9,7 @@
 	"keywords": ["troff", "groff", "nroff", "roff", "manpages", "ditroff", "postprocessing", "typesetting", "Electron", "Electroff"],
 	"author": "John Gardner <gardnerjohng@gmail.com>",
 	"scripts": {
+		"build": "rollup --name roff --format umd lib/index.mjs | terser --mangle --compress > lib/index.js",
 		"lint": "eslint --ext mjs,js .",
 		"test": "NODE_OPTIONS='--experimental-modules' mocha --es-staging --delay test/mocha.js"
 	},

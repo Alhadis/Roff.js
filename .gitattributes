@@ -1,2 +1,5 @@
 *.html     linguist-vendored
 fixtures/* linguist-vendored
+
+# Hide generated files from diffs and breakdown graphs
+lib/index.js linguist-generated=true -diff
