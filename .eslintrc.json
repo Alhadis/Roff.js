@@ -70,5 +70,8 @@
 	},{
 		"files": ["lib/**/*.mjs"],
 		"rules": {"indent": 0}
+	},{
+		"files": ["lib/adapters/utils.mjs"],
+		"rules": {"quotes": 0}
 	}]
 }
