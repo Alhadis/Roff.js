@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 "use strict";
 
-new Promise(resolve => {
+require("../lib/adapters/esm.js")(() => new Promise(resolve => {
 	const fs = require("fs");
 	if(process.argv[2])
 		resolve(fs.readFileSync(process.argv[2], "utf8"));
@@ -38,4 +38,4 @@ new Promise(resolve => {
 }).catch(error => {
 	console.error(error);
 	process.exit(1);
-});
+}));
