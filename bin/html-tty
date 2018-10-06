@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 "use strict";
 
-require("../lib/adapters/esm.js")(() => new Promise(resolve => {
+new Promise(resolve => {
 	const fs = require("fs");
 	if(process.argv[2])
 		resolve(fs.readFileSync(process.argv[2], "utf8"));
@@ -13,9 +13,8 @@ require("../lib/adapters/esm.js")(() => new Promise(resolve => {
 			null !== chunk ? input += chunk : resolve(input);
 		});
 	}
-}).then(async data => {
-	const TTYRenderer = (await import("../lib/postproc/tty/renderer.mjs")).default;
-	const htmlTTY = new TTYRenderer();
+}).then(data => {
+	const htmlTTY = new (require("..").TTYRenderer)();
 	const isRaw = /\x08/.test(data);
 	let output = htmlTTY.process(data, isRaw);
 	if(process.stdout.isTTY)
@@ -38,4 +37,4 @@ require("../lib/adapters/esm.js")(() => new Promise(resolve => {
 }).catch(error => {
 	console.error(error);
 	process.exit(1);
-}));
+});
