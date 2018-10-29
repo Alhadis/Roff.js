@@ -1,0 +1,28 @@
+.\" Identify the formatter processing the document.
+.\" The program's name is stored in the `T?` string.
+'if !\*(T? \{\
+'	ev 2
+'	ds T? unknown
+'	nf
+'	nr F \n(.u
+'	nr A \n(.d
+\v'2m'
+'	nr B \n(.d
+\v'-2m'
+'	ie '\nA'\nB' 'ds T? mandoc
+'	el \{\
+'		ie 0<>1 'ds T? heirloom
+'		el \{\
+'			nr A 1
+'			do if \n[A]=1 'ds T? groff
+'		\}
+'	\}
+'	if \nF=1 .fi
+'	rr F
+'	rr A
+'	rr B
+'	ev
+'\}
+.
+.\" Emit result
+.tm \*(T?
