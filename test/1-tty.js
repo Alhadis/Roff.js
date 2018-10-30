@@ -42,12 +42,13 @@ describe("TTYRenderer", () => {
 		it("can be used as a command-line postprocessor", async () => {
 			const cmd = "groff -Tutf8 -Z -man test/fixtures/text/groff.1 | bin/html-tty";
 			const cwd = path.resolve(path.join(__dirname, ".."));
-			const {error, stdout, stderr} = await promisify(exec)(cmd, {cwd});
+			let {error, stdout, stderr} = await promisify(exec)(cmd, {cwd});
 			if(error){
 				stderr && console.error(stderr);
 				throw error;
 			}
 			else{
+				stdout = stdout.replace(/[-−]/g, "-");
 				expect(stdout).not.to.be.empty;
 				expect(stdout).to.include(
 					"<b>groff</b> [<b>-abcegijklpstzCEGNRSUVXZ</b>]"

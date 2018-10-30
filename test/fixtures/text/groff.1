@@ -1,3 +1,36 @@
+.\" Declare start of command synopsis. Sets up hanging indentation.
+.de SY
+.	ie !\\n(mS \{\
+.		nh
+.		nr mS 1
+.		nr mA \\n(.j
+.		ad l
+.		nr mI \\n(.i
+.	\}
+.	el \{\
+.		br
+.		ns
+.	\}
+.	nr mT \w'\fB\\$1\fP\ '
+.	HP \\n(mTu
+.	B "\\$1"
+..
+.\" End of command synopsis. Restores adjustment.
+.de YS
+.	in \\n(mIu
+.	ad \\n(mA
+.	hy \\n(HY
+.	nr mS 0
+..
+.
+.\" Declare optional option.
+.de OP
+.	ie \\n(.$-1 \
+.		RI "[\fB\\$1\fP" "\ \\$2" "]"
+.	el \
+.		RB "[" "\\$1" "]"
+..
+.
 .TH GROFF 1 "4 November 2014" "Groff Version 1.22.3"
 .SH NAME
 groff \- front-end for the groff document formatting system
