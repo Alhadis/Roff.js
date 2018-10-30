@@ -3,11 +3,12 @@
 const fs            = require("fs");
 const path          = require("path");
 const {exec}        = require("child_process");
+const {promisify}   = require("util");
 const {expect}      = require("chai");
 const {TTYRenderer} = require("../");
 const htmlTTY       = new TTYRenderer();
 
-const read = (fixtureFile) =>
+const read = fixtureFile =>
 	fs.readFileSync(path.join(__dirname, "fixtures", "text", fixtureFile), "utf8");
 
 
@@ -18,46 +19,42 @@ describe("TTYRenderer", () => {
 		it("prints text with track-kerning", () => {
 			const source   = read("text-tracking.out");
 			const expected = read("text-tracking.txt");
-			expect(htmlTTY.process(source) + "\n").to.eql(expected);
+			expect(`${htmlTTY.process(source)}\n`).to.eql(expected);
 		});
 		
 		it("draws horizontal and vertical lines", () => {
 			const source   = read("boxes.out");
 			const expected = read("boxes.txt");
-			expect(htmlTTY.process(source) + "\n").to.eql(expected);
+			expect(`${htmlTTY.process(source)}\n`).to.eql(expected);
 		});
 	});
 	
 	describe("Manpage formatting", () => {
 		for(const manpage of ["groff_char(7)", "perlre(1)"]){
 			it(`formats ${manpage} correctly`, () => {
-				const source   = read(manpage.replace(/\(|\)/g, ".") + "out");
-				const expected = read(manpage.replace(/\(|\)/g, ".") + "html");
+				const source   = read(`${manpage.replace(/\(|\)/g, ".")}out`);
+				const expected = read(`${manpage.replace(/\(|\)/g, ".")}html`);
 				const result   = [tmplHeader, htmlTTY.process(source), tmplFooter, ""].join("\n");
 				expect(result).to.eql(expected);
 			});
 		}
 		
-		it("can be used as a command-line postprocessor", () => {
-			return new Promise((resolve, reject) => {
-				const cmd    = "groff -Tutf8 -Z -man test/fixtures/text/groff.1 | bin/html-tty";
-				const cwd    = path.resolve(path.join(__dirname, ".."));
-				exec(cmd, {cwd}, (error, stdout, stderr) => {
-					if(error){
-						stderr && console.error(stderr);
-						reject(error);
-					}
-					else{
-						expect(stdout).not.to.be.empty;
-						expect(stdout).to.include(
-							"<b>groff</b> [<b>-abcegijklpstzCEGNRSUVXZ</b>]"
-							+ " [<b>-d</b> <u>cs</u>] [<b>-D</b> <u>arg</u>]"
-							+ " [<b>-f</b> <u>fam</u>] [<b>-F</b> <u>dir</u>]"
-						);
-						resolve();
-					}
-				});
-			});
+		it("can be used as a command-line postprocessor", async () => {
+			const cmd = "groff -Tutf8 -Z -man test/fixtures/text/groff.1 | bin/html-tty";
+			const cwd = path.resolve(path.join(__dirname, ".."));
+			const {error, stdout, stderr} = await promisify(exec)(cmd, {cwd});
+			if(error){
+				stderr && console.error(stderr);
+				throw error;
+			}
+			else{
+				expect(stdout).not.to.be.empty;
+				expect(stdout).to.include(
+					"<b>groff</b> [<b>-abcegijklpstzCEGNRSUVXZ</b>]"
+					+ " [<b>-d</b> <u>cs</u>] [<b>-D</b> <u>arg</u>]"
+					+ " [<b>-f</b> <u>fam</u>] [<b>-F</b> <u>dir</u>]"
+				);
+			}
 		});
 	});
 	
@@ -98,7 +95,7 @@ describe("TTYRenderer", () => {
 			const result   = [
 				tmplHeader,
 				htmlTTY.process(source, true),
-				tmplFooter, ""
+				tmplFooter, "",
 			].join("\n");
 			expect(result).to.eql(expected);
 		});

@@ -1,72 +1,25 @@
 {
-	"extends": "eslint:recommended",
-	"env": {
-		"browser": true,
-		"es6": true,
-		"mocha": true,
-		"node": true
-	},
-	"parserOptions": {
-		"ecmaVersion": 2018,
-		"sourceType": "module"
-	},
-	"rules": {
-		"eqeqeq": [
-			"error",
-			"smart"
-		],
-		"eol-last": [
-			"error",
-			"always"
-		],
-		"indent": [
-			"error",
-			"tab",
-			{
-				"ignoreComments": true,
-				"VariableDeclarator": 0,
-				"SwitchCase": 1
-			}
-		],
-		"linebreak-style": [
-			"error",
-			"unix"
-		],
-		"no-fallthrough": [
-			"error",
-			{"commentPattern": "[Ff]alls?[-\\s]?through"}
-		],
-		"no-return-await": "error",
-		"no-case-declarations": 0,
-		"no-cond-assign": 0,
-		"no-console": 0,
-		"no-empty": 0,
-		"quotes": [
-			"error",
-			"double",
-			{"avoidEscape": true}
-		],
-		"semi": [
-			"error",
-			"always"
-		],
-		"spaced-comment": [
-			"error",
-			"always"
-		],
-		"yoda": [
-			"error",
-			"always",
-			{"onlyEquality": true}
-		]
-	},
+	"extends": "@alhadis",
 	"overrides": [{
 		"files": ["lib/postproc/postprocessor.mjs"],
 		"rules": {
+			"comma-spacing": 0,
+			"capitalized-comments": 0,
+			"no-underscore-dangle": 0,
 			"no-unused-vars": ["error", {"varsIgnorePattern": "WW1"}],
+			"space-before-function-paren": 0,
 			"spaced-comment": 0,
 			"semi": 0
 		}
+	},{
+		"files": ["lib/postproc/text-grid.mjs"],
+		"rules": {"comma-spacing": 0}
+	},{
+		"files": ["lib/postproc/tables/*.mjs"],
+		"rules": {"quote-props": 0}
+	},{
+		"files": ["lib/postproc/tty/viewer.mjs"],
+		"rules": {"operator-linebreak": 0}
 	},{
 		"files": ["lib/**/*.mjs"],
 		"rules": {"indent": 0}
