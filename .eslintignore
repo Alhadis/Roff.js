@@ -1,3 +1,2 @@
 lib/index.js
-test/mocha.js
-test/*.mjs
+/test.*

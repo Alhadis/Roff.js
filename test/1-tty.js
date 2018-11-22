@@ -4,7 +4,6 @@ const fs            = require("fs");
 const path          = require("path");
 const {exec}        = require("child_process");
 const {promisify}   = require("util");
-const {expect}      = require("chai");
 const {TTYRenderer} = require("../");
 const htmlTTY       = new TTYRenderer();
 

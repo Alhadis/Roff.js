@@ -26,5 +26,8 @@
 	},{
 		"files": ["lib/adapters/utils.mjs"],
 		"rules": {"quotes": 0}
+	},{
+		"files": ["test/*.js"],
+		"globals": {"expect": true}
 	}]
 }
