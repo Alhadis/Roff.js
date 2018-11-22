@@ -9,10 +9,9 @@
 	"keywords": ["troff", "groff", "nroff", "roff", "manpages", "ditroff", "postprocessing", "typesetting", "Electron", "Electroff"],
 	"author": "John Gardner <gardnerjohng@gmail.com>",
 	"scripts": {
-		"all":   "npm run --silent lint && npm run --silent build && npm run --silent test",
-		"build": "npx rollup --name roff --format umd lib/index.mjs | npx terser --mangle --compress > lib/index.js",
-		"lint":  "npx eslint --ext mjs,js .",
-		"test":  "npx mocha test"
+		"lint":    "make lint",
+		"test":    "make test",
+		"prepare": "make"
 	},
 	"devDependencies": {
 		"@alhadis/eslint-config": "^1.1.0",
