@@ -1,17 +1,17 @@
 ENTRY = lib/index
 UMD_NAME = Roff
 
-all: lint build test
+all: lint umd test
 
 # Generate a compressed UMD bundle from ESM source
-build: lib/index.js
+umd: lib/index.js
 
-$(ENTRY).js: $(ENTRY).mjs
+$(ENTRY).js: lib/*/*.mjs lib/*/*/*.mjs
 	npx rollup \
 		--format umd \
 		--sourcemap $@.map \
 		--name $(UMD_NAME) \
-		--input $? \
+		--input $(ENTRY).mjs \
 		--file $@
 	node -e '\
 		const fs = require("fs"); \
@@ -42,7 +42,7 @@ lint:
 
 
 # Run unit-tests
-test: build
+test: umd
 	npx mocha test
 
 .PHONY: test
