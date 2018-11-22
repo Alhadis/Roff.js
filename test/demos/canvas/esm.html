@@ -4,26 +4,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="initial-scale=1, minimum-scale=1" />
+<title>TroffCanvasViewer demo: ESM</title>
+
+<script nomodule>window.location.replace("umd.html");</script>
 <link rel="stylesheet" type="text/css" href="../../../lib/postproc/canvas/viewer.css" />
-<link rel="stylesheet" type="text/css" href="./canvas.css" />
-<title>TroffCanvasViewer demo</title>
+<link rel="stylesheet" type="text/css" href="demo.css" />
 </head>
 
 
 <body>
-	
 	<div id="chalkboard"></div>
 	
 	<script type="module">
 		import {TroffCanvasViewer} from "../../../lib/index.mjs";
 		
-		const view = new TroffCanvasViewer({
+		window.view = new TroffCanvasViewer({
 			parentElement: document.getElementById("chalkboard"),
 		});
 		
 		// Load ditroff source from file, then render it
 		const dirname = import.meta.url.replace(/^file:\/\/|[/\\][^/\\]+$/gi, "");
-		view.loadFile(dirname + "/../text/pdf-large.out");
+		view.loadFile(dirname + "/../../fixtures/text/pdf-large.out");
 	</script>
 </body>
 </html>

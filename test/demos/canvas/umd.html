@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="initial-scale=1, minimum-scale=1" />
+<title>TroffCanvasViewer demo: UMD</title>
+
+<link rel="stylesheet" type="text/css" href="../../../lib/postproc/canvas/viewer.css" />
+<link rel="stylesheet" type="text/css" href="demo.css" />
+</head>
+
+
+<body>
+	<div id="chalkboard"></div>
+	
+	<script src="../../../lib/index.js"></script>
+	<script>
+		"use strict";
+		
+		const {TroffCanvasViewer} = Roff;
+		window.view = new TroffCanvasViewer({
+			parentElement: document.getElementById("chalkboard"),
+		});
+		
+		const dirname = document.location.toString().replace(/^file:\/\/|[/\\][^/\\]+$/gi, "");
+		view.loadFile(dirname + "/../../fixtures/text/pdf-large.out");
+	</script>
+</body>
+</html>
