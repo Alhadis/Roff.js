@@ -1,5 +1,6 @@
 {
 	"extends": "@alhadis",
+	"parser": "babel-eslint",
 	"overrides": [{
 		"files": ["lib/postproc/postprocessor.mjs"],
 		"rules": {
