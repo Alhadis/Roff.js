@@ -13,7 +13,10 @@
 			"semi": 0
 		}
 	},{
-		"files": ["lib/postproc/text-grid.mjs"],
+		"files": [
+			"lib/postproc/text-grid.mjs",
+			"lib/adapters/utils.mjs"
+		],
 		"rules": {"comma-spacing": 0}
 	},{
 		"files": ["lib/postproc/tables/*.mjs"],

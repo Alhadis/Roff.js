@@ -1,5 +1,7 @@
-*.html     linguist-vendored
-fixtures/* linguist-vendored
+*.html linguist-vendored
 
 # Hide generated files from diffs and breakdown graphs
-lib/index.js linguist-generated=true -diff
+/lib/index.js linguist-generated=true -diff
+
+# Some decompression fixtures are mistaken for text-files
+/test/fixtures/zip/* linguist-vendored -diff
