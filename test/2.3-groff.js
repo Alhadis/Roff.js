@@ -9,7 +9,7 @@ describe("GroffAdapter", function(){
 	let groff = null;
 	
 	before("Locating groff binary", async () => {
-		groff = await GroffAdapter.resolve();
+		groff = await GroffAdapter.loadDefault();
 		expect(groff).to.be.an.instanceOf(GroffAdapter);
 		expect(existsSync(groff.path)).to.be.true;
 		if("win32" !== process.platform)
@@ -23,17 +23,12 @@ describe("GroffAdapter", function(){
 			expect(() => new GroffAdapter(""))  .to.throw(TypeError, error);
 			expect(() => new GroffAdapter(null)).to.throw(TypeError, error);
 		});
-		
-		it("assigns its executable's path to its `path` property", () => {
-			expect(new GroffAdapter("/usr/bin/env",  true).path).to.equal("/usr/bin/env");
-			expect(new GroffAdapter("/non/existent", true).path).to.equal("/non/existent");
-		});
 	});
 	
 	describe("traceDefs()", () => {
 		it("retrieves line numbers of defined objects", async () => {
 			const path = join(__dirname, "fixtures", "troff", "defs.1");
-			const defs = await (await GroffAdapter.resolve()).traceDefs(path);
+			const defs = await (await GroffAdapter.loadDefault()).traceDefs(path);
 			expect(defs.get(path)).to.eql({
 				chars:      new Map([["foo", 1]]),
 				colours:    new Map([["red", 2]]),
@@ -46,7 +41,7 @@ describe("GroffAdapter", function(){
 		
 		it("omits definitions which are deleted in the same file", async () => {
 			const path = join(__dirname, "fixtures", "troff", "defs.2");
-			const defs = await (await GroffAdapter.resolve()).traceDefs(path);
+			const defs = await (await GroffAdapter.loadDefault()).traceDefs(path);
 			expect(defs.get(path)).to.eql({
 				chars:      new Map(),
 				colours:    new Map(),
