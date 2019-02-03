@@ -1,0 +1,8 @@
+res 640
+hor 32
+vert 48
+unitwidth 10
+sizes 10 0
+fonts 4 R I B BI
+tcommand
+postpro grotty
