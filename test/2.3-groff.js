@@ -54,6 +54,11 @@ describe("GroffAdapter", function(){
 	});
 	
 	describe("format()", () => {
+		const notice = (msg, indent = 10) => {
+			const {isTTY} = process.stdout;
+			console.log(" ".repeat(indent) + (isTTY ? "\x1B[36m" : "") + msg + (isTTY ? "\x1B[0m" : ""));
+		};
+		
 		describe("Devices", () => {
 			it("formats TeX DVI",     async () => expect(await groff.format("Foo", "dvi")).to.match(/^\xF7\x02/));
 			it("formats Canon LBP-4", async () => expect(await groff.format("Foo", "lbp")).to.match(/^\x1Bc\x1B/));
@@ -61,7 +66,7 @@ describe("GroffAdapter", function(){
 			it("formats PostScript",  async () => expect(await groff.format("Foo", "ps")).to.match(/^%!PS/));
 			it("formats PDF",         async () => groff.devices.pdf
 				? expect(await groff.format("Foo", "pdf")).to.match(/^%PDF-/).and.to.match(/%%EOF\s*$/)
-				: console.log("skipping: gropdf not supported by host"));
+				: notice("- skipping: gropdf not supported by host"));
 			
 			it("formats plain ASCII text", async () => {
 				expect((await groff.format("\\(lqFoo\\(rq", "ascii")).trim()).to.equal('"Foo"');
@@ -153,15 +158,15 @@ describe("GroffAdapter", function(){
 			});
 			
 			it("supports disabling of coloured output", async () => {
-				const input = ".defcolor red rgb #FF0000\n\\m[red]Foo";
+				const input = "\\X'tty: sgr 1'\n.defcolor red rgb #FF0000\n\\m[red]Foo";
 				expect(await groff.format(input, "ps")).to.match(/\s+1 0 0 Cr\//);
 				expect(await groff.format(input, "ps", {noColours: true})).not.to.match(/\s+1 0 0 Cr\//);
-				expect(await groff.format(input, "utf8")).to.match(/^\x1B\[31mFoo\x1B\[0m\s*$/);
-				expect(await groff.format(input, "utf8", {noColours: true})).to.match(/^Foo\s*$/);
+				expect(await groff.format(input, "utf8")).to.match(/^\s*\x1B\[31mFoo\x1B\[0m\s*$/);
+				expect(await groff.format(input, "utf8", {noColours: true})).to.match(/^\s*Foo\s*$/);
 			});
 			
 			it("supports disabling of error messages", async () => {
-				const warning = /warning: can't find special character 'XX'$/m;
+				const warning = /warning: can't find special character [`']XX'$/m;
 				const fn = async (device, opts = {}) => {
 					let result;
 					try{ result = await groff.format("\\(XX\n.ab", device, opts); }
@@ -246,7 +251,6 @@ describe("GroffAdapter", function(){
 				expect(await groff.format("Foo", "lj4",    {raw: true})).to.match(/^x\s+T\s+lj4\n/);
 				expect(await groff.format("Foo", "ps",     {raw: true})).to.match(/^x\s+T\s+ps\n/);
 				expect(await groff.format("Foo", "ascii",  {raw: true})).to.match(/^x\s+T\s+ascii\n/);
-				expect(await groff.format("Foo", "cp1047", {raw: true})).to.match(/^x\s+T\s+cp1047\n/);
 				expect(await groff.format("Foo", "latin1", {raw: true})).to.match(/^x\s+T\s+latin1\n/);
 				expect(await groff.format("Foo", "utf8",   {raw: true})).to.match(/^x\s+T\s+utf8\n/);
 			});
