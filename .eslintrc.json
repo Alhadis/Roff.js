@@ -28,6 +28,9 @@
 		"files": ["lib/**/*.mjs"],
 		"rules": {"indent": 0}
 	},{
+		"files": ["lib/adapters/troff/grog.mjs"],
+		"rules": {"capitalized-comments": 0}
+	},{
 		"files": ["lib/adapters/utils.mjs"],
 		"rules": {"quotes": 0}
 	},{
