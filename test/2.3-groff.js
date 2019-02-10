@@ -130,6 +130,16 @@ describe("GroffAdapter", function(){
 				expect(await groff.format("Foo", "utf8", {args: ["-Z"], fontDescPath})).to.match(/^x res 640 32 48$/m);
 			});
 			
+			it("supports direct file reads", async () => {
+				const inputFile = join(__dirname, "fixtures", "troff", "format.me");
+				expect(await groff.format("",   "utf8", {inputFile})).to.match(/^Hello, world\s*$/);
+				expect(await groff.format(null, "utf8", {inputFile})).to.match(/^Hello, world\s*$/);
+				expect(await groff.format(null, "utf8", {inputFile, pageWidth: "5n"})).to.match(/^Hello,\nworld\s*$/);
+				const inputData = ".ds str Goodbye, world\n";
+				expect(await groff.format(inputData, "utf8", {inputFile})).to.match(/^Goodbye, world\s*$/);
+				expect(await groff.format(inputData, "utf8", {inputFile, pageWidth: "5n"})).to.match(/^Goodbye,\nworld\s*$/);
+			});
+			
 			it("supports landscape orientation", async () => {
 				expect(await groff.format("Foo", "ps",   {landscape: false})).to.match(/^%%Orientation: Portrait$/m);
 				expect(await groff.format("Foo", "ps",   {landscape: true})).to.match(/^%%Orientation: Landscape$/m);
