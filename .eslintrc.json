@@ -14,7 +14,7 @@
 		}
 	},{
 		"files": [
-			"lib/postproc/text-grid.mjs",
+			"lib/postproc/tty/text-grid.mjs",
 			"lib/adapters/utils.mjs"
 		],
 		"rules": {"comma-spacing": 0}

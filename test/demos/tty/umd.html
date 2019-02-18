@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="initial-scale=1, minimum-scale=1" />
-<title>TTYViewer demo: ESM</title>
+<title>TTYViewer demo: UMD</title>
 <link rel="stylesheet" type="text/css" href="demo.css" />
 </head>
 
@@ -13,13 +13,13 @@
 	
 	<div id="frame"></div>
 	
-	<script type="module">
-		import {TTYRenderer} from "../../../lib/index.mjs";
-		import {readFile}    from "../../../lib/postproc/node-shims.mjs";
+	<script src="../../../lib/index.js"></script>
+	<script>
+		"use strict";
 		
-		const tty   = new TTYRenderer();
+		const tty   = new Roff.TTYRenderer();
 		const frame = document.getElementById("frame");
-		readFile("../../fixtures/text/perlre.1.out").then(data => {
+		fetch("../../fixtures/text/perlre.1.out").then(req => req.text()).then(data => {
 			data = tty.process(data);
 			frame.innerHTML = data;
 		});

@@ -15,40 +15,8 @@ a:visited{
 	text-decoration: none;
 }
 
-#notice{
-	background: rgba(0, 0, 0, .75);
-	font: 1rem sans-serif;
-	color: #fff;
-	
-	position: fixed;
-	overflow: hidden;
-	top:     0;
-	left:    0;
-	right:   0;
-	bottom:  0;
-	z-index: 9;
-	transition: 0s step-end z-index, .3s ease-in opacity;
+#frame{
+	font-family: Menlig, Menlo, Monaco, monospace;
+	line-height: 1.4;
+	white-space: pre;
 }
-	#notice[hidden]{
-		display: block !important;
-		pointer-events: none;
-		opacity: 0;
-		z-index: -1;
-		transition-delay: .3s, 0s;
-	}
-	
-	#notice > strong{
-		cursor: pointer;
-		position: fixed;
-		display: block;
-		top:  50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		text-align: center;
-		text-shadow: 1px 1px 0 #000;
-	}
-		#notice > strong::after{
-			content: "(Click to dismiss this message)";
-			display: block;
-			margin-top: 1em;
-		}
