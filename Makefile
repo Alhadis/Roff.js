@@ -19,7 +19,9 @@ $(ENTRY).js: lib/*/*.mjs lib/*/*/*.mjs
 		const map = JSON.parse(fs.readFileSync("$@.map", "utf8")); \
 		delete map.sourcesContent; \
 		fs.writeFileSync("$@.map", JSON.stringify(map));'
-	sed -i~ -e "s/await import(/require(/g" $@ && rm -f "$@~"
+	perl -pi~ -E '\
+		s/new\s+Array\((\d+)\)/$$1<10?"[".","x$$1."]":$$&/ge; \
+		s/await import\(/require\(/g;' $@ && rm -f "$@~"
 	npx terser \
 		--keep-classnames \
 		--mangle \
