@@ -1,6 +1,6 @@
 "use strict";
 
-const {parseManURL, resolveManRef} = require("..");
+const {parseManURL, parseRoffArgs, resolveManRef} = require("..");
 
 describe("Utility functions", () => {
 	describe("parseManURL()", () => {
@@ -675,6 +675,75 @@ describe("Utility functions", () => {
 					expect(parseManURL("man:foo:%40@ls(1z)"))  .to.eql({...result, password: "@",   section: "1z"});
 				});
 			});
+		});
+	});
+
+	describe("parseRoffArgs()", () => {
+		it("parses unquoted arguments", () => {
+			expect(parseRoffArgs("B"))       .to.eql(["B"]);
+			expect(parseRoffArgs("BBB"))     .to.eql(["BBB"]);
+			expect(parseRoffArgs("B I"))     .to.eql(["B", "I"]);
+			expect(parseRoffArgs("B I B"))   .to.eql(["B", "I", "B"]);
+			expect(parseRoffArgs("BBB III")) .to.eql(["BBB", "III"]);
+		});
+		
+		it("parses quoted arguments", () => {
+			expect(parseRoffArgs('"B"'))               .to.eql(["B"]);
+			expect(parseRoffArgs('"B'))                .to.eql(["B"]);
+			expect(parseRoffArgs('"B" "I'))            .to.eql(["B", "I"]);
+			expect(parseRoffArgs('"B" "I"'))           .to.eql(["B", "I"]);
+			expect(parseRoffArgs('"B" "I" "B'))        .to.eql(["B", "I", "B"]);
+			expect(parseRoffArgs('"B" "I" "B"'))       .to.eql(["B", "I", "B"]);
+			expect(parseRoffArgs('B "I I"B'))          .to.eql(["B", "I I", "B"]);
+			expect(parseRoffArgs('"BBB BBB'))          .to.eql(["BBB BBB"]);
+			expect(parseRoffArgs('"BBB BBB"'))         .to.eql(["BBB BBB"]);
+			expect(parseRoffArgs('"BBB BBB BBB" III')) .to.eql(["BBB BBB BBB", "III"]);
+		});
+		
+		it("parses empty arguments", () => {
+			expect(parseRoffArgs(""))   .to.eql([]);
+			expect(parseRoffArgs("  ")) .to.eql([]);
+			expect(parseRoffArgs(null)) .to.eql(["null"]);
+		});
+		
+		it("parses escaped quote characters", () => {
+			// NOTE: Confused by these tests? That's Roff syntax for ya…
+			expect(parseRoffArgs('BBB""'))               .to.eql(['BBB""']);
+			expect(parseRoffArgs('"BBB""'))              .to.eql(['BBB"']);
+			expect(parseRoffArgs('"BBB"" BBB'))          .to.eql(['BBB" BBB']);
+			expect(parseRoffArgs('BBB"" III'))           .to.eql(['BBB""', "III"]);
+			expect(parseRoffArgs('BBB""BBB III"'))       .to.eql(['BBB""BBB', 'III"']);
+			expect(parseRoffArgs('BBB"""BBB III"'))      .to.eql(['BBB"""BBB', 'III"']);
+			expect(parseRoffArgs('BBB"""BBB III'))       .to.eql(['BBB"""BBB', "III"]);
+			expect(parseRoffArgs('"BBB""BBB BBB" III'))  .to.eql(['BBB"BBB BBB', "III"]);
+			expect(parseRoffArgs('"BBB"""III BBB" III')) .to.eql(['BBB"', "III", 'BBB"', "III"]);
+		});
+		
+		it("strips leading/trailing whitespace", () => {
+			expect(parseRoffArgs("  BBB"))   .to.eql(["BBB"]);
+			expect(parseRoffArgs("BBB  "))   .to.eql(["BBB"]);
+			expect(parseRoffArgs("  BBB  ")) .to.eql(["BBB"]);
+			expect(parseRoffArgs(" A  B"))   .to.eql(["A", "B"]);
+		});
+		
+		it("strips comments", () => {
+			expect(parseRoffArgs('BBB \\" CCC" CCC')).to.eql(["BBB"]);
+			expect(parseRoffArgs('"BBB"" BBB \\" CCC" CCC')).to.eql(['BBB" BBB ']);
+			expect(parseRoffArgs('\\" CCC CCC')).to.eql([]);
+			expect(parseRoffArgs('  \\" \\"CCC')).to.eql([]);
+		});
+		
+		it("retains escaped spaces", () => {
+			expect(parseRoffArgs("BBB\\ BBB")) .to.eql(["BBB BBB"]);
+			expect(parseRoffArgs("\\ BBB"))    .to.eql([" BBB"]);
+			expect(parseRoffArgs("\\  BBB"))   .to.eql([" ", "BBB"]);
+			expect(parseRoffArgs("BBB\\ "))    .to.eql(["BBB "]);
+			expect(parseRoffArgs("BBB \\ "))   .to.eql(["BBB", " "]);
+		});
+		
+		it("retains embedded tabs", () => {
+			expect(parseRoffArgs("BBB\tBBB"))  .to.eql(["BBB\tBBB"]);
+			expect(parseRoffArgs("BBB\t BBB")) .to.eql(["BBB\t", "BBB"]);
 		});
 	});
 
