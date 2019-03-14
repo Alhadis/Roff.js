@@ -14,25 +14,35 @@ new Promise(resolve => {
 		});
 	}
 }).then(data => {
+	
+	// If input isn't ditroff, bail with a meaningful error message
+	if(!/^x\s*T\s+\S/.test(data.replace(/^\s*#.*$/gm, "").trim())){
+		const reason = /(?:^|\n)\.\S+/.test(data)
+			? "input appears to be unprocessed Roff source"
+			: "input does not contain a ditroff(7) header";
+		process.stderr.write(`html-tty: Aborting, ${reason}\n`);
+		process.exit(2);
+	}
+	
 	const htmlTTY = new (require("..").TTYRenderer)();
 	const isRaw = /\x08/.test(data);
 	let output = htmlTTY.process(data, isRaw);
 	if(process.stdout.isTTY)
 		output = output
-		.replace(/^\n+/,   "")
-		.replace(/<b>/g,   "\x1B[1m")
-		.replace(/<u>/g,   "\x1B[4m")
-		.replace(/<\/b>/g, "\x1B[22m")
-		.replace(/<\/u>/g, "\x1B[24m")
-		.replace(/<b data-sgr="(\d+)"[^>]+>/g,    "\x1B[1;38;5;$1m")
-		.replace(/<u data-sgr="(\d+)"[^>]+>/g,    "\x1B[4;38;5;$1m")
-		.replace(/<span data-sgr="(\d+)"[^>]+>/g, "\x1B[38;5;$1m")
-		.replace(/<\/span>/g, "\x1B[39m")
-		.replace(/<a[^>]+>|<\/a>/g, "")
-		.replace(/&lt;/g,  "<")
-		.replace(/&gt;/g,  ">")
-		.replace(/&amp;/g, "&")
-		.replace(/&#(\d+);/g, (_,c) => String.fromCharCode(c));
+			.replace(/^\n+/,   "")
+			.replace(/<b>/g,   "\x1B[1m")
+			.replace(/<u>/g,   "\x1B[4m")
+			.replace(/<\/b>/g, "\x1B[22m")
+			.replace(/<\/u>/g, "\x1B[24m")
+			.replace(/<b data-sgr="(\d+)"[^>]+>/g,    "\x1B[1;38;5;$1m")
+			.replace(/<u data-sgr="(\d+)"[^>]+>/g,    "\x1B[4;38;5;$1m")
+			.replace(/<span data-sgr="(\d+)"[^>]+>/g, "\x1B[38;5;$1m")
+			.replace(/<\/span>/g, "\x1B[39m")
+			.replace(/<a[^>]+>|<\/a>/g, "")
+			.replace(/&lt;/g,  "<")
+			.replace(/&gt;/g,  ">")
+			.replace(/&amp;/g, "&")
+			.replace(/&#(\d+);/g, (_, char) => String.fromCharCode(char));
 	process.stdout.write(output + "\n");
 }).catch(error => {
 	console.error(error);
