@@ -1,20 +1,20 @@
 #!/usr/bin/env node
 "use strict";
 
-new Promise(resolve => {
+new Promise((resolve, reject) => {
 	const fs = require("fs");
 	if(process.argv[2])
 		resolve(fs.readFileSync(process.argv[2], "utf8"));
 	else{
 		let input = "";
 		process.stdin.setEncoding("UTF8");
+		process.stdin.on("error", error => reject(error));
 		process.stdin.on("readable", () => {
 			const chunk = process.stdin.read();
 			null !== chunk ? input += chunk : resolve(input);
 		});
 	}
 }).then(data => {
-	
 	// If input isn't ditroff, bail with a meaningful error message
 	if(!/^x\s*T\s+\S/.test(data.replace(/^\s*#.*$/gm, "").trim())){
 		const reason = /(?:^|\n)\.\S+/.test(data)
@@ -23,7 +23,6 @@ new Promise(resolve => {
 		process.stderr.write(`html-tty: Aborting, ${reason}\n`);
 		process.exit(2);
 	}
-	
 	const htmlTTY = new (require("..").TTYRenderer)();
 	const isRaw = /\x08/.test(data);
 	let output = htmlTTY.process(data, isRaw);
