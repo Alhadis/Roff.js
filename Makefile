@@ -9,6 +9,7 @@ umd: lib/index.js
 $(ENTRY).js: lib/*/*.mjs lib/*/*/*.mjs
 	npx rollup \
 		--format umd \
+		--preferConst \
 		--sourcemap $@.map \
 		--name $(UMD_NAME) \
 		--input $(ENTRY).mjs \
