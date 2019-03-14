@@ -46,6 +46,6 @@ lint:
 
 # Run unit-tests
 test: umd
-	npx mocha test/?-*.js
+	npx mocha
 
 .PHONY: test

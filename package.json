@@ -14,13 +14,14 @@
 		"prepare": "make"
 	},
 	"devDependencies": {
-		"@alhadis/eslint-config": "^1.1.0",
+		"@alhadis/eslint-config": "^1.2.0",
 		"babel-eslint": "^10.0.1",
-		"eslint": "^5.6.1",
-		"rollup": "^0.66.4",
-		"terser": "^3.9.3",
-		"mocha":  "^5.2.0",
-		"chai":   "^4.2.0"
+		"eslint":       "^5.15.1",
+		"rollup":       "^1.6.0",
+		"terser":       "^3.17.0",
+		"mocha":        "^6.0.2",
+		"mocha-when":   "^1.0.0",
+		"chai":         "^4.2.0"
 	},
 	"engines": {
 		"atom":     ">=1.19.0",

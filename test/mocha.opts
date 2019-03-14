@@ -1,2 +1,0 @@
---require chai/register-expect
---slow 9999
