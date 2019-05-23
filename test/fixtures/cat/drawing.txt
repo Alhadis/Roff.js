@@ -1,0 +1,4 @@
+ABC D'e 0.2i 0.1i' XYZ D'c 0.2i'
+
+ABC D'a 0.25i 0i 0i 0.25i' XYZ D'l .2i -.1i'D'l .1i .1i' 123  D'~
+0.5i 0i 0i -0.5i -0.5i 0i 0i 0.49i'

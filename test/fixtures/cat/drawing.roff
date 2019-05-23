@@ -1,0 +1,34 @@
+.de us
+\\$1\l'|0\(ul'
+..
+.de bx
+\(br\|\\$1\|\(br\l'|0\(rn'\l'|0\(ul'
+..
+.
+ABC
+\D'e 0.2i 0.1i'
+XYZ
+\D'c 0.2i'
+.sp
+.
+ABC
+\D'a 0.25i 0i 0i 0.25i'
+XYZ
+\D'l .2i -.1i'\D'l .1i .1i'
+123
+\D'~ 0.5i 0i 0i -0.5i -0.5i 0i 0i 0.49i'
+.
+.sp 2
+.de T
+\b'\(lc\(lf'E\b'\(rc\(rf'\x'-0.5m'\x'0.5m'
+.us "underlined words"
+.bx "words in a box"
+.sp
+..
+.T
+.ps 14
+.T
+.ps 18
+.T
+.ps 20
+.T
