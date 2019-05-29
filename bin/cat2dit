@@ -16,7 +16,7 @@ new Promise((resolve, reject) => {
 	}
 }).then(data => {
 	// Bail if input doesn't begin with an obvious C/A/T header
-	if(0x64 !== data[0] && 0xEF !== data[1]){
+	if(0x40 !== data[0] && 0xEF !== data[1]){
 		process.stderr.write("cat2dit: input is not for a C/A/T phototypesetter\n");
 		process.exit(2);
 	}
