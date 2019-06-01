@@ -35,9 +35,9 @@ body{
 		max-width: 640px;
 		height:    500px;
 	}
-		.troff-view-pages{
+		.troff-canvas-pages{
 			padding: 1em;
 		}
-		.troff-view-page{
+		.troff-canvas-page{
 			margin-bottom: 1em;
 		}
