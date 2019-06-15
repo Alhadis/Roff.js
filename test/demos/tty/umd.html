@@ -19,7 +19,7 @@
 		
 		const tty   = new Roff.TTYRenderer();
 		const frame = document.getElementById("frame");
-		fetch("../../fixtures/text/perlre.1.out").then(req => req.text()).then(data => {
+		Roff.readFile("../../fixtures/text/perlre.1.out").then(data => {
 			data = tty.process(data);
 			frame.innerHTML = data;
 		});

@@ -14,8 +14,7 @@
 	<div id="frame"></div>
 	
 	<script type="module">
-		import {TTYRenderer} from "../../../lib/index.mjs";
-		import {readFile}    from "../../../lib/postproc/node-shims.mjs";
+		import {TTYRenderer, readFile} from "../../../lib/index.mjs";
 		
 		const tty   = new TTYRenderer();
 		const frame = document.getElementById("frame");

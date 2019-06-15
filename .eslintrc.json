@@ -13,10 +13,7 @@
 			"semi": 0
 		}
 	},{
-		"files": [
-			"lib/postproc/tty/text-grid.mjs",
-			"lib/adapters/utils.mjs"
-		],
+		"files": ["lib/postproc/tty/text-grid.mjs"],
 		"rules": {"comma-spacing": 0}
 	},{
 		"files": ["lib/postproc/tables/*.mjs"],
@@ -31,7 +28,7 @@
 		"files": ["lib/adapters/troff/grog.mjs"],
 		"rules": {"capitalized-comments": 0}
 	},{
-		"files": ["lib/adapters/utils.mjs"],
+		"files": ["lib/utils/shell.mjs"],
 		"rules": {"quotes": 0}
 	},{
 		"files": ["test/*.js"],

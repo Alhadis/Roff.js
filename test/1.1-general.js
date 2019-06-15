@@ -1,9 +1,8 @@
 "use strict";
 
-const {parseManURL, parseRoffArgs, resolveManRef} = require("..");
-
-describe("Utility functions", () => {
+describe("General-purpose", () => {
 	describe("parseManURL()", () => {
+		const {parseManURL} = require("..");
 		const defaults = {
 			name: "",
 			section: "",
@@ -679,6 +678,7 @@ describe("Utility functions", () => {
 	});
 
 	describe("parseRoffArgs()", () => {
+		const {parseRoffArgs} = require("..");
 		it("parses unquoted arguments", () => {
 			expect(parseRoffArgs("B"))       .to.eql(["B"]);
 			expect(parseRoffArgs("BBB"))     .to.eql(["BBB"]);
@@ -748,6 +748,7 @@ describe("Utility functions", () => {
 	});
 
 	describe("resolveManRef()", () => {
+		const {resolveManRef} = require("..");
 		it("resolves bracket notation", () => {
 			expect(resolveManRef("foo(1)"))   .to.eql(["foo", "1"]);
 			expect(resolveManRef("foo(7x)"))  .to.eql(["foo", "7x"]);
