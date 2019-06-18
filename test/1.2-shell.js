@@ -177,6 +177,65 @@ describe("Shell integration", () => {
 		});
 	});
 
+	describe("execChain()", function(){
+		const {execChain} = require("..");
+		this.slow(1000);
+		
+		it("executes a pipeline of external commands", async () =>
+			expect(await execChain([
+				["printf", "%s\\n", "foo"],
+				["sed", "s/foo/bar/"],
+				["tr", "a-z", "A-Z"],
+			])).to.eql({code: 0, stdout: "BAR\n", stderr: ""}));
+		
+		it("executes pipelines asynchronously", async () =>
+			expect(execChain([["true"]])).to.be.a("promise"));
+		
+		it("avoids modifying the original command list", async () => {
+			const cmds = [["echo", "Foo"], ["grep", "Foo"]];
+			const copy = JSON.parse(JSON.stringify(cmds));
+			await execChain(cmds);
+			expect(cmds).to.eql(copy);
+		});
+		
+		it("returns the exit status of the last command", async () => {
+			expect(await execChain([["true"], ["false"]])).to.eql({stdout: "", stderr: "", code: 1});
+			expect(await execChain([["false"], ["true"]])).to.eql({stdout: "", stderr: "", code: 0});
+		});
+		
+		it("concatenates each command's stderr stream", async () =>
+			expect(await execChain([
+				["node", "-e", 'console.log("ABC"); console.warn("123")'],
+				["node", "-e", 'console.log("XYZ"); console.warn("456")'],
+			])).to.eql({
+				code: 0,
+				stderr: "123\n456\n",
+				stdout: "XYZ\n",
+			}));
+		
+		it("can pipe input to the first command", async () =>
+			expect(await execChain([["sed", "s/foo/bar/"]], "<foo>")).to.eql({
+				code: 0,
+				stderr: "",
+				stdout: "<bar>\n",
+			}));
+		
+		it("can write the last command's output to a file", async () => {
+			const tmp = require("path").join(__dirname, "fixtures", "temp.log");
+			fs.existsSync(tmp) && fs.unlinkSync(tmp);
+			expect(await execChain([
+				["node", "-e", "console.warn(123); console.log(456)"],
+				["sed", "s/456/bar/"],
+			], null, {outputPath: tmp})).to.eql({
+				code: 0,
+				stderr: "123\n",
+				stdout: "",
+			});
+			expect(fs.readFileSync(tmp, "utf8")).to.equal("bar\n");
+			fs.unlinkSync(tmp);
+		});
+	});
+
 	describe("which()", () => {
 		const {which} = require("..");
 		let firstNode = "";
