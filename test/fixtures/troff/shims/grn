@@ -1,0 +1,94 @@
+#!/usr/bin/env node
+process.stdout.write(`
+.br
+.nr g1 432000u
+.nr g2 122035u
+.GS C
+.nr g3 \\n(.f
+.nr g4 \\n(.s
+\\0
+.sp -1
+.mk
+.rt
+.mk
+.rt
+.mk
+.rt
+.mk
+.rt
+.mk
+.rt
+.mk
+.rt
+.mk
+.rt
+.mk
+.rt
+.mk
+.ft R
+.ps 14
+.nr g8 \\n(.d
+.ds g9 "DSP
+.sp 71281u
+\\h'303474u'\\&\\*(g9
+.sp |\\n(g8u
+.rt
+.mk
+.ft R
+.ps 14
+.nr g8 \\n(.d
+.ds g9 "IDI
+.sp 90719u
+\\h'137158u'\\&\\*(g9
+.sp |\\n(g8u
+.rt
+.mk
+\\h'-0.15p'\\D't 0.15p'
+.sp -1
+.sp 51842u
+\\h'102597u'\\D'l 0u 70193u'
+.sp -1
+.rt
+.mk
+.ft R
+.ps 14
+.nr g8 \\n(.d
+.ds g9 "AFI
+.sp 92877u
+\\h'19439u'\\&\\*(g9
+.sp |\\n(g8u
+.rt
+.mk
+\\h'-0.15p'\\D't 0.15p'
+.sp -1
+.sp 52913u
+\\D'l 206281u 0u'
+.sp -1
+.rt
+.mk
+\\h'206281u'\\D'l 0u 122035u'
+.sp -1
+.rt
+.mk
+.ft R
+.ps 14
+.nr g8 \\n(.d
+.ds g9 "IDP
+.sp 39964u
+\\h'84245u'\\&\\*(g9
+.sp |\\n(g8u
+.rt
+.mk
+\\h'-0.15p'\\D't 0.15p'
+.sp -1
+\\D'l 0u 122035u'\\D'l 432000u 0u'\\D'l 0u -122035u'\\
+\\D'l -432000u 0u'
+.sp -1
+.rt
+.sp \\n(g2u
+\\D't -1u'
+.br
+.ft \\n(g3
+.ps \\n(g4
+.GE
+`.trim() + "\n");

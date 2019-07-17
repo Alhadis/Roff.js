@@ -1,0 +1,76 @@
+#!/usr/bin/env node
+process.stdout.write(`
+.PS
+[
+define x_gg { ((( $1 - -0.28) / 4.56) * 3 ) }
+define y_gg { ((( $1 - 33.95) / 17.1) * 2 ) }
+define xy_gg { x_gg($1), y_gg($2) }
+Frame: [
+Origin: 
+Left: line right 0 up 2
+Top: line right 3 up 0
+Right: line right 0 up -2
+Bottom: line right -3 up 0
+]
+line invis from Frame.Top.start + (0, 0.4) to Frame.Top.end + (0, 0.4) 
+line invis from Frame.Bottom.end + (0, -0.4) to Frame.Bottom.start + (0, -0.4) 
+line invis from Frame.Left.start + (-0.4, 0) to Frame.Left.end + (-0.4, 0) 
+line invis from Frame.Right.start + (0.4, 0) to Frame.Right.end + (0.4, 0) 
+move to Frame.Origin + (0, 0.122807)
+line left 0.125
+move to Frame.Origin + (0, 0.122807)
+move left 0.15
+"35"  rjust at Here
+move to Frame.Origin + (0, 0.707602)
+line left 0.125
+move to Frame.Origin + (0, 0.707602)
+move left 0.15
+"40"  rjust at Here
+move to Frame.Origin + (0, 1.2924)
+line left 0.125
+move to Frame.Origin + (0, 1.2924)
+move left 0.15
+"45"  rjust at Here
+move to Frame.Origin + (0, 1.87719)
+line left 0.125
+move to Frame.Origin + (0, 1.87719)
+move left 0.15
+"50"  rjust at Here
+move to Frame.Origin + (0.184211, 0)
+line down 0.125
+move to Frame.Origin + (0.184211, 0)
+move down 0.15
+"0"  below at Here
+move to Frame.Origin + (0.842105, 0)
+line down 0.125
+move to Frame.Origin + (0.842105, 0)
+move down 0.15
+"1"  below at Here
+move to Frame.Origin + (1.5, 0)
+line down 0.125
+move to Frame.Origin + (1.5, 0)
+move down 0.15
+"2"  below at Here
+move to Frame.Origin + (2.15789, 0)
+line down 0.125
+move to Frame.Origin + (2.15789, 0)
+move down 0.15
+"3"  below at Here
+move to Frame.Origin + (2.81579, 0)
+line down 0.125
+move to Frame.Origin + (2.81579, 0)
+move down 0.15
+"4"  below at Here
+move to Frame.Origin + (0.184211, 1.87719)
+"\\s[9]\\v'0.1m'\\(bu\\v'-0.1m'\\s0"  at Frame.Origin + (0.184211, 1.87719)
+line invis from Frame.Origin + (0.184211, 1.87719) to Frame.Origin + (0.842105, 1.2924)
+"\\s[9]\\v'0.1m'\\(bu\\v'-0.1m'\\s0"  at last line.end
+line invis from Frame.Origin + (0.842105, 1.2924) to Frame.Origin + (1.5, 0.707602)
+"\\s[9]\\v'0.1m'\\(bu\\v'-0.1m'\\s0"  at last line.end
+line invis from Frame.Origin + (1.5, 0.707602) to Frame.Origin + (2.15789, 1.87719)
+"\\s[9]\\v'0.1m'\\(bu\\v'-0.1m'\\s0"  at last line.end
+line invis from Frame.Origin + (2.15789, 1.87719) to Frame.Origin + (2.81579, 1.66667)
+"\\s[9]\\v'0.1m'\\(bu\\v'-0.1m'\\s0"  at last line.end
+]
+.PE
+`.trim() + "\n");
