@@ -24,7 +24,7 @@
 		});
 		
 		const dirname = document.location.toString().replace(/^file:\/\/|[/\\][^/\\]+$/gi, "");
-		view.loadFile(dirname + "/../../fixtures/text/pdf-large.out");
+		view.loadFile(dirname + "/../../fixtures/pdf/grep.1.out").then(() => view.spreadSize = 2);
 	</script>
 </body>
 </html>

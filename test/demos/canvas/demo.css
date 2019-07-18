@@ -32,8 +32,7 @@ body{
 		position:  relative;
 		margin:    1em;
 		width:     calc(100% - 2em);
-		max-width: 640px;
-		height:    500px;
+		height:    100vh;
 	}
 		.troff-canvas-pages{
 			padding: 1em;
@@ -41,3 +40,10 @@ body{
 		.troff-canvas-page{
 			margin-bottom: 1em;
 		}
+
+@media (max-width: 40em){
+	#chalkboard{
+		max-width: 640px;
+		height:    500px;
+	}
+}
