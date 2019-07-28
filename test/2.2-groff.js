@@ -317,90 +317,227 @@ describe("GroffAdapter", function(){
 				return input;
 			};
 			
-			it("formats chemical diagrams", async () => {
-				const input = ".cstart\nsize 20\nCH1\nbond\nCH2\n.cend\n";
-				expect(await groff.format(input, "ascii", {chemicals: true})).to.match(/^\s*CH1\s*--+\s*CH2\s*$/m);
-				expect(await groff.format(input, "utf8",  {chemicals: true})).to.match(/^\s*CH1\s*──+\s*CH2\s*$/m);
-			});
-			
-			it("formats equations", async () => {
-				const input = ".EQ\ndefine foo 'i = inf'\nfoo\n.EN\n";
-				expect(await groff.format(input, "utf8", {equations: true})).to.match(/^\x1B\[4mi\x1B\[24m=∞\s*$/);
-			});
-			
-			it("embeds linked files", async () => {
-				const path = join(__dirname, "fixtures", "troff", "link");
-				expect(await groff.format(null, "utf8", {expandLinks: true, inputFile: path + ".1"})).to.match(/^< Hello, world >\s*$/);
-				expect(await groff.format(null, "utf8", {expandLinks: true, inputFile: path + ".2"})).to.match(/^< Hello, world >\s*$/);
-			});
+			describe("when processing arbitrary input", () => {
+				it("formats chemical diagrams", async () => {
+					const input = ".cstart\nsize 20\nCH1\nbond\nCH2\n.cend\n";
+					expect(await groff.format(input, "ascii", {chemicals: false})).to.match(/^size 20 CH1 bond CH2\s*$/m);
+					expect(await groff.format(input, "utf8",  {chemicals: false})).to.match(/^size 20 CH1 bond CH2\s*$/m);
+					expect(await groff.format(input, "ascii", {chemicals: true})).to.match(/^\s*CH1\s*--+\s*CH2\s*$/m);
+					expect(await groff.format(input, "utf8",  {chemicals: true})).to.match(/^\s*CH1\s*──+\s*CH2\s*$/m);
+				});
+				
+				it("formats equations", async () => {
+					const input = ".EQ\ndefine foo 'i = inf'\nfoo\n.EN\n";
+					expect(await groff.format(input, "ascii", {equations: false})).to.match(/^define foo 'i = inf' foo\s*$/);
+					expect(await groff.format(input, "utf8",  {equations: false})).to.match(/^define foo ’i = inf’ foo\s*$/);
+					expect(await groff.format(input, "ascii", {equations: true})).to.match(/^\x1B\[4mi\x1B\[24m=/);
+					expect(await groff.format(input, "utf8",  {equations: true})).to.match(/^\x1B\[4mi\x1B\[24m=∞\s*$/);
+				});
+				
+				it("embeds linked files", async () => {
+					const input = `.rm so\n<\n.so ${join(__dirname, "fixtures/troff/format.me")}\n>`;
+					expect(await groff.format(input, "ascii", {expandLinks: false})).to.match(/^< >\s*$/);
+					expect(await groff.format(input, "ascii", {expandLinks: true})).to.match(/^< Hello, world >\s*$/);
+				});
 
-			it("normalises character sets", async () => {
-				const inputFile = join(__dirname, "fixtures", "troff", "utf8.roff");
-				expect(await groff.format(null, "utf8", {inputFile})).to.match(/^â +âFoo â Barâ +â\s*$/);
-				expect(await groff.format(null, "utf8", {inputFile, fixEncoding: true})).to.match(/^→  +“Foo — Bar” + ←\s*$/);
-			});
-			
-			it("formats graphs", async () => {
-				const path  = join(__dirname, "fixtures", "troff", "graph");
-				const ascii = trim(fs.readFileSync(path + "-ascii.txt", {encoding: "latin1"}));
-				const utf8  = trim(fs.readFileSync(path + "-utf8.txt",  {encoding: "utf8"}));
-				expect(trim(await groff.format(null, "ascii", {graphs: true, inputFile: path + ".roff"}))).to.equal(ascii);
-				expect(trim(await groff.format(null, "utf8",  {graphs: true, inputFile: path + ".roff"}))).to.equal(utf8);
-			});
-			
-			it("formats gremlin images", async () => {
-				const path  = join(__dirname, "fixtures", "troff", "gremlin");
-				const ascii = trim(fs.readFileSync(path + "-ascii.txt", {encoding: "latin1"}));
-				const utf8  = trim(fs.readFileSync(path + "-utf8.txt",  {encoding: "utf8"}));
-				expect(trim(await groff.format(null, "ascii", {gremlins: true, inputFile: path + ".roff"}))).to.equal(ascii);
-				expect(trim(await groff.format(null, "utf8",  {gremlins: true, inputFile: path + ".roff"}))).to.equal(utf8);
-			});
-			
-			// TODO: Actually find a working ideal(1) implementation
-			it.skip("formats ideal images", async () => {
-				const path  = join(__dirname, "fixtures", "troff", "ideal");
-				const ascii = trim(fs.readFileSync(path + "-ascii.txt", {encoding: "latin1"}));
-				const utf8  = trim(fs.readFileSYnc(path + "-utf8.txt",  {encoding: "utf8"}));
-				expect(trim(await groff.format(null, "ascii", {ideal: true, inputFile: path + ".roff"}))).to.equal(ascii);
-				expect(trim(await groff.format(null, "utf8",  {ideal: true, inputFile: path + ".roff"}))).to.equal(utf8);
-			});
-			
-			it("formats newline-free eqn(1) delimiters", async () => {
-				const input  = ".EQ\ndelim {}\n.EN\nFoo {x1 + x2 = y\n} bar {baz}.\n";
-				const output = "Foo \x1B[4mx\x1B[24m1+\x1B[4mx\x1B[24m2=\x1B[4my\x1B[24m bar \x1B[4mbaz\x1B[24m.";
-				const broken = "Foo {x1 + x2 = y } bar \x1B[4mbaz\x1B[24m.";
-				expect(trim(await groff.format(input, "utf8", {equations: true, noNewlines: false}))).to.equal(output);
-				expect(trim(await groff.format(input, "utf8", {equations: true, noNewlines: true}))).to.equal(broken);
-			});
-			
-			it("formats line drawings", async () => {
-				const input = '.PS\n"Foo"; line 4; "Bar";\n.PE\n';
-				expect(await groff.format(input, "ascii", {pictures: true})).to.match(/^\s*\x08F(-\x08o){2}--+\x08B-\x08a-\x08r\s*$/m);
-				expect(await groff.format(input, "utf8",  {pictures: true})).to.match(/^\s*\x08F(─\x08o){2}──+\x08B─\x08a─\x08r\s*$/m);
-			});
+				it("normalises character sets", async () => {
+					const input = "→  “Foo — Bar”  ←\n";
+					expect(await groff.format(input, "ascii", {fixEncoding: false})).to.match(/^ +Foo +Bar\s*$/);
+					expect(await groff.format(input, "utf8",  {fixEncoding: false})).to.match(/^â +âFoo â Barâ +â\s*$/);
+					expect(await groff.format(input, "ascii", {fixEncoding: true})).to.match(/^->  "Foo -- Bar"  <-\s*$/);
+					expect(await groff.format(input, "utf8",  {fixEncoding: true})).to.match(/^→  +“Foo — Bar” + ←\s*$/);
+				});
+				
+				it("formats graphs", async () => {
+					const path  = join(__dirname, "fixtures", "troff", "graph");
+					const ascii = trim(fs.readFileSync(path + "-ascii.txt", {encoding: "latin1"}));
+					const utf8  = trim(fs.readFileSync(path + "-utf8.txt",  {encoding: "utf8"}));
+					const input = fs.readFileSync(path + ".roff",  {encoding: "utf8"});
+					expect(trim(await groff.format(input, "ascii", {graphs: false}))).to.match(/^ticks left out at [\d\s.,]+$/);
+					expect(trim(await groff.format(input, "ascii", {graphs: true}))).to.equal(ascii);
+					expect(trim(await groff.format(input, "utf8",  {graphs: true}))).to.equal(utf8);
+				});
+				
+				it("formats gremlin images", async () => {
+					const path  = join(__dirname, "fixtures", "troff", "gremlin");
+					const ascii = trim(fs.readFileSync(path + "-ascii.txt", {encoding: "latin1"}));
+					const utf8  = trim(fs.readFileSync(path + "-utf8.txt",  {encoding: "utf8"}));
+					const input = fs.readFileSync(path + ".roff",  {encoding: "utf8"});
+					expect(trim(await groff.format(input, "ascii", {gremlins: false}))).to.match(/^width +6\.0 +height +7\.0/);
+					expect(trim(await groff.format(input, "ascii", {gremlins: true}))).to.equal(ascii);
+					expect(trim(await groff.format(input, "utf8",  {gremlins: true}))).to.equal(utf8);
+				});
+				
+				// TODO: Actually find a working ideal(1) implementation
+				it.skip("formats ideal images", async () => {
+					
+				});
+				
+				it("formats newline-free eqn(1) delimiters", async () => {
+					const input  = ".EQ\ndelim {}\n.EN\nFoo {x1 + x2 = y\n} bar {baz}.\n";
+					const output = "Foo \x1B[4mx\x1B[24m1+\x1B[4mx\x1B[24m2=\x1B[4my\x1B[24m bar \x1B[4mbaz\x1B[24m.";
+					const broken = "Foo {x1 + x2 = y } bar \x1B[4mbaz\x1B[24m.";
+					expect(trim(await groff.format(input, "utf8", {equations: true, noNewlines: false}))).to.equal(output);
+					expect(trim(await groff.format(input, "utf8", {equations: true, noNewlines: true}))).to.equal(broken);
+				});
+				
+				it("formats line drawings", async () => {
+					const input = '.PS\n"Foo"; line 4; "Bar";\n.PE\n';
+					expect(await groff.format(input, "ascii", {pictures: true})).to.match(/^\s*\x08F(-\x08o){2}--+\x08B-\x08a-\x08r\s*$/m);
+					expect(await groff.format(input, "utf8",  {pictures: true})).to.match(/^\s*\x08F(─\x08o){2}──+\x08B─\x08a─\x08r\s*$/m);
+				});
 
-			it("supports arbitrary preprocessors", async () => { // Total overkill, but W/E
-				expect(await groff.format("foo\n", "utf8", {preprocessors: [["tr", "a-z", "A-Z"]]})).to.match(/^\s*FOO\s*$/);
-				expect(await groff.format("foo\n", "utf8", {preprocessors: [["rev"], ["nl", "-v3"]]})).to.match(/^\s+3[ \t]+oof\s*$/);
-				const args = ["-I", join(__dirname, "fixtures", "troff")];
-				const opt = lock({args, expandLinks: true, macros: ["an"], preprocessors: [["tr", "'a-zA-Z", "/n-za-mN-ZA-M"], ["sed", "/./ s/^/./g"]]});
-				const out = /^\s*TITLE\(1\)[^\n]+?TITLE\(1\)\n\s+\x1B\[1mSECTION\s*\x1B\[0m\n\s+\x1B\[4mParagraph\x1B\[24m\s+Hello, world\s+/;
-				expect(await groff.format("GU GVGYR 1\nFU FRPGVBA\nV Cnentencu\nfb svkgherf'gebss'sbezng.zr\n", "utf8", opt)).to.match(out);
-				expect(await groff.format("GU GVGYR 1\nFU FRPGVBA\nV Cnentencu\nfb sbezng.zr\n", "utf8", opt)).to.match(out);
+				it("supports arbitrary preprocessors", async () => { // Total overkill, but W/E
+					expect(await groff.format("foo\n", "utf8", {preprocessors: [["tr", "a-z", "A-Z"]]})).to.match(/^\s*FOO\s*$/);
+					expect(await groff.format("foo\n", "utf8", {preprocessors: [["rev"], ["nl", "-v3"]]})).to.match(/^\s+3[ \t]+oof\s*$/);
+					const args = ["-I", join(__dirname, "fixtures", "troff")];
+					const opt = lock({args, expandLinks: true, macros: ["an"], preprocessors: [["tr", "'a-zA-Z", "/n-za-mN-ZA-M"], ["sed", "/./ s/^/./g"]]});
+					const out = /^\s*TITLE\(1\)[^\n]+?TITLE\(1\)\n\s+\x1B\[1mSECTION\s*\x1B\[0m\n\s+\x1B\[4mParagraph\x1B\[24m\s+Hello, world\s+/;
+					expect(await groff.format("GU GVGYR 1\nFU FRPGVBA\nV Cnentencu\nfb svkgherf'gebss'sbezng.zr\n", "utf8", opt)).to.match(out);
+					expect(await groff.format("GU GVGYR 1\nFU FRPGVBA\nV Cnentencu\nfb sbezng.zr\n", "utf8", opt)).to.match(out);
+				});
+				
+				it("formats bibliographic references", async () => {
+					const input = ".R1\nno-default-database\n.R2\nFoo\n.[[\n%A 1\n%T 2\n.]]\nBar\n.[[\n%A 3\n%T 4\n.]]\n";
+					expect(trim(await groff.format(input, "utf8", {refer: false}))).to.equal("no‐default‐database Foo %A 1 %T 2 Bar %A 3 %T 4");
+					expect(trim(await groff.format(input, "utf8", {refer: true}))).to.equal("Foo[1] Bar[2]");
+				});
+
+				it("formats tables", async () => {
+					const input = ".TS\ntab(|);\nlb l li .\n_\nFoo|Bar|Baz\n.TE\n";
+					expect(await groff.format(input, "ascii", {tables: false})).to.match(/^tab\(\|\); lb l li \.  _ Foo\|Bar\|Baz\s*$/);
+					expect(await groff.format(input, "ascii", {tables: true})).to.match(/^-+\n\x1B\[1mFoo +\x1B\[22mBar +\x1B\[4mBaz/);
+					expect(await groff.format(input, "utf8",  {tables: true})).to.match(/^─+\n\x1B\[1mFoo +\x1B\[22mBar +\x1B\[4mBaz/);
+				});
 			});
 			
-			it("supports bibliographic indexing", async () => {
-				const path = join(__dirname, "fixtures", "troff", "refer");
-				const off  = trim(fs.readFileSync(path + "-off.txt", "utf8"));
-				const on   = trim(fs.readFileSync(path + "-on.txt",  "utf8"));
-				expect(trim(await groff.format(null, "utf8", {inputFile: path + ".roff", refer: false}))).to.equal(off);
-				expect(trim(await groff.format(null, "utf8", {inputFile: path + ".roff", refer: true}))).to.equal(on);
-			});
+			describe("when processing files", () => {
+				it("formats chemical diagrams", async () => {
+					const path  = join(__dirname, "fixtures", "troff", "chem");
+					const ascii = trim(fs.readFileSync(path + "-ascii.txt", {encoding: "latin1"}));
+					const utf8  = trim(fs.readFileSync(path + "-utf8.txt",  {encoding: "utf8"}));
+					const file  = fs.readFileSync(path + ".roff", {encoding: "utf8"});
+					expect(trim(await groff.format(null, "ascii", {chemicals: false, inputFile: path + ".roff"}))).to.match(/ bond left After$/);
+					expect(trim(await groff.format(null, "ascii", {chemicals: true,  inputFile: path + ".roff"}))).to.equal(ascii);
+					expect(trim(await groff.format(null, "utf8",  {chemicals: true,  inputFile: path + ".roff"}))).to.equal(utf8);
+					expect(trim(await groff.format(file, "utf8",  {chemicals: true,  inputFile: path + ".roff"}))).to.equal(utf8 + " " + utf8);
+				});
+				
+				it("formats equations", async () => {
+					const path = join(__dirname, "fixtures", "troff", "eqn");
+					const off  = trim(fs.readFileSync(path + "-off.txt", "utf8"));
+					const on   = trim(fs.readFileSync(path + "-on.txt",  "utf8"));
+					const file = fs.readFileSync(path + ".roff", {encoding: "utf8"});
+					expect(trim(await groff.format(null, "utf8", {inputFile: path + ".roff", equations: false}))).to.equal(off);
+					expect(trim(await groff.format(null, "utf8", {inputFile: path + ".roff", equations: true}))).to.equal(on);
+					expect(trim(await groff.format(file, "utf8", {inputFile: path + ".roff", equations: true}))).to.equal(on + "\n" + on);
+				});
+				
+				it("embeds linked files", async () => {
+					const path = join(__dirname, "fixtures", "troff", "link");
+					const file = fs.readFileSync(path + ".1", {encoding: "utf8"});
+					expect(await groff.format(null, "utf8", {expandLinks: true, inputFile: path + ".1"})).to.match(/^< Hello, world >\s*$/);
+					expect(await groff.format(null, "utf8", {expandLinks: true, inputFile: path + ".2"})).to.match(/^(< Hello, world >\s*){1}$/);
+					expect(await groff.format(file, "utf8", {expandLinks: true, inputFile: path + ".2"})).to.match(/^(< Hello, world >\s*){2}$/);
+				});
 
-			it("supports tables", async () => {
-				const input = ".TS\ntab(|);\nlb l li .\n_\nFoo|Bar|Baz\n.TE\n";
-				expect(await groff.format(input, "ascii", {tables: true})).to.match(/^-+\n\x1B\[1mFoo +\x1B\[22mBar +\x1B\[4mBaz/);
-				expect(await groff.format(input, "utf8",  {tables: true})).to.match(/^─+\n\x1B\[1mFoo +\x1B\[22mBar +\x1B\[4mBaz/);
+				it("normalises character sets", async () => {
+					const path = join(__dirname, "fixtures", "troff", "utf8.roff");
+					const file = fs.readFileSync(path, {encoding: "utf8"});
+					expect(await groff.format(null, "utf8", {inputFile: path, fixEncoding: false})).to.match(/^â +âFoo â Barâ +â\s*$/);
+					expect(await groff.format(null, "utf8", {inputFile: path, fixEncoding: true})).to.match(/^(→  +“Foo — Bar” + ←\s*){1}$/);
+					expect(await groff.format(file, "utf8", {inputFile: path, fixEncoding: true})).to.match(/^(→  +“Foo — Bar” + ←\s*){2}$/);
+				});
+				
+				it("formats graphs", async () => {
+					const path  = join(__dirname, "fixtures", "troff", "graph");
+					const opts  = {graphs: true, inputFile: path + ".roff"};
+					const ascii = trim(fs.readFileSync(path + "-ascii.txt", {encoding: "latin1"}));
+					const utf8  = trim(fs.readFileSync(path + "-utf8.txt",  {encoding: "utf8"}));
+					const file  = fs.readFileSync(path + ".roff", {encoding: "utf8"});
+					expect(trim(await groff.format(null, "ascii", opts))).to.equal(ascii);
+					expect(trim(await groff.format(null, "utf8",  opts))).to.equal(utf8);
+					expect(trim(await groff.format(file, "utf8",  opts)).replace(/\n{2,}/g, "\n")).to.equal(utf8 + "\n" + utf8);
+				});
+				
+				it("formats gremlin images", async () => {
+					const path  = join(__dirname, "fixtures", "troff", "gremlin");
+					const ascii = trim(fs.readFileSync(path + "-ascii.txt", {encoding: "latin1"}));
+					const utf8  = trim(fs.readFileSync(path + "-utf8.txt",  {encoding: "utf8"}));
+					const file  = fs.readFileSync(path + ".roff", {encoding: "utf8"});
+					expect(trim(await groff.format(null, "ascii", {gremlins: true, inputFile: path + ".roff"}))).to.equal(ascii);
+					expect(trim(await groff.format(null, "utf8",  {gremlins: true, inputFile: path + ".roff"}))).to.equal(utf8);
+					expect(trim(await groff.format(file, "utf8",  {gremlins: true, inputFile: path + ".roff"}))).to.equal(utf8 + "\n" + utf8);
+				});
+				
+				// TODO: Actually find a working ideal(1) implementation
+				it.skip("formats ideal images", async () => {
+					const path  = join(__dirname, "fixtures", "troff", "ideal");
+					const ascii = trim(fs.readFileSync(path + "-ascii.txt", {encoding: "latin1"}));
+					const utf8  = trim(fs.readFileSYnc(path + "-utf8.txt",  {encoding: "utf8"}));
+					expect(trim(await groff.format(null, "ascii", {ideal: true, inputFile: path + ".roff"}))).to.equal(ascii);
+					expect(trim(await groff.format(null, "utf8",  {ideal: true, inputFile: path + ".roff"}))).to.equal(utf8);
+				});
+				
+				it("formats newline-free eqn(1) delimiters", async () => {
+					const path = join(__dirname, "fixtures", "troff", "eqn");
+					const opts = {equations: true, inputFile: path + ".roff"};
+					const good = trim(fs.readFileSync(path + "-on.txt",  {encoding: "utf8"}));
+					const bad  = trim(fs.readFileSync(path + "-bad.txt", {encoding: "utf8"}));
+					const file = fs.readFileSync(path + ".roff", {encoding: "utf8"});
+					expect(trim(await groff.format(null, "utf8", {...opts, noNewlines: false}))).to.equal(good);
+					expect(trim(await groff.format(null, "utf8", {...opts, noNewlines: true}))).to.equal(bad);
+					expect(trim(await groff.format(file, "utf8", {...opts, noNewlines: true}))).to.equal(bad + "\n" + bad);
+				});
+				
+				it("formats line drawings", async () => {
+					const path  = join(__dirname, "fixtures", "troff", "pic");
+					const ascii = trim(fs.readFileSync(path + "-ascii.txt", {encoding: "latin1"}));
+					const utf8  = trim(fs.readFileSync(path + "-utf8.txt",  {encoding: "utf8"}));
+					const file  = fs.readFileSync(path + ".roff", {encoding: "utf8"});
+					expect(trim(await groff.format(null, "ascii", {inputFile: path + ".roff", pictures: false}))).to.match(/move to last box/);
+					expect(trim(await groff.format(null, "ascii", {inputFile: path + ".roff", pictures: true}))).to.equal(ascii);
+					expect(trim(await groff.format(null, "utf8",  {inputFile: path + ".roff", pictures: true}))).to.equal(utf8);
+					expect(trim(await groff.format(file, "utf8",  {inputFile: path + ".roff", pictures: true}))).to.equal(utf8 + " " + utf8);
+				});
+
+				it("supports arbitrary preprocessors", async () => {
+					const path = join(__dirname, "fixtures", "troff", "markdown.md");
+					const file = fs.readFileSync(path, {encoding: "utf8"}) + ".br\n";
+					const opts = {inputFile: path, preprocessors: [
+						["sed", "s/_\\([^_]*\\)_/|fI\\1|fP/g"],
+						["sed", "s/\\*\\*\\([^\\*]*\\)\\*\\*/|fB\\1|fP/g"],
+						["sed", "s/|/\\\\/g; s/weak/better/g"],
+					]};
+					const out = "This \x1B[4mis\x1B[24m a \x1B[1mbetter \x1B[22mmarkup language.";
+					expect(trim(await groff.format(null, "utf8", opts))).to.equal(out);
+					expect(trim(await groff.format(file, "utf8", opts))).to.equal(out + "\n" + out);
+					opts.expandLinks = true;
+					opts.preprocessors.push(["sed", 's/\\\\" //g']);
+					expect(trim(await groff.format(null, "utf8", opts))).to.equal(`< Hello, world > ${out}`);
+					expect(trim(await groff.format(file, "utf8", opts))).to.equal(`< Hello, world > ${out}\n`.repeat(2).trim());
+				});
+				
+				it("formats bibliographic references", async () => {
+					const path = join(__dirname, "fixtures", "troff", "refer");
+					const off  = trim(fs.readFileSync(path + "-off.txt", "utf8"));
+					const on   = trim(fs.readFileSync(path + "-on.txt",  "utf8"));
+					const file = fs.readFileSync(path + ".roff", {encoding: "utf8"});
+					expect(trim(await groff.format(null, "utf8", {inputFile: path + ".roff", refer: false}))).to.equal(off);
+					expect(trim(await groff.format(null, "utf8", {inputFile: path + ".roff", refer: true}))).to.equal(on);
+					expect(trim(await groff.format(file, "utf8", {inputFile: path + ".roff", refer: true}))).to.equal(on + "\n" + on);
+				});
+
+				it("formats tables", async () => {
+					const path  = join(__dirname, "fixtures", "troff", "tbl");
+					const ascii = trim(fs.readFileSync(path + "-ascii.txt", {encoding: "latin1"}));
+					const utf8  = trim(fs.readFileSync(path + "-utf8.txt",  {encoding: "utf8"}));
+					const file  = fs.readFileSync(path + ".roff", {encoding: "utf8"});
+					expect(trim(await groff.format(null, "ascii", {inputFile: path + ".roff", tables: false}))).to.match(/\stab\(;\) allbox;\s/);
+					expect(trim(await groff.format(null, "ascii", {inputFile: path + ".roff", tables: true}))).to.equal(ascii);
+					expect(trim(await groff.format(null, "utf8",  {inputFile: path + ".roff", tables: true}))).to.equal(utf8);
+					expect(trim(await groff.format(file, "utf8",  {inputFile: path + ".roff", tables: true}))).to.equal(utf8 + " " + utf8);
+				});
 			});
 		});
 	});

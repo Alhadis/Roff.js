@@ -1,0 +1,4 @@
+Let α[4mi[24m be the primary variable, and let β be zero.
+Then we can show that [4mx[24m1 is ≥0.
+
+Foo [4mx[24m1+[4mx[24m2=[4my[24m bar [4mbaz[24m.

@@ -1,0 +1,5 @@
+Let α[4mi[24m be the primary variable, and let β be zero.
+Then we can show that [4mx[24m1 is ≥0.
+
+Foo {x1 + x2 = y
+} bar [4mbaz[24m.
