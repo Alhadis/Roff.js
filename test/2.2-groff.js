@@ -344,7 +344,7 @@ describe("GroffAdapter", function(){
 					const input = "→  “Foo — Bar”  ←\n";
 					expect(await groff.format(input, "ascii", {fixEncoding: false})).to.match(/^ +Foo +Bar\s*$/);
 					expect(await groff.format(input, "utf8",  {fixEncoding: false})).to.match(/^â +âFoo â Barâ +â\s*$/);
-					expect(await groff.format(input, "ascii", {fixEncoding: true})).to.match(/^->  "Foo -- Bar"  <-\s*$/);
+					expect(await groff.format(input, "ascii", {fixEncoding: true})).to.match(/^-> +"Foo -- Bar" +<-\s*$/);
 					expect(await groff.format(input, "utf8",  {fixEncoding: true})).to.match(/^→  +“Foo — Bar” + ←\s*$/);
 				});
 				
@@ -405,7 +405,7 @@ describe("GroffAdapter", function(){
 
 				it("formats tables", async () => {
 					const input = ".TS\ntab(|);\nlb l li .\n_\nFoo|Bar|Baz\n.TE\n";
-					expect(await groff.format(input, "ascii", {tables: false})).to.match(/^tab\(\|\); lb l li \.  _ Foo\|Bar\|Baz\s*$/);
+					expect(await groff.format(input, "ascii", {tables: false})).to.match(/^tab\(\|\); lb l li \. +_ Foo\|Bar\|Baz\s*$/);
 					expect(await groff.format(input, "ascii", {tables: true})).to.match(/^-+\n\x1B\[1mFoo +\x1B\[22mBar +\x1B\[4mBaz/);
 					expect(await groff.format(input, "utf8",  {tables: true})).to.match(/^─+\n\x1B\[1mFoo +\x1B\[22mBar +\x1B\[4mBaz/);
 				});

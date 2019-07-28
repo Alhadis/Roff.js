@@ -1,6 +1,9 @@
 {
 	"extends": "@alhadis",
 	"parser": "babel-eslint",
+	"rules": {
+		"require-atomic-updates": 0
+	},
 	"overrides": [{
 		"files": ["lib/postproc/postprocessor.mjs"],
 		"rules": {
