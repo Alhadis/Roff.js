@@ -33,6 +33,7 @@ describe("GroffAdapter", function(){
 		expect(fs.existsSync(groff.path)).to.be.true;
 		if("win32" !== process.platform)
 			expect(Boolean(0o111 & fs.statSync(groff.path).mode)).to.be.true;
+		groff.extras.grog = null;
 	});
 	
 	describe("Initialisation", () => {
@@ -539,6 +540,33 @@ describe("GroffAdapter", function(){
 					expect(trim(await groff.format(file, "utf8",  {inputFile: path + ".roff", tables: true}))).to.equal(utf8 + " " + utf8);
 				});
 			});
+		});
+	});
+
+	describe("guessOptions()", () => {
+		it("recognises macro packages", async () => {
+			expect(await groff.guessOptions(".TH TITLE")).to.eql({macros: ["an"]});
+			expect(await groff.guessOptions(".Dd $Date")).to.eql({macros: ["doc"]});
+			expect(await groff.guessOptions(".bx"))      .to.eql({macros: ["e"]});
+			expect(await groff.guessOptions(".AE"))      .to.eql({macros: ["m"]});
+			expect(await groff.guessOptions(".LH"))      .to.eql({macros: ["s"]});
+		});
+		
+		it("recognises preprocessor blocks", async () => {
+			expect(await groff.guessOptions(".EQ\n.EE")).to.eql({equations: true});
+			expect(await groff.guessOptions(".PS\n.PE")).to.eql({pictures:  true});
+			expect(await groff.guessOptions(".TS\n.TE")).to.eql({tables:    true});
+		});
+		
+		it("recognises preprocessor option headers", async () => {
+			expect(await groff.guessOptions("'\\\" e")).to.eql({equations: true});
+			expect(await groff.guessOptions("'\\\" p")).to.eql({pictures:  true});
+			expect(await groff.guessOptions("'\\\" t")).to.eql({tables:    true});
+		});
+		
+		it("ignores user-defined macros", async () => {
+			expect(await groff.guessOptions(".de TH\n..\n.TH TITLE")).to.eql({});
+			expect(await groff.guessOptions(".TH TITLE\n.de TH\n..")).to.eql({macros: ["an"]});
 		});
 	});
 });
