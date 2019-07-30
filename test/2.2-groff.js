@@ -542,6 +542,329 @@ describe("GroffAdapter", function(){
 			});
 		});
 	});
+	
+	describe("mergeOptions()", () => {
+		it("merges simple properties", () => {
+			expect(groff.mergeOptions({foo: 1},    {bar: 2}))   .to.eql({foo: 1, bar: 2});
+			expect(groff.mergeOptions({foo: 1},    {foo: 2}))   .to.eql({foo: 2});
+			expect(groff.mergeOptions({foo: "A"},  {bar: "B"})) .to.eql({foo: "A", bar: "B"});
+			expect(groff.mergeOptions({foo: "A"},  {foo: null})).to.eql({foo: null});
+			expect(groff.mergeOptions({foo: null}, {foo: "A"})) .to.eql({foo: "A"});
+		});
+		
+		it("merges array-type properties", () => {
+			expect(groff.mergeOptions({foo: [1]},    {foo: [2]})).to.eql({foo: [1, 2]});
+			expect(groff.mergeOptions({foo: [1]},    {bar: [2]})).to.eql({foo: [1], bar: [2]});
+			expect(groff.mergeOptions({foo: [1, 3]}, {foo: [2]})).to.eql({foo: [1, 3, 2]});
+		});
+		
+		it("merges object-type properties", () => {
+			expect(groff.mergeOptions({foo: {A: 1}},       {foo: {B: 2}})).to.eql({foo: {A: 1, B: 2}});
+			expect(groff.mergeOptions({foo: {A: 1}},       {foo: {A: 2}})).to.eql({foo: {A: 2}});
+			expect(groff.mergeOptions({foo: {A: 1, B: 2}}, {foo: {C: 3}})).to.eql({foo: {A: 1, B: 2, C: 3}});
+		});
+		
+		it("merges enumerable properties only", () => {
+			const input1 = {foo: 1};
+			const input2 = Object.defineProperty({}, "foo", {value: 2});
+			expect(groff.mergeOptions(input1, input2)).to.eql({foo: 1});
+			expect(groff.mergeOptions("AB", "C")).to.eql({0: "C", 1: "B"});
+		});
+		
+		it("does not modify the original arguments", () => {
+			let input1 = {foo: 1};
+			let input2 = {foo: 2};
+			let output = groff.mergeOptions(input1, input2);
+			expect(output).to.eql({foo: 2}).and.not.equal(input1).and.not.equal(input2);
+			expect(input1.foo).to.equal(1);
+			expect(input2.foo).to.equal(2);
+			
+			let a1 = [1];
+			let a2 = [2];
+			input1 = {foo: a1};
+			input2 = {foo: a2};
+			output = groff.mergeOptions(input1, input2);
+			expect(output).to.eql({foo: [1, 2]}).and.not.equal(input1).and.not.equal(input2);
+			expect(input1.foo).to.equal(a1).and.eql([1]);
+			expect(input2.foo).to.equal(a2).and.eql([2]);
+			
+			a1 = {a: 1};
+			a2 = {a: 2};
+			input1 = {foo: a1};
+			input2 = {foo: a2};
+			output = groff.mergeOptions(input1, input2);
+			expect(output).to.eql({foo: {a: 2}}).and.not.equal(input1).and.not.equal(input2);
+			expect(input1.foo).to.equal(a1).and.eql({a: 1});
+			expect(input2.foo).to.equal(a2).and.eql({a: 2});
+		});
+		
+		it("always returns an object", () => {
+			expect(groff.mergeOptions())               .to.eql({});
+			expect(groff.mergeOptions(null))           .to.eql({});
+			expect(groff.mergeOptions(undefined))      .to.eql({});
+			expect(groff.mergeOptions(undefined, null)).to.eql({});
+			expect(groff.mergeOptions(true))           .to.eql({});
+		});
+	});
+	
+	describe("resolvePreprocessors()", () => {
+		let extras, resolve;
+		before     (() => resolve = groff.resolvePreprocessors.bind(groff));
+		beforeEach (() => groff.extras = JSON.parse(JSON.stringify(extras = groff.extras)));
+		afterEach  (() => groff.extras = extras);
+		
+		it("always includes a `preprocessors` array", () =>
+			expect(resolve({})).to.eql({preprocessors: []}));
+		
+		it("updates options if chem(1) is unavailable", () => {
+			groff.extras.chem = groff.extras.pic = {option: "1"};
+			expect(resolve({chemicals: true}))                    .to.eql({preprocessors: [], chemicals: true});
+			expect(resolve({chemicals: false}))                   .to.eql({preprocessors: [], chemicals: false});
+			expect(resolve({preprocessors: [["chem"]]}))          .to.eql({preprocessors: [["chem"]]});
+			expect(resolve({preprocessors: [["chem", "-h"]]}))    .to.eql({preprocessors: [["chem", "-h"]]});
+			expect(resolve({preprocessors: [["chem"], ["pic"]]})) .to.eql({preprocessors: [["chem"], ["pic"]]});
+			groff.extras.chem = null;
+			expect(resolve({chemicals: true}))                    .to.eql({preprocessors: []});
+			expect(resolve({chemicals: false}))                   .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["chem"]]}))          .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["chem", "-h"]]}))    .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["chem"], ["pic"]]})) .to.eql({preprocessors: [["pic"]]});
+		});
+		
+		it("updates options if eqn(1) is unavailable", () => {
+			groff.extras.eqn = {option: "1"};
+			expect(resolve({equations: true}))                   .to.eql({preprocessors: [], equations: true});
+			expect(resolve({equations: false}))                  .to.eql({preprocessors: [], equations: false});
+			expect(resolve({preprocessors: [["eqn"]]}))          .to.eql({preprocessors: [["eqn"]]});
+			expect(resolve({preprocessors: [["eqn", "-C"]]}))    .to.eql({preprocessors: [["eqn", "-C"]]});
+			expect(resolve({preprocessors: [["eqn"], ["pic"]]})) .to.eql({preprocessors: [["eqn"], ["pic"]]});
+			groff.extras.eqn = null;
+			expect(resolve({equations: true}))                   .to.eql({preprocessors: []});
+			expect(resolve({equations: false}))                  .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["eqn"]]}))          .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["eqn", "-C"]]}))    .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["eqn"], ["pic"]]})) .to.eql({preprocessors: [["pic"]]});
+		});
+		
+		it("updates options if soelim(1) is unavailable", () => {
+			groff.extras.soelim = {option: "1"};
+			expect(resolve({expandLinks: true}))                    .to.eql({preprocessors: [], expandLinks: true});
+			expect(resolve({expandLinks: false}))                   .to.eql({preprocessors: [], expandLinks: false});
+			expect(resolve({preprocessors: [["soelim"]]}))          .to.eql({preprocessors: [["soelim"]]});
+			expect(resolve({preprocessors: [["soelim", "-C"]]}))    .to.eql({preprocessors: [["soelim", "-C"]]});
+			expect(resolve({preprocessors: [["soelim"], ["pic"]]})) .to.eql({preprocessors: [["soelim"], ["pic"]]});
+			groff.extras.soelim = null;
+			expect(resolve({expandLinks: true}))                    .to.eql({preprocessors: []});
+			expect(resolve({expandLinks: false}))                   .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["soelim"]]}))          .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["soelim", "-C"]]}))    .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["soelim"], ["pic"]]})) .to.eql({preprocessors: [["pic"]]});
+		});
+		
+		it("updates options if preconv(1) is unavailable", () => {
+			groff.extras.preconv = {option: "1"};
+			expect(resolve({fixEncoding: true}))                     .to.eql({preprocessors: [], fixEncoding: true});
+			expect(resolve({fixEncoding: false}))                    .to.eql({preprocessors: [], fixEncoding: false});
+			expect(resolve({preprocessors: [["preconv"]]}))          .to.eql({preprocessors: [["preconv"]]});
+			expect(resolve({preprocessors: [["preconv", "-h"]]}))    .to.eql({preprocessors: [["preconv", "-h"]]});
+			expect(resolve({preprocessors: [["preconv"], ["pic"]]})) .to.eql({preprocessors: [["preconv"], ["pic"]]});
+			groff.extras.preconv = null;
+			expect(resolve({fixEncoding: true}))                     .to.eql({preprocessors: []});
+			expect(resolve({fixEncoding: false}))                    .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["preconv"]]}))          .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["preconv", "-h"]]}))    .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["preconv"], ["pic"]]})) .to.eql({preprocessors: [["pic"]]});
+		});
+		
+		it("updates options if grap(1) is unavailable", () => {
+			groff.extras.grap = groff.extras.pic = {option: "1"};
+			expect(resolve({graphs: true}))                       .to.eql({preprocessors: [], graphs: true});
+			expect(resolve({graphs: false}))                      .to.eql({preprocessors: [], graphs: false});
+			expect(resolve({preprocessors: [["grap"]]}))          .to.eql({preprocessors: [["grap"]]});
+			expect(resolve({preprocessors: [["grap", "-h"]]}))    .to.eql({preprocessors: [["grap", "-h"]]});
+			expect(resolve({preprocessors: [["grap"], ["pic"]]})) .to.eql({preprocessors: [["grap"], ["pic"]]});
+			groff.extras.grap = null;
+			expect(resolve({graphs: true}))                       .to.eql({preprocessors: []});
+			expect(resolve({graphs: false}))                      .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["grap"]]}))          .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["grap", "-h"]]}))    .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["grap"], ["pic"]]})) .to.eql({preprocessors: [["pic"]]});
+		});
+		
+		it("updates options if grn(1) is unavailable", () => {
+			groff.extras.grn = {option: "1"};
+			expect(resolve({gremlins: true}))                     .to.eql({preprocessors: [], gremlins: true});
+			expect(resolve({gremlins: false}))                    .to.eql({preprocessors: [], gremlins: false});
+			expect(resolve({preprocessors: [["grn"]]}))           .to.eql({preprocessors: [["grn"]]});
+			expect(resolve({preprocessors: [["grn", "-h"]]}))     .to.eql({preprocessors: [["grn", "-h"]]});
+			expect(resolve({preprocessors: [["grn"], ["pic"]]}))  .to.eql({preprocessors: [["grn"], ["pic"]]});
+			groff.extras.grn = null;
+			expect(resolve({gremlins: true}))                     .to.eql({preprocessors: []});
+			expect(resolve({gremlins: false}))                    .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["grn"]]}))           .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["grn", "-h"]]}))     .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["grn"], ["pic"]]}))  .to.eql({preprocessors: [["pic"]]});
+		});
+		
+		it("updates options if refer(1) is unavailable", () => {
+			groff.extras.refer = {option: "1"};
+			expect(resolve({refer: true}))                         .to.eql({preprocessors: [], refer: true});
+			expect(resolve({refer: false}))                        .to.eql({preprocessors: [], refer: false});
+			expect(resolve({preprocessors: [["refer"]]}))          .to.eql({preprocessors: [["refer"]]});
+			expect(resolve({preprocessors: [["refer", "-h"]]}))    .to.eql({preprocessors: [["refer", "-h"]]});
+			expect(resolve({preprocessors: [["refer"], ["pic"]]})) .to.eql({preprocessors: [["refer"], ["pic"]]});
+			groff.extras.refer = null;
+			expect(resolve({refer: true}))                         .to.eql({preprocessors: []});
+			expect(resolve({refer: false}))                        .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["refer"]]}))          .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["refer", "-h"]]}))    .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["refer"], ["pic"]]})) .to.eql({preprocessors: [["pic"]]});
+		});
+		
+		it("updates options if tbl(1) is unavailable", () => {
+			groff.extras.tbl = {option: "1"};
+			expect(resolve({tables: true}))                      .to.eql({preprocessors: [], tables: true});
+			expect(resolve({tables: false}))                     .to.eql({preprocessors: [], tables: false});
+			expect(resolve({preprocessors: [["tbl"]]}))          .to.eql({preprocessors: [["tbl"]]});
+			expect(resolve({preprocessors: [["tbl", "-h"]]}))    .to.eql({preprocessors: [["tbl", "-h"]]});
+			expect(resolve({preprocessors: [["tbl"], ["pic"]]})) .to.eql({preprocessors: [["tbl"], ["pic"]]});
+			groff.extras.tbl = null;
+			expect(resolve({tables: true}))                      .to.eql({preprocessors: []});
+			expect(resolve({tables: false}))                     .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["tbl"]]}))          .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["tbl", "-h"]]}))    .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["tbl"], ["pic"]]})) .to.eql({preprocessors: [["pic"]]});
+		});
+		
+		it("updates options if ideal(1) is unavailable", () => {
+			groff.extras.ideal = groff.extras.pic = {option: "1"};
+			expect(resolve({ideal: true}))                          .to.eql({preprocessors: [], ideal: true});
+			expect(resolve({ideal: false}))                         .to.eql({preprocessors: [], ideal: false});
+			expect(resolve({preprocessors: [["ideal"]]}))           .to.eql({preprocessors: [["ideal"]]});
+			expect(resolve({preprocessors: [["gideal"]]}))          .to.eql({preprocessors: [["gideal"]]});
+			expect(resolve({preprocessors: [["ideal",  "-h"]]}))    .to.eql({preprocessors: [["ideal",  "-h"]]});
+			expect(resolve({preprocessors: [["gideal", "-h"]]}))    .to.eql({preprocessors: [["gideal", "-h"]]});
+			expect(resolve({preprocessors: [["ideal"],  ["pic"]]})) .to.eql({preprocessors: [["ideal"],  ["pic"]]});
+			expect(resolve({preprocessors: [["gideal"], ["pic"]]})) .to.eql({preprocessors: [["gideal"], ["pic"]]});
+			groff.extras.ideal = null;
+			expect(resolve({ideal: true}))                          .to.eql({preprocessors: []});
+			expect(resolve({ideal: false}))                         .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["ideal"]]}))           .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["gideal"]]}))          .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["ideal",   "-h"]]}))   .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["gideal",  "-h"]]}))   .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["ideal"],  ["pic"]]})) .to.eql({preprocessors: [["pic"]]});
+			expect(resolve({preprocessors: [["gideal"], ["pic"]]})) .to.eql({preprocessors: [["pic"]]});
+		});
+		
+		it("updates options if pic(1) is unavailable", () => {
+			groff.extras.pic = {option: "1"};
+			expect(resolve({pictures: true}))                     .to.eql({preprocessors: [], pictures: true});
+			expect(resolve({pictures: false}))                    .to.eql({preprocessors: [], pictures: false});
+			expect(resolve({preprocessors: [["pic"]]}))           .to.eql({preprocessors: [["pic"]]});
+			expect(resolve({preprocessors: [["gpic"]]}))          .to.eql({preprocessors: [["gpic"]]});
+			expect(resolve({preprocessors: [["pic",  "-h"]]}))    .to.eql({preprocessors: [["pic",  "-h"]]});
+			expect(resolve({preprocessors: [["gpic", "-h"]]}))    .to.eql({preprocessors: [["gpic", "-h"]]});
+			expect(resolve({preprocessors: [["pic"],  ["tbl"]]})) .to.eql({preprocessors: [["pic"],  ["tbl"]]});
+			expect(resolve({preprocessors: [["gpic"], ["tbl"]]})) .to.eql({preprocessors: [["gpic"], ["tbl"]]});
+			groff.extras.pic = null;
+			expect(resolve({pictures: true}))                     .to.eql({preprocessors: []});
+			expect(resolve({pictures: false}))                    .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["pic"]]}))           .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["gpic"]]}))          .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["pic",  "-h"]]}))    .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["gpic", "-h"]]}))    .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["pic"],  ["tbl"]]})) .to.eql({preprocessors: [["tbl"]]});
+			expect(resolve({preprocessors: [["gpic"], ["tbl"]]})) .to.eql({preprocessors: [["tbl"]]});
+		});
+		
+		it("removes dependent programs if pic(1) is unavailable", () => {
+			const {extras} = groff;
+			extras.pic = extras.chem = extras.grap = extras.ideal = extras.dformat = {option: "1"};
+			const unfiltered = "foo chem bar dformat baz grap qux ideal qul pic quz".split(" ").map(x => [x]);
+			const filtered   = "foo bar baz qux qul quz".split(" ").map(x => [x]);
+			expect(resolve({preprocessors: unfiltered})) .to.eql({preprocessors: unfiltered});
+			expect(resolve({chemicals: true}))           .to.eql({preprocessors: [], chemicals: true});
+			expect(resolve({chemicals: false}))          .to.eql({preprocessors: [], chemicals: false});
+			expect(resolve({graphs: true}))              .to.eql({preprocessors: [], graphs: true});
+			expect(resolve({graphs: false}))             .to.eql({preprocessors: [], graphs: false});
+			expect(resolve({ideal: true}))               .to.eql({preprocessors: [], ideal: true});
+			expect(resolve({ideal: false}))              .to.eql({preprocessors: [], ideal: false});
+			extras.pic = null;
+			expect(resolve({preprocessors: unfiltered})) .to.eql({preprocessors: filtered});
+			expect(resolve({chemicals: true}))           .to.eql({preprocessors: []});
+			expect(resolve({chemicals: false}))          .to.eql({preprocessors: []});
+			expect(resolve({graphs: true}))              .to.eql({preprocessors: []});
+			expect(resolve({graphs: false}))             .to.eql({preprocessors: []});
+			expect(resolve({ideal: true}))               .to.eql({preprocessors: []});
+			expect(resolve({ideal: false}))              .to.eql({preprocessors: []});
+		});
+		
+		it("updates options if dformat(1) is unavailable", () => {
+			groff.extras.pic = groff.extras.dformat = {option: "1"};
+			expect(resolve({preprocessors: [["dformat"]]}))          .to.eql({preprocessors: [["dformat"]]});
+			expect(resolve({preprocessors: [["dformat", "-h"]]}))    .to.eql({preprocessors: [["dformat", "-h"]]});
+			expect(resolve({preprocessors: [["dformat"], ["pic"]]})) .to.eql({preprocessors: [["dformat"], ["pic"]]});
+			groff.extras.dformat = null;
+			expect(resolve({preprocessors: [["dformat"]]}))          .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["dformat", "-h"]]}))    .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["dformat"], ["pic"]]})) .to.eql({preprocessors: [["pic"]]});
+		});
+		
+		it("updates options if glilypond(1) is unavailable", () => {
+			groff.extras.glilypond = {};
+			expect(resolve({preprocessors: [["glilypond"]]}))          .to.eql({preprocessors: [["glilypond"]]});
+			expect(resolve({preprocessors: [["glilypond", "-h"]]}))    .to.eql({preprocessors: [["glilypond", "-h"]]});
+			expect(resolve({preprocessors: [["glilypond"], ["pic"]]})) .to.eql({preprocessors: [["glilypond"], ["pic"]]});
+			groff.extras.glilypond = null;
+			expect(resolve({preprocessors: [["glilypond"]]}))          .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["glilypond", "-h"]]}))    .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["glilypond"], ["pic"]]})) .to.eql({preprocessors: [["pic"]]});
+		});
+		
+		it("updates options if gperl(1) is unavailable", () => {
+			groff.extras.gperl = {};
+			expect(resolve({preprocessors: [["gperl"]]}))          .to.eql({preprocessors: [["gperl"]]});
+			expect(resolve({preprocessors: [["gperl", "-h"]]}))    .to.eql({preprocessors: [["gperl", "-h"]]});
+			expect(resolve({preprocessors: [["gperl"], ["pic"]]})) .to.eql({preprocessors: [["gperl"], ["pic"]]});
+			groff.extras.gperl = null;
+			expect(resolve({preprocessors: [["gperl"]]}))          .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["gperl", "-h"]]}))    .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["gperl"], ["pic"]]})) .to.eql({preprocessors: [["pic"]]});
+		});
+		
+		it("updates options if gpinyin(1) is unavailable", () => {
+			groff.extras.gpinyin = {};
+			expect(resolve({preprocessors: [["gpinyin"]]}))          .to.eql({preprocessors: [["gpinyin"]]});
+			expect(resolve({preprocessors: [["gpinyin", "-h"]]}))    .to.eql({preprocessors: [["gpinyin", "-h"]]});
+			expect(resolve({preprocessors: [["gpinyin"], ["pic"]]})) .to.eql({preprocessors: [["gpinyin"], ["pic"]]});
+			groff.extras.gpinyin = null;
+			expect(resolve({preprocessors: [["gpinyin"]]}))          .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["gpinyin", "-h"]]}))    .to.eql({preprocessors: []});
+			expect(resolve({preprocessors: [["gpinyin"], ["pic"]]})) .to.eql({preprocessors: [["pic"]]});
+		});
+		
+		it("uses the `preprocessors` array when groff(1) options are unsupported", () => {
+			const {extras} = groff;
+			extras.pic = extras.chem = extras.grap = extras.ideal = {option: "1"};
+			expect(resolve({chemicals: true})).to.eql({preprocessors: [], chemicals: true});
+			expect(resolve({graphs:    true})).to.eql({preprocessors: [], graphs: true});
+			expect(resolve({ideal:     true})).to.eql({preprocessors: [], ideal: true});
+			groff.extras.chem  = {path: "/path/to/chem"};
+			groff.extras.grap  = {path: "/path/to/grap"};
+			groff.extras.ideal = {path: "/path/to/ideal"};
+			expect(resolve({chemicals: true})).to.eql({preprocessors: [["/path/to/chem"]],  pictures: true});
+			expect(resolve({graphs:    true})).to.eql({preprocessors: [["/path/to/grap"]],  pictures: true});
+			expect(resolve({ideal:     true})).to.eql({preprocessors: [["/path/to/ideal"]], pictures: true});
+			
+			// Ensure grap(1) honours compatibility mode
+			expect(resolve({graphs: true, compatMode: true})).to.eql({
+				preprocessors: [["/path/to/grap", "-C"]],
+				compatMode: true,
+				pictures: true,
+			});
+		});
+	});
 
 	describe("guessOptions()", () => {
 		it("recognises macro packages", async () => {
