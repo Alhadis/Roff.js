@@ -866,6 +866,332 @@ describe("GroffAdapter", function(){
 		});
 	});
 
+	describe("optionsByPipeline()", () => {
+		const base = Object.freeze({
+			postOpts:      [],
+			includePaths:  [],
+			macros:        [],
+			preprocessors: [],
+			registers:     Object.create(null),
+			strings:       Object.create(null),
+		});
+		
+		let parse = null;
+		before(() => parse = groff.optionsByPipeline.bind(groff));
+		
+		it("throws an error for pipelines that don't call `groff`", () => {
+			const msg = "Pipeline must include groff(1)";
+			expect(() => parse([]))                 .to.throw(TypeError, msg);
+			expect(() => parse(["-e"]))             .to.throw(TypeError, msg);
+			expect(() => parse([["eqn"], ["tbl"]])) .to.throw(TypeError, msg);
+		});
+		
+		describe("Groff options", () => {
+			it("parses `-a` as `asciiApprox: true`", () => {
+				expect(parse([["groff", "-a"]]))       .to.eql({...base, asciiApprox: true});
+				expect(parse([["groff", "-a", "-a"]])) .to.eql({...base, asciiApprox: true});
+				expect(parse([["groff", "-aV"]]))      .to.eql({...base, asciiApprox: true});
+				expect(parse([["groff", "-Va"]]))      .to.eql({...base, asciiApprox: true});
+				expect(parse([["groff", "-aTps"]]))    .to.eql({...base, asciiApprox: true});
+				expect(parse([["groff", "-V", "-a"]])) .to.eql({...base, asciiApprox: true});
+				expect(parse([["groff", "-T", "-a"]])) .to.eql({...base});
+				expect(parse([["groff", "--a"]]))      .to.eql({...base});
+				expect(parse([["groff", "a"]]))        .to.eql({...base});
+				expect(parse([["groff", "-"]]))        .to.eql({...base});
+			});
+			
+			it("parses `-c` as `noColours: true`", () => {
+				expect(parse([["groff", "-c"]]))       .to.eql({...base, noColours: true});
+				expect(parse([["groff", "-c", "-c"]])) .to.eql({...base, noColours: true});
+				expect(parse([["groff", "-cV"]]))      .to.eql({...base, noColours: true});
+				expect(parse([["groff", "-Vc"]]))      .to.eql({...base, noColours: true});
+				expect(parse([["groff", "-cTps"]]))    .to.eql({...base, noColours: true});
+				expect(parse([["groff", "-V", "-c"]])) .to.eql({...base, noColours: true});
+				expect(parse([["groff", "-T", "-c"]])) .to.eql({...base});
+				expect(parse([["groff", "--c"]]))      .to.eql({...base});
+				expect(parse([["groff", "c"]]))        .to.eql({...base});
+				expect(parse([["groff", "-"]]))        .to.eql({...base});
+			});
+			
+			it("parses `-C` as `compatMode: true`", () => {
+				expect(parse([["groff", "-C"]]))       .to.eql({...base, compatMode: true});
+				expect(parse([["groff", "-C", "-C"]])) .to.eql({...base, compatMode: true});
+				expect(parse([["groff", "-CV"]]))      .to.eql({...base, compatMode: true});
+				expect(parse([["groff", "-VC"]]))      .to.eql({...base, compatMode: true});
+				expect(parse([["groff", "-CTps"]]))    .to.eql({...base, compatMode: true});
+				expect(parse([["groff", "-V", "-C"]])) .to.eql({...base, compatMode: true});
+				expect(parse([["groff", "-T", "-C"]])) .to.eql({...base});
+				expect(parse([["groff", "--C"]]))      .to.eql({...base});
+				expect(parse([["groff", "C"]]))        .to.eql({...base});
+				expect(parse([["groff", "-"]]))        .to.eql({...base});
+			});
+			
+			it("parses `-e` as `equations: true`", () => {
+				expect(parse([["groff", "-e"]]))       .to.eql({...base, equations: true});
+				expect(parse([["groff", "-e", "-e"]])) .to.eql({...base, equations: true});
+				expect(parse([["groff", "-eV"]]))      .to.eql({...base, equations: true});
+				expect(parse([["groff", "-Ve"]]))      .to.eql({...base, equations: true});
+				expect(parse([["groff", "-eTps"]]))    .to.eql({...base, equations: true});
+				expect(parse([["groff", "-V", "-e"]])) .to.eql({...base, equations: true});
+				expect(parse([["groff", "-T", "-e"]])) .to.eql({...base});
+				expect(parse([["groff", "--e"]]))      .to.eql({...base});
+				expect(parse([["groff", "e"]]))        .to.eql({...base});
+				expect(parse([["groff", "-"]]))        .to.eql({...base});
+			});
+			
+			it("parses `-E` as `noErrors: true`", () => {
+				expect(parse([["groff", "-E"]]))       .to.eql({...base, noErrors: true});
+				expect(parse([["groff", "-E", "-E"]])) .to.eql({...base, noErrors: true});
+				expect(parse([["groff", "-EV"]]))      .to.eql({...base, noErrors: true});
+				expect(parse([["groff", "-VE"]]))      .to.eql({...base, noErrors: true});
+				expect(parse([["groff", "-ETps"]]))    .to.eql({...base, noErrors: true});
+				expect(parse([["groff", "-V", "-E"]])) .to.eql({...base, noErrors: true});
+				expect(parse([["groff", "-T", "-E"]])) .to.eql({...base});
+				expect(parse([["groff", "--E"]]))      .to.eql({...base});
+				expect(parse([["groff", "E"]]))        .to.eql({...base});
+				expect(parse([["groff", "-"]]))        .to.eql({...base});
+			});
+			
+			it("parses `-g` as `gremlins: true`", () => {
+				expect(parse([["groff", "-g"]]))       .to.eql({...base, gremlins: true});
+				expect(parse([["groff", "-g", "-g"]])) .to.eql({...base, gremlins: true});
+				expect(parse([["groff", "-gV"]]))      .to.eql({...base, gremlins: true});
+				expect(parse([["groff", "-Vg"]]))      .to.eql({...base, gremlins: true});
+				expect(parse([["groff", "-gTps"]]))    .to.eql({...base, gremlins: true});
+				expect(parse([["groff", "-V", "-g"]])) .to.eql({...base, gremlins: true});
+				expect(parse([["groff", "-T", "-g"]])) .to.eql({...base});
+				expect(parse([["groff", "--g"]]))      .to.eql({...base});
+				expect(parse([["groff", "g"]]))        .to.eql({...base});
+				expect(parse([["groff", "-"]]))        .to.eql({...base});
+			});
+			
+			it("parses `-G` as `graphs: true`", () => {
+				expect(parse([["groff", "-G"]]))       .to.eql({...base, graphs: true});
+				expect(parse([["groff", "-G", "-G"]])) .to.eql({...base, graphs: true});
+				expect(parse([["groff", "-GV"]]))      .to.eql({...base, graphs: true});
+				expect(parse([["groff", "-VG"]]))      .to.eql({...base, graphs: true});
+				expect(parse([["groff", "-GTps"]]))    .to.eql({...base, graphs: true});
+				expect(parse([["groff", "-V", "-G"]])) .to.eql({...base, graphs: true});
+				expect(parse([["groff", "-T", "-G"]])) .to.eql({...base});
+				expect(parse([["groff", "--G"]]))      .to.eql({...base});
+				expect(parse([["groff", "G"]]))        .to.eql({...base});
+				expect(parse([["groff", "-"]]))        .to.eql({...base});
+			});
+			
+			it("parses `-j` as `chemicals: true`", () => {
+				expect(parse([["groff", "-j"]]))       .to.eql({...base, chemicals: true});
+				expect(parse([["groff", "-j", "-j"]])) .to.eql({...base, chemicals: true});
+				expect(parse([["groff", "-jV"]]))      .to.eql({...base, chemicals: true});
+				expect(parse([["groff", "-Vj"]]))      .to.eql({...base, chemicals: true});
+				expect(parse([["groff", "-jTps"]]))    .to.eql({...base, chemicals: true});
+				expect(parse([["groff", "-V", "-j"]])) .to.eql({...base, chemicals: true});
+				expect(parse([["groff", "-T", "-j"]])) .to.eql({...base});
+				expect(parse([["groff", "--j"]]))      .to.eql({...base});
+				expect(parse([["groff", "j"]]))        .to.eql({...base});
+				expect(parse([["groff", "-"]]))        .to.eql({...base});
+			});
+			
+			it("parses `-J` as `ideal: true`", () => {
+				expect(parse([["groff", "-J"]]))       .to.eql({...base, ideal: true});
+				expect(parse([["groff", "-J", "-J"]])) .to.eql({...base, ideal: true});
+				expect(parse([["groff", "-JV"]]))      .to.eql({...base, ideal: true});
+				expect(parse([["groff", "-VJ"]]))      .to.eql({...base, ideal: true});
+				expect(parse([["groff", "-JTps"]]))    .to.eql({...base, ideal: true});
+				expect(parse([["groff", "-V", "-J"]])) .to.eql({...base, ideal: true});
+				expect(parse([["groff", "-T", "-J"]])) .to.eql({...base});
+				expect(parse([["groff", "--J"]]))      .to.eql({...base});
+				expect(parse([["groff", "J"]]))        .to.eql({...base});
+				expect(parse([["groff", "-"]]))        .to.eql({...base});
+			});
+			
+			it("parses `-k` as `fixEncoding: true`", () => {
+				expect(parse([["groff", "-k"]]))       .to.eql({...base, fixEncoding: true});
+				expect(parse([["groff", "-k", "-k"]])) .to.eql({...base, fixEncoding: true});
+				expect(parse([["groff", "-kV"]]))      .to.eql({...base, fixEncoding: true});
+				expect(parse([["groff", "-Vk"]]))      .to.eql({...base, fixEncoding: true});
+				expect(parse([["groff", "-kTps"]]))    .to.eql({...base, fixEncoding: true});
+				expect(parse([["groff", "-V", "-k"]])) .to.eql({...base, fixEncoding: true});
+				expect(parse([["groff", "-T", "-k"]])) .to.eql({...base});
+				expect(parse([["groff", "--k"]]))      .to.eql({...base});
+				expect(parse([["groff", "k"]]))        .to.eql({...base});
+				expect(parse([["groff", "-"]]))        .to.eql({...base});
+			});
+			
+			it("parses `-N` as `noNewlines: true`", () => {
+				expect(parse([["groff", "-N"]]))       .to.eql({...base, noNewlines: true});
+				expect(parse([["groff", "-N", "-N"]])) .to.eql({...base, noNewlines: true});
+				expect(parse([["groff", "-NV"]]))      .to.eql({...base, noNewlines: true});
+				expect(parse([["groff", "-VN"]]))      .to.eql({...base, noNewlines: true});
+				expect(parse([["groff", "-NTps"]]))    .to.eql({...base, noNewlines: true});
+				expect(parse([["groff", "-V", "-N"]])) .to.eql({...base, noNewlines: true});
+				expect(parse([["groff", "-T", "-N"]])) .to.eql({...base});
+				expect(parse([["groff", "--N"]]))      .to.eql({...base});
+				expect(parse([["groff", "N"]]))        .to.eql({...base});
+				expect(parse([["groff", "-"]]))        .to.eql({...base});
+			});
+			
+			it("parses `-p` as `pictures: true`", () => {
+				expect(parse([["groff", "-p"]]))       .to.eql({...base, pictures: true});
+				expect(parse([["groff", "-p", "-p"]])) .to.eql({...base, pictures: true});
+				expect(parse([["groff", "-pV"]]))      .to.eql({...base, pictures: true});
+				expect(parse([["groff", "-Vp"]]))      .to.eql({...base, pictures: true});
+				expect(parse([["groff", "-pTps"]]))    .to.eql({...base, pictures: true});
+				expect(parse([["groff", "-V", "-p"]])) .to.eql({...base, pictures: true});
+				expect(parse([["groff", "-T", "-p"]])) .to.eql({...base});
+				expect(parse([["groff", "--p"]]))      .to.eql({...base});
+				expect(parse([["groff", "p"]]))        .to.eql({...base});
+				expect(parse([["groff", "-"]]))        .to.eql({...base});
+			});
+			
+			it("parses `-R` as `refer: true`", () => {
+				expect(parse([["groff", "-R"]]))       .to.eql({...base, refer: true});
+				expect(parse([["groff", "-R", "-R"]])) .to.eql({...base, refer: true});
+				expect(parse([["groff", "-RV"]]))      .to.eql({...base, refer: true});
+				expect(parse([["groff", "-VR"]]))      .to.eql({...base, refer: true});
+				expect(parse([["groff", "-RTps"]]))    .to.eql({...base, refer: true});
+				expect(parse([["groff", "-V", "-R"]])) .to.eql({...base, refer: true});
+				expect(parse([["groff", "-T", "-R"]])) .to.eql({...base});
+				expect(parse([["groff", "--R"]]))      .to.eql({...base});
+				expect(parse([["groff", "R"]]))        .to.eql({...base});
+				expect(parse([["groff", "-"]]))        .to.eql({...base});
+			});
+			
+			it("parses `-s` as `expandLinks: true`", () => {
+				expect(parse([["groff", "-s"]]))       .to.eql({...base, expandLinks: true});
+				expect(parse([["groff", "-s", "-s"]])) .to.eql({...base, expandLinks: true});
+				expect(parse([["groff", "-sV"]]))      .to.eql({...base, expandLinks: true});
+				expect(parse([["groff", "-Vs"]]))      .to.eql({...base, expandLinks: true});
+				expect(parse([["groff", "-sTps"]]))    .to.eql({...base, expandLinks: true});
+				expect(parse([["groff", "-V", "-s"]])) .to.eql({...base, expandLinks: true});
+				expect(parse([["groff", "-T", "-s"]])) .to.eql({...base});
+				expect(parse([["groff", "--s"]]))      .to.eql({...base});
+				expect(parse([["groff", "s"]]))        .to.eql({...base});
+				expect(parse([["groff", "-"]]))        .to.eql({...base});
+			});
+			
+			it("parses `-t` as `tables: true`", () => {
+				expect(parse([["groff", "-t"]]))       .to.eql({...base, tables: true});
+				expect(parse([["groff", "-t", "-t"]])) .to.eql({...base, tables: true});
+				expect(parse([["groff", "-tV"]]))      .to.eql({...base, tables: true});
+				expect(parse([["groff", "-Vt"]]))      .to.eql({...base, tables: true});
+				expect(parse([["groff", "-tTps"]]))    .to.eql({...base, tables: true});
+				expect(parse([["groff", "-V", "-t"]])) .to.eql({...base, tables: true});
+				expect(parse([["groff", "-T", "-t"]])) .to.eql({...base});
+				expect(parse([["groff", "--t"]]))      .to.eql({...base});
+				expect(parse([["groff", "t"]]))        .to.eql({...base});
+				expect(parse([["groff", "-"]]))        .to.eql({...base});
+			});
+			
+			it("parses `-U` as `unsafe: true`", () => {
+				expect(parse([["groff", "-U"]]))       .to.eql({...base, unsafe: true});
+				expect(parse([["groff", "-U", "-U"]])) .to.eql({...base, unsafe: true});
+				expect(parse([["groff", "-UV"]]))      .to.eql({...base, unsafe: true});
+				expect(parse([["groff", "-VU"]]))      .to.eql({...base, unsafe: true});
+				expect(parse([["groff", "-UTps"]]))    .to.eql({...base, unsafe: true});
+				expect(parse([["groff", "-V", "-U"]])) .to.eql({...base, unsafe: true});
+				expect(parse([["groff", "-T", "-U"]])) .to.eql({...base});
+				expect(parse([["groff", "--U"]]))      .to.eql({...base});
+				expect(parse([["groff", "U"]]))        .to.eql({...base});
+				expect(parse([["groff", "-"]]))        .to.eql({...base});
+			});
+			
+			it("parses `-Z` as `raw: true`", () => {
+				expect(parse([["groff", "-Z"]]))       .to.eql({...base, raw: true});
+				expect(parse([["groff", "-Z", "-Z"]])) .to.eql({...base, raw: true});
+				expect(parse([["groff", "-ZV"]]))      .to.eql({...base, raw: true});
+				expect(parse([["groff", "-VZ"]]))      .to.eql({...base, raw: true});
+				expect(parse([["groff", "-ZTps"]]))    .to.eql({...base, raw: true});
+				expect(parse([["groff", "-V", "-Z"]])) .to.eql({...base, raw: true});
+				expect(parse([["groff", "-T", "-Z"]])) .to.eql({...base});
+				expect(parse([["groff", "--Z"]]))      .to.eql({...base});
+				expect(parse([["groff", "Z"]]))        .to.eql({...base});
+				expect(parse([["groff", "-"]]))        .to.eql({...base});
+			});
+			
+			it('parses `-f [name]` as `defaultFont: "name"`', () => {
+				expect(parse([["groff", "-f", "foo"]]))      .to.eql({...base, defaultFont: "foo"});
+				expect(parse([["groff", "-ffoo"]]))          .to.eql({...base, defaultFont: "foo"});
+				expect(parse([["groff", "-fV", "foo"]]))     .to.eql({...base, defaultFont: "V"});
+				expect(parse([["groff", "-Vf", "foo"]]))     .to.eql({...base, defaultFont: "foo"});
+				expect(parse([["groff", "-f", "-Tps"]]))     .to.eql({...base, defaultFont: "-Tps"});
+				expect(parse([["groff", "-fTps"]]))          .to.eql({...base, defaultFont: "Tps"});
+				expect(parse([["groff", "-V", "-f", "foo"]])).to.eql({...base, defaultFont: "foo"});
+				expect(parse([["groff", "-T", "-f", "foo"]])).to.eql({...base});
+				expect(parse([["groff", "--f", "foo"]]))     .to.eql({...base});
+				expect(parse([["groff", "f", "-"]]))         .to.eql({...base});
+				expect(parse([["groff", "-", "f"]]))         .to.eql({...base});
+			});
+			
+			it('parses `-F [path]` as `fontDescPath: "path"`', () => {
+				expect(parse([["groff", "-F", "foo"]]))      .to.eql({...base, fontDescPath: "foo"});
+				expect(parse([["groff", "-Ffoo"]]))          .to.eql({...base, fontDescPath: "foo"});
+				expect(parse([["groff", "-FV", "foo"]]))     .to.eql({...base, fontDescPath: "V"});
+				expect(parse([["groff", "-VF", "foo"]]))     .to.eql({...base, fontDescPath: "foo"});
+				expect(parse([["groff", "-F", "-Tps"]]))     .to.eql({...base, fontDescPath: "-Tps"});
+				expect(parse([["groff", "-FTps"]]))          .to.eql({...base, fontDescPath: "Tps"});
+				expect(parse([["groff", "-V", "-F", "foo"]])).to.eql({...base, fontDescPath: "foo"});
+				expect(parse([["groff", "-T", "-F", "foo"]])).to.eql({...base});
+				expect(parse([["groff", "--F", "foo"]]))     .to.eql({...base});
+				expect(parse([["groff", "F", "-"]]))         .to.eql({...base});
+				expect(parse([["groff", "-", "F"]]))         .to.eql({...base});
+			});
+			
+			it('parses `-M [path]` as `macroFilePath: "path"`', () => {
+				expect(parse([["groff", "-M", "foo"]]))      .to.eql({...base, macroFilePath: "foo"});
+				expect(parse([["groff", "-Mfoo"]]))          .to.eql({...base, macroFilePath: "foo"});
+				expect(parse([["groff", "-MV", "foo"]]))     .to.eql({...base, macroFilePath: "V"});
+				expect(parse([["groff", "-VM", "foo"]]))     .to.eql({...base, macroFilePath: "foo"});
+				expect(parse([["groff", "-M", "-Tps"]]))     .to.eql({...base, macroFilePath: "-Tps"});
+				expect(parse([["groff", "-MTps"]]))          .to.eql({...base, macroFilePath: "Tps"});
+				expect(parse([["groff", "-V", "-M", "foo"]])).to.eql({...base, macroFilePath: "foo"});
+				expect(parse([["groff", "-T", "-M", "foo"]])).to.eql({...base});
+				expect(parse([["groff", "--M", "foo"]]))     .to.eql({...base});
+				expect(parse([["groff", "M", "-"]]))         .to.eql({...base});
+				expect(parse([["groff", "-", "M"]]))         .to.eql({...base});
+			});
+			
+			it('parses `-n [num]` as `pageStartIndex: "num"`', () => {
+				expect(parse([["groff", "-n", "foo"]]))      .to.eql({...base, pageStartIndex: "foo"});
+				expect(parse([["groff", "-nfoo"]]))          .to.eql({...base, pageStartIndex: "foo"});
+				expect(parse([["groff", "-nV", "foo"]]))     .to.eql({...base, pageStartIndex: "V"});
+				expect(parse([["groff", "-Vn", "foo"]]))     .to.eql({...base, pageStartIndex: "foo"});
+				expect(parse([["groff", "-n", "-Tps"]]))     .to.eql({...base, pageStartIndex: "-Tps"});
+				expect(parse([["groff", "-nTps"]]))          .to.eql({...base, pageStartIndex: "Tps"});
+				expect(parse([["groff", "-V", "-n", "foo"]])).to.eql({...base, pageStartIndex: "foo"});
+				expect(parse([["groff", "-T", "-n", "foo"]])).to.eql({...base});
+				expect(parse([["groff", "--n", "foo"]]))     .to.eql({...base});
+				expect(parse([["groff", "n", "-"]]))         .to.eql({...base});
+				expect(parse([["groff", "-", "n"]]))         .to.eql({...base});
+			});
+			
+			it('parses `-o [pages]` as `pageRanges: "pages"`', () => {
+				expect(parse([["groff", "-o", "foo"]]))      .to.eql({...base, pageRanges: "foo"});
+				expect(parse([["groff", "-ofoo"]]))          .to.eql({...base, pageRanges: "foo"});
+				expect(parse([["groff", "-oV", "foo"]]))     .to.eql({...base, pageRanges: "V"});
+				expect(parse([["groff", "-Vo", "foo"]]))     .to.eql({...base, pageRanges: "foo"});
+				expect(parse([["groff", "-o", "-Tps"]]))     .to.eql({...base, pageRanges: "-Tps"});
+				expect(parse([["groff", "-oTps"]]))          .to.eql({...base, pageRanges: "Tps"});
+				expect(parse([["groff", "-V", "-o", "foo"]])).to.eql({...base, pageRanges: "foo"});
+				expect(parse([["groff", "-T", "-o", "foo"]])).to.eql({...base});
+				expect(parse([["groff", "--o", "foo"]]))     .to.eql({...base});
+				expect(parse([["groff", "o", "-"]]))         .to.eql({...base});
+				expect(parse([["groff", "-", "o"]]))         .to.eql({...base});
+			});
+			
+			it("parses other shite in need of more thorough specs", () => { // FIXME/TODO/XXX/FUCK
+				expect(parse([["groff", "-I", "foo"]])).to.eql({...base, includePaths: ["foo"]});
+				expect(parse([["groff", "-m", "foo"]])).to.eql({...base, macros:       ["foo"]});
+				expect(parse([["groff", "-P", "foo"]])).to.eql({...base, postOpts:     ["foo"]});
+				expect(parse([["groff", "-r", "cXY"]])).to.eql({...base, registers:  {c: "XY"}});
+				expect(parse([["groff", "-d", "cXY"]])).to.eql({...base, strings:    {c: "XY"}});
+			});
+		});
+	});
+	
+	describe("normaliseOptions()", () => {
+		
+	});
+
 	describe("guessOptions()", () => {
 		it("recognises macro packages", async () => {
 			expect(await groff.guessOptions(".TH TITLE")).to.eql({macros: ["an"]});

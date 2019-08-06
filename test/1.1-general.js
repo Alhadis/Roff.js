@@ -806,4 +806,130 @@ describe("General-purpose", () => {
 			expect(resolveManRef("foo", "bar", "1", "2")) .to.eql(["foo", "bar"]);
 		});
 	});
+
+	describe("splitOptions()", () => {
+		const {splitOptions} = require("..");
+		const defaultJunk = [[], ["x"], ["xy"], ["x y"], ["x", "y"], ["xyz", "uvw"], ["x", "y", "z"]];
+		const defaultLong = ["foo", "foo|bar", "foo|bar|baz"];
+		const doTest = (argv, opts, expected) => {
+			const originalArgv = JSON.parse(JSON.stringify(argv));
+			expect(splitOptions(argv, ...opts)).to.eql(expected);
+			expect(argv, "Argv should not have been modified").to.eql(originalArgv);
+		};
+		const runTests = (...$) => $.map(({opts, tests, junkArgs = defaultJunk}) => {
+			for(const z of opts[2])
+			for(const y of opts[1])
+			for(const x of opts[0])
+			for(const {argv, expected} of tests)
+			for(const junk of junkArgs){
+				doTest(argv, [x, y, z], expected);
+				doTest(argv.concat(junk),       [x, y, z], expected.concat(junk));
+				doTest(junk.concat(argv),       [x, y, z], junk.concat(expected));
+				doTest(junk.concat(argv, junk), [x, y, z], junk.concat(expected, junk));
+			}
+		});
+		
+		it("unbundles niladic options", () => runTests({
+			opts: [["abc"], ["", "x", "xyz"], defaultLong],
+			tests: [
+				{argv: ["-abc"],      expected: ["-a", "-b", "-c"]},
+				{argv: ["-ab", "-c"], expected: ["-a", "-b", "-c"]},
+				{argv: ["-a", "-bc"], expected: ["-a", "-b", "-c"]},
+				{argv: ["-a", "bc"],  expected: ["-a", "bc"]},
+				{argv: ["a", "-bc"],  expected: ["a", "-b", "-c"]},
+				{argv: ["-", "abc"],  expected: ["-", "abc"]},
+			],
+		}));
+		
+		it("unbundles monadic options", () => runTests({
+			opts: [["", "x", "xyz"], ["abc"], defaultLong],
+			tests: [
+				{argv: ["-a1"],           expected: ["-a", "1"]},
+				{argv: ["-a", "1"],       expected: ["-a", "1"]},
+				{argv: ["-a1", "-b2"],    expected: ["-a", "1", "-b", "2"]},
+				{argv: ["a", "1", "-b2"], expected: ["a",  "1", "-b", "2"]},
+				{argv: ["-a", "-b2"],     expected: ["-a", "-b2"]},
+				{argv: ["-ab2"],          expected: ["-a", "b2"]},
+			],
+		}, {
+			opts: [["a"], ["bc"], ["foo", "foo|bar", "foo|bar|baz"]],
+			tests: [{argv: ["-ab", "-c2"], expected: ["-a", "-b", "-c2"]}],
+		}));
+		
+		it("unbundles mixed-arity options", () => runTests({
+			opts: [["ab"], ["c"], defaultLong],
+			tests: [
+				{argv: ["-abc1"],          expected: ["-a", "-b", "-c", "1"]},
+				{argv: ["-a", "-bc", "1"], expected: ["-a", "-b", "-c", "1"]},
+				{argv: ["-bc",  "-ab"],    expected: ["-b", "-c", "-ab"]},
+				{argv: ["-bc1", "-ab"],    expected: ["-b", "-c", "1", "-a", "-b"]},
+				{argv: ["-bca", "-ab"],    expected: ["-b", "-c", "a", "-a", "-b"]},
+			],
+		}, {
+			opts: [["b"], ["ac"], defaultLong],
+			tests: [{argv: ["-a1b", "-c"], expected: ["-a", "1b", "-c"]}],
+		}));
+		
+		it("splits --long-option=values", () => runTests({
+			opts: [["", "a", "abc"], ["", "x", "xyz"], ["foo|bar"]],
+			tests: [
+				{argv: ["--foo=bar"],             expected: ["--foo", "bar"]},
+				{argv: ["--foo", "1", "--bar=2"], expected: ["--foo", "1", "--bar", "2"]},
+				{argv: ["--foo",  "bar"],         expected: ["--foo", "bar"]},
+				{argv: ["--foo=", "bar"],         expected: ["--foo", "", "bar"]},
+			],
+		}));
+		
+		it("does not include missing parameters", () => runTests({
+			opts: [[""], ["abc"], defaultLong],
+			tests: [
+				{argv: ["-a"],         expected: ["-a"]},
+				{argv: ["-a1"],        expected: ["-a", "1"]},
+				{argv: ["-a1", "-b"],  expected: ["-a", "1", "-b"]},
+			],
+		}, {
+			opts: [["a"], ["bc"], defaultLong],
+			tests: [
+				{argv: ["-ab"],        expected: ["-a", "-b"]},
+				{argv: ["-ab", "-c1"], expected: ["-a", "-b", "-c1"]},
+			],
+		}));
+		
+		it("ignores bundles beginning with an unknown option", () => runTests({
+			opts: [["abc"], ["", "u", "uvw"], defaultLong],
+			tests: [
+				{argv: ["-xabc"],      expected: ["-xabc"]},
+				{argv: ["-x", "-abc"], expected: ["-x", "-a", "-b", "-c"]},
+				{argv: ["-xa", "-bc"], expected: ["-xa", "-b", "-c"]},
+			],
+		}));
+		
+		it("ignores unknown --long-option=values", () => runTests({
+			opts: [["", "a", "abc"], ["", "x", "xyz"], ["bar"]],
+			tests: [
+				{argv: ["--foo=bar"],        expected: ["--foo=bar"]},
+				{argv: ["--foo", "--bar=2"], expected: ["--foo", "--bar", "2"]},
+			],
+		}, {
+			opts: [["", "a", "abc"], ["", "x", "xyz"], ["foo|bar", "bar|foo"]],
+			tests: [{argv: ["--foo", "--bar=2"], expected: ["--foo", "--bar=2"]}],
+		}));
+		
+		it("expands unknown options that follow a known one", () => runTests({
+			opts: [["a"], ["", "x", "xyz"], defaultLong],
+			tests: [
+				{argv: ["-ab"],  expected: ["-a", "-b"]},
+				{argv: ["-abc"], expected: ["-a", "-b", "-c"]},
+			],
+		}, {
+			opts: [["a"], ["b"], defaultLong],
+			tests: [{argv: ["-acb1"], expected: ["-a", "-c", "-b", "1"]}],
+		}));
+		
+		it("returns an empty array for empty input", () => {
+			expect(splitOptions()).to.eql([]);
+			expect(splitOptions(null)).to.eql([]);
+			expect(splitOptions(false)).to.eql([]);
+		});
+	});
 });
