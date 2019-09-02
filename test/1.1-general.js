@@ -931,5 +931,10 @@ describe("General-purpose", () => {
 			expect(splitOptions(null)).to.eql([]);
 			expect(splitOptions(false)).to.eql([]);
 		});
+		
+		it("boxes string arguments into arrays", () => {
+			expect(splitOptions("-abc", "abc")).to.eql(["-a", "-b", "-c"]);
+			expect(splitOptions("-abc", "a", "bc")).to.eql(["-a", "-b", "c"]);
+		});
 	});
 });
