@@ -52,7 +52,7 @@ describe("TTYRenderer", () => {
 				expect(stdout).to.include(
 					"<b>groff</b> [<b>-abcegijklpstzCEGNRSUVXZ</b>]"
 					+ " [<b>-d</b> <u>cs</u>] [<b>-D</b> <u>arg</u>]"
-					+ " [<b>-f</b> <u>fam</u>] [<b>-F</b> <u>dir</u>]"
+					+ " [<b>-f</b> <u>fam</u>] [<b>-F</b> <u>dir</u>]",
 				);
 			}
 		});

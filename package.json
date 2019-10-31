@@ -14,12 +14,12 @@
 		"prepare": "make"
 	},
 	"devDependencies": {
-		"@alhadis/eslint-config": "^1.2.0",
-		"babel-eslint": "^10.0.2",
-		"eslint":       "^6.1.0",
-		"rollup":       "^1.17.0",
-		"terser":       "^4.1.2",
-		"mocha":        "^6.2.0",
+		"@alhadis/eslint-config": "^2.0.0",
+		"babel-eslint": "^10.0.3",
+		"eslint":       "^6.6.0",
+		"rollup":       "^1.26.0",
+		"terser":       "^4.3.9",
+		"mocha":        "^6.2.2",
 		"mocha-when":   "^1.0.1",
 		"chai":         "^4.2.0"
 	},
